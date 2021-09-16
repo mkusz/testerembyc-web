@@ -320,17 +320,17 @@
         <span class="nt">uses</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">actions/setup-python@v2</span>  
         <span class="nt">with</span><span class="p">:</span>  
           <span class="nt">python-version</span><span class="p">:</span> <span class="s">'3.8'</span>  
-<span class="-Error"> </span><span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Install Python libraries from requirements.txt</span>  
-        <span class="l l-Scalar l-Scalar-Plain">uses</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">py-actions/py-dependency-install@v2</span>  
-      <span class="l l-Scalar l-Scalar-Plain">- name</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">Install missing Ubuntu packages</span>  
-        <span class="l l-Scalar l-Scalar-Plain">run</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">sudo apt-get install -y jpegoptim optipng tidy</span>  
-      <span class="l l-Scalar l-Scalar-Plain">- name</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">Build Nikola static site for testerembyc.pl</span>  
-        <span class="l l-Scalar l-Scalar-Plain">run</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">nikola build</span>  
-      <span class="l l-Scalar l-Scalar-Plain">- name</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">Commit static site to repository with GitHub Pages enabled</span>  
-        <span class="l l-Scalar l-Scalar-Plain">uses</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">cpina/github-action-push-to-another-repository@main</span>  
-        <span class="l l-Scalar l-Scalar-Plain">env</span><span class="p p-Indicator">:</span>  
+      <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Install Python libraries from requirements.txt</span>  
+        <span class="nt">uses</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">py-actions/py-dependency-install@v2</span>  
+      <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Install missing Ubuntu packages</span>  
+        <span class="nt">run</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">sudo apt-get install -y jpegoptim optipng tidy</span>  
+      <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Build Nikola static site for testerembyc.pl</span>  
+        <span class="nt">run</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">nikola build</span>  
+      <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Commit static site to repository with GitHub Pages enabled</span>  
+        <span class="nt">uses</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">cpina/github-action-push-to-another-repository@main</span>  
+        <span class="nt">env</span><span class="p">:</span>  
           <span class="nt">API_TOKEN_GITHUB</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">${{ secrets.API_TOKEN_GITHUB }}</span>  
-   <span class="-Error">     </span><span class="nt">with</span><span class="p">:</span>  
+        <span class="nt">with</span><span class="p">:</span>  
           <span class="nt">user-name</span><span class="p">:</span> <span class="s">"user"</span>  
           <span class="nt">user-email</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">user@email.com</span>  
           <span class="nt">source-directory</span><span class="p">:</span> <span class="s">"docs"</span>  
@@ -399,7 +399,7 @@
 <p>Jeśli masz jakiś ciekawy pomysł, którego nie umieściłem na powyższej liście, daj koniecznie znać, a chętnie go dopiszę powyżej z zaznaczeniem kto był autorem tego&nbsp;pomysłu.</p>
 </div>
 <h2 id="podsumowanie">Podsumowanie<a class="headerlink" href="#podsumowanie" title="Permalink to this heading">¶</a></h2>
-<p>Jeśli udało Ci się dotrzeć do tego miejsca, to gratuluję wytrwałości. Temat <span class="caps">CI</span>/<span class="caps">CD</span> jest bardzo obszerny i przedstawiony powyżej opis to zaledwie <em>liźnięcie</em> tematu oraz pokazanie, że to wcale nie jest takie trudne. Mam nadzieję, że zachęciłem Cię do zmierzenia się z tym tematem. Jeśli tak to życzę powodzenia, a jeśli nie to zachęcam do spróbowania. Widza ta na pewno nie będzie wiedzą bezużyteczną, a jeszcze nie raz w Twojej karierze może okazać się bardzo pomocna, np. podczas rozmowy kwalifikacyjnej lub jako dodatkowy wpis w&nbsp;<span class="caps">CV</span>.</p>
+<p>Jeśli udało Ci się dotrzeć do tego miejsca, to gratuluję wytrwałości. Temat <span class="caps">CI</span>/<span class="caps">CD</span> jest bardzo obszerny i przedstawiony powyżej opis to zaledwie <em>liźnięcie</em> tematu oraz pokazanie, że to wcale nie jest takie trudne. Mam nadzieję, że zachęciłem Cię do zmierzenia się z tym tematem. Jeśli tak to życzę powodzenia, a jeśli nie to zachęcam do spróbowania. Wiedza ta na pewno nie będzie wiedzą bezużyteczną, a jeszcze nie raz w Twojej karierze może okazać się bardzo pomocna, np. podczas rozmowy kwalifikacyjnej lub jako dodatkowy wpis w&nbsp;<span class="caps">CV</span>.</p>
 <h2 id="bonus">Bonus<a class="headerlink" href="#bonus" title="Permalink to this heading">¶</a></h2>
 <p>GitHub Actions udostępnia możliwość prezentacji statusu danego workflow w postaci&nbsp;graficznej.</p>
 <p class="caption"><img alt="Workflow status" src="../../images/posts/ci-cd-na-przykladzie-github-actions/status.png"> Workflow&nbsp;status</p>

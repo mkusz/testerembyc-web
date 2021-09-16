@@ -1,0 +1,1244 @@
+<!DOCTYPE html>
+<html lang="pl" prefix="og: http://ogp.me/ns#">
+<head>
+<meta content="#FF0000" name="theme-color">
+<meta charset="utf-8">
+<meta content="Do czego można wykorzystać CI/CD przy tworzeniu bloga oraz potencjalne zastosowania w testach automatycznych na przykładzie GitHub Actions" name="description">
+<meta content="width=device-width, initial-scale=1" name="viewport">
+<title>CI/CD na przykładzie GitHub Actions | testerembyc.pl</title>
+<link href="../../assets/css/bootstrap.min.css" rel="stylesheet" type="text/css">
+<link href="../../assets/css/rst.css" rel="stylesheet" type="text/css">
+<link href="../../assets/css/code.css" rel="stylesheet" type="text/css">
+<link href="../../assets/css/baguetteBox.min.css" rel="stylesheet" type="text/css">
+<link href="../../assets/css/theme.css" rel="stylesheet" type="text/css">
+<link href="../../assets/css/latolatinfonts.css" rel="stylesheet" type="text/css">
+<link href="../../assets/css/blog.css" rel="stylesheet" type="text/css">
+<link href="../../assets/css/all.min.css" rel="stylesheet" type="text/css">
+<link href="../../rss.xml" rel="alternate" title="RSS" type="application/rss+xml">
+<link href="https://testerembyc.pl/posts/ci-cd-na-przykladzie-github-actions/" rel="canonical">
+<link href="../../images/icons/icon_16x16.png" rel="icon" sizes="16x16">
+<link href="../../images/icons/icon_32x32.png" rel="icon" sizes="32x32">
+<link href="../../images/icons/icon_64x64.png" rel="icon" sizes="64x64">
+<link href="../../images/icons/icon_128x128.png" rel="icon" sizes="128x128">
+<link href="../../images/icons/icon_256x256.png" rel="icon" sizes="256x256">
+<link href="../../images/icons/icon_512x512.png" rel="icon" sizes="512x512"><!--[if lt IE 9]><script src="../../assets/js/html5.js"></script><![endif]-->
+<meta content="Do czego można wykorzystać CI/CD przy tworzeniu bloga oraz potencjalne zastosowania w testach automatycznych na przykładzie GitHub Actions" itemprop="description" name="description">
+<meta content="Maciej Kusz" name="author">
+<link href="../vlog-002-strefa-komfortu-a-twoje-zarobki/" rel="prev" title="Strefa komfortu, a Twoje zarobki [vlog 002]" type="text/html">
+<meta content="testerembyc.pl" property="og:site_name">
+<meta content="CI/CD na przykładzie GitHub Actions" property="og:title">
+<meta content="https://testerembyc.pl/posts/ci-cd-na-przykladzie-github-actions/" property="og:url">
+<meta content="Do czego można wykorzystać CI/CD przy tworzeniu bloga oraz potencjalne zastosowania w testach automatycznych na przykładzie GitHub Actions" property="og:description">
+<meta content="https://testerembyc.pl/images/posts/ci-cd-na-przykladzie-github-actions_social.jpg" property="og:image">
+<meta content="article" property="og:type">
+<meta content="2021-09-16T18:25:00+02:00" property="article:published_time">
+<meta content="automatyzacja" property="article:tag">
+<meta content="ci/cd" property="article:tag">
+<meta content="github" property="article:tag">
+<meta content="summary" name="twitter:card">
+<meta content="@website" name="twitter:site">
+<meta content="@username" name="twitter:creator">
+</head>
+<body>
+<a class="sr-only sr-only-focusable" href="#content">Przejdź do treści</a> <!-- Menubar -->
+<div class="blog-masthead">
+<div class="container"><!-- This keeps the margins nice -->
+<div class="blog-header">
+<h1 class="blog-title"><a href="https://testerembyc.pl/"><img alt="testerembyc.pl" id="logo" src="../../images/testerembyc_logo.svg"><span id="blog-title">testerembyc.pl</span></a></h1>
+<!-- <p class="lead blog-description">Czyli blog o tym, jak to jest być nie tylko&nbsp;testerem</p> # Original one -->
+<p class="lead blog-description">Czyli blog o tym, jak to jest być nie tylko <span>testerem</span></p>
+</div>
+<nav class="blog-nav" role="navigation"><a class="blog-nav-item" href="../../"><img height="16" src="../../images/icons/icon.svg" title="Strona główna" width="16"><span>Strona&nbsp;główna</span></a> <a class="blog-nav-item" href="../../pages/python-kompendium"><i class="fab fa-python" title="Python"></i><span>Python</span></a> <a class="blog-nav-item" href="../../categories/youtube"><i class="fab fa-youtube" title="YouTube"></i><span>YouTube</span></a> <a class="blog-nav-item" href="../../categories/"><i class="fas fa-tags" title="Tagi i kategorie"></i><span>Tagi&nbsp;i&nbsp;kategorie</span></a> <a class="blog-nav-item" href="../../archive.html"><i class="fas fa-archive" title="Archiwum"></i><span>Archiwum</span></a> <a class="blog-nav-item" href="../../pages/o-mnie/"><i class="fas fa-user" title="O mnie"></i><span>O&nbsp;mnie</span></a> <a class="blog-nav-item" href="../../rss.xml"><i class="fas fa-rss" title="RSS"></i><span><span class="caps">RSS</span></span></a></nav>
+<!-- START Bootstrap-Cookie-Alert -->
+<div class="alert text-center cookiealert" role="alert">
+<p><b>Lubisz ciasteczka?</b>&nbsp;🍪</p>
+<p>Używam ich, aby dostarczyć Ci lepszych treści. Chcesz wiedzieć więcej? <a href="../../pages/polityka-prywatnosci/" target="_blank">Kliknij&nbsp;tu.</a></p>
+<p><button class="btn btn-danger btn-sm acceptcookies" type="button">Lubię i akceptuję ciasteczka</button></p>
+</div>
+<!-- END Bootstrap-Cookie-Alert -->
+<div class="body-content"><!--Body content-->
+<div class="row">
+<div class="col-sm-9 blog-main">
+<article class="post-text h-entry hentry postpage" itemscope="itemscope" itemtype="http://schema.org/Article">
+<header>
+<h2 class="p-name entry-title blog-post-title" itemprop="headline name"><a class="u-url" href="."><span class="caps">CI</span>/<span class="caps">CD</span> na przykładzie GitHub&nbsp;Actions</a></h2>
+<div class="metadata blog-post-meta">
+<p class="byline author vcard"><span class="byline-name fn">Maciej&nbsp;Kusz</span></p>
+<p class="dateline"><a href="." rel="bookmark"><time class="published dt-published" datetime="2021-09-16T18:25:00+02:00" itemprop="datePublished" title="2021-09-16 18:25">2021-09-16 18:25</time></a></p>
+<p class="commentline"><a data-disqus-identifier="cache/posts/ci-cd-na-przykladzie-github-actions.html" href="#disqus_thread">Komentarze</a></p>
+<meta content="Do czego można wykorzystać CI/CD przy tworzeniu bloga oraz potencjalne zastosowania w testach automatycznych na przykładzie GitHub Actions" itemprop="description" name="description">
+<p></p></div>
+</header>
+<div class="e-content entry-content" itemprop="articleBody text">
+<div>
+<p class="caption"><a href="../ci-cd-na-przykladzie-github-actions"><img alt="Witaj świecie" src="../../images/posts/ci-cd-na-przykladzie-github-actions.jpg"></a></p>
+<p>Jako tester, szczególnie automatyzujący, bardzo często spotkamy się z zagadnieniami związanymi z tzw. <a href="https://en.wikipedia.org/wiki/Continuous_delivery">continuous delivery</a> oraz <a href="https://en.wikipedia.org/wiki/Continuous_integration">continuous integration</a>, czyli w skrócie <em><span class="caps">CI</span>/<span class="caps">CD</span></em>. Jednym z najbardziej popularnych narzędzi, wspomagających ten proces, jest niewątpliwie <a href="https://www.jenkins.io">Jenkins</a>. Ma on jednak pewną wadę, tzn. trzeba go albo zainstalować na własnym serwerze, albo zapłacić zewnętrznej firmie, która udostępni nam Jenkinsa jako usługę typu <a href="https://en.wikipedia.org/wiki/Software_as_a_service">SaaS</a> (Software as a Service). W większości firm obsługą narzędzi <span class="caps">CI</span>/<span class="caps">CD</span> zajmuje się zespół DevOps, jednak w małych firmach lub w przypadku projektów robionych <em>po godzinach</em> w ramach nauki, fajnie byłoby móc zautomatyzować sobie część zadań i nie koniecznie ponosić za to dużych opłat. Jedną z takich opcji jest <a href="https://github.com/features/actions">GitHub Actions</a>.</p>
+<p>W poniższym wpisie zajmę się pokazaniem jak ja wykorzystuje to narzędzie przy tworzeniu tego bloga oraz omówię możliwości wykorzystania go w testach automatycznych. Zapraszam więc do dalszej&nbsp;lektury.</p>
+<!-- more -->
+<div class="toc">
+<ul>
+<li><a href="#github-actions">GitHub&nbsp;Actions</a></li>
+<li><a href="#blog-na-githubie">Blog na GitHubie?</a>
+<ul>
+<li><a href="#wybor-narzedzi">Wybór&nbsp;narzędzi</a></li>
+<li><a href="#koszty-prowadzenia-bloga">Koszty prowadzenia&nbsp;bloga</a></li>
+</ul>
+</li>
+<li><a href="#jak-wykorzystac-github-actions">Jak wykorzystać GitHub Actions?</a>
+<ul>
+<li><a href="#generacja-statycznej-strony-z-uzyciem-nikola">Generacja statycznej strony z użyciem&nbsp;Nikola</a></li>
+<li><a href="#github-pages">GitHub&nbsp;Pages</a></li>
+<li><a href="#publiczne-repozytorium">Publiczne&nbsp;repozytorium</a></li>
+<li><a href="#dwa-repozytoria">Dwa&nbsp;repozytoria</a></li>
+</ul>
+</li>
+<li><a href="#konfiguracja-github-actions">Konfiguracja GitHub Actions</a>
+<ul>
+<li><a href="#workflow">Workflow</a>
+<ul>
+<li><a href="#nazwa-name">Nazwa&nbsp;(name)</a></li>
+<li><a href="#wyzwalacze-on">Wyzwalacze&nbsp;(on)</a></li>
+<li><a href="#zadanie-job">Zadanie&nbsp;(job)</a></li>
+<li><a href="#kroki-steps">Kroki&nbsp;(steps)</a></li>
+<li><a href="#cay-workflow">Cały&nbsp;Workflow</a></li>
+</ul>
+</li>
+<li><a href="#token">Token</a>
+<ul>
+<li><a href="#generowanie-tokenu">Generowanie&nbsp;tokenu</a></li>
+<li><a href="#bezpieczne-wykorzystanie-tokenu">Bezpieczne wykorzystanie&nbsp;tokenu</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#na-zakonczenie">Na&nbsp;zakończenie</a></li>
+<li><a href="#koszty">Koszty</a></li>
+<li><a href="#jak-wykorzystac-github-actions-w-testach-automatycznych">Jak wykorzystać GitHub Actions w testach&nbsp;automatycznych?</a></li>
+<li><a href="#podsumowanie">Podsumowanie</a></li>
+<li><a href="#bonus">Bonus</a></li>
+</ul>
+</div>
+<h2 id="github-actions">GitHub Actions<a class="headerlink" href="#github-actions" title="Permalink to this heading">¶</a></h2>
+<p>Jak już powyżej napisałem, GitHub Actions umożliwia automatyzację procesu <span class="caps">CI</span>/<span class="caps">CD</span>. Proces ten powiązany jest z kodem źródłowym aplikacji, który przechowywany jest w repozytorium git na stronie <a href="https://github.com/">GitHub</a>. Samo GitHub Actions jest jedną z kilku funkcjonalności dostępnych w ramach repozytorium. Są to między&nbsp;innymi:</p>
+<ul>
+<li><strong>code</strong> - repozytorium git do przechowywania&nbsp;kodu,</li>
+<li><strong>issues</strong> - zarządzenia&nbsp;błędami,</li>
+<li><strong>pull requests</strong> - zarządzanie zmianami w&nbsp;kodzie,</li>
+<li><strong>projects</strong> - zarządzanie&nbsp;projektem,</li>
+<li><strong>wikis</strong> - baza&nbsp;wiedzy,</li>
+<li><strong>pages</strong> - hosting statycznej strony&nbsp;www,</li>
+</ul>
+<p>Jest też kilka innych, mniej istotnych. Do tworzenia tego blog, sam wykorzystuję kilka z&nbsp;powyższych.</p>
+<p>Czy GitHub jest jedyną platformą, która posiada powyższe funkcjonalności? Oczywiście, że nie. Jedną z alternatyw, która posiada niemal identyczną funkcjonalność, jest <a href="htts://gitlab.com/">GitLab</a>.</p>
+<p>Istnieje również wspomniany wcześniej <a href="https://www.jenkins.io">Jenkins</a>, jednak jest on narzędzie stricte do automatyzacji procesu <span class="caps">CI</span>/<span class="caps">CD</span> i nie posiada np. swojego repozytorium&nbsp;git.</p>
+<p>Pomiędzy GitHub oraz GitLab istnieją pewne różnice jednak większość z nich to kwestia kosmetyczne. Są również pewne mniej lub bardziej istotne różnice, ale w codziennym użytkowaniu, nie zawsze są one zauważalne. Sam używam obydwu, ale wynika to między innymi z faktu, że jeden z moich klientów, używa właśnie GitLaba. Osobiście bardziej preferuję&nbsp;GitHuba.</p>
+<p>O tym, czym są pojedyncze akcje oraz jak to konkretnie działa, opiszę poniżej, w punkcie <a href="#Konfiguracja%20GitHub%20Actions">Konfiguracja GitHub Actions</a>.</p>
+<h2 id="blog-na-githubie">Blog na GitHubie?<a class="headerlink" href="#blog-na-githubie" title="Permalink to this heading">¶</a></h2>
+<p>Zapewne zastanawiasz się, jak wykorzystuje GitHuba i jego repozytorium git do tworzenia tego bloga? Najbardziej oczywista sprawa to przechowywanie kodu źródłowego. Nie jest to jednak jedyna funkcjonalność, z jakiej&nbsp;korzystam.</p>
+<p>Podejmując decyzję o rozpoczęciu blogowania, rozważałem kilka dróg, jakich narzędzi używać oraz gdzie hostować samego bloga. Opcje jakie rozważyłem&nbsp;to:</p>
+<ul>
+<li><a href="https://wordpress.com">WordPress</a> + płatny hosting - sam Wordpress jest sprawdzoną platformą i ciągle jeszcze rozwijaną, jednak mnogość pluginów (większość dobrych jest dodatkowo płatnych), możliwości konfiguracji oraz przeogromny wybór skórek potrafią na początku przytłoczyć. Dodatkowo dochodzi koszt hostingu oraz zakupu ułatwiających życie pluginów oraz zarządzanie hostingiem, wcale nie ułatwiają podjęcia takiej decyzji. Największą zaletą jest posiadanie opublikowanych materiałów na własnej platformie, a więc w przypadku, np. zmiany hostingu, da się łatwo przeprowadzić&nbsp;migrację.</li>
+<li><a href="https://www.blogger.com/about/">Blogger.com</a> - darmowa platforma służąca do publikacji blogów, należąca do Google. Jest to platforma, która dostarcza sporą ilość funkcjonalności, która w zupełności wystarcza do prowadzenia własnego bloga. Największe wady tego rozwiązania to zamknięta platforma, problem przy ewentualnej migracji oraz ryzyko <a href="https://spidersweb.pl/2016/07/blogspot-utrata-konta.html">usunięcia bloga przez Google</a>,</li>
+<li>
+<p>Utworzenie bloga z wykorzystaniem tzw. <em>static pages</em>, czyli strony, której kod <span class="caps">HTML</span> generowany jest na lokalnym komputerze, a później przesyłany na dowolny hosting. Prostota tego rozwiązania ma kilka niewątpliwych&nbsp;zalet:</p>
+<ul>
+<li>nie wymaga bazy&nbsp;danych,</li>
+<li>łatwo edytować szablon&nbsp;strony,</li>
+<li>strona szybko się łąduje (brak połączeń z bazą danych,&nbsp;itp.),</li>
+<li>łatwo wykonać&nbsp;backup,</li>
+</ul>
+<p>Są też pewne wady tego&nbsp;rozwiązania:</p>
+<ul>
+<li>konieczność delegacji komentarzy do postów do zewnętrznej&nbsp;usługi,</li>
+<li>brak edytora <a href="https://en.wikipedia.org/wiki/WYSIWYG">WYSiWYG</a>.</li>
+</ul>
+</li>
+</ul>
+<p>Powyższe przykłady narzędzi nie wyczerpują listy dostępnych narzędzi. Zostały one tutaj wyszczególnione, aby pokazać, jakie są ich potencjalne wady, zalety oraz&nbsp;koszty.</p>
+<h3 id="wybor-narzedzi">Wybór narzędzi<a class="headerlink" href="#wybor-narzedzi" title="Permalink to this heading">¶</a></h3>
+<p>Ponieważ blog w założeniach miał generować minimalne koszty, wybrałem opcję z wykorzystaniem <em>static pages</em>. Narzędzia, jakich użyłem&nbsp;to:</p>
+<ul>
+<li><a href="https://getnikola.com/">Nikola</a> - jako silnik do tworzenia statycznych stron www, który funkcjonalnością i sposobem zarządzania treścią (podział na posty i strony) jest bardzo zbliżony do WordPressa. Dodatkowo napisany jest w Pythonie, a więc będę miał możliwość w miarę łatwego modyfikowania pewnych mechanizmów lub tworzenia pluginów, jeśli zajdzie taka potrzeba. Poza tym dostępne są już pluginy stworzone przez innych oraz istnieje możliwość tworzenia treści z wykorzystaniem plików w formacie <a href="https://en.wikipedia.org/wiki/Markdown">Markdown</a> (dlaczego to takie ważne, opiszę&nbsp;poniżej).</li>
+<li><a href="https://pages.github.com/">GitHub Pages</a> - wspomniałem o tym powyżej. Jest to darmowy hosting statycznych stron www, który jest częścią repozytorium git, w którym mogę przechowywać cały silnik oraz treści opisane w poprzednim&nbsp;punkcie.</li>
+<li><a href="https://obsidian.md/">Obsidian</a> - to narzędzie do zarządzania wiedzą, stworzone z myślą o zarządzaniu własnymi notatkami przy użyciu metody <a href="https://en.wikipedia.org/wiki/Zettelkasten">Zettelkasten</a> (można też spotkać się z pojęciem tzw. <a href="https://www.buildingasecondbrain.com">second brain</a>). Samo narzędzie nie narzuca struktury notatek, ale umożliwia, wspomaga oraz wizualizuje schemat połączeń. W przypadku tworzenia bloga, gdzie wpisy potrafią odnosić się do informacji umieszczonych w innych wpisach, takie wspomaganie, jest bardzo cenne oraz mocno przyspiesza pracę. Dodatkowo wszystkie pliki w tym narzędziu są plikami we wspomniany wcześniej formacie <a href="https://en.wikipedia.org/wiki/Markdown">Markdown</a> co idealnie zgrywa się ze wsparciem tego formatu przez&nbsp;Nikolę.</li>
+<li><a href="https://disqus.com">Disqus</a> - zewnętrzna usługa, dostarczająca mechanizm komentarzy dla poszczególnych&nbsp;wpisów.</li>
+<li><a href="https://www.activecampaign.com">ActiveCampaign</a> - narzędzie do zarządzania listą&nbsp;mailową.</li>
+</ul>
+<h3 id="koszty-prowadzenia-bloga">Koszty prowadzenia bloga<a class="headerlink" href="#koszty-prowadzenia-bloga" title="Permalink to this heading">¶</a></h3>
+<p>Zapewne zastanawiasz się, jakie są koszty utrzymania bloga? Otóż są on stosunkowo nie duże, bo tak naprawdę płacę za utrzymanie domeny <a href="https://testerembyc.pl/">testerembyc.pl</a> oraz miesięczna opłata za narzędzie do zarządzania listą mailową (planuję zmianę narzędzia, aby z kosztami zejść jeszcze niżej). Całość zawiera się średnio w okolicach 70zł/miesiąc. Czy to dużo? Nie są to ogromne koszty, ale gdybym do tego doliczył koszt dowolnego (rozsądnego) hostingu dla WordPress, koszty urosłyby do około 120-150zł/miesiąc, a to już zaczyna być kwota mocno zauważalna w budżetach niektórych&nbsp;osób.</p>
+<h2 id="jak-wykorzystac-github-actions">Jak wykorzystać GitHub Actions?<a class="headerlink" href="#jak-wykorzystac-github-actions" title="Permalink to this heading">¶</a></h2>
+<p>Aby wytłumaczyć, po co mi GitHub Actions, muszę opisać jeszcze jeden aspekt, a dokładniej mechanizm działania narzędzia do generowania statycznej strony www oraz tego, jak działa GitHub&nbsp;Pages.</p>
+<h3 id="generacja-statycznej-strony-z-uzyciem-nikola">Generacja statycznej strony z użyciem Nikola<a class="headerlink" href="#generacja-statycznej-strony-z-uzyciem-nikola" title="Permalink to this heading">¶</a></h3>
+<p>Samego procesu konfiguracji całego narzędzia nie będę opisywał, ponieważ musiałbym poświęcić na to zupełnie oddzielny wpis. Chodzi tutaj bardziej o kwestie, jaka jest struktura katalogów i gdzie w niej znajduje się wynikowa, statyczna strona&nbsp;<span class="caps">HTML</span>.</p>
+<ul>
+<li><em>cache</em> - to pliki cache powstające podczas generowoania statycznej strony, które przyśpieszają proces generacji i zapobiegają regeneracji podstron, które się nie&nbsp;zmieniły,</li>
+<li><em>images</em> - folder z wszelkiej maści plikami&nbsp;graficznymi,</li>
+<li><em>pages</em> - pełne strony (np. strone <a href="../../pages/o-mnie">o mnie</a>),</li>
+<li><em>plugins</em> - zainstalowane dodatkowe&nbsp;pluginy,</li>
+<li><em>posts</em> - posty, jak ten, który właśnie&nbsp;czytasz,</li>
+<li><em>themes</em> - skórka bloga, czyli opis&nbsp;wyglądu.</li>
+<li><em>docs</em> - wynikowa statyczna strona www, którą generuje się przy pomocy&nbsp;polecenia <code>nikola build</code>.</li>
+</ul>
+<p>Jak więc widzisz, wynikowe pliki znajdują się w podfolderze, a więc po wygenerowaniu będą częścią repozytorium git. Można byłoby się pokusić o taką konfigurację, aby wynikowy folder był poza tą strukturą, ale każdy upload strony, wymagałby wykonywania ręcznych commitów do 2&nbsp;repozytoriów.</p>
+<h3 id="github-pages">GitHub Pages<a class="headerlink" href="#github-pages" title="Permalink to this heading">¶</a></h3>
+<p>Wcześniej wspomniałem, że ta funkcjonalność w ramach repozytorium, pozwala na hostowanie statycznych stron www. Wymaga ona jednak, aby samo repozytorium było publicznie&nbsp;dostępne.</p>
+<p>Gdzie więc jest&nbsp;problem?</p>
+<h3 id="publiczne-repozytorium">Publiczne repozytorium<a class="headerlink" href="#publiczne-repozytorium" title="Permalink to this heading">¶</a></h3>
+<p>Problemów w takiej konfiguracji jest kilka, ale sprowadzają się one głównie do faktu, że hostowana strona musi właśnie znajdować się w publicznym repozytorium. Prowadzi to do ujawnienia danych z wszelkich projektów, nad którymi pracuję i gromadzę&nbsp;materiały.</p>
+<p>Dodatkowo w ramach repozytorium zacząłem prowadzić swoją tablicę kanban z planami dotyczącymi publikacji na blogu oraz swoim <a href="https://www.youtube.com/channel/UCm3xa7IkyYBFSZrisCBx53A">kanale YouTube</a>. Posiadanie materiałów oraz planów ich publikacji w jednym miejscu bardzo ułatwia mi pracę, a dodatkowo chciałbym, aby nie były one widoczne do czasu ukończenia prac nad nimi i samej publikacji. Aby to osiągnąć, dobrze byłoby odseparować od siebie część związaną z narzędziami oraz plikami źródłowymi od wynikowej&nbsp;pracy.</p>
+<h3 id="dwa-repozytoria">Dwa repozytoria<a class="headerlink" href="#dwa-repozytoria" title="Permalink to this heading">¶</a></h3>
+<p>Najłatwiejszym sposobem osiągnięcia powyższego założenia, jest utworzenie 2&nbsp;repozytoriów:</p>
+<ul>
+<li>repozytorium prywatne, gdzie będą znajdowały się wszystkie materiały oraz pliki&nbsp;źródłowe,</li>
+<li>repozytorium publiczne, które będzie zawierało tylko wynikowe pliki, które tworzą statyczną stronę z blogiem i z którego następuje hosting bloga przy użyciu GitHub&nbsp;Actions.</li>
+</ul>
+<p>Dodatkowo ideałem byłoby, aby statyczne pliki tworzyły się w momencie, gdy zmodyfikowany zostanie główny branch w prywatnym repozytorium. Następnie powinien nastąpić automatyczny commit tak utworzonym plików do publicznego&nbsp;repozytorium.</p>
+<p>W tym miejscu dochodzimy do punktu, gdzie GitHub Actions wkraczają na&nbsp;scenę.</p>
+<h2 id="konfiguracja-github-actions">Konfiguracja GitHub Actions<a class="headerlink" href="#konfiguracja-github-actions" title="Permalink to this heading">¶</a></h2>
+<p>Zanim zaczniemy wspólną zabawę, chciałbym uświadomić Ci jedną rzecz, tzn. ten wpis nie pokrywa pełnego zakresu możliwości oraz nie omawia wszelkich możliwych aspektów konfiguracji GitHub Actions. Jest to temat bardzo obszerny i aby to zrobić, należałoby przedstawić go w postaci kursu. Jeśli temat zainteresuje Cię, polecam zapoznać się z <a href="https://docs.github.com/en/actions">dokumentacją znajdującą się na stronie GitHub</a>.</p>
+<h3 id="workflow">Workflow<a class="headerlink" href="#workflow" title="Permalink to this heading">¶</a></h3>
+<p>GitHub Actions wykonywane są pod wpływem jakiegoś wydarzenia (tzw. event-driven). Aby wiedzieć, jakie wydarzenie jest wyzwalaczem akcji (tzw. trigger) oraz jaka akcja musi się wykonać, potrzebny jest nam jakiś kontener, który będzie przetrzymywał cały ten opis. Takim konterem w sensie logicznym jest właśnie <em>workflow</em>. Ponieważ cały czas funkcjonujemy w granicach repozytorium git, najprostszą i najbardziej logiczną formą przetrzymywania takie opisu będzie jakiś plik tekstowy. W przypadku GitHub Actions taki plik powinien być w formacie <a href="https://en.wikipedia.org/wiki/YAML"><span class="caps">YAML</span></a>.</p>
+<p>Dodatkowo taki plik powinien się znajdować w odpowiednim miejscu struktury katalogów w repozytorium, tak aby narzędzia, które odpowiadają za wykonanie akcji, wiedziały gdzie szukać ich&nbsp;opisu.</p>
+<p>W prywatnym repozytorium z kodem bloga musiałem więc utworzyć strukturę&nbsp;katalogów <code>.github/workflow</code> oraz w nim umieścić plik <span class="caps">YAML</span>. Ja ten plik po prostu&nbsp;nazwałem <code>deploy-nikola.yml</code>.</p>
+<p>Zawartość tego pliku posiada 3&nbsp;sekcje:</p>
+<ul>
+<li><code>name</code> - zawiera nazwę danego&nbsp;workflow,</li>
+<li><code>on</code> - zawiera konfigurację wyzwalaczy, które spowoduje uruchomienie danego workflow (może być ich więcej niż&nbsp;jedne),</li>
+<li><code>jobs</code> - zawiera konfigurację danego&nbsp;zadania.</li>
+</ul>
+<h4 id="nazwa-name">Nazwa (name)<a class="headerlink" href="#nazwa-name" title="Permalink to this heading">¶</a></h4>
+<p>Ponieważ&nbsp;sekcja <code>name</code> jest bardzo prosta i oznacza po prostu nazwę danego workflow. W formacie <span class="caps">YAML</span> wygląda to&nbsp;następująco:</p>
+<pre class="code literal-block"><span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">deploy-nikola</span>
+</pre>
+<h4 id="wyzwalacze-on">Wyzwalacze (on)<a class="headerlink" href="#wyzwalacze-on" title="Permalink to this heading">¶</a></h4>
+<p>Pełna lista wyzwalaczy znajduje się <a href="https://docs.github.com/en/actions/reference/events-that-trigger-workflows">tutaj</a>. Ja w swoim workflow, wykorzystałem tylko jeden,&nbsp;czyli <code>push</code>, który skonfigurowałem tak, aby działał, tylko w momencie, gdy zmieni się zawartość głównego brancha mojego repozytorium. W formacie <span class="caps">YAML</span> wygląda to&nbsp;następująco:</p>
+<pre class="code literal-block"><span class="nt">on</span><span class="p">:</span>  
+  <span class="nt">push</span><span class="p">:</span>  
+    <span class="nt">branches</span><span class="p">:</span>  
+      <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">main</span>
+</pre>
+<p>W przypadku starszych repozytoriów nazwa głównego brancha może być inna (master). Powód zmiany nazwy doczekał&nbsp;się szerszego opisu w jednym z oficjalnych <a href="https://github.com/github/renaming">repozytoriów</a> samego&nbsp;GitHuba.</p>
+<p>Dodatkowo w przyszłości rozważę również dodanie dodatkowego wyzwalacza w postaci uruchamiania workflow każdego dnia o wybranej godzinie. Pozwoli mi to na skorzystanie z możliwości publikacji artykułów z przyszłą datą. Przyjmując, że chciałbym, aby strona przebudowywała się codziennie o godzinie 10:00, taki wyzwalacz wyglądałby&nbsp;tak:</p>
+<pre class="code literal-block"><span class="nt">on</span><span class="p">:</span>  
+  <span class="nt">schedule</span><span class="p">:</span>  
+    <span class="p p-Indicator">-</span> <span class="nt">cron</span><span class="p">:</span> <span class="s">'0</span><span class="nv"> </span><span class="s">10</span><span class="nv"> </span><span class="s">*</span><span class="nv"> </span><span class="s">*</span><span class="nv"> </span><span class="s">*'</span>
+</pre>
+<p>Zauważ, że składnia zgodna jest ze składnią tzw. <a href="https://en.wikipedia.org/wiki/Cron">cron</a>, czyli tzw. planisty (scheduler). Składnia prezentuje się&nbsp;następująco:</p>
+<pre class="code literal-block"><span class="go">┌───────────── minuta (0 - 59)</span>
+<span class="go">│ ┌───────────── godzina (0 - 23)</span>
+<span class="go">│ │ ┌───────────── dzień miesiąca (1 - 31)</span>
+<span class="go">│ │ │ ┌───────────── miesiąc (1 - 12 lub JAN-DEC)</span>
+<span class="go">│ │ │ │ ┌───────────── dzień tygodnia (0 - 6 lub SUN-SAT)       </span>
+<span class="go">* * * * *</span>
+</pre>
+<p>Istnieją również pewne znaki specjalne, modyfikujące powyższe&nbsp;wartości:</p>
+<ul>
+<li><code>*</code> - dowolna&nbsp;wartość,</li>
+<li><code>,</code> - separator wartości, np. uruchom codziennie o godzinie 10:00 i&nbsp;12:00: <code>0 10,12 * * *</code>,</li>
+<li><code>-</code> - zakres wartości od/do, np. uruchom o każdej pełnej godzinie między 15, a&nbsp;20: <code>0 15-20 * * *</code>,</li>
+<li><code>\</code> - wartość krokowa, np. uruchamiaj co 15&nbsp;minut: <code>0/15 * * * *</code>.</li>
+</ul>
+<h4 id="zadanie-job">Zadanie (job)<a class="headerlink" href="#zadanie-job" title="Permalink to this heading">¶</a></h4>
+<p>Konfiguracja konkretnego zadania to może być bardzo krótka (np. usunięcie danego katalogu) lub bardzo złożona. Poniżej znajduje się moja konfiguracja i na jej przykładzie omówię, jak się buduje takie zadania i co one&nbsp;zawierają.</p>
+<pre class="code literal-block"><span class="nt">jobs</span><span class="p">:</span>  
+  <span class="nt">Deploy-Nikola</span><span class="p">:</span>  
+    <span class="nt">runs-on</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">ubuntu-latest</span>  
+    <span class="nt">steps</span><span class="p">:</span>  
+      <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Checkout Git repository</span>  
+        <span class="nt">uses</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">actions/checkout@v2</span>  
+      <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Install Python 3.8</span>  
+        <span class="nt">uses</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">actions/setup-python@v2</span>  
+        <span class="nt">with</span><span class="p">:</span>  
+          <span class="nt">python-version</span><span class="p">:</span> <span class="s">'3.8'</span>  
+      <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Install Python libraries from requirements.txt</span>  
+        <span class="nt">uses</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">py-actions/py-dependency-install@v2</span>  
+      <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Install missing Ubuntu packages</span>  
+        <span class="nt">run</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">sudo apt-get install -y jpegoptim optipng tidy</span>  
+      <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Build Nikola static site for testerembyc.pl</span>  
+        <span class="nt">run</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">nikola build</span>  
+      <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Commit static site to repository with GitHub Pages enabled</span>  
+        <span class="nt">uses</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">cpina/github-action-push-to-another-repository@main</span>  
+        <span class="nt">env</span><span class="p">:</span>  
+          <span class="nt">API_TOKEN_GITHUB</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">${{ secrets.API_TOKEN_GITHUB }}</span>  
+        <span class="nt">with</span><span class="p">:</span>  
+          <span class="nt">user-name</span><span class="p">:</span> <span class="s">"user"</span>  
+          <span class="nt">user-email</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">user@email.com</span>  
+          <span class="nt">source-directory</span><span class="p">:</span> <span class="s">"docs"</span>  
+          <span class="nt">destination-github-username</span><span class="p">:</span> <span class="s">"user"</span>  
+          <span class="nt">destination-repository-name</span><span class="p">:</span> <span class="s">"public-repo"</span>  
+          <span class="nt">target-branch</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">main</span>
+</pre>
+<p>Dużo tego, ale prześledźmy wspólnie, co tu się dzieje i co oznacza. Aha. Żeby nie było, dane w ostatnich 6 linijkach zostały zmienione i nie są prawdziwymi&nbsp;danymi.</p>
+<pre class="code literal-block"><span class="nt">jobs</span><span class="p">:</span>  
+  <span class="nt">Deploy-Nikola</span><span class="p">:</span>
+    <span class="nt">runs-on</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">ubuntu-latest</span>  
+    <span class="nt">steps</span><span class="p">:</span>  
+</pre>
+<p>Tu raczej nie będzie problemu:&nbsp;- <code>jobs</code> - oznacza, że w tym miejscu znajduje się konfiguracja naszego zadania,&nbsp;- <code>Deploy-Nikola</code> - to po prostu nazwa naszego zadania,&nbsp;- <code>runs-on: ubuntu-latest</code> - definiuje, w jakim systemie operacyjnym dane zadanie, a dokładniej jego kroki, mają zostać uruchomione,&nbsp;- <code>steps</code> - kolejne kroki naszego&nbsp;zadania.</p>
+<p>Powyższe nie powinno stanowić&nbsp;problemu.</p>
+<h4 id="kroki-steps">Kroki (steps)<a class="headerlink" href="#kroki-steps" title="Permalink to this heading">¶</a></h4>
+<p>Zanim jednak przejdziemy do omawiania samych kroków, zastanówmy się czym, w ogóle one są? Otóż kroki to nic innego jak poszczególne akcje, które muszą zostać wykonane, aby nasze zadanie zostało uznane za&nbsp;ukończone.</p>
+<p>Pojedynczy krok składa&nbsp;się:</p>
+<ul>
+<li><code>name</code> - nazwa kroku do wyświetlenia (nie jest&nbsp;wymagane),</li>
+<li><code>uses</code> - nazwa predefiniowanej akcji, która zostanie&nbsp;wykonana,</li>
+<li><code>env</code> - zmienna środowiskowa, jaka powinna zostać ustawiona w danym&nbsp;kroku,</li>
+<li><code>with</code> - dodatkowe dane konfiguracyjne, które zostaną przekazane do predefiniowanej&nbsp;akcji,</li>
+<li><code>run</code> - komenda systemowa do wykonania&nbsp;(np. <code>ls -la</code>).</li>
+</ul>
+<p>Należy tutaj jeszcze zauważyć kilka&nbsp;rzeczy:</p>
+<ul>
+<li><code>run</code> oraz <code>uses</code> nigdy nie występują razem, tzn. albo&nbsp;wykorzystujemy <code>run</code> do wywołania komendy systemowej,&nbsp;albo <code>uses</code> do wywołania&nbsp;akcji,</li>
+<li><code>with</code> występuje tylko w połączeniu&nbsp;z <code>uses</code>.</li>
+</ul>
+<div class="admonition alert">
+<p>Zauważ, że w przypadku chęci użycia predefiniowanych kroków, to co występuje&nbsp;po <code>uses</code> to tak naprawdę nazwa repozytorium znajdującego się w portalu GitHub. Jako przykład, może zerknać na pierwszy krok, czyli <a href="https://github.com/actions/checkout">actions/checkout@v2</a>. Czy to oznacza, że możemy takie kroki tworzyć samodzielnie? Oczywiście. Nic nie stoi na przeszkodzie, a cały proces został odpowiednio <a href="https://docs.github.com/en/actions/creating-actions/about-actions">udokumentowany</a>.</p>
+</div>
+<p>Wracając teraz do analizy poszczególnych kroków, omówię je jako prosty zestaw kolnych akcji, jakie zostaną wykonane, a dopasowanie, która akcja co oznacza, zostawię już Tobie (wierzę, że sobie poradzisz z tym&nbsp;zadaniem):</p>
+<ol>
+<li>Pobierz zawartość repozytorium - należy mieć na uwadze, że dzieje się to w kontekście repozytorium, w którym znajduje się definicja danego workflow, czyli pobieramy dane z prywatnego&nbsp;repozytorium.</li>
+<li>Zainstaluj Pythona 3.8 - zauważ, że w przypadku tej akcji, określamy jaką o jaką wersję Pythona nam chodzi. Ponieważ na komputerze, na którym tworzę tego bloga, mam zainstalowanego Pythona 3.8, użyłem tej samej wersji, aby zminimalizować ilość ewentualnych&nbsp;błędów.</li>
+<li>Zainstaluj biblioteki z listy znajdujacej się w&nbsp;pliku <code>requirements.txt</code>.</li>
+<li>Zainstaluj brakujące narzędzia w systemie - ponieważ korzystamy z Ubuntu, wykorzystane zostało polecenie&nbsp;systemowe <code>apt-get</code>, które służy właśnie do instalacji pakietów z&nbsp;oprogramowaniem.</li>
+<li>Zbuduj statyczną stronę - w tym celu wywołane zostanie polecenie służące do tego&nbsp;celu.</li>
+<li>Zakomituj statyczną stronę do publicznego repozytorium z włączoną usługą GitHub Pages - zauważ, że w tym kroku, jest dużo danych konfiguracyjnych, oraz tworzona jest zmienna środowiskowa, w której przechowany zostanie token służący do dostępu do <span class="caps">API</span> GitHuba. Token ten służy do autoryzacji oraz przeprowadzenia samego procesu commitu do repozytorium. Aby móc używać tokenu, należy go najpierw wygenerować, a następnie umieścić w odpowiednim&nbsp;miejscu,</li>
+</ol>
+<h4 id="cay-workflow">Cały Workflow<a class="headerlink" href="#cay-workflow" title="Permalink to this heading">¶</a></h4>
+<p>Cały&nbsp;plik <code>deploy-nikola.yml</code> wygląda&nbsp;następująco:</p>
+<pre class="code literal-block"><span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">deploy-nikola</span>  
+<span class="nt">on</span><span class="p">:</span>  
+  <span class="nt">push</span><span class="p">:</span>  
+    <span class="nt">branches</span><span class="p">:</span>  
+      <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">master</span>  
+<span class="nt">jobs</span><span class="p">:</span>  
+  <span class="nt">Deploy-Nikola</span><span class="p">:</span>  
+    <span class="nt">runs-on</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">ubuntu-latest</span>  
+    <span class="nt">steps</span><span class="p">:</span>  
+      <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Checkout Git repository</span>  
+        <span class="nt">uses</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">actions/checkout@v2</span>  
+      <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Install Python 3.8</span>  
+        <span class="nt">uses</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">actions/setup-python@v2</span>  
+        <span class="nt">with</span><span class="p">:</span>  
+          <span class="nt">python-version</span><span class="p">:</span> <span class="s">'3.8'</span>  
+<span class="-Error"> </span><span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Install Python libraries from requirements.txt</span>  
+        <span class="l l-Scalar l-Scalar-Plain">uses</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">py-actions/py-dependency-install@v2</span>  
+      <span class="l l-Scalar l-Scalar-Plain">- name</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">Install missing Ubuntu packages</span>  
+        <span class="l l-Scalar l-Scalar-Plain">run</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">sudo apt-get install -y jpegoptim optipng tidy</span>  
+      <span class="l l-Scalar l-Scalar-Plain">- name</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">Build Nikola static site for testerembyc.pl</span>  
+        <span class="l l-Scalar l-Scalar-Plain">run</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">nikola build</span>  
+      <span class="l l-Scalar l-Scalar-Plain">- name</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">Commit static site to repository with GitHub Pages enabled</span>  
+        <span class="l l-Scalar l-Scalar-Plain">uses</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">cpina/github-action-push-to-another-repository@main</span>  
+        <span class="l l-Scalar l-Scalar-Plain">env</span><span class="p p-Indicator">:</span>  
+          <span class="nt">API_TOKEN_GITHUB</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">${{ secrets.API_TOKEN_GITHUB }}</span>  
+   <span class="-Error">     </span><span class="nt">with</span><span class="p">:</span>  
+          <span class="nt">user-name</span><span class="p">:</span> <span class="s">"user"</span>  
+          <span class="nt">user-email</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">user@email.com</span>  
+          <span class="nt">source-directory</span><span class="p">:</span> <span class="s">"docs"</span>  
+          <span class="nt">destination-github-username</span><span class="p">:</span> <span class="s">"user"</span>  
+          <span class="nt">destination-repository-name</span><span class="p">:</span> <span class="s">"public-repo"</span>  
+          <span class="nt">target-branch</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">main</span>
+</pre>
+<h3 id="token">Token<a class="headerlink" href="#token" title="Permalink to this heading">¶</a></h3>
+<p>Token to nic innego jak klucz, dzięki któremu jesteśmy w stanie wykonywać pewne operacje z wykorzystanie <span class="caps">REST</span> <span class="caps">API</span> portalu&nbsp;GitHub.</p>
+<h4 id="generowanie-tokenu">Generowanie tokenu<a class="headerlink" href="#generowanie-tokenu" title="Permalink to this heading">¶</a></h4>
+<p>Aby wygenerować token, należy być zalogowanym na swoim koncie w portalu GitHub, a następnie przejść do zakładki <strong>Settings</strong> &gt; <strong>Developer settings</strong> &gt; <strong>Personal access tokens</strong> &gt; <strong>Generate new token</strong> lub po prostu przejść na adres <a href="https://github.com/settings/tokens/new">https://github.com/settings/tokens/new</a> (w tym miejscu możemy zostać poproszeni o ponowne podanie naszego&nbsp;hasła).</p>
+<p class="captionb"><img alt="Account settings" src="../../images/posts/ci-cd-na-przykladzie-github-actions/account_settings.png"> Account&nbsp;settings</p>
+<p class="captionb"><img alt="Dev settings" src="../../images/posts/ci-cd-na-przykladzie-github-actions/dev_settings.png"> Dev&nbsp;settings</p>
+<p class="captionb"><img alt="Personal access token" src="../../images/posts/ci-cd-na-przykladzie-github-actions/personal_access_token.png"> Personal access&nbsp;token</p>
+<p class="captionb"><img alt="Generate new token" src="../../images/posts/ci-cd-na-przykladzie-github-actions/generate_new_token.png"> Generate new&nbsp;token</p>
+<p>Następnie należy wypełnić/zaznaczyć poniższe&nbsp;pola:|</p>
+<ul>
+<li><em>Note</em> - tutaj podajemy nazwę naszego&nbsp;tokenu,</li>
+<li><em>Expiration</em> - okres przez jaki nasz token będzie zdatny do&nbsp;użytku,</li>
+<li><em>Select scopes</em> - zakres uprawnień:
+<ul>
+<li><em>repo:status - Access commit&nbsp;status</em></li>
+<li><em>public_repo - Access public&nbsp;repositiories</em></li>
+</ul>
+</li>
+</ul>
+<p>oraz kliknąć przycisk <strong>Generate token</strong>.</p>
+<div class="admonition alert">
+<p>Należy pamiętać, że ten zestaw uprawnień jest wystarczający w przypadku akcji commitowania do publicznego repozytorium. Jeśli w swoim workflow, będziesz używać innych akcji, może okazać się, że powyższy zestaw uprawnień bedzie&nbsp;niewystarczający.</p>
+</div>
+<p class="captionb"><img alt="New personal access token" src="../../images/posts/ci-cd-na-przykladzie-github-actions/new_personal_access_token.png"> New personal access&nbsp;token</p>
+<p>Po wygenerowaniu tokenu, mamy jedyną możliwość skopiowania tokenu, o czym przypomina stosowny komunika. Należy go sobie gdzieś zapisać albo od razu&nbsp;wykorzystać.</p>
+<p class="captionb"><img alt="Token" src="../../images/posts/ci-cd-na-przykladzie-github-actions/token.png">&nbsp;Token</p>
+<h4 id="bezpieczne-wykorzystanie-tokenu">Bezpieczne wykorzystanie tokenu<a class="headerlink" href="#bezpieczne-wykorzystanie-tokenu" title="Permalink to this heading">¶</a></h4>
+<p>Aby wykorzystać token, musimy zapisać go jako tzw. secret w repozytorium, w którym uruchamiane zostanie tworzone workflow. Secret to nic innego jak zmienna środowiskowa, do której będą miały dostęp wykonywane akcje. Aby utworzyć secret, należy wykonać kilka poniższych kroków w&nbsp;repozytorium.</p>
+<p>W moim przypadku musiałem przejść do mojego prywatnego repozytorium, a następnie przejść do zakładki <strong>Settings</strong> &gt; <strong>Secrets</strong> &gt; <strong>New repository secret</strong>.</p>
+<p class="captionb"><img alt="Repository settings" src="../../images/posts/ci-cd-na-przykladzie-github-actions/repository_settings.png"> Repository&nbsp;settings</p>
+<p class="captionb"><img alt="Secrets" src="../../images/posts/ci-cd-na-przykladzie-github-actions/secrets.png">&nbsp;Secrets</p>
+<p class="captionb"><img alt="New repository secret" src="../../images/posts/ci-cd-na-przykladzie-github-actions/new_repository_secret.png"> New repository&nbsp;secret</p>
+<p>Następnie należy wypełnić/zaznaczyć poniższe&nbsp;pola:|</p>
+<ul>
+<li><em>Name</em> - nazwa zmiennej środowiskowej, w moim przypadku było&nbsp;to <code>API_TOKEN_GITHUB</code>,</li>
+<li><em>Value</em> - wartość zmiennej środowiskowej, w moim przypadku był to wygenerowany wcześniej&nbsp;token,</li>
+</ul>
+<p>oraz kliknąć przycisk <strong>Add secret</strong>.</p>
+<p class="captionb"><img alt="New secret" src="../../images/posts/ci-cd-na-przykladzie-github-actions/new_secret.png"> New&nbsp;secret</p>
+<h2 id="na-zakonczenie">Na zakończenie<a class="headerlink" href="#na-zakonczenie" title="Permalink to this heading">¶</a></h2>
+<p>Żeby to wszystko teraz zadziałało, musimy jeszcze umieścić&nbsp;plik <code>deploy-nikola.yml</code> (<code>git commit</code> oraz <code>git push</code>) w repozytorium. Od teraz każdy kolejna zmiana lub dodanie plików do głównego brancha, spowoduje automatyczne uruchomienie utworzonego workflow oraz akcji, jakie zostało w nim ustawione. Podgląd możemy zawsze znaleźć w zakładce <strong>Actions</strong> naszego repozytorium, a następnie przejść do naszego workglow oraz ostatnio wykonanego uruchomienia&nbsp;workflow.</p>
+<p class="captionb"><img alt="Actions" src="../../images/posts/ci-cd-na-przykladzie-github-actions/actions.png">&nbsp;Actions</p>
+<p class="captionb"><img alt="Action status" src="../../images/posts/ci-cd-na-przykladzie-github-actions/action_details.png"> Action&nbsp;Status</p>
+<h2 id="koszty">Koszty<a class="headerlink" href="#koszty" title="Permalink to this heading">¶</a></h2>
+<p>GitHub Actions jest darmowe, ale ma pewne ograniczenie, tzn. w ramach darmowego konta, można wykorzystać maksymalnie 2000 minut, w których czasie każdy tzw. runner, będzie wykonywał akcje opisane w ramach akcji. Ograniczenie to można obejść, jeśli wykorzystamy tzw. self-hosted runners, czyli jeśli runner będzie uruchamiany na naszym&nbsp;serwerze.</p>
+<h2 id="jak-wykorzystac-github-actions-w-testach-automatycznych">Jak wykorzystać GitHub Actions w testach automatycznych?<a class="headerlink" href="#jak-wykorzystac-github-actions-w-testach-automatycznych" title="Permalink to this heading">¶</a></h2>
+<p>Zapewne po przeczytaniu całego tego wpisu, masz już kilka własnych pomysłów jak można wykorzystać GitHub Actions w testach automatycznych. Poniżej przedstawiam listę kilku własnych pomysłów. Być może pokrywają się z Twoimi pomysłami, a być może podpowiedzą kilka&nbsp;nowych.</p>
+<ul>
+<li>W niemal identyczny sposób jak powyżej opisany (tzn. z wykorzystaniem GitHub Actions oraz GitHub Pages) można generować raporty z narzędzia, jakim jest <a href="http://allure.qatools.ru">Allure</a>.</li>
+<li>Podobnie ma się sprawa z generacją dokumentacji kodu testów automatycznych, np. przy użyciu biblioteki <a href="https://www.sphinx-doc.org/en/master/">Sphinx</a>.</li>
+<li>Cykliczne uruchamianie testów&nbsp;automatycznych.</li>
+<li>Health check środowiska testowego lub&nbsp;produkcji.</li>
+<li>Tworzenie i odtwarzanie backupu środowiska testowego wraz z danymi&nbsp;testowymi.</li>
+<li>Automatyczne zarządzanie środowiskiem testowym, np. dynamiczne tworzenie środowisk testowych na potrzeby przeprowadzenia testów oraz ich wyłączenie po ich&nbsp;zakończeniu.</li>
+<li>Automatyczne uruchamianie testów np. regresji po deploymencie w celu weryfikacji jego&nbsp;poprawności.</li>
+<li>Uruchamianie unittestów utworzonych dla naszych testów&nbsp;automatycznych.</li>
+</ul>
+<div class="admonition alert">
+<p>Jeśli masz jakiś ciekawy pomysł, którego nie umieściłem na powyższej liście, daj koniecznie znać, a chętnie go dopiszę powyżej z zaznaczeniem kto był autorem tego&nbsp;pomysłu.</p>
+</div>
+<h2 id="podsumowanie">Podsumowanie<a class="headerlink" href="#podsumowanie" title="Permalink to this heading">¶</a></h2>
+<p>Jeśli udało Ci się dotrzeć do tego miejsca, to gratuluję wytrwałości. Temat <span class="caps">CI</span>/<span class="caps">CD</span> jest bardzo obszerny i przedstawiony powyżej opis to zaledwie <em>liźnięcie</em> tematu oraz pokazanie, że to wcale nie jest takie trudne. Mam nadzieję, że zachęciłem Cię do zmierzenia się z tym tematem. Jeśli tak to życzę powodzenia, a jeśli nie to zachęcam do spróbowania. Widza ta na pewno nie będzie wiedzą bezużyteczną, a jeszcze nie raz w Twojej karierze może okazać się bardzo pomocna, np. podczas rozmowy kwalifikacyjnej lub jako dodatkowy wpis w&nbsp;<span class="caps">CV</span>.</p>
+<h2 id="bonus">Bonus<a class="headerlink" href="#bonus" title="Permalink to this heading">¶</a></h2>
+<p>GitHub Actions udostępnia możliwość prezentacji statusu danego workflow w postaci&nbsp;graficznej.</p>
+<p class="caption"><img alt="Workflow status" src="../../images/posts/ci-cd-na-przykladzie-github-actions/status.png"> Workflow&nbsp;status</p>
+<p>Graficzny status generowany jest w postaci pliku svg dostępnego w unikatowym dla danego repozytorium oraz danego workflow linku. U mnie prezentuje się on następująco <a href="https://github.com/mkusz/testerembyc/actions/workflows/deploy-nikola.yml/badge.svg">https://github.com/mkusz/testerembyc/actions/workflows/deploy-nikola.yml/badge.svg</a>. Aby wykorzystać go np. w pliku <span class="caps">README</span>.md, który znajduje się w głównym folderze naszego repozytorium należy skorzystać z odpowiedniej składni, która umieści plik graficzny z danego linku. W moim wypadku wygląda on&nbsp;tak:</p>
+<pre class="code literal-block">![](https://github.com/mkusz/testerembyc/actions/workflows/deploy-nikola.yml/badge.svg)
+</pre></div>
+<div class="col-md-6"><img src="../../images/page_lm/jak_zaczac_automatyzowac.jpg"></div>
+<div class="col-md-6">
+<form action="https://maciejkusz.activehosted.com/proc.php" id="_form_5_" method="post" name="_form_5_" novalidate=""><input name="u" type="hidden" value="5"><input name="f" type="hidden" value="5"><input name="s" type="hidden"><input name="c" type="hidden" value="0"><input name="m" type="hidden" value="0"><input name="act" type="hidden" value="sub"><input name="v" type="hidden" value="2">
+<h3>Zapraszam do newslettera<a class="headerlink" href="#_form_5_" title="Permalink to this heading">¶</a></h3>
+<div class="_form-content">
+<p>Jeśli powyższy artykuł uznajesz za wartościowy oraz masz ochotę być informowany o nowościach na moim blogu, to zachęcam Cię do zapisania się do mojego newslettera. Obiecuję, że nie będę Cię spamował, a tylko od czasu do czasu wyślę Ci powiadomienie o nowym artykule lub prześlę krótkiego maila z ciekawymi informacjami.<br>
+<strong><span class="caps">BONUS</span>:</strong> Dodatkowo otrzymasz mój mini poradnik: <em>Jak zacząć automatyzować testy? Czyli 12 pytań i odpowiedzi, które w tym&nbsp;pomogą</em></p>
+<div class="input-group" id="basic-fullname-group"><span class="input-group-addon" id="basic-fullname">Imię</span> <input aria-describedby="basic-fullname" class="form-control" name="fullname" placeholder="Wpisz swoje imię" type="text"></div>
+<div class="input-group" id="basic-lastname-group"><span class="input-group-addon" id="basic-lastname">Nazwisko</span> <input aria-describedby="basic-fullname" class="form-control" name="lastname" placeholder="Wpisz swoje nazwisko" type="text"></div>
+<div class="input-group" id="basic-email-group"><span class="input-group-addon" id="basic-email">E-mail</span> <input aria-describedby="basic-email" class="form-control" name="email" placeholder="Wpisz swój e-mail" required="" type="text"></div>
+<button class="_submit btn btn-danger" id="_form_5_submit" style="margin-left: auto; margin-right: auto; display: block;" type="submit">Zapisz się</button>
+<div class="_clear-element"></div>
+</div>
+<div class="_form-thank-you" style="display:none;"></div>
+<p style="font-size: 10px; margin-top: 5px;">Wszystkie podane przez Ciebie dane, będą przetwarzane zgodnie z <a href="../../pages/polityka-prywatnosci">polityką prywatności</a>.</p>
+</form>
+<script type="text/javascript">
+        window.cfields = [];
+        window._show_thank_you = function(id, message, trackcmp_url) {
+          var form = document.getElementById('_form_' + id + '_'), thank_you = form.querySelector('._form-thank-you');
+          form.querySelector('._form-content').style.display = 'none';
+          thank_you.innerHTML = message;
+          thank_you.style.display = 'block';
+          if (typeof(trackcmp_url) != 'undefined' && trackcmp_url) {
+            // Site tracking URL to use after inline form submission.
+            _load_script(trackcmp_url);
+          }
+          if (typeof window._form_callback !== 'undefined') window._form_callback(id);
+        };
+        window._show_error = function(id, message, html) {
+          var form = document.getElementById('_form_' + id + '_'), err = document.createElement('div'), button = form.querySelector('button'), old_error = form.querySelector('._form_error');
+          if (old_error) old_error.parentNode.removeChild(old_error);
+          err.innerHTML = message;
+          err.className = '_error-inner _form_error _no_arrow';
+          var wrapper = document.createElement('div');
+          wrapper.className = '_form-inner';
+          wrapper.appendChild(err);
+          button.parentNode.insertBefore(wrapper, button);
+          document.querySelector('[id^="_form"][id$="_submit"]').disabled = false;
+          if (html) {
+            var div = document.createElement('div');
+            div.className = '_error-html';
+            div.innerHTML = html;
+            err.appendChild(div);
+          }
+        };
+        window._load_script = function(url, callback) {
+            var head = document.querySelector('head'), script = document.createElement('script'), r = false;
+            script.type = 'text/javascript';
+            script.charset = 'utf-8';
+            script.src = url;
+            if (callback) {
+              script.onload = script.onreadystatechange = function() {
+              if (!r && (!this.readyState || this.readyState == 'complete')) {
+                r = true;
+                callback();
+                }
+              };
+            }
+            head.appendChild(script);
+        };
+        (function() {
+          if (window.location.search.search("excludeform") !== -1) return false;
+          var getCookie = function(name) {
+            var match = document.cookie.match(new RegExp('(^|; )' + name + '=([^;]+)'));
+            return match ? match[2] : null;
+          }
+          var setCookie = function(name, value) {
+            var now = new Date();
+            var time = now.getTime();
+            var expireTime = time + 1000 * 60 * 60 * 24 * 365;
+            now.setTime(expireTime);
+            document.cookie = name + '=' + value + '; expires=' + now + ';path=/';
+          }
+              var addEvent = function(element, event, func) {
+            if (element.addEventListener) {
+              element.addEventListener(event, func);
+            } else {
+              var oldFunc = element['on' + event];
+              element['on' + event] = function() {
+                oldFunc.apply(this, arguments);
+                func.apply(this, arguments);
+              };
+            }
+          }
+          var _removed = false;
+          var form_to_submit = document.getElementById('_form_5_');
+          var allInputs = form_to_submit.querySelectorAll('input, select, textarea'), tooltips = [], submitted = false;
+
+          var getUrlParam = function(name) {
+            var regexStr = '[\?&]' + name + '=([^&#]*)';
+            var results = new RegExp(regexStr, 'i').exec(window.location.href);
+            return results != undefined ? decodeURIComponent(results[1]) : false;
+          };
+
+          for (var i = 0; i < allInputs.length; i++) {
+            var regexStr = "field\\[(\\d+)\\]";
+            var results = new RegExp(regexStr).exec(allInputs[i].name);
+            if (results != undefined) {
+              allInputs[i].dataset.name = window.cfields[results[1]];
+            } else {
+              allInputs[i].dataset.name = allInputs[i].name;
+            }
+            var fieldVal = getUrlParam(allInputs[i].dataset.name);
+
+            if (fieldVal) {
+                    if (allInputs[i].dataset.autofill === "false") {
+                        continue;
+                    }
+              if (allInputs[i].type == "radio" || allInputs[i].type == "checkbox") {
+                if (allInputs[i].value == fieldVal) {
+                  allInputs[i].checked = true;
+                }
+              } else {
+                allInputs[i].value = fieldVal;
+              }
+            }
+          }
+
+          var remove_tooltips = function() {
+            for (var i = 0; i < tooltips.length; i++) {
+              tooltips[i].tip.parentNode.removeChild(tooltips[i].tip);
+            }
+              tooltips = [];
+          };
+          var remove_tooltip = function(elem) {
+            for (var i = 0; i < tooltips.length; i++) {
+              if (tooltips[i].elem === elem) {
+                tooltips[i].tip.parentNode.removeChild(tooltips[i].tip);
+                tooltips.splice(i, 1);
+                return;
+              }
+            }
+          };
+          var create_tooltip = function(elem, text) {
+            var tooltip = document.createElement('div'), arrow = document.createElement('div'), inner = document.createElement('div'), new_tooltip = {};
+            if (elem.type != 'radio' && elem.type != 'checkbox') {
+              tooltip.className = 'label label-danger';
+              tooltip.innerHTML = text;
+              elem.parentNode.parentNode.insertBefore(tooltip, elem.parentNode);
+            } else {
+              tooltip.className = '_error-inner _no_arrow';
+              tooltip.innerHTML = text;
+              elem.parentNode.insertBefore(tooltip, elem);
+              new_tooltip.no_arrow = true;
+            }
+            new_tooltip.tip = tooltip;
+            new_tooltip.elem = elem;
+            tooltips.push(new_tooltip);
+            return new_tooltip;
+          };
+          var resize_tooltip = function(tooltip) {
+            var rect = tooltip.elem.getBoundingClientRect();
+            var doc = document.documentElement, scrollPosition = rect.top - ((window.pageYOffset || doc.scrollTop)  - (doc.clientTop || 0));
+            if (scrollPosition < 40) {
+              tooltip.tip.className = tooltip.tip.className.replace(/ ?(_above|_below) ?/g, '') + ' _below';
+            } else {
+              tooltip.tip.className = tooltip.tip.className.replace(/ ?(_above|_below) ?/g, '') + ' _above';
+            }
+          };
+          var resize_tooltips = function() {
+            if (_removed) return;
+            for (var i = 0; i < tooltips.length; i++) {
+              if (!tooltips[i].no_arrow) resize_tooltip(tooltips[i]);
+            }
+          };
+          var validate_field = function(elem, remove) {
+            var tooltip = null, value = elem.value, no_error = true;
+            remove ? remove_tooltip(elem) : false;
+            if (elem.type != 'checkbox') elem.className = elem.className.replace(/ ?_has_error ?/g, '');
+            if (elem.getAttribute('required') !== null) {
+              if (elem.type == 'radio' || (elem.type == 'checkbox' && /any/.test(elem.className))) {
+                var elems = form_to_submit.elements[elem.name];
+                if (!(elems instanceof NodeList || elems instanceof HTMLCollection) || elems.length <= 1) {
+                  no_error = elem.checked;
+                }
+                else {
+                  no_error = false;
+                  for (var i = 0; i < elems.length; i++) {
+                    if (elems[i].checked) no_error = true;
+                  }
+                }
+                if (!no_error) {
+                  tooltip = create_tooltip(elem, "Wybierz opcję.");
+                }
+              } else if (elem.type =='checkbox') {
+                var elems = form_to_submit.elements[elem.name], found = false, err = [];
+                no_error = true;
+                for (var i = 0; i < elems.length; i++) {
+                  if (elems[i].getAttribute('required') === null) continue;
+                  if (!found && elems[i] !== elem) return true;
+                  found = true;
+                  elems[i].className = elems[i].className.replace(/ ?_has_error ?/g, '');
+                  if (!elems[i].checked) {
+                    no_error = false;
+                    elems[i].className = elems[i].className + ' _has_error';
+                    err.push("Zaznaczenie %s jest wymagane".replace("%s", elems[i].value));
+                  }
+                }
+                if (!no_error) {
+                  tooltip = create_tooltip(elem, err.join('<br/>'));
+                }
+              } else if (elem.tagName == '<span class="caps">SELECT</span>') {
+                var selected = true;
+                if (elem.multiple) {
+                  selected = false;
+                  for (var i = 0; i < elem.options.length; i++) {
+                    if (elem.options[i].selected) {
+                      selected = true;
+                      break;
+                    }
+                  }
+                } else {
+                  for (var i = 0; i < elem.options.length; i++) {
+                    if (elem.options[i].selected && !elem.options[i].value) {
+                      selected = false;
+                    }
+                  }
+                }
+                if (!selected) {
+                  elem.className = elem.className + ' _has_error';
+                  no_error = false;
+                  tooltip = create_tooltip(elem, "Wybierz opcję.");
+                }
+              } else if (value === undefined || value === null || value === '') {
+                elem.className = elem.className + ' _has_error';
+                no_error = false;
+                tooltip = create_tooltip(elem, "To pole jest wymagane.");
+              }
+            }
+            if (no_error && elem.name == 'email') {
+              if (!value.match(/^[\+_a-z0-9-'&=]+(\.[\+_a-z0-9-']+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,})$/i)) {
+                elem.className = elem.className + ' _has_error';
+                no_error = false;
+                tooltip = create_tooltip(elem, "Wpisz poprawny adres e-mail.");
+              }
+            }
+            if (no_error && /date_field/.test(elem.className)) {
+              if (!value.match(/^\d\d\d\d-\d\d-\d\d$/)) {
+                elem.className = elem.className + ' _has_error';
+                no_error = false;
+                tooltip = create_tooltip(elem, "Wpisz poprawną datę.");
+              }
+            }
+            tooltip ? resize_tooltip(tooltip) : false;
+            return no_error;
+          };
+          var needs_validate = function(el) {
+            return el.name == 'email' || el.getAttribute('required') !== null;
+          };
+          var validate_form = function(e) {
+            var err = form_to_submit.querySelector('._form_error'), no_error = true;
+            if (!submitted) {
+              submitted = true;
+              for (var i = 0, len = allInputs.length; i < len; i++) {
+                var input = allInputs[i];
+                if (needs_validate(input)) {
+                  if (input.type == 'text') {
+                    addEvent(input, 'blur', function() {
+                      this.value = this.value.trim();
+                      validate_field(this, true);
+                    });
+                    addEvent(input, 'input', function() {
+                      validate_field(this, true);
+                    });
+                  } else if (input.type == 'radio' || input.type == 'checkbox') {
+                    (function(el) {
+                      var radios = form_to_submit.elements[el.name];
+                      for (var i = 0; i < radios.length; i++) {
+                        addEvent(radios[i], 'click', function() {
+                          validate_field(el, true);
+                        });
+                      }
+                    })(input);
+                  } else if (input.tagName == 'SELECT') {
+                    addEvent(input, 'change', function() {
+                      validate_field(this, true);
+                    });
+                  } else if (input.type == 'textarea'){
+                    addEvent(input, 'input', function() {
+                      validate_field(this, true);
+                    });
+                  }
+                }
+              }
+            }
+            remove_tooltips();
+            for (var i = 0, len = allInputs.length; i < len; i++) {
+              var elem = allInputs[i];
+              if (needs_validate(elem)) {
+                if (elem.tagName.toLowerCase() !== "select") {
+                  elem.value = elem.value.trim();
+                }
+                validate_field(elem) ? true : no_error = false;
+              }
+            }
+            if (!no_error && e) {
+              e.preventDefault();
+            }
+            resize_tooltips();
+            return no_error;
+          };
+          addEvent(window, 'resize', resize_tooltips);
+          addEvent(window, 'scroll', resize_tooltips);
+          window._old_serialize = null;
+          if (typeof serialize !== 'undefined') window._old_serialize = window.serialize;
+          _load_script("//d3rxaij56vjege.cloudfront.net/form-serialize/0.3/serialize.min.js", function() {
+            window._form_serialize = window.serialize;
+            if (window._old_serialize) window.serialize = window._old_serialize;
+          });
+          var form_submit = function(e) {
+            e.preventDefault();
+            if (validate_form()) {
+              // use this trick to get the submit button <span class="amp">&amp;</span> disable it using plain javascript
+              document.querySelector('#_form_5_submit').disabled = true;
+                    var serialized = _form_serialize(document.getElementById('_form_5_'));
+              var err = form_to_submit.querySelector('._form_error');
+              err ? err.parentNode.removeChild(err) : false;
+              _load_script('https://maciejkusz.activehosted.com/proc.php?' + serialized + '&jsonp=true');
+            }
+            return false;
+          };
+          addEvent(form_to_submit, 'submit', form_submit);
+        })();
+
+</script></div>
+</div>
+<aside class="postpromonav">
+<nav>
+<ul class="tags" itemprop="keywords">
+<li><a class="tag p-category" href="../../categories/automatyzacja/" rel="tag">automatyzacja</a></li>
+<li><a class="tag p-category" href="../../categories/cicd/" rel="tag">ci/cd</a></li>
+<li><a class="tag p-category" href="../../categories/github/" rel="tag">github</a></li>
+</ul>
+<ul class="pager hidden-print">
+<li class="previous"><a href="../vlog-002-strefa-komfortu-a-twoje-zarobki/" rel="prev" title="Strefa komfortu, a Twoje zarobki [vlog 002]">Poprzedni&nbsp;post</a></li>
+</ul>
+</nav>
+</aside>
+<section class="comments hidden-print">
+<h2>Komentarze</h2>
+<div id="disqus_thread"></div>
+<script>
+        var disqus_shortname ="testerembyc",
+            disqus_url="https://testerembyc.pl/posts/ci-cd-na-przykladzie-github-actions/",
+        disqus_title="CI/CD na przyk\u0142adzie GitHub Actions",
+        disqus_identifier="cache/posts/ci-cd-na-przykladzie-github-actions.html",
+        disqus_config = function () {
+            this.language = "pl";
+        };
+        (function() {
+            var dsq = document.createElement('script'); dsq.async = true;
+            dsq.src = 'https://' + disqus_shortname + '.disqus.com/embed.js';
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        })();
+</script><noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript> <a class="dsq-brlink" href="https://disqus.com" rel="nofollow">Comments powered by <span class="logo-disqus">Disqus</span></a></section>
+</article>
+<script>
+var disqus_shortname="testerembyc";(function(){var a=document.createElement("script");a.async=true;a.src="https://"+disqus_shortname+".disqus.com/count.js";(document.getElementsByTagName("head")[0]||document.getElementsByTagName("body")[0]).appendChild(a)}());
+</script></div>
+<div class="col-sm-3 blog-sidebar">
+<div class="sidebar-module sidebar-module-inset">
+<form action="https://www.google.com/search" method="get" role="search"><input name="cx" type="hidden" value="013548426528546093847:kxj9yxvrzlu"><input name="ie" type="hidden" value="utf-8"><input name="hl" type="hidden" value="pl">
+<div class="input-group"><input aria-describedby="basic-search" class="form-control" name="q" placeholder="Szukaj" type="text">
+<div class="input-group-btn"><button class="btn btn-danger" type="submit"><span class="glyphicon glyphicon-search" id="basic-search"></span></button></div>
+</div>
+<input name="sitesearch" type="hidden" value="testerembyc"></form>
+</div>
+<div class="sidebar-module sidebar-module-inset">
+<h3>Darmowy&nbsp;poradnik</h3>
+<a href="../../pages/jak-zaczac-automatyzowac-testy/"><img src="../../images/page_lm/jak_zaczac_automatyzowac_small.jpg"></a>
+<p><strong>Jak zacząć automatyzować&nbsp;testy?</strong></p>
+<p>Poznaj 12 pytań, które pomogą Ci rozpocząć proces automatyzacji testów. W zupełnym oderwaniu od języka programowania, frameworków do testów oraz technologi w jakiej napisana została aplikacja, którą będziesz testować. Całość opisana prostym i zrozumiałym&nbsp;językiem.</p>
+<p style="text-align: center"><a class="_submit btn btn-danger" href="../../pages/jak-zaczac-automatyzowac-testy/">Pobieram&nbsp;poradnik</a></p>
+</div>
+<div class="sidebar-module sidebar-module-inset">
+<h3>O&nbsp;mnie</h3>
+<a href="../../pages/o-mnie/"><img src="../../images/me_bw_small.jpg"></a>
+<p>Nazywam się <strong>Maciej Kusz</strong> i od 2008 roku zajmuję się testowaniem oprogramowania. Na początku były to testy manualne, od 2011 początki testów automatycznych, a od 2013 automatyzacją testów z wykorzystaniem <strong>Pythona</strong>. Przez te kilka lat, zdarzyło mi się już być w kilku firmach i w kilku różnych projektach. Na stronie <a href="../../pages/o-mnie/">o mnie</a>, znajdujdziesz ciut więcej informacji na ten&nbsp;temat.</p>
+</div>
+<div class="sidebar-module sidebar-module-inset">
+<form action="https://maciejkusz.activehosted.com/proc.php" id="_form_3_" method="post" name="_form_3_" novalidate=""><input name="u" type="hidden" value="3"><input name="f" type="hidden" value="3"><input name="s" type="hidden"><input name="c" type="hidden" value="0"><input name="m" type="hidden" value="0"><input name="act" type="hidden" value="sub"><input name="v" type="hidden" value="2">
+<h3>Newsletter</h3>
+<div class="_form-content">
+<p>Chcesz być powiadamiany o nowościach na tej stronie oraz innych moich&nbsp;projektach?</p>
+<p>Jeśli tak, to zapisz się poniżej do&nbsp;newsletter’a.</p>
+<div class="input-group" id="basic-fullname-group"><span class="input-group-addon" id="basic-fullname">Imię</span> <input aria-describedby="basic-fullname" class="form-control" name="fullname" placeholder="Wpisz swoje imię" type="text"></div>
+<div class="input-group" id="basic-lastname-group"><span class="input-group-addon" id="basic-lastname">Nazwisko</span> <input aria-describedby="basic-fullname" class="form-control" name="lastname" placeholder="Wpisz swoje nazwisko" type="text"></div>
+<div class="input-group" id="basic-email-group"><span class="input-group-addon" id="basic-email">E-mail</span> <input aria-describedby="basic-email" class="form-control" name="email" placeholder="Wpisz swój e-mail" required="" type="text"></div>
+<button class="_submit btn btn-danger" id="_form_3_submit" style="margin-left: auto; margin-right: auto; display: block;" type="submit">Zapisz się</button>
+<div class="_clear-element"></div>
+</div>
+<div class="_form-thank-you" style="display:none;"></div>
+<p style="font-size: 10px; margin-top: 5px;">Wszystkie podane przez Ciebie dane, będą przetwarzane zgodnie z <a href="../../pages/polityka-prywatnosci">polityką prywatności</a>.</p>
+</form>
+<script type="text/javascript">
+window.cfields = [];
+window._show_thank_you = function(id, message, trackcmp_url) {
+  var form = document.getElementById('_form_' + id + '_'), thank_you = form.querySelector('._form-thank-you');
+  form.querySelector('._form-content').style.display = 'none';
+  thank_you.innerHTML = message;
+  thank_you.style.display = 'block';
+  if (typeof(trackcmp_url) != 'undefined' && trackcmp_url) {
+    // Site tracking URL to use after inline form submission.
+    _load_script(trackcmp_url);
+  }
+  if (typeof window._form_callback !== 'undefined') window._form_callback(id);
+};
+window._show_error = function(id, message, html) {
+  var form = document.getElementById('_form_' + id + '_'), err = document.createElement('div'), button = form.querySelector('button'), old_error = form.querySelector('._form_error');
+  if (old_error) old_error.parentNode.removeChild(old_error);
+  err.innerHTML = message;
+  err.className = '_error-inner _form_error _no_arrow';
+  var wrapper = document.createElement('div');
+  wrapper.className = '_form-inner';
+  wrapper.appendChild(err);
+  button.parentNode.insertBefore(wrapper, button);
+  document.querySelector('[id^="_form"][id$="_submit"]').disabled = false;
+  if (html) {
+    var div = document.createElement('div');
+    div.className = '_error-html';
+    div.innerHTML = html;
+    err.appendChild(div);
+  }
+};
+window._load_script = function(url, callback) {
+    var head = document.querySelector('head'), script = document.createElement('script'), r = false;
+    script.type = 'text/javascript';
+    script.charset = 'utf-8';
+    script.src = url;
+    if (callback) {
+      script.onload = script.onreadystatechange = function() {
+      if (!r && (!this.readyState || this.readyState == 'complete')) {
+        r = true;
+        callback();
+        }
+      };
+    }
+    head.appendChild(script);
+};
+(function() {
+  if (window.location.search.search("excludeform") !== -1) return false;
+  var getCookie = function(name) {
+    var match = document.cookie.match(new RegExp('(^|; )' + name + '=([^;]+)'));
+    return match ? match[2] : null;
+  }
+  var setCookie = function(name, value) {
+    var now = new Date();
+    var time = now.getTime();
+    var expireTime = time + 1000 * 60 * 60 * 24 * 365;
+    now.setTime(expireTime);
+    document.cookie = name + '=' + value + '; expires=' + now + ';path=/';
+  }
+      var addEvent = function(element, event, func) {
+    if (element.addEventListener) {
+      element.addEventListener(event, func);
+    } else {
+      var oldFunc = element['on' + event];
+      element['on' + event] = function() {
+        oldFunc.apply(this, arguments);
+        func.apply(this, arguments);
+      };
+    }
+  }
+  var _removed = false;
+  var form_to_submit = document.getElementById('_form_3_');
+  var allInputs = form_to_submit.querySelectorAll('input, select, textarea'), tooltips = [], submitted = false;
+
+  var getUrlParam = function(name) {
+    var regexStr = '[\?&]' + name + '=([^&#]*)';
+    var results = new RegExp(regexStr, 'i').exec(window.location.href);
+    return results != undefined ? decodeURIComponent(results[1]) : false;
+  };
+
+  for (var i = 0; i < allInputs.length; i++) {
+    var regexStr = "field\[(\d+)\]";
+    var results = new RegExp(regexStr).exec(allInputs[i].name);
+    if (results != undefined) {
+      allInputs[i].dataset.name = window.cfields[results[1]];
+    } else {
+      allInputs[i].dataset.name = allInputs[i].name;
+    }
+    var fieldVal = getUrlParam(allInputs[i].dataset.name);
+
+    if (fieldVal) {
+      if (allInputs[i].type == "radio" || allInputs[i].type == "checkbox") {
+        if (allInputs[i].value == fieldVal) {
+          allInputs[i].checked = true;
+        }
+      } else {
+        allInputs[i].value = fieldVal;
+      }
+    }
+  }
+
+  var remove_tooltips = function() {
+    for (var i = 0; i < tooltips.length; i++) {
+      tooltips[i].tip.parentNode.removeChild(tooltips[i].tip);
+    }
+      tooltips = [];
+  };
+  var remove_tooltip = function(elem) {
+    for (var i = 0; i < tooltips.length; i++) {
+      if (tooltips[i].elem === elem) {
+        tooltips[i].tip.parentNode.removeChild(tooltips[i].tip);
+        tooltips.splice(i, 1);
+        return;
+      }
+    }
+  };
+  var create_tooltip = function(elem, text) {
+    var tooltip = document.createElement('label'), arrow = document.createElement('div'), inner = document.createElement('div'), new_tooltip = {};
+    if (elem.type != 'radio' && elem.type != 'checkbox') {
+      tooltip.className = 'label label-danger';
+      tooltip.innerHTML = text;
+      elem.parentNode.parentNode.insertBefore(tooltip, elem.parentNode);
+    } else {
+      tooltip.className = '_error-inner _no_arrow';
+      tooltip.innerHTML = text;
+      elem.parentNode.insertBefore(tooltip, elem);
+      new_tooltip.no_arrow = true;
+    }
+    new_tooltip.tip = tooltip;
+    new_tooltip.elem = elem;
+    tooltips.push(new_tooltip);
+    return new_tooltip;
+  };
+  var resize_tooltip = function(tooltip) {
+    var rect = tooltip.elem.getBoundingClientRect();
+    var doc = document.documentElement, scrollPosition = rect.top - ((window.pageYOffset || doc.scrollTop)  - (doc.clientTop || 0));
+    if (scrollPosition < 40) {
+      tooltip.tip.className = tooltip.tip.className.replace(/ ?(_above|_below) ?/g, '') + ' _below';
+    } else {
+      tooltip.tip.className = tooltip.tip.className.replace(/ ?(_above|_below) ?/g, '') + ' _above';
+    }
+  };
+  var resize_tooltips = function() {
+    if (_removed) return;
+    for (var i = 0; i < tooltips.length; i++) {
+      if (!tooltips[i].no_arrow) resize_tooltip(tooltips[i]);
+    }
+  };
+  var validate_field = function(elem, remove) {
+    var tooltip = null, value = elem.value, no_error = true;
+    remove ? remove_tooltip(elem) : false;
+    if (elem.type != 'checkbox') elem.className = elem.className.replace(/ ?_has_error ?/g, '');
+    if (elem.getAttribute('required') !== null) {
+      if (elem.type == 'radio' || (elem.type == 'checkbox' && /any/.test(elem.className))) {
+        var elems = form_to_submit.elements[elem.name];
+        if (!(elems instanceof NodeList || elems instanceof HTMLCollection) || elems.length <= 1) {
+          no_error = elem.checked;
+        }
+        else {
+          no_error = false;
+          for (var i = 0; i < elems.length; i++) {
+            if (elems[i].checked) no_error = true;
+          }
+        }
+        if (!no_error) {
+          tooltip = create_tooltip(elem, "Wybierz opcję.");
+        }
+      } else if (elem.type =='checkbox') {
+        var elems = form_to_submit.elements[elem.name], found = false, err = [];
+        no_error = true;
+        for (var i = 0; i < elems.length; i++) {
+          if (elems[i].getAttribute('required') === null) continue;
+          if (!found && elems[i] !== elem) return true;
+          found = true;
+          elems[i].className = elems[i].className.replace(/ ?_has_error ?/g, '');
+          if (!elems[i].checked) {
+            no_error = false;
+            elems[i].className = elems[i].className + ' _has_error';
+            err.push("Zaznaczenie %s jest wymagane".replace("%s", elems[i].value));
+          }
+        }
+        if (!no_error) {
+          tooltip = create_tooltip(elem, err.join('<br/>'));
+        }
+      } else if (elem.tagName == '<span class="caps">SELECT</span>') {
+        var selected = true;
+        if (elem.multiple) {
+          selected = false;
+          for (var i = 0; i < elem.options.length; i++) {
+            if (elem.options[i].selected) {
+              selected = true;
+              break;
+            }
+          }
+        } else {
+          for (var i = 0; i < elem.options.length; i++) {
+            if (elem.options[i].selected && !elem.options[i].value) {
+              selected = false;
+            }
+          }
+        }
+        if (!selected) {
+          elem.className = elem.className + ' _has_error';
+          no_error = false;
+          tooltip = create_tooltip(elem, "Wybierz opcję.");
+        }
+      } else if (value === undefined || value === null || value === '') {
+        elem.className = elem.className + ' _has_error';
+        no_error = false;
+        tooltip = create_tooltip(elem, "To pole jest wymagane.");
+      }
+    }
+    if (no_error && elem.name == 'email') {
+      if (!value.match(/^[\+_a-z0-9-'&=]+(\.[\+_a-z0-9-']+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,})$/i)) {
+        elem.className = elem.className + ' _has_error';
+        no_error = false;
+        tooltip = create_tooltip(elem, "Wpisz poprawny adres e-mail.");
+      }
+    }
+    if (no_error && /date_field/.test(elem.className)) {
+      if (!value.match(/^\d\d\d\d-\d\d-\d\d$/)) {
+        elem.className = elem.className + ' _has_error';
+        no_error = false;
+        tooltip = create_tooltip(elem, "Wpisz poprawną datę.");
+      }
+    }
+    tooltip ? resize_tooltip(tooltip) : false;
+    return no_error;
+  };
+  var needs_validate = function(el) {
+    return el.name == 'email' || el.getAttribute('required') !== null;
+  };
+  var validate_form = function(e) {
+    var err = form_to_submit.querySelector('._form_error'), no_error = true;
+    if (!submitted) {
+      submitted = true;
+      for (var i = 0, len = allInputs.length; i < len; i++) {
+        var input = allInputs[i];
+        if (needs_validate(input)) {
+          if (input.type == 'text') {
+            addEvent(input, 'blur', function() {
+              this.value = this.value.trim();
+              validate_field(this, true);
+            });
+            addEvent(input, 'input', function() {
+              validate_field(this, true);
+            });
+          } else if (input.type == 'radio' || input.type == 'checkbox') {
+            (function(el) {
+              var radios = form_to_submit.elements[el.name];
+              for (var i = 0; i < radios.length; i++) {
+                addEvent(radios[i], 'click', function() {
+                  validate_field(el, true);
+                });
+              }
+            })(input);
+          } else if (input.tagName == 'SELECT') {
+            addEvent(input, 'change', function() {
+              validate_field(this, true);
+            });
+          } else if (input.type == 'textarea'){
+            addEvent(input, 'input', function() {
+              validate_field(this, true);
+            });
+          }
+        }
+      }
+    }
+    remove_tooltips();
+    for (var i = 0, len = allInputs.length; i < len; i++) {
+      var elem = allInputs[i];
+      if (needs_validate(elem)) {
+        if (elem.tagName.toLowerCase() !== "select") {
+          elem.value = elem.value.trim();
+        }
+        validate_field(elem) ? true : no_error = false;
+      }
+    }
+    if (!no_error && e) {
+      e.preventDefault();
+    }
+    resize_tooltips();
+    return no_error;
+  };
+  addEvent(window, 'resize', resize_tooltips);
+  addEvent(window, 'scroll', resize_tooltips);
+  window._old_serialize = null;
+  if (typeof serialize !== 'undefined') window._old_serialize = window.serialize;
+  _load_script("//d3rxaij56vjege.cloudfront.net/form-serialize/0.3/serialize.min.js", function() {
+    window._form_serialize = window.serialize;
+    if (window._old_serialize) window.serialize = window._old_serialize;
+  });
+  var form_submit = function(e) {
+    e.preventDefault();
+    if (validate_form()) {
+      // use this trick to get the submit button <span class="amp">&amp;</span> disable it using plain javascript
+      document.querySelector('#_form_3_submit').disabled = true;
+            var serialized = _form_serialize(document.getElementById('_form_3_'));
+      var err = form_to_submit.querySelector('._form_error');
+      err ? err.parentNode.removeChild(err) : false;
+      _load_script('https://maciejkusz.activehosted.com/proc.php?' + serialized + '&jsonp=true');
+    }
+    return false;
+  };aw
+  addEvent(form_to_submit, 'submit', form_submit);
+})();
+
+</script></div>
+<div class="sidebar-module sidebar-module-inset">
+<h3>Linki</h3>
+<ol class="list-unstyled">
+<li><a href="../../pages/polityka-prywatnosci/">Polityka&nbsp;prywatności</a></li>
+<li><a href="../../pages/regulamin/">Regulamin</a></li>
+</ol>
+<ol class="list-unstyled icons">
+<li><a class="fas fa-at" href="mailto:maciej@testerembyc.pl" target="_bland"></a></li>
+<li><a class="fab fa-facebook" href="https://www.facebook.com/testerembyc/" target="_blank"></a></li>
+<li><a class="fab fa-instagram" href="https://www.instagram.com/testerembyc/" target="_blank"></a></li>
+<li><a class="fab fa-linkedin" href="https://www.linkedin.com/in/maciej-kusz/" target="_blank"></a></li>
+<li><a class="fab fa-youtube" href="https://www.youtube.com/channel/UCm3xa7IkyYBFSZrisCBx53A" target="_blank"></a></li>
+</ol>
+</div>
+</div>
+<!--End of body content--></div>
+</div>
+<footer class="blog-footer" id="footer">© 2021 <span style="font-weight: bold; color: #ffffff;">Maciej Kusz</span> w oparciu o silnik <a href="https://getnikola.com/" rel="nofollow" target="_blank"><img src="../../images/nikola_logo.svg" style="max-height: 20px; max-width: 50px"></a> z wykorzystaniem <a href="https://pages.github.com/" rel="nofollow" target="_blank"><img src="../../images/githubpages_logo.svg" style="max-height: 15px; max-width: 80px;"></a></footer>
+</div>
+</div>
+<script type="text/javascript">
+/*
+ * Bootstrap Cookie Alert by Wruczek
+ * https://github.com/Wruczek/Bootstrap-Cookie-Alert
+ * Released under MIT license
+ */
+(function () {
+    "use strict";
+
+    var cookieAlert = document.querySelector(".cookiealert");
+    var acceptCookies = document.querySelector(".acceptcookies");
+
+    if (!cookieAlert) {
+       return;
+    }
+
+
+    // Show the alert if we cant find the "acceptCookies" cookie
+    if (!getCookie("acceptCookies")) {
+        cookieAlert.classList.add("show");
+    } else {
+        cookieAlert.classList.remove("show")
+    }
+
+    // When clicking on the agree button, create a 1 year
+    // cookie to remember user's choice and close the banner
+    acceptCookies.addEventListener("click", function () {
+        setCookie("acceptCookies", true, 365);
+        cookieAlert.classList.remove("show");
+    });
+
+    // Cookie functions from w3schools
+    function setCookie(cname, cvalue, exdays) {
+        var d = new Date();
+        d.setTime(d.getTime() + (exdays * 24 * 60 * 60 * 1000));
+        var expires = "expires=" + d.toUTCString();
+        document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
+    }
+
+    function getCookie(cname) {
+        var name = cname + "=";
+        var decodedCookie = decodeURIComponent(document.cookie);
+        var ca = decodedCookie.split(';');
+        for (var i = 0; i < ca.length; i++) {
+            var c = ca[i];
+            while (c.charAt(0) === ' ') {
+                c = c.substring(1);
+            }
+            if (c.indexOf(name) === 0) {
+                return c.substring(name.length, c.length);
+            }
+        }
+        return "";
+    }
+})();
+</script>
+<script src="../../assets/js/jquery.min.js"></script>
+<script src="../../assets/js/bootstrap.min.js"></script>
+<script src="../../assets/js/baguetteBox.min.js"></script>
+<script src="../../assets/js/fancydates.min.js"></script><!-- fancy dates -->
+<script>
+
+    moment.locale("pl");
+    fancydates(0, "YYYY-MM-DD HH:mm");
+</script><!-- end fancy dates -->
+<script>
+
+    baguetteBox.run('div#content', {
+        ignoreClass: 'islink',
+        captions: function(element) {
+            return element.getElementsByTagName('img')[0].alt;
+    }});
+</script><!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-143859058-1"></script>
+<script>
+
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'UA-143859058-1');
+</script><!-- Load Facebook SDK for JavaScript -->
+<div id="fb-root"></div>
+<script>
+  window.fbAsyncInit = function() {
+    FB.init({
+      xfbml            : true,
+      version          : 'v3.3'
+    });
+  };
+
+  (function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = 'https://connect.facebook.net/pl_PL/sdk/xfbml.customerchat.js';
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));
+</script><!-- Your customer chat code -->
+<div attribution="setup_tool" class="fb-customerchat" logged_in_greeting="Witaj! Jeśli chcesz dowiedzieć się czegoś więcej, to zapraszam do rozmowy ;)" logged_out_greeting="Witaj! Jeśli chcesz dowiedzieć się czegoś więcej, to zapraszam do rozmowy ;)" page_id="391052181505294" theme_color="#337ab7"></div>
+<!-- Facebook Pixel Code -->
+<script>
+  !function(f,b,e,v,n,t,s)
+  {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+  n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+  if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+  n.queue=[];t=b.createElement(e);t.async=!0;
+  t.src=v;s=b.getElementsByTagName(e)[0];
+  s.parentNode.insertBefore(t,s)}(window, document,'script',
+  'https://connect.facebook.net/en_US/fbevents.js');
+  fbq('init', '444619046317574');
+  fbq('track', 'PageView');
+</script><noscript><img alt="Facebook Pixel" height="1" src="https://www.facebook.com/tr?id=444619046317574&amp;ev=PageView&amp;noscript=1" style="display:none" width="1"></noscript> <!-- End Facebook Pixel Code -->
+</body>
+</html>

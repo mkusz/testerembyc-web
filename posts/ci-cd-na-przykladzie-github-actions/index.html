@@ -113,7 +113,7 @@
 </li>
 <li><a href="#na-zakonczenie">Na&nbsp;zakończenie</a></li>
 <li><a href="#koszty">Koszty</a></li>
-<li><a href="#jak-wykorzystac-github-actions-w-testach-automatycznych">Jak wykorzystać GitHub Actions w testach&nbsp;automatycznych?</a></li>
+<li><a href="#github-actions-w-testach-automatycznych">GitHub Actions w testach&nbsp;automatycznych?</a></li>
 <li><a href="#podsumowanie">Podsumowanie</a></li>
 <li><a href="#bonus">Bonus</a></li>
 </ul>
@@ -128,7 +128,7 @@
 <li><strong>wikis</strong> - baza&nbsp;wiedzy,</li>
 <li><strong>pages</strong> - hosting statycznej strony&nbsp;www,</li>
 </ul>
-<p>Jest też kilka innych, mniej istotnych. Do tworzenia tego blog, sam wykorzystuję kilka z&nbsp;powyższych.</p>
+<p>Jest też kilka innych, mniej istotnych. Do tworzenia tego bloga, sam wykorzystuję kilka z&nbsp;powyższych.</p>
 <p>Czy GitHub jest jedyną platformą, która posiada powyższe funkcjonalności? Oczywiście, że nie. Jedną z alternatyw, która posiada niemal identyczną funkcjonalność, jest <a href="htts://gitlab.com/">GitLab</a>.</p>
 <p>Istnieje również wspomniany wcześniej <a href="https://www.jenkins.io">Jenkins</a>, jednak jest on narzędzie stricte do automatyzacji procesu <span class="caps">CI</span>/<span class="caps">CD</span> i nie posiada np. swojego repozytorium&nbsp;git.</p>
 <p>Pomiędzy GitHub oraz GitLab istnieją pewne różnice jednak większość z nich to kwestia kosmetyczne. Są również pewne mniej lub bardziej istotne różnice, ale w codziennym użytkowaniu, nie zawsze są one zauważalne. Sam używam obydwu, ale wynika to między innymi z faktu, że jeden z moich klientów, używa właśnie GitLaba. Osobiście bardziej preferuję&nbsp;GitHuba.</p>
@@ -378,13 +378,13 @@
 <p>oraz kliknąć przycisk <strong>Add secret</strong>.</p>
 <p class="captionb"><img alt="New secret" src="../../images/posts/ci-cd-na-przykladzie-github-actions/new_secret.png"> New&nbsp;secret</p>
 <h2 id="na-zakonczenie">Na zakończenie<a class="headerlink" href="#na-zakonczenie" title="Permalink to this heading">¶</a></h2>
-<p>Żeby to wszystko teraz zadziałało, musimy jeszcze umieścić&nbsp;plik <code>deploy-nikola.yml</code> (<code>git commit</code> oraz <code>git push</code>) w repozytorium. Od teraz każdy kolejna zmiana lub dodanie plików do głównego brancha, spowoduje automatyczne uruchomienie utworzonego workflow oraz akcji, jakie zostało w nim ustawione. Podgląd możemy zawsze znaleźć w zakładce <strong>Actions</strong> naszego repozytorium, a następnie przejść do naszego workglow oraz ostatnio wykonanego uruchomienia&nbsp;workflow.</p>
+<p>Żeby to wszystko teraz zadziałało, musimy jeszcze umieścić&nbsp;plik <code>deploy-nikola.yml</code> (<code>git commit</code> oraz <code>git push</code>) w repozytorium. Od teraz każdy kolejna zmiana lub dodanie plików do głównego brancha, spowoduje automatyczne uruchomienie utworzonego workflow oraz akcji, jakie zostało w nim ustawione. Podgląd możemy zawsze znaleźć w zakładce <strong>Actions</strong> naszego repozytorium, a następnie przejść do naszego workflow oraz ostatnio wykonanego uruchomienia&nbsp;workflow.</p>
 <p class="captionb"><img alt="Actions" src="../../images/posts/ci-cd-na-przykladzie-github-actions/actions.png">&nbsp;Actions</p>
 <p class="captionb"><img alt="Action status" src="../../images/posts/ci-cd-na-przykladzie-github-actions/action_details.png"> Action&nbsp;Status</p>
 <h2 id="koszty">Koszty<a class="headerlink" href="#koszty" title="Permalink to this heading">¶</a></h2>
 <p>GitHub Actions jest darmowe, ale ma pewne ograniczenie, tzn. w ramach darmowego konta, można wykorzystać maksymalnie 2000 minut, w których czasie każdy tzw. runner, będzie wykonywał akcje opisane w ramach akcji. Ograniczenie to można obejść, jeśli wykorzystamy tzw. self-hosted runners, czyli jeśli runner będzie uruchamiany na naszym&nbsp;serwerze.</p>
-<h2 id="jak-wykorzystac-github-actions-w-testach-automatycznych">Jak wykorzystać GitHub Actions w testach automatycznych?<a class="headerlink" href="#jak-wykorzystac-github-actions-w-testach-automatycznych" title="Permalink to this heading">¶</a></h2>
-<p>Zapewne po przeczytaniu całego tego wpisu, masz już kilka własnych pomysłów jak można wykorzystać GitHub Actions w testach automatycznych. Poniżej przedstawiam listę kilku własnych pomysłów. Być może pokrywają się z Twoimi pomysłami, a być może podpowiedzą kilka&nbsp;nowych.</p>
+<h2 id="github-actions-w-testach-automatycznych">GitHub Actions w testach automatycznych?<a class="headerlink" href="#github-actions-w-testach-automatycznych" title="Permalink to this heading">¶</a></h2>
+<p>Zapewne po przeczytaniu całego tego wpisu, masz już kilka własnych pomysłów, jak można wykorzystać GitHub Actions w testach automatycznych. Poniżej przedstawiam listę kilku własnych pomysłów. Być może pokrywają się z Twoimi pomysłami, a być może podpowiedzą kilka&nbsp;nowych.</p>
 <ul>
 <li>W niemal identyczny sposób jak powyżej opisany (tzn. z wykorzystaniem GitHub Actions oraz GitHub Pages) można generować raporty z narzędzia, jakim jest <a href="http://allure.qatools.ru">Allure</a>.</li>
 <li>Podobnie ma się sprawa z generacją dokumentacji kodu testów automatycznych, np. przy użyciu biblioteki <a href="https://www.sphinx-doc.org/en/master/">Sphinx</a>.</li>
@@ -1116,7 +1116,7 @@ window._load_script = function(url, callback) {
 <li><a href="../../pages/regulamin/">Regulamin</a></li>
 </ol>
 <ol class="list-unstyled icons">
-<li><a class="fas fa-at" href="mailto:maciej@testerembyc.pl" target="_bland"></a></li>
+<li><a class="fas fa-at" href="mailto:maciej@testerembyc.pl" target="_blank"></a></li>
 <li><a class="fab fa-facebook" href="https://www.facebook.com/testerembyc/" target="_blank"></a></li>
 <li><a class="fab fa-instagram" href="https://www.instagram.com/testerembyc/" target="_blank"></a></li>
 <li><a class="fab fa-linkedin" href="https://www.linkedin.com/in/maciej-kusz/" target="_blank"></a></li>

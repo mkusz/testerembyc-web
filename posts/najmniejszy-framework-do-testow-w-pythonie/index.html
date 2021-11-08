@@ -45,7 +45,7 @@
 <div class="blog-masthead">
 <div class="container"><!-- This keeps the margins nice -->
 <div class="blog-header">
-<h1 class="blog-title"><a href="https://testerembyc.pl/"><img alt="testerembyc.pl" id="logo" src="../../images/testerembyc_logo.svg"><span id="blog-title">testerembyc.pl</span></a></h1>
+<h1 class="blog-title"><a href="https://testerembyc.pl/" rel="nofollow"><img alt="testerembyc.pl" id="logo" src="../../images/testerembyc_logo.svg"><span id="blog-title">testerembyc.pl</span></a></h1>
 <!-- <p class="lead blog-description">Czyli blog o tym, jak to jest być nie tylko&nbsp;testerem</p> # Original one -->
 <p class="lead blog-description">Czyli blog o tym, jak to jest być nie tylko <span>testerem</span></p>
 </div>
@@ -72,7 +72,7 @@
 </header>
 <div class="e-content entry-content" itemprop="articleBody text">
 <div>
-<p class="caption"><a href="../najmniejszy-framework-do-testow-w-pythonie"><img alt="Najmniejszy framework do testów w Pythoniee" src="../../images/posts/najmniejszy-framework-do-testow-w-pythonie.jpg"></a> Wykorzystano zdjęcie autorstwa <a href="https://www.pexels.com/pl-pl/@readymade">ready made</a> z <a href="https://www.pexels.com/">Pexels</a></p>
+<p class="caption"><a href="../najmniejszy-framework-do-testow-w-pythonie"><img alt="Najmniejszy framework do testów w Pythoniee" src="../../images/posts/najmniejszy-framework-do-testow-w-pythonie.jpg"></a> Wykorzystano zdjęcie autorstwa <a href="https://www.pexels.com/pl-pl/@readymade" rel="nofollow">ready made</a> z <a href="https://www.pexels.com/" rel="nofollow">Pexels</a></p>
 <p>Jeśli interesujesz się choć trochę programowaniem, to zapewne trafiłeś kiedyś na artykuły porównujące, ile linii kodu potrzebnych jest do stworzenia uwielbianego <em>hello world</em> w różnych językach programowania. Sam zresztą pokazywałem, w pierwszym wpisie na tym blogu ile linii kodu potrzebne jest w Pythonie, aby wyświetlić proste <a href="../witaj-swiecie">witaj swiecie</a>. A co by się stało, gdybyśmy w tych rozważaniach poszli ciut dalej i zastanowili się, ile potrzebnych jest linii kodu, aby stworzyć działający framework do&nbsp;testów?</p>
 <!-- more -->
 <div class="toc">
@@ -109,20 +109,20 @@
 <p>Do tego artykułu istnieje kontynuacja, ale zachęcam do przeczytania obu artykułów w kolejności, w jakiej były publikowane. Jeśli jednak znasz już ten artykuł, to kolejny zatytułowany jest <a href="../jeszcze-mniejszy-framework-do-testow-w-pythonie">jeszcze mniejszy framework do testów w pythonie</a> i również zachęcam do jego&nbsp;lektury.</p>
 </div>
 <h2 id="ale-skad-w-ogole-ten-pomys">Ale skąd w ogóle ten pomysł?<a class="headerlink" href="#ale-skad-w-ogole-ten-pomys" title="Permalink to this heading">¶</a></h2>
-<p>Historia tego pomysłu sięga początków tegorocznej pandemii i sławnego <a href="https://www.siepomaga.pl/hot16challenge">#hot16challenge</a> oraz pomysłu, o jakim opowiedział mi wtedy <strong>Bartosz Kita</strong> z bloga <a href="https://testerprogramuje.pl/">Tester Programuje</a>. Sam pomysł był prosty i do tej pory mocno żałuję, że pomimo gotowego kodu, nie znalazłem czasu na nagranie krótkiego filmu, gdzie bym o tym opowiedział (wybacz Bartek, bo pomysł był przedni). O co chodzi? Najlepiej niech sam autor o tym&nbsp;opowie:</p>
+<p>Historia tego pomysłu sięga początków tegorocznej pandemii i sławnego <a href="https://www.siepomaga.pl/hot16challenge" rel="nofollow">#hot16challenge</a> oraz pomysłu, o jakim opowiedział mi wtedy <strong>Bartosz Kita</strong> z bloga <a href="https://testerprogramuje.pl/" rel="nofollow">Tester Programuje</a>. Sam pomysł był prosty i do tej pory mocno żałuję, że pomimo gotowego kodu, nie znalazłem czasu na nagranie krótkiego filmu, gdzie bym o tym opowiedział (wybacz Bartek, bo pomysł był przedni). O co chodzi? Najlepiej niech sam autor o tym&nbsp;opowie:</p>
 <div class="youtube-video"><iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen frameborder="0" height="392" src="https://www.youtube.com/embed/jLV1VaneJWs" title="YouTube video player" width="696"></iframe></div>
 <p>Wiem, że akcja już dawno przestała być modna, ale skoro kod powstał, a wiele osób prosiło mnie o ciut bardziej techniczne wpisy, to pobawmy się wspólnie troszkę Pythonem i pokażę Ci jego siłę. Jak zapewne domyślasz się po treści powyższego filmu, spróbuję pokazać Ci, że w <strong>16 linijkach kodu</strong> da się stworzyć działający <strong>framework do testów</strong>.</p>
-<p>Zanim jednak to zrobię, miej na uwadze, że zostanie tu złamane kilka reguł formatowania kodu Pythona, które są opisane w dokumencie <a href="https://www.python.org/dev/peps/pep-0008/"><span class="caps">PEP</span>-8 - Style Guide for Python Code</a>. Bez tych drobnych, celowych <em>wypaczeń</em>, nie udało mi się upakować kodu w tak małej ilości&nbsp;linijek.</p>
+<p>Zanim jednak to zrobię, miej na uwadze, że zostanie tu złamane kilka reguł formatowania kodu Pythona, które są opisane w dokumencie <a href="https://www.python.org/dev/peps/pep-0008/" rel="nofollow"><span class="caps">PEP</span>-8 - Style Guide for Python Code</a>. Bez tych drobnych, celowych <em>wypaczeń</em>, nie udało mi się upakować kodu w tak małej ilości&nbsp;linijek.</p>
 <h2 id="zaozenia">Założenia<a class="headerlink" href="#zaozenia" title="Permalink to this heading">¶</a></h2>
 <p>Aby cała powyższa zabawa w ogóle nam się udała, musimy przyjąć pewne założenia i mieć świadomość, że stworzony framework będzie miał dosyć ograniczoną funkcjonalność (choć bardzo łatwo będzie można ją rozszerzyć). Założenia, jakie przyjąłem, prezentują się&nbsp;następująco:</p>
 <ul>
-<li>zajmiemy się testami <span class="caps">REST</span> <span class="caps">API</span> - wysyłając zapytanie do <span class="caps">REST</span> <span class="caps">API</span>, w odpowiedzi zawsze otrzymamy <a href="https://www.iana.org/assignments/http-status-codes/http-status-codes.xhtml">kod statusu odpowiedzi</a>, a tworzony framework będzie sprawdzał właśnie ten&nbsp;kod,</li>
+<li>zajmiemy się testami <span class="caps">REST</span> <span class="caps">API</span> - wysyłając zapytanie do <span class="caps">REST</span> <span class="caps">API</span>, w odpowiedzi zawsze otrzymamy <a href="https://www.iana.org/assignments/http-status-codes/http-status-codes.xhtml" rel="nofollow">kod statusu odpowiedzi</a>, a tworzony framework będzie sprawdzał właśnie ten&nbsp;kod,</li>
 <li>dane testowe będą przechowywane poza kodem Pythona - takie podejście pomoże nam zaoszczędzić kilka linijek kodu, ale również umożliwi tworzenie kolejnych testów tylko poprzez edycję zewnętrznego pliku oraz nie będzie wymagało znajomości&nbsp;Pythona,</li>
 <li>framework powinien wygenerować jakąś formę raportu - co to za testy, po których uruchomieniu nie dostaniemy jakiegoś&nbsp;raportu?</li>
 </ul>
 <p>Założenia są proste, ale na pierwszy rzut oka wydaje się to praktycznie niemożliwe. A gdzieś napisałem, że tworzony kod będzie prosty i że to zadanie będzie łatwe do&nbsp;wykonania?</p>
 <h2 id="co-bedziemy-testowac">Co będziemy testować?<a class="headerlink" href="#co-bedziemy-testowac" title="Permalink to this heading">¶</a></h2>
-<p>Skoro już wiemy, że chcemy testować jakieś <span class="caps">REST</span> <span class="caps">API</span>, to przydałoby się nam takie. Pod adresem <a href="https://reqres.in/">https://reqres.in/</a> znajduje się przykładowe i dosyć proste <span class="caps">API</span>. Pomimo swoich ograniczeń na nasze potrzeby jest w zupełności&nbsp;wystarczające.</p>
+<p>Skoro już wiemy, że chcemy testować jakieś <span class="caps">REST</span> <span class="caps">API</span>, to przydałoby się nam takie. Pod adresem <a href="https://reqres.in/" rel="nofollow">https://reqres.in/</a> znajduje się przykładowe i dosyć proste <span class="caps">API</span>. Pomimo swoich ograniczeń na nasze potrzeby jest w zupełności&nbsp;wystarczające.</p>
 <h2 id="potrzebne-biblioteki">Potrzebne biblioteki<a class="headerlink" href="#potrzebne-biblioteki" title="Permalink to this heading">¶</a></h2>
 <p>Skoro znamy już założenia, zastanówmy się, z czego możemy skorzystać, aby maksymalnie ograniczyć potrzebną ilość linii&nbsp;kodu.</p>
 <h3 id="requests">requests<a class="headerlink" href="#requests" title="Permalink to this heading">¶</a></h3>
@@ -130,13 +130,13 @@
 <pre class="code literal-block"><span class="go">python -m pip install requests</span>
 </pre>
 <h3 id="unittest">unittest<a class="headerlink" href="#unittest" title="Permalink to this heading">¶</a></h3>
-<p><a href="https://docs.python.org/3/library/unittest.html">Unittest</a> to wbudowany w bibliotekę standardową framework do przeprowadzania testów, a więc nie wymaga dodatkowej instalacji. W naszym kodzie posłuży nam jako podstawa budowanego&nbsp;frameworka.</p>
+<p><a href="https://docs.python.org/3/library/unittest.html" rel="nofollow">Unittest</a> to wbudowany w bibliotekę standardową framework do przeprowadzania testów, a więc nie wymaga dodatkowej instalacji. W naszym kodzie posłuży nam jako podstawa budowanego&nbsp;frameworka.</p>
 <h3 id="xmlrunner">xmlrunner<a class="headerlink" href="#xmlrunner" title="Permalink to this heading">¶</a></h3>
-<p><a href="https://unittest-xml-reporting.readthedocs.io/en/latest/">Xmlrunner</a> jest tzw. runnerem dla frameworka <em>unittest</em>, który umożliwia generowanie raportów w formacie <span class="caps">XML</span>, zgodnym ze <a href="https://github.com/windyroad/JUnit-Schema">schematem JUnit</a>. Format ten akceptowany jest przez większość narzędzi <span class="caps">CI</span>/<span class="caps">CD</span>, a więc budowany framework można bardzo prosto z takimi narzędziami zintegrować oraz przeglądać raport z przeprowadzonych testów. W celu instalacji biblioteki należy wydać następującą&nbsp;komendę:</p>
+<p><a href="https://unittest-xml-reporting.readthedocs.io/en/latest/" rel="nofollow">Xmlrunner</a> jest tzw. runnerem dla frameworka <em>unittest</em>, który umożliwia generowanie raportów w formacie <span class="caps">XML</span>, zgodnym ze <a href="https://github.com/windyroad/JUnit-Schema" rel="nofollow">schematem JUnit</a>. Format ten akceptowany jest przez większość narzędzi <span class="caps">CI</span>/<span class="caps">CD</span>, a więc budowany framework można bardzo prosto z takimi narzędziami zintegrować oraz przeglądać raport z przeprowadzonych testów. W celu instalacji biblioteki należy wydać następującą&nbsp;komendę:</p>
 <pre class="code literal-block"><span class="go">pip install unittest-xml-reporting</span>
 </pre>
 <h3 id="json">json<a class="headerlink" href="#json" title="Permalink to this heading">¶</a></h3>
-<p>Standardowa biblioteka Pythona, a więc nie wymaga instalacji. Biblioteka ta umożliwia obsługę danych w formacie <a href="https://www.json.org/json-en.html"><span class="caps">JSON</span></a> i posłuży do odczytu danych testowych z zewnętrznego&nbsp;pliku.</p>
+<p>Standardowa biblioteka Pythona, a więc nie wymaga instalacji. Biblioteka ta umożliwia obsługę danych w formacie <a href="https://www.json.org/json-en.html" rel="nofollow"><span class="caps">JSON</span></a> i posłuży do odczytu danych testowych z zewnętrznego&nbsp;pliku.</p>
 <h2 id="kodujemy">Kodujemy<a class="headerlink" href="#kodujemy" title="Permalink to this heading">¶</a></h2>
 <p>Skoro mamy już wszystkie potrzebne elementy tej całej układanki to zacznijmy w końcu pisać ten kod. Na początek stwórzmy sobie 2&nbsp;pliki: <code>tests.py</code> i <code>tests.json</code>. Mając je, przejdźmy do&nbsp;pliku <code>tests.py</code>.</p>
 <h3 id="import">import<a class="headerlink" href="#import" title="Permalink to this heading">¶</a></h3>
@@ -145,7 +145,7 @@
 </pre>
 <p>Kolejność importów jest dowolna (choć i tutaj są pewne reguły, które warto&nbsp;stosować).</p>
 <h3 id="pierwszy-test">Pierwszy test<a class="headerlink" href="#pierwszy-test" title="Permalink to this heading">¶</a></h3>
-<p>Wiemy, że chcemy sprawdzać status odpowiedzi na wysłane żądanie, a więc zacznijmy od czegoś prostego: wyślemy proste żądanie typu <span class="caps">GET</span> na adres url <a href="https://reqres.in/api/users">https://reqres.in/api/users</a> i sprawdzimy kod statusu&nbsp;odpowiedzi.</p>
+<p>Wiemy, że chcemy sprawdzać status odpowiedzi na wysłane żądanie, a więc zacznijmy od czegoś prostego: wyślemy proste żądanie typu <span class="caps">GET</span> na adres url <a href="https://reqres.in/api/users" rel="nofollow">https://reqres.in/api/users</a> i sprawdzimy kod statusu&nbsp;odpowiedzi.</p>
 <pre class="code literal-block"><span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">"https://reqres.in/api/users"</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">response</span><span class="o">.</span><span class="n">status_code</span><span class="p">)</span>
 </pre>
@@ -301,7 +301,7 @@
 <p>Metoda służąca do wysyłania żądania do endpointu, znajdują się teraz poza ciałem klasy oraz została&nbsp;nazwana <code>abstract_test</code>. Sam sposób wysyłania żądania się nie&nbsp;zmienił.</p>
 </li>
 <li>
-<p>Następnie wywołujemy metodę <a href="https://docs.python.org/3/library/functions.html#setattr">setattr</a>, która jest metodą wbudowaną w język Python. Pozwala ona na wstawienie do obiektu, nowego atrybutu oraz przypisania mu wartości (o tym również wspominałem w artykule dotyczącym dekoratorów w sekcji <a href="../dekoratory-w-pythonie#funkcja-jest-obiektem">funkcja jest obiektem</a>. Zauważ, że jej wywołanie przyjęło 3&nbsp;argumenty:</p>
+<p>Następnie wywołujemy metodę <a href="https://docs.python.org/3/library/functions.html#setattr" rel="nofollow">setattr</a>, która jest metodą wbudowaną w język Python. Pozwala ona na wstawienie do obiektu, nowego atrybutu oraz przypisania mu wartości (o tym również wspominałem w artykule dotyczącym dekoratorów w sekcji <a href="../dekoratory-w-pythonie#funkcja-jest-obiektem">funkcja jest obiektem</a>. Zauważ, że jej wywołanie przyjęło 3&nbsp;argumenty:</p>
 </li>
 <li>
 <p>obiekt, do którego wstawiamy - u nas jest to klasa&nbsp;`Tests“,</p>
@@ -453,7 +453,7 @@
 </pre>
 <p>Dodatkowo w katalogu z naszymi plikami, pojawi się plik o rozszerzeniu `.xml“, który jest naszym <em>raportem</em> z przeprowadzonych&nbsp;testów.</p>
 <h3 id="czy-da-sie-jeszcze-lepiej">Czy da się jeszcze lepiej?<a class="headerlink" href="#czy-da-sie-jeszcze-lepiej" title="Permalink to this heading">¶</a></h3>
-<p>Jak zauważył <strong>Jakub Spórna</strong> z bloga <a href="https://sporna.dev/">https://sporna.dev/</a>, można zrobić jeszcze małe poprawki w kodzie, zarówno względem ilości linii, jak i również czytelności oraz zaoszczędzenia dodatkowej 1 linii kodu. Jak tego dokonać? <strong>Jakub</strong> zaproponował poniższy&nbsp;kod:</p>
+<p>Jak zauważył <strong>Jakub Spórna</strong> z bloga <a href="https://sporna.dev/" rel="nofollow">https://sporna.dev/</a>, można zrobić jeszcze małe poprawki w kodzie, zarówno względem ilości linii, jak i również czytelności oraz zaoszczędzenia dodatkowej 1 linii kodu. Jak tego dokonać? <strong>Jakub</strong> zaproponował poniższy&nbsp;kod:</p>
 <pre class="code literal-block"><span class="kn">import</span> <span class="nn">unittest</span><span class="o">,</span> <span class="nn">xmlrunner</span><span class="o">,</span> <span class="nn">json</span><span class="o">,</span> <span class="nn">requests</span>
 
 <span class="k">class</span> <span class="nc">Tests</span><span class="p">(</span><span class="n">unittest</span><span class="o">.</span><span class="n">TestCase</span><span class="p">):</span> <span class="k">pass</span>
@@ -481,7 +481,7 @@
 <p>Kontynuację zmagań z najmniejszym frameworkiem do testów, możesz odnaleźć w kolejnym artykule zatytułowanym <a href="../jeszcze-mniejszy-framework-do-testow-w-pythonie">jeszcze mniejszy framework do testów</a>. Zapraszam do jego&nbsp;lektury.</p>
 </div>
 <h2 id="bonus">Bonus<a class="headerlink" href="#bonus" title="Permalink to this heading">¶</a></h2>
-<p>Cały powyższy kod znajdziesz również w poniższym <a href="https://github.com/mkusz/the_smallest_rest_api_testing_framework/tree/first_article">repozytorium w GitHubie</a>.</p>
+<p>Cały powyższy kod znajdziesz również w poniższym <a href="https://github.com/mkusz/the_smallest_rest_api_testing_framework/tree/first_article" rel="nofollow">repozytorium w GitHubie</a>.</p>
 </div>
 <div class="col-md-6"><img src="../../images/page_lm/jak_zaczac_automatyzowac.jpg"></div>
 <div class="col-md-6">
@@ -1194,10 +1194,10 @@ window._load_script = function(url, callback) {
 </ol>
 <ol class="list-unstyled icons">
 <li><a class="fas fa-at" href="mailto:maciej@testerembyc.pl" target="_blank"></a></li>
-<li><a class="fab fa-facebook" href="https://www.facebook.com/testerembyc/" target="_blank"></a></li>
-<li><a class="fab fa-instagram" href="https://www.instagram.com/testerembyc/" target="_blank"></a></li>
-<li><a class="fab fa-linkedin" href="https://www.linkedin.com/in/maciej-kusz/" target="_blank"></a></li>
-<li><a class="fab fa-youtube" href="https://www.youtube.com/channel/UCm3xa7IkyYBFSZrisCBx53A" target="_blank"></a></li>
+<li><a class="fab fa-facebook" href="https://www.facebook.com/testerembyc/" rel="nofollow" target="_blank"></a></li>
+<li><a class="fab fa-instagram" href="https://www.instagram.com/testerembyc/" rel="nofollow" target="_blank"></a></li>
+<li><a class="fab fa-linkedin" href="https://www.linkedin.com/in/maciej-kusz/" rel="nofollow" target="_blank"></a></li>
+<li><a class="fab fa-youtube" href="https://www.youtube.com/channel/UCm3xa7IkyYBFSZrisCBx53A" rel="nofollow" target="_blank"></a></li>
 </ol>
 </div>
 </div>

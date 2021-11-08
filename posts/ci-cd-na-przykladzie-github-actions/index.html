@@ -44,7 +44,7 @@
 <div class="blog-masthead">
 <div class="container"><!-- This keeps the margins nice -->
 <div class="blog-header">
-<h1 class="blog-title"><a href="https://testerembyc.pl/"><img alt="testerembyc.pl" id="logo" src="../../images/testerembyc_logo.svg"><span id="blog-title">testerembyc.pl</span></a></h1>
+<h1 class="blog-title"><a href="https://testerembyc.pl/" rel="nofollow"><img alt="testerembyc.pl" id="logo" src="../../images/testerembyc_logo.svg"><span id="blog-title">testerembyc.pl</span></a></h1>
 <!-- <p class="lead blog-description">Czyli blog o tym, jak to jest być nie tylko&nbsp;testerem</p> # Original one -->
 <p class="lead blog-description">Czyli blog o tym, jak to jest być nie tylko <span>testerem</span></p>
 </div>
@@ -72,7 +72,7 @@
 <div class="e-content entry-content" itemprop="articleBody text">
 <div>
 <p class="caption"><a href="../ci-cd-na-przykladzie-github-actions"><img alt="Witaj świecie" src="../../images/posts/ci-cd-na-przykladzie-github-actions.jpg"></a></p>
-<p>Jako tester, szczególnie automatyzujący, bardzo często spotkamy się z zagadnieniami związanymi z tzw. <a href="https://en.wikipedia.org/wiki/Continuous_delivery">continuous delivery</a> oraz <a href="https://en.wikipedia.org/wiki/Continuous_integration">continuous integration</a>, czyli w skrócie <em><span class="caps">CI</span>/<span class="caps">CD</span></em>. Jednym z najbardziej popularnych narzędzi, wspomagających ten proces, jest niewątpliwie <a href="https://www.jenkins.io">Jenkins</a>. Ma on jednak pewną wadę, tzn. trzeba go albo zainstalować na własnym serwerze, albo zapłacić zewnętrznej firmie, która udostępni nam Jenkinsa jako usługę typu <a href="https://en.wikipedia.org/wiki/Software_as_a_service">SaaS</a> (Software as a Service). W większości firm obsługą narzędzi <span class="caps">CI</span>/<span class="caps">CD</span> zajmuje się zespół DevOps, jednak w małych firmach lub w przypadku projektów robionych <em>po godzinach</em> w ramach nauki, fajnie byłoby móc zautomatyzować sobie część zadań i nie koniecznie ponosić za to dużych opłat. Jedną z takich opcji jest <a href="https://github.com/features/actions">GitHub Actions</a>.</p>
+<p>Jako tester, szczególnie automatyzujący, bardzo często spotkamy się z zagadnieniami związanymi z tzw. <a href="https://en.wikipedia.org/wiki/Continuous_delivery" rel="nofollow">continuous delivery</a> oraz <a href="https://en.wikipedia.org/wiki/Continuous_integration" rel="nofollow">continuous integration</a>, czyli w skrócie <em><span class="caps">CI</span>/<span class="caps">CD</span></em>. Jednym z najbardziej popularnych narzędzi, wspomagających ten proces, jest niewątpliwie <a href="https://www.jenkins.io" rel="nofollow">Jenkins</a>. Ma on jednak pewną wadę, tzn. trzeba go albo zainstalować na własnym serwerze, albo zapłacić zewnętrznej firmie, która udostępni nam Jenkinsa jako usługę typu <a href="https://en.wikipedia.org/wiki/Software_as_a_service" rel="nofollow">SaaS</a> (Software as a Service). W większości firm obsługą narzędzi <span class="caps">CI</span>/<span class="caps">CD</span> zajmuje się zespół DevOps, jednak w małych firmach lub w przypadku projektów robionych <em>po godzinach</em> w ramach nauki, fajnie byłoby móc zautomatyzować sobie część zadań i nie koniecznie ponosić za to dużych opłat. Jedną z takich opcji jest <a href="https://github.com/features/actions" rel="nofollow">GitHub Actions</a>.</p>
 <p>W poniższym wpisie zajmę się pokazaniem jak ja wykorzystuje to narzędzie przy tworzeniu tego bloga oraz omówię możliwości wykorzystania go w testach automatycznych. Zapraszam więc do dalszej&nbsp;lektury.</p>
 <!-- more -->
 <div class="toc">
@@ -119,7 +119,7 @@
 </ul>
 </div>
 <h2 id="github-actions">GitHub Actions<a class="headerlink" href="#github-actions" title="Permalink to this heading">¶</a></h2>
-<p>Jak już powyżej napisałem, GitHub Actions umożliwia automatyzację procesu <span class="caps">CI</span>/<span class="caps">CD</span>. Proces ten powiązany jest z kodem źródłowym aplikacji, który przechowywany jest w repozytorium git na stronie <a href="https://github.com/">GitHub</a>. Samo GitHub Actions jest jedną z kilku funkcjonalności dostępnych w ramach repozytorium. Są to między&nbsp;innymi:</p>
+<p>Jak już powyżej napisałem, GitHub Actions umożliwia automatyzację procesu <span class="caps">CI</span>/<span class="caps">CD</span>. Proces ten powiązany jest z kodem źródłowym aplikacji, który przechowywany jest w repozytorium git na stronie <a href="https://github.com/" rel="nofollow">GitHub</a>. Samo GitHub Actions jest jedną z kilku funkcjonalności dostępnych w ramach repozytorium. Są to między&nbsp;innymi:</p>
 <ul>
 <li><strong>code</strong> - repozytorium git do przechowywania&nbsp;kodu,</li>
 <li><strong>issues</strong> - zarządzenia&nbsp;błędami,</li>
@@ -130,15 +130,15 @@
 </ul>
 <p>Jest też kilka innych, mniej istotnych. Do tworzenia tego bloga, sam wykorzystuję kilka z&nbsp;powyższych.</p>
 <p>Czy GitHub jest jedyną platformą, która posiada powyższe funkcjonalności? Oczywiście, że nie. Jedną z alternatyw, która posiada niemal identyczną funkcjonalność, jest <a href="htts://gitlab.com/">GitLab</a>.</p>
-<p>Istnieje również wspomniany wcześniej <a href="https://www.jenkins.io">Jenkins</a>, jednak jest on narzędzie stricte do automatyzacji procesu <span class="caps">CI</span>/<span class="caps">CD</span> i nie posiada np. swojego repozytorium&nbsp;git.</p>
+<p>Istnieje również wspomniany wcześniej <a href="https://www.jenkins.io" rel="nofollow">Jenkins</a>, jednak jest on narzędzie stricte do automatyzacji procesu <span class="caps">CI</span>/<span class="caps">CD</span> i nie posiada np. swojego repozytorium&nbsp;git.</p>
 <p>Pomiędzy GitHub oraz GitLab istnieją pewne różnice jednak większość z nich to kwestia kosmetyczne. Są również pewne mniej lub bardziej istotne różnice, ale w codziennym użytkowaniu, nie zawsze są one zauważalne. Sam używam obydwu, ale wynika to między innymi z faktu, że jeden z moich klientów, używa właśnie GitLaba. Osobiście bardziej preferuję&nbsp;GitHuba.</p>
 <p>O tym, czym są pojedyncze akcje oraz jak to konkretnie działa, opiszę poniżej, w punkcie <a href="#Konfiguracja%20GitHub%20Actions">Konfiguracja GitHub Actions</a>.</p>
 <h2 id="blog-na-githubie">Blog na GitHubie?<a class="headerlink" href="#blog-na-githubie" title="Permalink to this heading">¶</a></h2>
 <p>Zapewne zastanawiasz się, jak wykorzystuje GitHuba i jego repozytorium git do tworzenia tego bloga? Najbardziej oczywista sprawa to przechowywanie kodu źródłowego. Nie jest to jednak jedyna funkcjonalność, z jakiej&nbsp;korzystam.</p>
 <p>Podejmując decyzję o rozpoczęciu blogowania, rozważałem kilka dróg, jakich narzędzi używać oraz gdzie hostować samego bloga. Opcje jakie rozważyłem&nbsp;to:</p>
 <ul>
-<li><a href="https://wordpress.com">WordPress</a> + płatny hosting - sam Wordpress jest sprawdzoną platformą i ciągle jeszcze rozwijaną, jednak mnogość pluginów (większość dobrych jest dodatkowo płatnych), możliwości konfiguracji oraz przeogromny wybór skórek potrafią na początku przytłoczyć. Dodatkowo dochodzi koszt hostingu oraz zakupu ułatwiających życie pluginów oraz zarządzanie hostingiem, wcale nie ułatwiają podjęcia takiej decyzji. Największą zaletą jest posiadanie opublikowanych materiałów na własnej platformie, a więc w przypadku, np. zmiany hostingu, da się łatwo przeprowadzić&nbsp;migrację.</li>
-<li><a href="https://www.blogger.com/about/">Blogger.com</a> - darmowa platforma służąca do publikacji blogów, należąca do Google. Jest to platforma, która dostarcza sporą ilość funkcjonalności, która w zupełności wystarcza do prowadzenia własnego bloga. Największe wady tego rozwiązania to zamknięta platforma, problem przy ewentualnej migracji oraz ryzyko <a href="https://spidersweb.pl/2016/07/blogspot-utrata-konta.html">usunięcia bloga przez Google</a>,</li>
+<li><a href="https://wordpress.com" rel="nofollow">WordPress</a> + płatny hosting - sam Wordpress jest sprawdzoną platformą i ciągle jeszcze rozwijaną, jednak mnogość pluginów (większość dobrych jest dodatkowo płatnych), możliwości konfiguracji oraz przeogromny wybór skórek potrafią na początku przytłoczyć. Dodatkowo dochodzi koszt hostingu oraz zakupu ułatwiających życie pluginów oraz zarządzanie hostingiem, wcale nie ułatwiają podjęcia takiej decyzji. Największą zaletą jest posiadanie opublikowanych materiałów na własnej platformie, a więc w przypadku, np. zmiany hostingu, da się łatwo przeprowadzić&nbsp;migrację.</li>
+<li><a href="https://www.blogger.com/about/" rel="nofollow">Blogger.com</a> - darmowa platforma służąca do publikacji blogów, należąca do Google. Jest to platforma, która dostarcza sporą ilość funkcjonalności, która w zupełności wystarcza do prowadzenia własnego bloga. Największe wady tego rozwiązania to zamknięta platforma, problem przy ewentualnej migracji oraz ryzyko <a href="https://spidersweb.pl/2016/07/blogspot-utrata-konta.html" rel="nofollow">usunięcia bloga przez Google</a>,</li>
 <li>
 <p>Utworzenie bloga z wykorzystaniem tzw. <em>static pages</em>, czyli strony, której kod <span class="caps">HTML</span> generowany jest na lokalnym komputerze, a później przesyłany na dowolny hosting. Prostota tego rozwiązania ma kilka niewątpliwych&nbsp;zalet:</p>
 <ul>
@@ -150,7 +150,7 @@
 <p>Są też pewne wady tego&nbsp;rozwiązania:</p>
 <ul>
 <li>konieczność delegacji komentarzy do postów do zewnętrznej&nbsp;usługi,</li>
-<li>brak edytora <a href="https://en.wikipedia.org/wiki/WYSIWYG">WYSiWYG</a>.</li>
+<li>brak edytora <a href="https://en.wikipedia.org/wiki/WYSIWYG" rel="nofollow">WYSiWYG</a>.</li>
 </ul>
 </li>
 </ul>
@@ -158,14 +158,14 @@
 <h3 id="wybor-narzedzi">Wybór narzędzi<a class="headerlink" href="#wybor-narzedzi" title="Permalink to this heading">¶</a></h3>
 <p>Ponieważ blog w założeniach miał generować minimalne koszty, wybrałem opcję z wykorzystaniem <em>static pages</em>. Narzędzia, jakich użyłem&nbsp;to:</p>
 <ul>
-<li><a href="https://getnikola.com/">Nikola</a> - jako silnik do tworzenia statycznych stron www, który funkcjonalnością i sposobem zarządzania treścią (podział na posty i strony) jest bardzo zbliżony do WordPressa. Dodatkowo napisany jest w Pythonie, a więc będę miał możliwość w miarę łatwego modyfikowania pewnych mechanizmów lub tworzenia pluginów, jeśli zajdzie taka potrzeba. Poza tym dostępne są już pluginy stworzone przez innych oraz istnieje możliwość tworzenia treści z wykorzystaniem plików w formacie <a href="https://en.wikipedia.org/wiki/Markdown">Markdown</a> (dlaczego to takie ważne, opiszę&nbsp;poniżej).</li>
-<li><a href="https://pages.github.com/">GitHub Pages</a> - wspomniałem o tym powyżej. Jest to darmowy hosting statycznych stron www, który jest częścią repozytorium git, w którym mogę przechowywać cały silnik oraz treści opisane w poprzednim&nbsp;punkcie.</li>
-<li><a href="https://obsidian.md/">Obsidian</a> - to narzędzie do zarządzania wiedzą, stworzone z myślą o zarządzaniu własnymi notatkami przy użyciu metody <a href="https://en.wikipedia.org/wiki/Zettelkasten">Zettelkasten</a> (można też spotkać się z pojęciem tzw. <a href="https://www.buildingasecondbrain.com">second brain</a>). Samo narzędzie nie narzuca struktury notatek, ale umożliwia, wspomaga oraz wizualizuje schemat połączeń. W przypadku tworzenia bloga, gdzie wpisy potrafią odnosić się do informacji umieszczonych w innych wpisach, takie wspomaganie, jest bardzo cenne oraz mocno przyspiesza pracę. Dodatkowo wszystkie pliki w tym narzędziu są plikami we wspomniany wcześniej formacie <a href="https://en.wikipedia.org/wiki/Markdown">Markdown</a> co idealnie zgrywa się ze wsparciem tego formatu przez&nbsp;Nikolę.</li>
-<li><a href="https://disqus.com">Disqus</a> - zewnętrzna usługa, dostarczająca mechanizm komentarzy dla poszczególnych&nbsp;wpisów.</li>
-<li><a href="https://www.activecampaign.com">ActiveCampaign</a> - narzędzie do zarządzania listą&nbsp;mailową.</li>
+<li><a href="https://getnikola.com/" rel="nofollow">Nikola</a> - jako silnik do tworzenia statycznych stron www, który funkcjonalnością i sposobem zarządzania treścią (podział na posty i strony) jest bardzo zbliżony do WordPressa. Dodatkowo napisany jest w Pythonie, a więc będę miał możliwość w miarę łatwego modyfikowania pewnych mechanizmów lub tworzenia pluginów, jeśli zajdzie taka potrzeba. Poza tym dostępne są już pluginy stworzone przez innych oraz istnieje możliwość tworzenia treści z wykorzystaniem plików w formacie <a href="https://en.wikipedia.org/wiki/Markdown" rel="nofollow">Markdown</a> (dlaczego to takie ważne, opiszę&nbsp;poniżej).</li>
+<li><a href="https://pages.github.com/" rel="nofollow">GitHub Pages</a> - wspomniałem o tym powyżej. Jest to darmowy hosting statycznych stron www, który jest częścią repozytorium git, w którym mogę przechowywać cały silnik oraz treści opisane w poprzednim&nbsp;punkcie.</li>
+<li><a href="https://obsidian.md/" rel="nofollow">Obsidian</a> - to narzędzie do zarządzania wiedzą, stworzone z myślą o zarządzaniu własnymi notatkami przy użyciu metody <a href="https://en.wikipedia.org/wiki/Zettelkasten" rel="nofollow">Zettelkasten</a> (można też spotkać się z pojęciem tzw. <a href="https://www.buildingasecondbrain.com" rel="nofollow">second brain</a>). Samo narzędzie nie narzuca struktury notatek, ale umożliwia, wspomaga oraz wizualizuje schemat połączeń. W przypadku tworzenia bloga, gdzie wpisy potrafią odnosić się do informacji umieszczonych w innych wpisach, takie wspomaganie, jest bardzo cenne oraz mocno przyspiesza pracę. Dodatkowo wszystkie pliki w tym narzędziu są plikami we wspomniany wcześniej formacie <a href="https://en.wikipedia.org/wiki/Markdown" rel="nofollow">Markdown</a> co idealnie zgrywa się ze wsparciem tego formatu przez&nbsp;Nikolę.</li>
+<li><a href="https://disqus.com" rel="nofollow">Disqus</a> - zewnętrzna usługa, dostarczająca mechanizm komentarzy dla poszczególnych&nbsp;wpisów.</li>
+<li><a href="https://www.activecampaign.com" rel="nofollow">ActiveCampaign</a> - narzędzie do zarządzania listą&nbsp;mailową.</li>
 </ul>
 <h3 id="koszty-prowadzenia-bloga">Koszty prowadzenia bloga<a class="headerlink" href="#koszty-prowadzenia-bloga" title="Permalink to this heading">¶</a></h3>
-<p>Zapewne zastanawiasz się, jakie są koszty utrzymania bloga? Otóż są on stosunkowo nie duże, bo tak naprawdę płacę za utrzymanie domeny <a href="https://testerembyc.pl/">testerembyc.pl</a> oraz miesięczna opłata za narzędzie do zarządzania listą mailową (planuję zmianę narzędzia, aby z kosztami zejść jeszcze niżej). Całość zawiera się średnio w okolicach 70zł/miesiąc. Czy to dużo? Nie są to ogromne koszty, ale gdybym do tego doliczył koszt dowolnego (rozsądnego) hostingu dla WordPress, koszty urosłyby do około 120-150zł/miesiąc, a to już zaczyna być kwota mocno zauważalna w budżetach niektórych&nbsp;osób.</p>
+<p>Zapewne zastanawiasz się, jakie są koszty utrzymania bloga? Otóż są on stosunkowo nie duże, bo tak naprawdę płacę za utrzymanie domeny <a href="https://testerembyc.pl/" rel="nofollow">testerembyc.pl</a> oraz miesięczna opłata za narzędzie do zarządzania listą mailową (planuję zmianę narzędzia, aby z kosztami zejść jeszcze niżej). Całość zawiera się średnio w okolicach 70zł/miesiąc. Czy to dużo? Nie są to ogromne koszty, ale gdybym do tego doliczył koszt dowolnego (rozsądnego) hostingu dla WordPress, koszty urosłyby do około 120-150zł/miesiąc, a to już zaczyna być kwota mocno zauważalna w budżetach niektórych&nbsp;osób.</p>
 <h2 id="jak-wykorzystac-github-actions">Jak wykorzystać GitHub Actions?<a class="headerlink" href="#jak-wykorzystac-github-actions" title="Permalink to this heading">¶</a></h2>
 <p>Aby wytłumaczyć, po co mi GitHub Actions, muszę opisać jeszcze jeden aspekt, a dokładniej mechanizm działania narzędzia do generowania statycznej strony www oraz tego, jak działa GitHub&nbsp;Pages.</p>
 <h3 id="generacja-statycznej-strony-z-uzyciem-nikola">Generacja statycznej strony z użyciem Nikola<a class="headerlink" href="#generacja-statycznej-strony-z-uzyciem-nikola" title="Permalink to this heading">¶</a></h3>
@@ -185,7 +185,7 @@
 <p>Gdzie więc jest&nbsp;problem?</p>
 <h3 id="publiczne-repozytorium">Publiczne repozytorium<a class="headerlink" href="#publiczne-repozytorium" title="Permalink to this heading">¶</a></h3>
 <p>Problemów w takiej konfiguracji jest kilka, ale sprowadzają się one głównie do faktu, że hostowana strona musi właśnie znajdować się w publicznym repozytorium. Prowadzi to do ujawnienia danych z wszelkich projektów, nad którymi pracuję i gromadzę&nbsp;materiały.</p>
-<p>Dodatkowo w ramach repozytorium zacząłem prowadzić swoją tablicę kanban z planami dotyczącymi publikacji na blogu oraz swoim <a href="https://www.youtube.com/channel/UCm3xa7IkyYBFSZrisCBx53A">kanale YouTube</a>. Posiadanie materiałów oraz planów ich publikacji w jednym miejscu bardzo ułatwia mi pracę, a dodatkowo chciałbym, aby nie były one widoczne do czasu ukończenia prac nad nimi i samej publikacji. Aby to osiągnąć, dobrze byłoby odseparować od siebie część związaną z narzędziami oraz plikami źródłowymi od wynikowej&nbsp;pracy.</p>
+<p>Dodatkowo w ramach repozytorium zacząłem prowadzić swoją tablicę kanban z planami dotyczącymi publikacji na blogu oraz swoim <a href="https://www.youtube.com/channel/UCm3xa7IkyYBFSZrisCBx53A" rel="nofollow">kanale YouTube</a>. Posiadanie materiałów oraz planów ich publikacji w jednym miejscu bardzo ułatwia mi pracę, a dodatkowo chciałbym, aby nie były one widoczne do czasu ukończenia prac nad nimi i samej publikacji. Aby to osiągnąć, dobrze byłoby odseparować od siebie część związaną z narzędziami oraz plikami źródłowymi od wynikowej&nbsp;pracy.</p>
 <h3 id="dwa-repozytoria">Dwa repozytoria<a class="headerlink" href="#dwa-repozytoria" title="Permalink to this heading">¶</a></h3>
 <p>Najłatwiejszym sposobem osiągnięcia powyższego założenia, jest utworzenie 2&nbsp;repozytoriów:</p>
 <ul>
@@ -195,9 +195,9 @@
 <p>Dodatkowo ideałem byłoby, aby statyczne pliki tworzyły się w momencie, gdy zmodyfikowany zostanie główny branch w prywatnym repozytorium. Następnie powinien nastąpić automatyczny commit tak utworzonym plików do publicznego&nbsp;repozytorium.</p>
 <p>W tym miejscu dochodzimy do punktu, gdzie GitHub Actions wkraczają na&nbsp;scenę.</p>
 <h2 id="konfiguracja-github-actions">Konfiguracja GitHub Actions<a class="headerlink" href="#konfiguracja-github-actions" title="Permalink to this heading">¶</a></h2>
-<p>Zanim zaczniemy wspólną zabawę, chciałbym uświadomić Ci jedną rzecz, tzn. ten wpis nie pokrywa pełnego zakresu możliwości oraz nie omawia wszelkich możliwych aspektów konfiguracji GitHub Actions. Jest to temat bardzo obszerny i aby to zrobić, należałoby przedstawić go w postaci kursu. Jeśli temat zainteresuje Cię, polecam zapoznać się z <a href="https://docs.github.com/en/actions">dokumentacją znajdującą się na stronie GitHub</a>.</p>
+<p>Zanim zaczniemy wspólną zabawę, chciałbym uświadomić Ci jedną rzecz, tzn. ten wpis nie pokrywa pełnego zakresu możliwości oraz nie omawia wszelkich możliwych aspektów konfiguracji GitHub Actions. Jest to temat bardzo obszerny i aby to zrobić, należałoby przedstawić go w postaci kursu. Jeśli temat zainteresuje Cię, polecam zapoznać się z <a href="https://docs.github.com/en/actions" rel="nofollow">dokumentacją znajdującą się na stronie GitHub</a>.</p>
 <h3 id="workflow">Workflow<a class="headerlink" href="#workflow" title="Permalink to this heading">¶</a></h3>
-<p>GitHub Actions wykonywane są pod wpływem jakiegoś wydarzenia (tzw. event-driven). Aby wiedzieć, jakie wydarzenie jest wyzwalaczem akcji (tzw. trigger) oraz jaka akcja musi się wykonać, potrzebny jest nam jakiś kontener, który będzie przetrzymywał cały ten opis. Takim konterem w sensie logicznym jest właśnie <em>workflow</em>. Ponieważ cały czas funkcjonujemy w granicach repozytorium git, najprostszą i najbardziej logiczną formą przetrzymywania takie opisu będzie jakiś plik tekstowy. W przypadku GitHub Actions taki plik powinien być w formacie <a href="https://en.wikipedia.org/wiki/YAML"><span class="caps">YAML</span></a>.</p>
+<p>GitHub Actions wykonywane są pod wpływem jakiegoś wydarzenia (tzw. event-driven). Aby wiedzieć, jakie wydarzenie jest wyzwalaczem akcji (tzw. trigger) oraz jaka akcja musi się wykonać, potrzebny jest nam jakiś kontener, który będzie przetrzymywał cały ten opis. Takim konterem w sensie logicznym jest właśnie <em>workflow</em>. Ponieważ cały czas funkcjonujemy w granicach repozytorium git, najprostszą i najbardziej logiczną formą przetrzymywania takie opisu będzie jakiś plik tekstowy. W przypadku GitHub Actions taki plik powinien być w formacie <a href="https://en.wikipedia.org/wiki/YAML" rel="nofollow"><span class="caps">YAML</span></a>.</p>
 <p>Dodatkowo taki plik powinien się znajdować w odpowiednim miejscu struktury katalogów w repozytorium, tak aby narzędzia, które odpowiadają za wykonanie akcji, wiedziały gdzie szukać ich&nbsp;opisu.</p>
 <p>W prywatnym repozytorium z kodem bloga musiałem więc utworzyć strukturę&nbsp;katalogów <code>.github/workflow</code> oraz w nim umieścić plik <span class="caps">YAML</span>. Ja ten plik po prostu&nbsp;nazwałem <code>deploy-nikola.yml</code>.</p>
 <p>Zawartość tego pliku posiada 3&nbsp;sekcje:</p>
@@ -211,19 +211,19 @@
 <pre class="code literal-block"><span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">deploy-nikola</span>
 </pre>
 <h4 id="wyzwalacze-on">Wyzwalacze (on)<a class="headerlink" href="#wyzwalacze-on" title="Permalink to this heading">¶</a></h4>
-<p>Pełna lista wyzwalaczy znajduje się <a href="https://docs.github.com/en/actions/reference/events-that-trigger-workflows">tutaj</a>. Ja w swoim workflow, wykorzystałem tylko jeden,&nbsp;czyli <code>push</code>, który skonfigurowałem tak, aby działał, tylko w momencie, gdy zmieni się zawartość głównego brancha mojego repozytorium. W formacie <span class="caps">YAML</span> wygląda to&nbsp;następująco:</p>
+<p>Pełna lista wyzwalaczy znajduje się <a href="https://docs.github.com/en/actions/reference/events-that-trigger-workflows" rel="nofollow">tutaj</a>. Ja w swoim workflow, wykorzystałem tylko jeden,&nbsp;czyli <code>push</code>, który skonfigurowałem tak, aby działał, tylko w momencie, gdy zmieni się zawartość głównego brancha mojego repozytorium. W formacie <span class="caps">YAML</span> wygląda to&nbsp;następująco:</p>
 <pre class="code literal-block"><span class="nt">on</span><span class="p">:</span>  
   <span class="nt">push</span><span class="p">:</span>  
     <span class="nt">branches</span><span class="p">:</span>  
       <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">main</span>
 </pre>
-<p>W przypadku starszych repozytoriów nazwa głównego brancha może być inna (master). Powód zmiany nazwy doczekał&nbsp;się szerszego opisu w jednym z oficjalnych <a href="https://github.com/github/renaming">repozytoriów</a> samego&nbsp;GitHuba.</p>
+<p>W przypadku starszych repozytoriów nazwa głównego brancha może być inna (master). Powód zmiany nazwy doczekał&nbsp;się szerszego opisu w jednym z oficjalnych <a href="https://github.com/github/renaming" rel="nofollow">repozytoriów</a> samego&nbsp;GitHuba.</p>
 <p>Dodatkowo w przyszłości rozważę również dodanie dodatkowego wyzwalacza w postaci uruchamiania workflow każdego dnia o wybranej godzinie. Pozwoli mi to na skorzystanie z możliwości publikacji artykułów z przyszłą datą. Przyjmując, że chciałbym, aby strona przebudowywała się codziennie o godzinie 10:00, taki wyzwalacz wyglądałby&nbsp;tak:</p>
 <pre class="code literal-block"><span class="nt">on</span><span class="p">:</span>  
   <span class="nt">schedule</span><span class="p">:</span>  
     <span class="p p-Indicator">-</span> <span class="nt">cron</span><span class="p">:</span> <span class="s">'0</span><span class="nv"> </span><span class="s">10</span><span class="nv"> </span><span class="s">*</span><span class="nv"> </span><span class="s">*</span><span class="nv"> </span><span class="s">*'</span>
 </pre>
-<p>Zauważ, że składnia zgodna jest ze składnią tzw. <a href="https://en.wikipedia.org/wiki/Cron">cron</a>, czyli tzw. planisty (scheduler). Składnia prezentuje się&nbsp;następująco:</p>
+<p>Zauważ, że składnia zgodna jest ze składnią tzw. <a href="https://en.wikipedia.org/wiki/Cron" rel="nofollow">cron</a>, czyli tzw. planisty (scheduler). Składnia prezentuje się&nbsp;następująco:</p>
 <pre class="code literal-block"><span class="go">┌───────────── minuta (0 - 59)</span>
 <span class="go">│ ┌───────────── godzina (0 - 23)</span>
 <span class="go">│ │ ┌───────────── dzień miesiąca (1 - 31)</span>
@@ -292,7 +292,7 @@
 <li><code>with</code> występuje tylko w połączeniu&nbsp;z <code>uses</code>.</li>
 </ul>
 <div class="admonition alert">
-<p>Zauważ, że w przypadku chęci użycia predefiniowanych kroków, to co występuje&nbsp;po <code>uses</code> to tak naprawdę nazwa repozytorium znajdującego się w portalu GitHub. Jako przykład, może zerknać na pierwszy krok, czyli <a href="https://github.com/actions/checkout">actions/checkout@v2</a>. Czy to oznacza, że możemy takie kroki tworzyć samodzielnie? Oczywiście. Nic nie stoi na przeszkodzie, a cały proces został odpowiednio <a href="https://docs.github.com/en/actions/creating-actions/about-actions">udokumentowany</a>.</p>
+<p>Zauważ, że w przypadku chęci użycia predefiniowanych kroków, to co występuje&nbsp;po <code>uses</code> to tak naprawdę nazwa repozytorium znajdującego się w portalu GitHub. Jako przykład, może zerknać na pierwszy krok, czyli <a href="https://github.com/actions/checkout" rel="nofollow">actions/checkout@v2</a>. Czy to oznacza, że możemy takie kroki tworzyć samodzielnie? Oczywiście. Nic nie stoi na przeszkodzie, a cały proces został odpowiednio <a href="https://docs.github.com/en/actions/creating-actions/about-actions" rel="nofollow">udokumentowany</a>.</p>
 </div>
 <p>Wracając teraz do analizy poszczególnych kroków, omówię je jako prosty zestaw kolnych akcji, jakie zostaną wykonane, a dopasowanie, która akcja co oznacza, zostawię już Tobie (wierzę, że sobie poradzisz z tym&nbsp;zadaniem):</p>
 <ol>
@@ -341,7 +341,7 @@
 <h3 id="token">Token<a class="headerlink" href="#token" title="Permalink to this heading">¶</a></h3>
 <p>Token to nic innego jak klucz, dzięki któremu jesteśmy w stanie wykonywać pewne operacje z wykorzystanie <span class="caps">REST</span> <span class="caps">API</span> portalu&nbsp;GitHub.</p>
 <h4 id="generowanie-tokenu">Generowanie tokenu<a class="headerlink" href="#generowanie-tokenu" title="Permalink to this heading">¶</a></h4>
-<p>Aby wygenerować token, należy być zalogowanym na swoim koncie w portalu GitHub, a następnie przejść do zakładki <strong>Settings</strong> &gt; <strong>Developer settings</strong> &gt; <strong>Personal access tokens</strong> &gt; <strong>Generate new token</strong> lub po prostu przejść na adres <a href="https://github.com/settings/tokens/new">https://github.com/settings/tokens/new</a> (w tym miejscu możemy zostać poproszeni o ponowne podanie naszego&nbsp;hasła).</p>
+<p>Aby wygenerować token, należy być zalogowanym na swoim koncie w portalu GitHub, a następnie przejść do zakładki <strong>Settings</strong> &gt; <strong>Developer settings</strong> &gt; <strong>Personal access tokens</strong> &gt; <strong>Generate new token</strong> lub po prostu przejść na adres <a href="https://github.com/settings/tokens/new" rel="nofollow">https://github.com/settings/tokens/new</a> (w tym miejscu możemy zostać poproszeni o ponowne podanie naszego&nbsp;hasła).</p>
 <p class="captionb"><img alt="Account settings" src="../../images/posts/ci-cd-na-przykladzie-github-actions/account_settings.png"> Account&nbsp;settings</p>
 <p class="captionb"><img alt="Dev settings" src="../../images/posts/ci-cd-na-przykladzie-github-actions/dev_settings.png"> Dev&nbsp;settings</p>
 <p class="captionb"><img alt="Personal access token" src="../../images/posts/ci-cd-na-przykladzie-github-actions/personal_access_token.png"> Personal access&nbsp;token</p>
@@ -386,15 +386,15 @@
 <h2 id="github-actions-w-testach-automatycznych">GitHub Actions w testach automatycznych?<a class="headerlink" href="#github-actions-w-testach-automatycznych" title="Permalink to this heading">¶</a></h2>
 <p>Zapewne po przeczytaniu całego tego wpisu, masz już kilka własnych pomysłów, jak można wykorzystać GitHub Actions w testach automatycznych. Poniżej przedstawiam listę kilku własnych pomysłów. Być może pokrywają się z Twoimi pomysłami, a być może podpowiedzą kilka&nbsp;nowych.</p>
 <ul>
-<li>W niemal identyczny sposób jak powyżej opisany (tzn. z wykorzystaniem GitHub Actions oraz GitHub Pages) można generować raporty z narzędzia, jakim jest <a href="http://allure.qatools.ru">Allure</a>.</li>
-<li>Podobnie ma się sprawa z generacją dokumentacji kodu testów automatycznych, np. przy użyciu biblioteki <a href="https://www.sphinx-doc.org/en/master/">Sphinx</a>.</li>
+<li>W niemal identyczny sposób jak powyżej opisany (tzn. z wykorzystaniem GitHub Actions oraz GitHub Pages) można generować raporty z narzędzia, jakim jest <a href="http://allure.qatools.ru" rel="nofollow">Allure</a>.</li>
+<li>Podobnie ma się sprawa z generacją dokumentacji kodu testów automatycznych, np. przy użyciu biblioteki <a href="https://www.sphinx-doc.org/en/master/" rel="nofollow">Sphinx</a>.</li>
 <li>Cykliczne uruchamianie testów&nbsp;automatycznych.</li>
 <li>Health check środowiska testowego lub&nbsp;produkcji.</li>
 <li>Tworzenie i odtwarzanie backupu środowiska testowego wraz z danymi&nbsp;testowymi.</li>
 <li>Automatyczne zarządzanie środowiskiem testowym, np. dynamiczne tworzenie środowisk testowych na potrzeby przeprowadzenia testów oraz ich wyłączenie po ich&nbsp;zakończeniu.</li>
 <li>Automatyczne uruchamianie testów np. regresji po deploymencie w celu weryfikacji jego&nbsp;poprawności.</li>
 <li>Uruchamianie unittestów utworzonych dla naszych testów&nbsp;automatycznych.</li>
-<li>Automatyczne generowanie <span class="caps">CV</span> do celów rekrutacji (by Jakub Spórna z bloga <a href="https://sporna.dev">https://sporna.dev</a>)</li>
+<li>Automatyczne generowanie <span class="caps">CV</span> do celów rekrutacji (by Jakub Spórna z bloga <a href="https://sporna.dev" rel="nofollow">https://sporna.dev</a>)</li>
 </ul>
 <div class="admonition alert">
 <p>Jeśli masz jakiś ciekawy pomysł, którego nie umieściłem na powyższej liście, daj koniecznie znać, a chętnie go dopiszę powyżej z zaznaczeniem kto był autorem tego&nbsp;pomysłu.</p>
@@ -404,7 +404,7 @@
 <h2 id="bonus">Bonus<a class="headerlink" href="#bonus" title="Permalink to this heading">¶</a></h2>
 <p>GitHub Actions udostępnia możliwość prezentacji statusu danego workflow w postaci&nbsp;graficznej.</p>
 <p class="caption"><img alt="Workflow status" src="../../images/posts/ci-cd-na-przykladzie-github-actions/status.png"> Workflow&nbsp;status</p>
-<p>Graficzny status generowany jest w postaci pliku svg dostępnego w unikatowym dla danego repozytorium oraz danego workflow linku. U mnie prezentuje się on następująco <a href="https://github.com/mkusz/testerembyc/actions/workflows/deploy-nikola.yml/badge.svg">https://github.com/mkusz/testerembyc/actions/workflows/deploy-nikola.yml/badge.svg</a>. Aby wykorzystać go np. w pliku <span class="caps">README</span>.md, który znajduje się w głównym folderze naszego repozytorium należy skorzystać z odpowiedniej składni, która umieści plik graficzny z danego linku. W moim wypadku wygląda on&nbsp;tak:</p>
+<p>Graficzny status generowany jest w postaci pliku svg dostępnego w unikatowym dla danego repozytorium oraz danego workflow linku. U mnie prezentuje się on następująco <a href="https://github.com/mkusz/testerembyc/actions/workflows/deploy-nikola.yml/badge.svg" rel="nofollow">https://github.com/mkusz/testerembyc/actions/workflows/deploy-nikola.yml/badge.svg</a>. Aby wykorzystać go np. w pliku <span class="caps">README</span>.md, który znajduje się w głównym folderze naszego repozytorium należy skorzystać z odpowiedniej składni, która umieści plik graficzny z danego linku. W moim wypadku wygląda on&nbsp;tak:</p>
 <pre class="code literal-block">![](https://github.com/mkusz/testerembyc/actions/workflows/deploy-nikola.yml/badge.svg)
 </pre></div>
 <div class="col-md-6"><img src="../../images/page_lm/jak_zaczac_automatyzowac.jpg"></div>
@@ -1117,10 +1117,10 @@ window._load_script = function(url, callback) {
 </ol>
 <ol class="list-unstyled icons">
 <li><a class="fas fa-at" href="mailto:maciej@testerembyc.pl" target="_blank"></a></li>
-<li><a class="fab fa-facebook" href="https://www.facebook.com/testerembyc/" target="_blank"></a></li>
-<li><a class="fab fa-instagram" href="https://www.instagram.com/testerembyc/" target="_blank"></a></li>
-<li><a class="fab fa-linkedin" href="https://www.linkedin.com/in/maciej-kusz/" target="_blank"></a></li>
-<li><a class="fab fa-youtube" href="https://www.youtube.com/channel/UCm3xa7IkyYBFSZrisCBx53A" target="_blank"></a></li>
+<li><a class="fab fa-facebook" href="https://www.facebook.com/testerembyc/" rel="nofollow" target="_blank"></a></li>
+<li><a class="fab fa-instagram" href="https://www.instagram.com/testerembyc/" rel="nofollow" target="_blank"></a></li>
+<li><a class="fab fa-linkedin" href="https://www.linkedin.com/in/maciej-kusz/" rel="nofollow" target="_blank"></a></li>
+<li><a class="fab fa-youtube" href="https://www.youtube.com/channel/UCm3xa7IkyYBFSZrisCBx53A" rel="nofollow" target="_blank"></a></li>
 </ol>
 </div>
 </div>

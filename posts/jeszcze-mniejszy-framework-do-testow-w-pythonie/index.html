@@ -45,7 +45,7 @@
 <div class="blog-masthead">
 <div class="container"><!-- This keeps the margins nice -->
 <div class="blog-header">
-<h1 class="blog-title"><a href="https://testerembyc.pl/"><img alt="testerembyc.pl" id="logo" src="../../images/testerembyc_logo.svg"><span id="blog-title">testerembyc.pl</span></a></h1>
+<h1 class="blog-title"><a href="https://testerembyc.pl/" rel="nofollow"><img alt="testerembyc.pl" id="logo" src="../../images/testerembyc_logo.svg"><span id="blog-title">testerembyc.pl</span></a></h1>
 <!-- <p class="lead blog-description">Czyli blog o tym, jak to jest być nie tylko&nbsp;testerem</p> # Original one -->
 <p class="lead blog-description">Czyli blog o tym, jak to jest być nie tylko <span>testerem</span></p>
 </div>
@@ -72,7 +72,7 @@
 </header>
 <div class="e-content entry-content" itemprop="articleBody text">
 <div>
-<p class="caption"><a href="../jeszcze-mniejszy-framework-do-testow-w-pythonie"><img alt="Jeszcze mniejszy framework do testów w Pythonie" src="../../images/posts/jeszcze-mniejszy-framework-do-testow-w-pythonie.jpg"></a> Wykorzystano zdjęcie autorstwa <a href="https://www.pexels.com/pl-pl/@markusspiske">Markus Spiske</a> z <a href="https://www.pexels.com/">Pexels</a></p>
+<p class="caption"><a href="../jeszcze-mniejszy-framework-do-testow-w-pythonie"><img alt="Jeszcze mniejszy framework do testów w Pythonie" src="../../images/posts/jeszcze-mniejszy-framework-do-testow-w-pythonie.jpg"></a> Wykorzystano zdjęcie autorstwa <a href="https://www.pexels.com/pl-pl/@markusspiske" rel="nofollow">Markus Spiske</a> z <a href="https://www.pexels.com/" rel="nofollow">Pexels</a></p>
 <p>Poniższy wpis jest kontynuacją poprzedniego wpisu, gdzie próbowałem pokazać Ci jak w Pythonie można stworzyć <a href="../najmniejszy-framework-do-testow-w-pythonie">najmniejszy framework do testów</a>.</p>
 <p>Czym się dzisiaj wspólnie&nbsp;zajmiemy?</p>
 <p>Otóż odpowiemy sobie na 2&nbsp;pytania:</p>
@@ -153,7 +153,7 @@
 <p>Patrząc na kod, możemy zauważyć, że jednym z większych bloków jest definicja&nbsp;funkcji <code>add_test</code>. Zastanówmy się czy da się coś z tym tematem&nbsp;zrobić.</p>
 <h3 id="wyrazenia-lambda">Wyrażenia Lambda<a class="headerlink" href="#wyrazenia-lambda" title="Permalink to this heading">¶</a></h3>
 <p>Zanim jednak będziemy bardziej odchudzać kod frameworku, musimy poznać czym są tzw. <strong>wyrażenia Lambda</strong> w&nbsp;Pythonie.</p>
-<p><strong>Wyrażenia Lambda</strong> to krótkie, anonimowe funkcje (opisane w <a href="https://www.python.org/dev/peps/pep-0312/"><span class="caps">PEP</span> 312</a> oraz <a href="https://docs.python.org/3/tutorial/controlflow.html#lambda-expressions%3E">dokumentacji</a>. Funkcje takie są określane jako anonimowe, ponieważ zdefiniowane są w miejscu ich użycia. <strong>Funkcje Lambda</strong> mogą przyjmować dowolną liczbę argumentów, ale mogą zawierać tylko jedno wyrażenie. Ale jak działa&nbsp;Lambda?</p>
+<p><strong>Wyrażenia Lambda</strong> to krótkie, anonimowe funkcje (opisane w <a href="https://www.python.org/dev/peps/pep-0312/" rel="nofollow"><span class="caps">PEP</span> 312</a> oraz <a href="https://docs.python.org/3/tutorial/controlflow.html#lambda-expressions%3E" rel="nofollow">dokumentacji</a>. Funkcje takie są określane jako anonimowe, ponieważ zdefiniowane są w miejscu ich użycia. <strong>Funkcje Lambda</strong> mogą przyjmować dowolną liczbę argumentów, ale mogą zawierać tylko jedno wyrażenie. Ale jak działa&nbsp;Lambda?</p>
 <p>Zacznijmy od czegoś prostego, czyli suma 2&nbsp;liczb:</p>
 <pre class="code literal-block"><span class="n">add</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">:</span> <span class="n">a</span> <span class="o">+</span> <span class="n">b</span>
 <span class="n">add</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
@@ -227,7 +227,7 @@
 </pre>
 <p>Odchudziliśmy już nasz kod do 9 linii przy zachowaniu tej samej funkcjonalności. Czy to odchudzanie kiedyś się skończy? Tak, ale jeszcze nie w tym momencie. Zauważ, że sama definicja&nbsp;klasy <code>Tests</code>, metody&nbsp;testowej <code>add_test</code> oraz jej wielokrotne wywołanie zajmują aż 4 linijki kodu. Może damy radę jeszcze coś tutaj&nbsp;pokombinować?</p>
 <h3 id="type">type<a class="headerlink" href="#type" title="Permalink to this heading">¶</a></h3>
-<p>Metoda <code>type</code> to jedna z metod wbudowanych Pythona i nie wymaga importu (jest zawsze dostępna, podobnie jak używana przez nas&nbsp;metoda <code>setattr</code>). Większość osób programujących w Pythonie używa tej metody do sprawdzania typu obiektu. Nie każdy jednak zdaje sobie sprawę,&nbsp;że <code>type</code> można wykorzystać też w innym celu. <a href="https://docs.python.org/3/library/functions.html?highlight=type#type">type</a> możemy również wykorzystać do dynamicznego tworzenia obiektów w Pythonie. Jak to działa? To nic skomplikowanego. W obecnym kodzie mamy następującą definicję&nbsp;klasy: <code>class Tests(unittest.TestCase): pass</code>. Jest to klasa, dziedzicząca&nbsp;po <code>unittest.TestCase</code> oraz nieposiadająca żadnych zmiennych, oraz metod. Przy&nbsp;użyciu <code>type</code> powyższa definicja wyglądałaby&nbsp;tak: <code>Tests = type("Tests", (unittest.TestCase,), {})</code>. Co tu się&nbsp;podziało?</p>
+<p>Metoda <code>type</code> to jedna z metod wbudowanych Pythona i nie wymaga importu (jest zawsze dostępna, podobnie jak używana przez nas&nbsp;metoda <code>setattr</code>). Większość osób programujących w Pythonie używa tej metody do sprawdzania typu obiektu. Nie każdy jednak zdaje sobie sprawę,&nbsp;że <code>type</code> można wykorzystać też w innym celu. <a href="https://docs.python.org/3/library/functions.html?highlight=type#type" rel="nofollow">type</a> możemy również wykorzystać do dynamicznego tworzenia obiektów w Pythonie. Jak to działa? To nic skomplikowanego. W obecnym kodzie mamy następującą definicję&nbsp;klasy: <code>class Tests(unittest.TestCase): pass</code>. Jest to klasa, dziedzicząca&nbsp;po <code>unittest.TestCase</code> oraz nieposiadająca żadnych zmiennych, oraz metod. Przy&nbsp;użyciu <code>type</code> powyższa definicja wyglądałaby&nbsp;tak: <code>Tests = type("Tests", (unittest.TestCase,), {})</code>. Co tu się&nbsp;podziało?</p>
 <ol>
 <li>Przypisanie do zmiennej już&nbsp;znasz.</li>
 <li>Jako pierwszy argument podaliśmy nazwę nowego&nbsp;obiektu.</li>
@@ -247,7 +247,7 @@
 </pre>
 <p>Na razie zysku brak. Ciągle mamy 9 linii kodu. Jednak dla wprawnego oka, przyzwyczajonego do kodu pisanego w Pythonie, widać, że coś tutaj możemy teraz&nbsp;uprościć.</p>
 <h3 id="dict-comprehension">dict comprehension<a class="headerlink" href="#dict-comprehension" title="Permalink to this heading">¶</a></h3>
-<p>Zwrot <strong>dict comprehension</strong> nie posiada sensownego tłumaczenia (dlatego będę używał go w oryginale). Czym jest <strong>dict comprehension</strong>? Jest to sposób na uproszczenie zapisu, tworzenia słownika z wykorzystaniem&nbsp;pętli <code>for</code>, który opisany jest w <a href="https://www.python.org/dev/peps/pep-0274/"><span class="caps">PEP</span> 271</a> (istnieje również bardzo podobny mechanizm jak <strong>list comprehension</strong>, który opisany jest w <a href="https://www.python.org/dev/peps/pep-0202/"><span class="caps">PEP</span> 202</a>. W skrócie&nbsp;zapis:</p>
+<p>Zwrot <strong>dict comprehension</strong> nie posiada sensownego tłumaczenia (dlatego będę używał go w oryginale). Czym jest <strong>dict comprehension</strong>? Jest to sposób na uproszczenie zapisu, tworzenia słownika z wykorzystaniem&nbsp;pętli <code>for</code>, który opisany jest w <a href="https://www.python.org/dev/peps/pep-0274/" rel="nofollow"><span class="caps">PEP</span> 271</a> (istnieje również bardzo podobny mechanizm jak <strong>list comprehension</strong>, który opisany jest w <a href="https://www.python.org/dev/peps/pep-0202/" rel="nofollow"><span class="caps">PEP</span> 202</a>. W skrócie&nbsp;zapis:</p>
 <pre class="code literal-block"><span class="n">keys</span> <span class="o">=</span> <span class="p">[</span><span class="s2">"a"</span><span class="p">,</span> <span class="s2">"b"</span><span class="p">,</span> <span class="s2">"c"</span><span class="p">,</span> <span class="s2">"d"</span><span class="p">]</span>
 <span class="n">values</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">]</span>
 
@@ -318,7 +318,7 @@
 <p>Zmiany, które zostały wprowadzone, nie powinny być zaskoczeniem, gdyż bardzo podobny kod był w akapicie dotyczącym wykorzystania <a href="../jeszcze-mniejszy-framework-do-testow-w-pythonie#lambda-po-raz-pierwszy">lambdy</a>.</p>
 <p>Skoro mamy już podwaliny do dalszej zabawy, rozszerzmy kod o dodatkowe&nbsp;sprawdzenia.</p>
 <h3 id="wiecej-testow-w-tescie">Więcej testów w teście<a class="headerlink" href="#wiecej-testow-w-tescie" title="Permalink to this heading">¶</a></h3>
-<p>Ponieważ wiemy już co jeszcze chcemy testować, musimy znaleźć sposób na pobranie potrzebnych informacji. Okazuje się, że wszystko tak na prawdę już w naszym kodzie jest, ale jeszcze z tych informacji nie robimy użytku. Te i inne dodatkowe informacje otrzymujemy w <a href="https://requests.readthedocs.io/en/master/api/#requests.Response">odpowiedzi na wysłane żądanie</a>. Wartości, z których możemy skorzystać w teście&nbsp;to:</p>
+<p>Ponieważ wiemy już co jeszcze chcemy testować, musimy znaleźć sposób na pobranie potrzebnych informacji. Okazuje się, że wszystko tak na prawdę już w naszym kodzie jest, ale jeszcze z tych informacji nie robimy użytku. Te i inne dodatkowe informacje otrzymujemy w <a href="https://requests.readthedocs.io/en/master/api/#requests.Response" rel="nofollow">odpowiedzi na wysłane żądanie</a>. Wartości, z których możemy skorzystać w teście&nbsp;to:</p>
 <ul>
 <li><code>resposne.json()</code> - zwraca słownik z danymi, którymi odpowiedział&nbsp;endpoint,</li>
 <li><code>response.elapsed.total_seconds()</code> - zawiera czas pomiędzy wysłaniem żądania, a otrzymaniem&nbsp;odpowiedzi.</li>
@@ -400,9 +400,9 @@
 <p>Zapytasz się po co to wszystko? Powód jest prosty, tzn. lista jest zbiorem uporządkowanych wartości i aby 2 listy były uznane za identyczne, obie listy poza zawieraniem tych samych wartości, muszą mieć jeszcze te wartości ułożone w takiej samej&nbsp;kolejności. <code>set</code> natomiast w tym względzie jest mniej restrykcyjny i wymaga tylko posiadania takich samych wartości, nie przejmując się zupełnie ich kolejnością. Dzięki temu, zdecydowanie ułatwiamy sobie wprowadzanie danych testowych oraz eliminujemy fałszywe błędy spowodowane przez inną kolejność zwracanych przez endpoint&nbsp;wartości.</p>
 <p>W tym momencie mamy 13 linii kodu, więc teoretycznie moglibyśmy coś tutaj jeszcze dorzucić, ale musimy pamiętaj jeszcze o kwestii związanej z obsługą dodatkowy plików <strong>json</strong>. Zanim to zrobimy, musimy wprowadzić dodatkową bibliotekę oraz omówić jedną dodatkową metodę, których użyjemy do tego&nbsp;zadania.</p>
 <h3 id="glob">glob<a class="headerlink" href="#glob" title="Permalink to this heading">¶</a></h3>
-<p>Biblioteka <a href="https://docs.python.org/3/library/glob.html">glob</a> w dużym uproszczeniu służy do wyszukiwania plików i katalogów. Na nasze potrzeby wykorzystamy tylko jedną metodę. a dokładniej <a href="https://docs.python.org/3/library/glob.html">glob.iglob</a>. Wykorzystamy ja do wyszukiwania plików <strong>json</strong>.</p>
+<p>Biblioteka <a href="https://docs.python.org/3/library/glob.html" rel="nofollow">glob</a> w dużym uproszczeniu służy do wyszukiwania plików i katalogów. Na nasze potrzeby wykorzystamy tylko jedną metodę. a dokładniej <a href="https://docs.python.org/3/library/glob.html" rel="nofollow">glob.iglob</a>. Wykorzystamy ja do wyszukiwania plików <strong>json</strong>.</p>
 <h3 id="globals">globals()<a class="headerlink" href="#globals" title="Permalink to this heading">¶</a></h3>
-<p><a href="https://docs.python.org/3/library/functions.html#globals">globals()</a> to kolejna z wbudowanych metod Pythona, która przechowuje zmienne globalne dla danego modułu. Na tym etapie, gdybyśmy w naszym kodzie wyświetli zawartość, którą&nbsp;zwraca <code>globals()</code>, zauważylibyśmy m.in. coś&nbsp;takiego:</p>
+<p><a href="https://docs.python.org/3/library/functions.html#globals" rel="nofollow">globals()</a> to kolejna z wbudowanych metod Pythona, która przechowuje zmienne globalne dla danego modułu. Na tym etapie, gdybyśmy w naszym kodzie wyświetli zawartość, którą&nbsp;zwraca <code>globals()</code>, zauważylibyśmy m.in. coś&nbsp;takiego:</p>
 <pre class="code literal-block"><span class="go">'Tests': &lt;class '__main__.Tests'&gt;</span>
 </pre>
 <p>Jest to zmienna, w której przechowywana jest klasa z testami z pojedynczego pliku <strong>json</strong>. Po co nam to wiedzieć? Zapraszam&nbsp;dalej.</p>
@@ -514,13 +514,13 @@
 </pre>
 <p>Dodatkowo linki do repozytorium z najciekawszymi (według mnie) wersjami kodu, który omawialiśmy w tej mini serii znajdziesz&nbsp;poniżej:</p>
 <ul>
-<li><a href="https://github.com/mkusz/the_smallest_rest_api_testing_framework/tree/first_article">pierwszy artykuł</a>,</li>
-<li><a href="https://github.com/mkusz/the_smallest_rest_api_testing_framework/tree/more_functionality">więcej funkcjonalności</a>,</li>
-<li><a href="https://github.com/mkusz/the_smallest_rest_api_testing_framework/tree/6_lines">tylko 6 linii kodu</a>,</li>
-<li><a href="https://github.com/mkusz/the_smallest_rest_api_testing_framework/tree/pep8_valid">zgodność z <span class="caps">PEP</span>-8</a>.</li>
+<li><a href="https://github.com/mkusz/the_smallest_rest_api_testing_framework/tree/first_article" rel="nofollow">pierwszy artykuł</a>,</li>
+<li><a href="https://github.com/mkusz/the_smallest_rest_api_testing_framework/tree/more_functionality" rel="nofollow">więcej funkcjonalności</a>,</li>
+<li><a href="https://github.com/mkusz/the_smallest_rest_api_testing_framework/tree/6_lines" rel="nofollow">tylko 6 linii kodu</a>,</li>
+<li><a href="https://github.com/mkusz/the_smallest_rest_api_testing_framework/tree/pep8_valid" rel="nofollow">zgodność z <span class="caps">PEP</span>-8</a>.</li>
 </ul>
 <h2 id="bonus-2">Bonus 2<a class="headerlink" href="#bonus-2" title="Permalink to this heading">¶</a></h2>
-<p>Po raz kolejny <strong>Jakub Spórna</strong> z bloga <a href="https://sporna.dev/">https://sporna.dev/</a> podrzucił jeszcze mniejszą wersję frameworka. Tym razem wziął na tapetę wersję najbardziej rozbudowaną funkcjonalność i postanowił ją troszeczkę bardziej pomniejszyć. Poniżej jego wersja (z minimalną modyfikacją dotyczącej nazw&nbsp;plików):</p>
+<p>Po raz kolejny <strong>Jakub Spórna</strong> z bloga <a href="https://sporna.dev/" rel="nofollow">https://sporna.dev/</a> podrzucił jeszcze mniejszą wersję frameworka. Tym razem wziął na tapetę wersję najbardziej rozbudowaną funkcjonalność i postanowił ją troszeczkę bardziej pomniejszyć. Poniżej jego wersja (z minimalną modyfikacją dotyczącej nazw&nbsp;plików):</p>
 <pre class="code literal-block"><span class="kn">import</span> <span class="nn">unittest</span><span class="o">,</span> <span class="nn">xmlrunner</span><span class="o">,</span> <span class="nn">json</span><span class="o">,</span> <span class="nn">requests</span><span class="o">,</span> <span class="nn">glob</span>
 
 <span class="k">def</span> <span class="nf">abstract_test</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">response</span><span class="p">):</span>
@@ -1245,10 +1245,10 @@ window._load_script = function(url, callback) {
 </ol>
 <ol class="list-unstyled icons">
 <li><a class="fas fa-at" href="mailto:maciej@testerembyc.pl" target="_blank"></a></li>
-<li><a class="fab fa-facebook" href="https://www.facebook.com/testerembyc/" target="_blank"></a></li>
-<li><a class="fab fa-instagram" href="https://www.instagram.com/testerembyc/" target="_blank"></a></li>
-<li><a class="fab fa-linkedin" href="https://www.linkedin.com/in/maciej-kusz/" target="_blank"></a></li>
-<li><a class="fab fa-youtube" href="https://www.youtube.com/channel/UCm3xa7IkyYBFSZrisCBx53A" target="_blank"></a></li>
+<li><a class="fab fa-facebook" href="https://www.facebook.com/testerembyc/" rel="nofollow" target="_blank"></a></li>
+<li><a class="fab fa-instagram" href="https://www.instagram.com/testerembyc/" rel="nofollow" target="_blank"></a></li>
+<li><a class="fab fa-linkedin" href="https://www.linkedin.com/in/maciej-kusz/" rel="nofollow" target="_blank"></a></li>
+<li><a class="fab fa-youtube" href="https://www.youtube.com/channel/UCm3xa7IkyYBFSZrisCBx53A" rel="nofollow" target="_blank"></a></li>
 </ol>
 </div>
 </div>

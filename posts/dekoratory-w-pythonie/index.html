@@ -44,7 +44,7 @@
 <div class="blog-masthead">
 <div class="container"><!-- This keeps the margins nice -->
 <div class="blog-header">
-<h1 class="blog-title"><a href="https://testerembyc.pl/"><img alt="testerembyc.pl" id="logo" src="../../images/testerembyc_logo.svg"><span id="blog-title">testerembyc.pl</span></a></h1>
+<h1 class="blog-title"><a href="https://testerembyc.pl/" rel="nofollow"><img alt="testerembyc.pl" id="logo" src="../../images/testerembyc_logo.svg"><span id="blog-title">testerembyc.pl</span></a></h1>
 <!-- <p class="lead blog-description">Czyli blog o tym, jak to jest być nie tylko&nbsp;testerem</p> # Original one -->
 <p class="lead blog-description">Czyli blog o tym, jak to jest być nie tylko <span>testerem</span></p>
 </div>
@@ -71,7 +71,7 @@
 </header>
 <div class="e-content entry-content" itemprop="articleBody text">
 <div>
-<p class="caption"><a href="../dekoratory-w-pythonie"><img alt="Witaj świecie" src="../../images/posts/dekoratory-w-pythonie.jpg"></a> Wykorzystano zdjęcie autorstwa <a href="https://www.pexels.com/pl-pl/@yankrukov">Yan Krukov</a> z <a href="https://www.pexels.com/">Pexels</a></p>
+<p class="caption"><a href="../dekoratory-w-pythonie"><img alt="Witaj świecie" src="../../images/posts/dekoratory-w-pythonie.jpg"></a> Wykorzystano zdjęcie autorstwa <a href="https://www.pexels.com/pl-pl/@yankrukov" rel="nofollow">Yan Krukov</a> z <a href="https://www.pexels.com/" rel="nofollow">Pexels</a></p>
 <p>Ostatnich kilka artykułów na tym blogu, było związane z ogólnikami dotyczącymi <a href="../cala-prawda-o-testach-oprogramowania-i-czym-one-sa">testów</a> i <a href="../dlaczego-nie-bedziesz-testerem-i-co-mozesz-z-tym-fantem-zrobic-jesli-bardzo-chcesz">zawodu testera</a>. Tym razem wpis typowo techniczny związany z moim ulubionym językiem programowania, czyli Pythonem. Język ten ma pewne <em>magiczne</em> metody i elementy niespotykane w innych językach (lub sposób ich użycia i implementacji jest dużo bardziej złożony). Jednym z takich elementów jest tzw. <strong>dekorator</strong>.</p>
 <!-- more -->
 <div class="toc">
@@ -89,17 +89,17 @@
 </ul>
 </div>
 <h2 id="czym-jest-dekorator">Czym jest dekorator?<a class="headerlink" href="#czym-jest-dekorator" title="Permalink to this heading">¶</a></h2>
-<p>W skrócie <a href="https://pl.wikipedia.org/wiki/Dekorator_(wzorzec_projektowy)">dekorator</a> to jeden ze strukturalnych wzorców projektowych. Pozwala on na dynamiczne dodanie nowej funkcji do istniejącej klasy podczas działania&nbsp;programu.</p>
-<p>W Pythonie, implementacja dekoratorów dla metod po raz pierwszy została dodana w wersji <strong>2.4</strong> języka, a dokument, który to opisywał to <a href="https://www.python.org/dev/peps/pep-0318/"><span class="caps">PEP</span> 318 - Decorators for Functions and Methods</a> (<strong><span class="caps">PEP</span></strong> to skrót od <a href="https://www.python.org/dev/peps/">Python Enhancement Proposals</a>). W Pythonie <strong>3.0</strong>, wprowadzono natomiast możliwość tworzenia dekoratorów dla klas (opis w <a href="https://www.python.org/dev/peps/pep-3129/"><span class="caps">PEP</span> 3129 - Class Decorators</a>.</p>
-<p>Zasada działania dekoratorów polega na <strong>opakowaniu</strong> (tzw. <a href="https://pl.wikipedia.org/wiki/Enkapsulacja">enkapsulacji</a>) oryginalnej klasy, nową klasą, tzw. klasą <strong>dekorującą</strong>.</p>
-<p>Na czym polega opakowywanie? Najprościej porównać to do starej rosyjskiej zabawki, <a href="https://pl.wikipedia.org/wiki/Matrioszka">matrioszki</a>.</p>
+<p>W skrócie <a href="https://pl.wikipedia.org/wiki/Dekorator_(wzorzec_projektowy)" rel="nofollow">dekorator</a> to jeden ze strukturalnych wzorców projektowych. Pozwala on na dynamiczne dodanie nowej funkcji do istniejącej klasy podczas działania&nbsp;programu.</p>
+<p>W Pythonie, implementacja dekoratorów dla metod po raz pierwszy została dodana w wersji <strong>2.4</strong> języka, a dokument, który to opisywał to <a href="https://www.python.org/dev/peps/pep-0318/" rel="nofollow"><span class="caps">PEP</span> 318 - Decorators for Functions and Methods</a> (<strong><span class="caps">PEP</span></strong> to skrót od <a href="https://www.python.org/dev/peps/" rel="nofollow">Python Enhancement Proposals</a>). W Pythonie <strong>3.0</strong>, wprowadzono natomiast możliwość tworzenia dekoratorów dla klas (opis w <a href="https://www.python.org/dev/peps/pep-3129/" rel="nofollow"><span class="caps">PEP</span> 3129 - Class Decorators</a>.</p>
+<p>Zasada działania dekoratorów polega na <strong>opakowaniu</strong> (tzw. <a href="https://pl.wikipedia.org/wiki/Enkapsulacja" rel="nofollow">enkapsulacji</a>) oryginalnej klasy, nową klasą, tzw. klasą <strong>dekorującą</strong>.</p>
+<p>Na czym polega opakowywanie? Najprościej porównać to do starej rosyjskiej zabawki, <a href="https://pl.wikipedia.org/wiki/Matrioszka" rel="nofollow">matrioszki</a>.</p>
 <p><img alt="Matrioszka" src="../../images/posts/dekoratory-w-pythonie_matrioszka.jpg"></p>
 <p>Jeśli nie wiesz czym jest ta zabawka, to polecam zapoznać się z poniższym filmikiem, bo zasada działania idealnie odzwierciedla mechanizm opakowywania (a jeśli znasz tą zabawkę, tzn. że zapewne jesteś co najmniej tak stary jak ja&nbsp;|wink|).</p>
 <div class="youtube-video"><iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen frameborder="0" height="392" src="https://www.youtube.com/embed/lz6Olxb29qA" title="YouTube video player" width="696"></iframe></div>
 <p>Jak widać Matrioszka, to zabawka, w której mniejsze Matrioszki, umieszczane są w środku większej. Mniejsza Matrioszka jest wtedy <em>enkapsulowana</em> w większej. Ta mniejsza Matrioszka to nasza klasa <strong>dekorowana</strong>, a większa to klasa <strong>dekorująca</strong>. Tak jak i w przypadku Matrioszek, tak i dekoratorów może być więcej niż jeden. Jedyna różnica pomiędzy Matrioszką, a dekoratorem jest taka, że Matrioszka to w zasadzie taka sama lalka jak jej mniejsza wersja (różnią się głównie rozmiarem). Dekorator natomiast to zupełnie inna klasa, która dodaje nowe możliwości do już istniejącej klasy (Matrioszka tego nie&nbsp;potrafi).</p>
 <p>Zauważ jedną, bardzo istotną rzecz: wszędzie powyżej wspominam, że dekorator jest klasą <strong>opakowującą</strong> inną klasę, a wspomniany <span class="caps">PEP</span> 318 mówi o dekorowaniu funkcji i metod. Czy przypadkiem nie ma tu gdzieś&nbsp;błędu?</p>
 <h2 id="funkcja-jest-obiektem">Funkcja jest obiektem<a class="headerlink" href="#funkcja-jest-obiektem" title="Permalink to this heading">¶</a></h2>
-<p>Zanim przejdziemy do sedna, to zapoznajmy się z definicją <a href="https://pl.wikipedia.org/wiki/Obiekt_(programowanie_obiektowe)">obiektu</a>. Mocno streszczając, obiekt to struktura zawierająca dane i metody/funkcje służące do wykonania jakichś operacji na tych danych. Bardzo szybko zauważymy, że ten opis idealnie pasuje do <a href="https://pl.wikipedia.org/wiki/Klasa_(programowanie_obiektowe)">klasy</a>. Obiekt stworzony na podstawie definicji klasy, jest <em>instancją</em> danej&nbsp;klasy.</p>
+<p>Zanim przejdziemy do sedna, to zapoznajmy się z definicją <a href="https://pl.wikipedia.org/wiki/Obiekt_(programowanie_obiektowe)" rel="nofollow">obiektu</a>. Mocno streszczając, obiekt to struktura zawierająca dane i metody/funkcje służące do wykonania jakichś operacji na tych danych. Bardzo szybko zauważymy, że ten opis idealnie pasuje do <a href="https://pl.wikipedia.org/wiki/Klasa_(programowanie_obiektowe)" rel="nofollow">klasy</a>. Obiekt stworzony na podstawie definicji klasy, jest <em>instancją</em> danej&nbsp;klasy.</p>
 <p>Dlaczego więc, w Pythonie mówimy o dekorowaniu funkcji lub metod danej klasy (które też są funkcjami)? Otóż przyczyna jest bardzo prosta: funkcje w Pythonie są obiektami/klasami (nie zdziw się, bo od teraz będę używał tych nazw zamiennie). Jak każdy obiekt w Pythonie, tak i funkcja ma swój&nbsp;typ:</p>
 <pre class="code literal-block"><span class="k">def</span> <span class="nf">example_function</span><span class="p">():</span>
     <span class="nb">print</span><span class="p">(</span><span class="s2">"Example"</span><span class="p">)</span>
@@ -148,7 +148,7 @@
 <p>Widzimy, że interpreter Pythona nie zna definicji&nbsp;funkcji <code>internal_function</code>.</p>
 <p>Skoro już wiemy, że funkcja jest obiektem, to ciekawe czy obiekt może być&nbsp;funkcją?</p>
 <h2 id="czy-obiekt-moze-byc-funkcja">Czy obiekt może być funkcją?<a class="headerlink" href="#czy-obiekt-moze-byc-funkcja" title="Permalink to this heading">¶</a></h2>
-<p>W Pythonie klasy posiadają pewne <a href="https://docs.python.org/3/reference/datamodel.html#basic-customization">metody magiczne</a>. Jedną z nich jest&nbsp;metoda <code>__call__</code>. W przypadku klasy funkcja ta umożliwia uruchomienie instancji klasy, tak jak by była&nbsp;funkcją:</p>
+<p>W Pythonie klasy posiadają pewne <a href="https://docs.python.org/3/reference/datamodel.html#basic-customization" rel="nofollow">metody magiczne</a>. Jedną z nich jest&nbsp;metoda <code>__call__</code>. W przypadku klasy funkcja ta umożliwia uruchomienie instancji klasy, tak jak by była&nbsp;funkcją:</p>
 <pre class="code literal-block"><span class="k">class</span> <span class="nc">FuncClass</span><span class="p">():</span>
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">var</span> <span class="o">=</span> <span class="p">[]</span>
@@ -232,7 +232,7 @@
 <p>Implementację&nbsp;funkcji <code>decorator</code> pozostawiłem bez zmian, natomiast&nbsp;funkcja <code>add</code> została udekorowaną. Służy do tego&nbsp;zapis <code>@decorator</code> tuż powyżej jej&nbsp;definicji.</p>
 <p>Na końcu&nbsp;funkcja <code>add</code> została wywołana z dwoma argumentami w taki sam sposób jak&nbsp;wcześniej.</p>
 <p>W obu przypadkach wynikiem działania jest wyświetlenie nazwy funkcji (część za którą odpowiedzialny jest dekorator) oraz wynik dodawania dwóch liczb (za to odpowiedzialna jest&nbsp;funkcja <code>add</code>, która nie została w żaden sposób&nbsp;zmodyfikowana).</p>
-<p>Notacji z&nbsp;wykorzystaniem <code>@decorator</code>, jest tzw. <a href="https://pl.wikipedia.org/wiki/Lukier_sk%C5%82adniowy">syntactic sugar</a> dla poprzedniego&nbsp;zapisu <code>add = decorator(add)</code>.</p>
+<p>Notacji z&nbsp;wykorzystaniem <code>@decorator</code>, jest tzw. <a href="https://pl.wikipedia.org/wiki/Lukier_sk%C5%82adniowy" rel="nofollow">syntactic sugar</a> dla poprzedniego&nbsp;zapisu <code>add = decorator(add)</code>.</p>
 <p>Jeśli używasz już Pythona od pewnego czasu, to powyższy zapis nie powinien być dla Ciebie zupełnie obcy. Zapewne spotkałeś się z nim już nie raz, podczas tworzenia swoich własnych klas, gdzie często wykorzystywane są m.in. następujące&nbsp;dekoratory:</p>
 <ul>
 <li><code>@classmethod</code></li>
@@ -350,7 +350,7 @@
     <span class="sd">"""Add to elements and print the result"""</span>
     <span class="nb">print</span><span class="p">(</span><span class="n">first</span> <span class="o">+</span> <span class="n">second</span><span class="p">)</span>
 </pre>
-<p>Spróbujmy teraz wywołać jedną z metod, która wykorzystywana jest przez narzędzia do budowania dokumentacji kodu, np. <a href="http://www.sphinx-doc.org/en/master/">Sphinx</a>.</p>
+<p>Spróbujmy teraz wywołać jedną z metod, która wykorzystywana jest przez narzędzia do budowania dokumentacji kodu, np. <a href="http://www.sphinx-doc.org/en/master/" rel="nofollow">Sphinx</a>.</p>
 <pre class="code literal-block"><span class="nb">print</span><span class="p">(</span><span class="n">add</span><span class="o">.</span><span class="vm">__doc__</span><span class="p">)</span>
 </pre>
 <pre class="code literal-block"><span class="go">Add to elements and print the result</span>
@@ -367,7 +367,7 @@
 </pre>
 <p>Dekorator wszystko nam popsuł&nbsp;|disappointed|.</p>
 <p>Dlaczego tak się dzieje?&nbsp;Otóż <code>add.__doc__</code> pobiera teraz opis nie z&nbsp;funkcji <code>add</code>, a z&nbsp;dekoratora.</p>
-<p>Możemy to rozwiązać bardzo łopatologicznie, ale ponieważ ktoś już o tym pomyślał, to wykorzystamy gotową funkcję. Wchodzi ona w skład bibliotek standardowych i jest częścią pakietu <a href="https://docs.python.org/2/library/functools.html">functools</a>. Zaimportujmy zatem&nbsp;funkcję <code>wraps</code> i jej użyjmy&nbsp;(funkcja <code>add</code> pozostaje bez&nbsp;zmian).</p>
+<p>Możemy to rozwiązać bardzo łopatologicznie, ale ponieważ ktoś już o tym pomyślał, to wykorzystamy gotową funkcję. Wchodzi ona w skład bibliotek standardowych i jest częścią pakietu <a href="https://docs.python.org/2/library/functools.html" rel="nofollow">functools</a>. Zaimportujmy zatem&nbsp;funkcję <code>wraps</code> i jej użyjmy&nbsp;(funkcja <code>add</code> pozostaje bez&nbsp;zmian).</p>
 <pre class="code literal-block"><span class="kn">from</span> <span class="nn">functools</span> <span class="kn">import</span> <span class="n">wraps</span>
 
 <span class="k">def</span> <span class="nf">decorator</span><span class="p">(</span><span class="n">func</span><span class="p">):</span>
@@ -392,7 +392,7 @@
 </pre>
 <pre class="code literal-block">Add to elements and print the result
 </pre>
-<p>Zauważ, że funkcja ta została wykorzystana do udekorowania funkcji wewnętrznej naszego dekoratora i że dokumentacja została poprawnie wyświetlona. Funkcja ta poprawia wyświetlanie również innych wartości, które nadpisywane są przez użycie dekoratora, ale po więcej szczegółów odsyłam do <a href="https://docs.python.org/3/library/functools.html#functools.wraps">dokumentacji</a>.</p>
+<p>Zauważ, że funkcja ta została wykorzystana do udekorowania funkcji wewnętrznej naszego dekoratora i że dokumentacja została poprawnie wyświetlona. Funkcja ta poprawia wyświetlanie również innych wartości, które nadpisywane są przez użycie dekoratora, ale po więcej szczegółów odsyłam do <a href="https://docs.python.org/3/library/functools.html#functools.wraps" rel="nofollow">dokumentacji</a>.</p>
 <h2 id="dekorator-z-parametrami">Dekorator z parametrami<a class="headerlink" href="#dekorator-z-parametrami" title="Permalink to this heading">¶</a></h2>
 <p>A co gdybyśmy chcieli np. wymusić, aby dekorator (poza już istniejącą implementacją) sprawdzał, czy oba parametry były tego samego typu? Musielibyśmy być w stanie przekazać do dekoratora jakieś dodatkowy parametr. Skoro wiemy, że dekorator jest funkcją, to być może dało by się do takiego dekoratora przekazać ten parametr jako argument funkcji? Sprawdźmy&nbsp;więc.</p>
 <pre class="code literal-block"><span class="k">def</span> <span class="nf">decorator</span><span class="p">(</span><span class="n">args_type_list</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>  <span class="c1"># Dekorator z argumentem</span>
@@ -509,7 +509,7 @@
 <p>Dlatego też musimy sprawdzić czy przekazywany argument jest funkcją czy nie. Do tego służy&nbsp;funkcja <code>callable()</code>.</p>
 <p>A może dało by się to ciut prościej zrobić? Poza tym co z kwestią dokumentacji,&nbsp;itp.</p>
 <h2 id="partial">partial<a class="headerlink" href="#partial" title="Permalink to this heading">¶</a></h2>
-<p>Po raz kolejny z pomocą przychodzi nam&nbsp;biblioteka <code>functools</code>. Tym razem jednak skorzystamy jednocześnie z poznanej wcześniej&nbsp;funkcji <code>wraps</code> oraz nowej <a href="https://docs.python.org/3/library/functools.html#functools.partial">partial</a>. Spójrzmy na poniższy kod (ponownie dekorowana&nbsp;funkcja <code>add</code> pozostaje bez&nbsp;zmian).</p>
+<p>Po raz kolejny z pomocą przychodzi nam&nbsp;biblioteka <code>functools</code>. Tym razem jednak skorzystamy jednocześnie z poznanej wcześniej&nbsp;funkcji <code>wraps</code> oraz nowej <a href="https://docs.python.org/3/library/functools.html#functools.partial" rel="nofollow">partial</a>. Spójrzmy na poniższy kod (ponownie dekorowana&nbsp;funkcja <code>add</code> pozostaje bez&nbsp;zmian).</p>
 <pre class="code literal-block"><span class="kn">from</span> <span class="nn">functools</span> <span class="kn">import</span> <span class="n">wraps</span><span class="p">,</span> <span class="n">partial</span>
 
 <span class="k">def</span> <span class="nf">decorator</span><span class="p">(</span><span class="n">func</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">args_type_list</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
@@ -1303,10 +1303,10 @@ window._load_script = function(url, callback) {
 </ol>
 <ol class="list-unstyled icons">
 <li><a class="fas fa-at" href="mailto:maciej@testerembyc.pl" target="_blank"></a></li>
-<li><a class="fab fa-facebook" href="https://www.facebook.com/testerembyc/" target="_blank"></a></li>
-<li><a class="fab fa-instagram" href="https://www.instagram.com/testerembyc/" target="_blank"></a></li>
-<li><a class="fab fa-linkedin" href="https://www.linkedin.com/in/maciej-kusz/" target="_blank"></a></li>
-<li><a class="fab fa-youtube" href="https://www.youtube.com/channel/UCm3xa7IkyYBFSZrisCBx53A" target="_blank"></a></li>
+<li><a class="fab fa-facebook" href="https://www.facebook.com/testerembyc/" rel="nofollow" target="_blank"></a></li>
+<li><a class="fab fa-instagram" href="https://www.instagram.com/testerembyc/" rel="nofollow" target="_blank"></a></li>
+<li><a class="fab fa-linkedin" href="https://www.linkedin.com/in/maciej-kusz/" rel="nofollow" target="_blank"></a></li>
+<li><a class="fab fa-youtube" href="https://www.youtube.com/channel/UCm3xa7IkyYBFSZrisCBx53A" rel="nofollow" target="_blank"></a></li>
 </ol>
 </div>
 </div>

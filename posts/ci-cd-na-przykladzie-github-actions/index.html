@@ -24,7 +24,8 @@
 <link href="../../images/icons/icon_512x512.png" rel="icon" sizes="512x512"><!--[if lt IE 9]><script src="../../assets/js/html5.js"></script><![endif]-->
 <meta content="Do czego można wykorzystać CI/CD przy tworzeniu bloga oraz potencjalne zastosowania w testach automatycznych na przykładzie GitHub Actions" itemprop="description" name="description">
 <meta content="Maciej Kusz" name="author">
-<link href="../vlog-002-strefa-komfortu-a-twoje-zarobki/" rel="prev" title="Strefa komfortu, a Twoje zarobki [vlog 002]" type="text/html">
+<link href="../youtube-itea-night-live-05-testowanie-api/" rel="prev" title="ITea Night Live 05 - Testowanie API" type="text/html">
+<link href="../youtube-testowanie-oprogramowania-podcast-opowiesci-z-testerskiej-krypty/" rel="next" title="Testowanie Oprogramowania Podcast - Opowieści z Testerskiej Krypty" type="text/html">
 <meta content="testerembyc.pl" property="og:site_name">
 <meta content="CI/CD na przykładzie GitHub Actions" property="og:title">
 <meta content="https://testerembyc.pl/posts/ci-cd-na-przykladzie-github-actions/" property="og:url">
@@ -70,7 +71,6 @@
 <p></p></div>
 </header>
 <div class="e-content entry-content" itemprop="articleBody text">
-<div>
 <p class="caption"><a href="../ci-cd-na-przykladzie-github-actions"><img alt="Witaj świecie" src="../../images/posts/ci-cd-na-przykladzie-github-actions.jpg"></a></p>
 <p>Jako tester, szczególnie automatyzujący, bardzo często spotkamy się z zagadnieniami związanymi z tzw. <a href="https://en.wikipedia.org/wiki/Continuous_delivery" rel="nofollow">continuous delivery</a> oraz <a href="https://en.wikipedia.org/wiki/Continuous_integration" rel="nofollow">continuous integration</a>, czyli w skrócie <em><span class="caps">CI</span>/<span class="caps">CD</span></em>. Jednym z najbardziej popularnych narzędzi, wspomagających ten proces, jest niewątpliwie <a href="https://www.jenkins.io" rel="nofollow">Jenkins</a>. Ma on jednak pewną wadę, tzn. trzeba go albo zainstalować na własnym serwerze, albo zapłacić zewnętrznej firmie, która udostępni nam Jenkinsa jako usługę typu <a href="https://en.wikipedia.org/wiki/Software_as_a_service" rel="nofollow">SaaS</a> (Software as a Service). W większości firm obsługą narzędzi <span class="caps">CI</span>/<span class="caps">CD</span> zajmuje się zespół DevOps, jednak w małych firmach lub w przypadku projektów robionych <em>po godzinach</em> w ramach nauki, fajnie byłoby móc zautomatyzować sobie część zadań i nie koniecznie ponosić za to dużych opłat. Jedną z takich opcji jest <a href="https://github.com/features/actions" rel="nofollow">GitHub Actions</a>.</p>
 <p>W poniższym wpisie zajmę się pokazaniem jak ja wykorzystuje to narzędzie przy tworzeniu tego bloga oraz omówię możliwości wykorzystania go w testach automatycznych. Zapraszam więc do dalszej&nbsp;lektury.</p>
@@ -208,20 +208,20 @@
 </ul>
 <h4 id="nazwa-name">Nazwa (name)<a class="headerlink" href="#nazwa-name" title="Permalink to this heading">¶</a></h4>
 <p>Ponieważ&nbsp;sekcja <code>name</code> jest bardzo prosta i oznacza po prostu nazwę danego workflow. W formacie <span class="caps">YAML</span> wygląda to&nbsp;następująco:</p>
-<pre class="code literal-block"><span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">deploy-nikola</span>
+<pre class="code literal-block"><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">deploy-nikola</span><span class="w"></span>
 </pre>
 <h4 id="wyzwalacze-on">Wyzwalacze (on)<a class="headerlink" href="#wyzwalacze-on" title="Permalink to this heading">¶</a></h4>
 <p>Pełna lista wyzwalaczy znajduje się <a href="https://docs.github.com/en/actions/reference/events-that-trigger-workflows" rel="nofollow">tutaj</a>. Ja w swoim workflow, wykorzystałem tylko jeden,&nbsp;czyli <code>push</code>, który skonfigurowałem tak, aby działał, tylko w momencie, gdy zmieni się zawartość głównego brancha mojego repozytorium. W formacie <span class="caps">YAML</span> wygląda to&nbsp;następująco:</p>
-<pre class="code literal-block"><span class="nt">on</span><span class="p">:</span>  
-  <span class="nt">push</span><span class="p">:</span>  
-    <span class="nt">branches</span><span class="p">:</span>  
-      <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">main</span>
+<pre class="code literal-block"><span class="nt">on</span><span class="p">:</span><span class="w">  </span>
+<span class="w">  </span><span class="nt">push</span><span class="p">:</span><span class="w">  </span>
+<span class="w">    </span><span class="nt">branches</span><span class="p">:</span><span class="w">  </span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">main</span><span class="w"></span>
 </pre>
 <p>W przypadku starszych repozytoriów nazwa głównego brancha może być inna (master). Powód zmiany nazwy doczekał&nbsp;się szerszego opisu w jednym z oficjalnych <a href="https://github.com/github/renaming" rel="nofollow">repozytoriów</a> samego&nbsp;GitHuba.</p>
 <p>Dodatkowo w przyszłości rozważę również dodanie dodatkowego wyzwalacza w postaci uruchamiania workflow każdego dnia o wybranej godzinie. Pozwoli mi to na skorzystanie z możliwości publikacji artykułów z przyszłą datą. Przyjmując, że chciałbym, aby strona przebudowywała się codziennie o godzinie 10:00, taki wyzwalacz wyglądałby&nbsp;tak:</p>
-<pre class="code literal-block"><span class="nt">on</span><span class="p">:</span>  
-  <span class="nt">schedule</span><span class="p">:</span>  
-    <span class="p p-Indicator">-</span> <span class="nt">cron</span><span class="p">:</span> <span class="s">'0</span><span class="nv"> </span><span class="s">10</span><span class="nv"> </span><span class="s">*</span><span class="nv"> </span><span class="s">*</span><span class="nv"> </span><span class="s">*'</span>
+<pre class="code literal-block"><span class="nt">on</span><span class="p">:</span><span class="w">  </span>
+<span class="w">  </span><span class="nt">schedule</span><span class="p">:</span><span class="w">  </span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">cron</span><span class="p">:</span><span class="w"> </span><span class="s">'0</span><span class="nv"> </span><span class="s">10</span><span class="nv"> </span><span class="s">*</span><span class="nv"> </span><span class="s">*</span><span class="nv"> </span><span class="s">*'</span><span class="w"></span>
 </pre>
 <p>Zauważ, że składnia zgodna jest ze składnią tzw. <a href="https://en.wikipedia.org/wiki/Cron" rel="nofollow">cron</a>, czyli tzw. planisty (scheduler). Składnia prezentuje się&nbsp;następująco:</p>
 <pre class="code literal-block"><span class="go">┌───────────── minuta (0 - 59)</span>
@@ -240,39 +240,39 @@
 </ul>
 <h4 id="zadanie-job">Zadanie (job)<a class="headerlink" href="#zadanie-job" title="Permalink to this heading">¶</a></h4>
 <p>Konfiguracja konkretnego zadania to może być bardzo krótka (np. usunięcie danego katalogu) lub bardzo złożona. Poniżej znajduje się moja konfiguracja i na jej przykładzie omówię, jak się buduje takie zadania i co one&nbsp;zawierają.</p>
-<pre class="code literal-block"><span class="nt">jobs</span><span class="p">:</span>  
-  <span class="nt">Deploy-Nikola</span><span class="p">:</span>  
-    <span class="nt">runs-on</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">ubuntu-latest</span>  
-    <span class="nt">steps</span><span class="p">:</span>  
-      <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Checkout Git repository</span>  
-        <span class="nt">uses</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">actions/checkout@v2</span>  
-      <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Install Python 3.8</span>  
-        <span class="nt">uses</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">actions/setup-python@v2</span>  
-        <span class="nt">with</span><span class="p">:</span>  
-          <span class="nt">python-version</span><span class="p">:</span> <span class="s">'3.8'</span>  
-      <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Install Python libraries from requirements.txt</span>  
-        <span class="nt">uses</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">py-actions/py-dependency-install@v2</span>  
-      <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Install missing Ubuntu packages</span>  
-        <span class="nt">run</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">sudo apt-get install -y jpegoptim optipng tidy</span>  
-      <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Build Nikola static site for testerembyc.pl</span>  
-        <span class="nt">run</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">nikola build</span>  
-      <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Commit static site to repository with GitHub Pages enabled</span>  
-        <span class="nt">uses</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">cpina/github-action-push-to-another-repository@main</span>  
-        <span class="nt">env</span><span class="p">:</span>  
-          <span class="nt">API_TOKEN_GITHUB</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">${{ secrets.API_TOKEN_GITHUB }}</span>  
-        <span class="nt">with</span><span class="p">:</span>  
-          <span class="nt">user-name</span><span class="p">:</span> <span class="s">"user"</span>  
-          <span class="nt">user-email</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">user@email.com</span>  
-          <span class="nt">source-directory</span><span class="p">:</span> <span class="s">"docs"</span>  
-          <span class="nt">destination-github-username</span><span class="p">:</span> <span class="s">"user"</span>  
-          <span class="nt">destination-repository-name</span><span class="p">:</span> <span class="s">"public-repo"</span>  
-          <span class="nt">target-branch</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">main</span>
+<pre class="code literal-block"><span class="nt">jobs</span><span class="p">:</span><span class="w">  </span>
+<span class="w">  </span><span class="nt">Deploy-Nikola</span><span class="p">:</span><span class="w">  </span>
+<span class="w">    </span><span class="nt">runs-on</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ubuntu-latest</span><span class="w">  </span>
+<span class="w">    </span><span class="nt">steps</span><span class="p">:</span><span class="w">  </span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Checkout Git repository</span><span class="w">  </span>
+<span class="w">        </span><span class="nt">uses</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">actions/checkout@v2</span><span class="w">  </span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Install Python 3.8</span><span class="w">  </span>
+<span class="w">        </span><span class="nt">uses</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">actions/setup-python@v2</span><span class="w">  </span>
+<span class="w">        </span><span class="nt">with</span><span class="p">:</span><span class="w">  </span>
+<span class="w">          </span><span class="nt">python-version</span><span class="p">:</span><span class="w"> </span><span class="s">'3.8'</span><span class="w">  </span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Install Python libraries from requirements.txt</span><span class="w">  </span>
+<span class="w">        </span><span class="nt">uses</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">py-actions/py-dependency-install@v2</span><span class="w">  </span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Install missing Ubuntu packages</span><span class="w">  </span>
+<span class="w">        </span><span class="nt">run</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">sudo apt-get install -y jpegoptim optipng tidy</span><span class="w">  </span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Build Nikola static site for testerembyc.pl</span><span class="w">  </span>
+<span class="w">        </span><span class="nt">run</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">nikola build</span><span class="w">  </span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Commit static site to repository with GitHub Pages enabled</span><span class="w">  </span>
+<span class="w">        </span><span class="nt">uses</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">cpina/github-action-push-to-another-repository@main</span><span class="w">  </span>
+<span class="w">        </span><span class="nt">env</span><span class="p">:</span><span class="w">  </span>
+<span class="w">          </span><span class="nt">API_TOKEN_GITHUB</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">${{ secrets.API_TOKEN_GITHUB }}</span><span class="w">  </span>
+<span class="w">        </span><span class="nt">with</span><span class="p">:</span><span class="w">  </span>
+<span class="w">          </span><span class="nt">user-name</span><span class="p">:</span><span class="w"> </span><span class="s">"user"</span><span class="w">  </span>
+<span class="w">          </span><span class="nt">user-email</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">user@email.com</span><span class="w">  </span>
+<span class="w">          </span><span class="nt">source-directory</span><span class="p">:</span><span class="w"> </span><span class="s">"docs"</span><span class="w">  </span>
+<span class="w">          </span><span class="nt">destination-github-username</span><span class="p">:</span><span class="w"> </span><span class="s">"user"</span><span class="w">  </span>
+<span class="w">          </span><span class="nt">destination-repository-name</span><span class="p">:</span><span class="w"> </span><span class="s">"public-repo"</span><span class="w">  </span>
+<span class="w">          </span><span class="nt">target-branch</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">main</span><span class="w"></span>
 </pre>
 <p>Dużo tego, ale prześledźmy wspólnie, co tu się dzieje i co oznacza. Aha. Żeby nie było, dane w ostatnich 6 linijkach zostały zmienione i nie są prawdziwymi&nbsp;danymi.</p>
-<pre class="code literal-block"><span class="nt">jobs</span><span class="p">:</span>  
-  <span class="nt">Deploy-Nikola</span><span class="p">:</span>
-    <span class="nt">runs-on</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">ubuntu-latest</span>  
-    <span class="nt">steps</span><span class="p">:</span>  
+<pre class="code literal-block"><span class="nt">jobs</span><span class="p">:</span><span class="w">  </span>
+<span class="w">  </span><span class="nt">Deploy-Nikola</span><span class="p">:</span><span class="w"></span>
+<span class="w">    </span><span class="nt">runs-on</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ubuntu-latest</span><span class="w">  </span>
+<span class="w">    </span><span class="nt">steps</span><span class="p">:</span><span class="w">  </span>
 </pre>
 <p>Tu raczej nie będzie problemu:&nbsp;- <code>jobs</code> - oznacza, że w tym miejscu znajduje się konfiguracja naszego zadania,&nbsp;- <code>Deploy-Nikola</code> - to po prostu nazwa naszego zadania,&nbsp;- <code>runs-on: ubuntu-latest</code> - definiuje, w jakim systemie operacyjnym dane zadanie, a dokładniej jego kroki, mają zostać uruchomione,&nbsp;- <code>steps</code> - kolejne kroki naszego&nbsp;zadania.</p>
 <p>Powyższe nie powinno stanowić&nbsp;problemu.</p>
@@ -305,38 +305,38 @@
 </ol>
 <h4 id="cay-workflow">Cały Workflow<a class="headerlink" href="#cay-workflow" title="Permalink to this heading">¶</a></h4>
 <p>Cały&nbsp;plik <code>deploy-nikola.yml</code> wygląda&nbsp;następująco:</p>
-<pre class="code literal-block"><span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">deploy-nikola</span>  
-<span class="nt">on</span><span class="p">:</span>  
-  <span class="nt">push</span><span class="p">:</span>  
-    <span class="nt">branches</span><span class="p">:</span>  
-      <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">master</span>  
-<span class="nt">jobs</span><span class="p">:</span>  
-  <span class="nt">Deploy-Nikola</span><span class="p">:</span>  
-    <span class="nt">runs-on</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">ubuntu-latest</span>  
-    <span class="nt">steps</span><span class="p">:</span>  
-      <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Checkout Git repository</span>  
-        <span class="nt">uses</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">actions/checkout@v2</span>  
-      <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Install Python 3.8</span>  
-        <span class="nt">uses</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">actions/setup-python@v2</span>  
-        <span class="nt">with</span><span class="p">:</span>  
-          <span class="nt">python-version</span><span class="p">:</span> <span class="s">'3.8'</span>  
-      <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Install Python libraries from requirements.txt</span>  
-        <span class="nt">uses</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">py-actions/py-dependency-install@v2</span>  
-      <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Install missing Ubuntu packages</span>  
-        <span class="nt">run</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">sudo apt-get install -y jpegoptim optipng tidy</span>  
-      <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Build Nikola static site for testerembyc.pl</span>  
-        <span class="nt">run</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">nikola build</span>  
-      <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Commit static site to repository with GitHub Pages enabled</span>  
-        <span class="nt">uses</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">cpina/github-action-push-to-another-repository@main</span>  
-        <span class="nt">env</span><span class="p">:</span>  
-          <span class="nt">API_TOKEN_GITHUB</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">${{ secrets.API_TOKEN_GITHUB }}</span>  
-        <span class="nt">with</span><span class="p">:</span>  
-          <span class="nt">user-name</span><span class="p">:</span> <span class="s">"user"</span>  
-          <span class="nt">user-email</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">user@email.com</span>  
-          <span class="nt">source-directory</span><span class="p">:</span> <span class="s">"docs"</span>  
-          <span class="nt">destination-github-username</span><span class="p">:</span> <span class="s">"user"</span>  
-          <span class="nt">destination-repository-name</span><span class="p">:</span> <span class="s">"public-repo"</span>  
-          <span class="nt">target-branch</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">main</span>
+<pre class="code literal-block"><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">deploy-nikola</span><span class="w">  </span>
+<span class="nt">on</span><span class="p">:</span><span class="w">  </span>
+<span class="w">  </span><span class="nt">push</span><span class="p">:</span><span class="w">  </span>
+<span class="w">    </span><span class="nt">branches</span><span class="p">:</span><span class="w">  </span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">master</span><span class="w">  </span>
+<span class="nt">jobs</span><span class="p">:</span><span class="w">  </span>
+<span class="w">  </span><span class="nt">Deploy-Nikola</span><span class="p">:</span><span class="w">  </span>
+<span class="w">    </span><span class="nt">runs-on</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ubuntu-latest</span><span class="w">  </span>
+<span class="w">    </span><span class="nt">steps</span><span class="p">:</span><span class="w">  </span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Checkout Git repository</span><span class="w">  </span>
+<span class="w">        </span><span class="nt">uses</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">actions/checkout@v2</span><span class="w">  </span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Install Python 3.8</span><span class="w">  </span>
+<span class="w">        </span><span class="nt">uses</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">actions/setup-python@v2</span><span class="w">  </span>
+<span class="w">        </span><span class="nt">with</span><span class="p">:</span><span class="w">  </span>
+<span class="w">          </span><span class="nt">python-version</span><span class="p">:</span><span class="w"> </span><span class="s">'3.8'</span><span class="w">  </span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Install Python libraries from requirements.txt</span><span class="w">  </span>
+<span class="w">        </span><span class="nt">uses</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">py-actions/py-dependency-install@v2</span><span class="w">  </span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Install missing Ubuntu packages</span><span class="w">  </span>
+<span class="w">        </span><span class="nt">run</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">sudo apt-get install -y jpegoptim optipng tidy</span><span class="w">  </span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Build Nikola static site for testerembyc.pl</span><span class="w">  </span>
+<span class="w">        </span><span class="nt">run</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">nikola build</span><span class="w">  </span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Commit static site to repository with GitHub Pages enabled</span><span class="w">  </span>
+<span class="w">        </span><span class="nt">uses</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">cpina/github-action-push-to-another-repository@main</span><span class="w">  </span>
+<span class="w">        </span><span class="nt">env</span><span class="p">:</span><span class="w">  </span>
+<span class="w">          </span><span class="nt">API_TOKEN_GITHUB</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">${{ secrets.API_TOKEN_GITHUB }}</span><span class="w">  </span>
+<span class="w">        </span><span class="nt">with</span><span class="p">:</span><span class="w">  </span>
+<span class="w">          </span><span class="nt">user-name</span><span class="p">:</span><span class="w"> </span><span class="s">"user"</span><span class="w">  </span>
+<span class="w">          </span><span class="nt">user-email</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">user@email.com</span><span class="w">  </span>
+<span class="w">          </span><span class="nt">source-directory</span><span class="p">:</span><span class="w"> </span><span class="s">"docs"</span><span class="w">  </span>
+<span class="w">          </span><span class="nt">destination-github-username</span><span class="p">:</span><span class="w"> </span><span class="s">"user"</span><span class="w">  </span>
+<span class="w">          </span><span class="nt">destination-repository-name</span><span class="p">:</span><span class="w"> </span><span class="s">"public-repo"</span><span class="w">  </span>
+<span class="w">          </span><span class="nt">target-branch</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">main</span><span class="w"></span>
 </pre>
 <h3 id="token">Token<a class="headerlink" href="#token" title="Permalink to this heading">¶</a></h3>
 <p>Token to nic innego jak klucz, dzięki któremu jesteśmy w stanie wykonywać pewne operacje z wykorzystanie <span class="caps">REST</span> <span class="caps">API</span> portalu&nbsp;GitHub.</p>
@@ -406,333 +406,15 @@
 <p class="caption"><img alt="Workflow status" src="../../images/posts/ci-cd-na-przykladzie-github-actions/status.png"> Workflow&nbsp;status</p>
 <p>Graficzny status generowany jest w postaci pliku svg dostępnego w unikatowym dla danego repozytorium oraz danego workflow linku. U mnie prezentuje się on następująco <a href="https://github.com/mkusz/testerembyc/actions/workflows/deploy-nikola.yml/badge.svg" rel="nofollow">https://github.com/mkusz/testerembyc/actions/workflows/deploy-nikola.yml/badge.svg</a>. Aby wykorzystać go np. w pliku <span class="caps">README</span>.md, który znajduje się w głównym folderze naszego repozytorium należy skorzystać z odpowiedniej składni, która umieści plik graficzny z danego linku. W moim wypadku wygląda on&nbsp;tak:</p>
 <pre class="code literal-block">![](https://github.com/mkusz/testerembyc/actions/workflows/deploy-nikola.yml/badge.svg)
-</pre></div>
+</pre>
 <div class="col-md-6"><img src="../../images/page_lm/jak_zaczac_automatyzowac.jpg"></div>
 <div class="col-md-6">
-<form action="https://maciejkusz.activehosted.com/proc.php" id="_form_5_" method="post" name="_form_5_" novalidate=""><input name="u" type="hidden" value="5"><input name="f" type="hidden" value="5"><input name="s" type="hidden"><input name="c" type="hidden" value="0"><input name="m" type="hidden" value="0"><input name="act" type="hidden" value="sub"><input name="v" type="hidden" value="2">
-<h3>Zapraszam do newslettera<a class="headerlink" href="#_form_5_" title="Permalink to this heading">¶</a></h3>
-<div class="_form-content">
+<h3 id="zapraszam-do-newslettera">Zapraszam do newslettera<a class="headerlink" href="#zapraszam-do-newslettera" title="Permalink to this heading">¶</a></h3>
 <p>Jeśli powyższy artykuł uznajesz za wartościowy oraz masz ochotę być informowany o nowościach na moim blogu, to zachęcam Cię do zapisania się do mojego newslettera. Obiecuję, że nie będę Cię spamował, a tylko od czasu do czasu wyślę Ci powiadomienie o nowym artykule lub prześlę krótkiego maila z ciekawymi informacjami.<br>
 <strong><span class="caps">BONUS</span>:</strong> Dodatkowo otrzymasz mój mini poradnik: <em>Jak zacząć automatyzować testy? Czyli 12 pytań i odpowiedzi, które w tym&nbsp;pomogą</em></p>
-<div class="input-group" id="basic-fullname-group"><span class="input-group-addon" id="basic-fullname">Imię</span> <input aria-describedby="basic-fullname" class="form-control" name="fullname" placeholder="Wpisz swoje imię" type="text"></div>
-<div class="input-group" id="basic-lastname-group"><span class="input-group-addon" id="basic-lastname">Nazwisko</span> <input aria-describedby="basic-fullname" class="form-control" name="lastname" placeholder="Wpisz swoje nazwisko" type="text"></div>
-<div class="input-group" id="basic-email-group"><span class="input-group-addon" id="basic-email">E-mail</span> <input aria-describedby="basic-email" class="form-control" name="email" placeholder="Wpisz swój e-mail" required="" type="text"></div>
-<button class="_submit btn btn-danger" id="_form_5_submit" style="margin-left: auto; margin-right: auto; display: block;" type="submit">Zapisz się</button>
-<div class="_clear-element"></div>
-</div>
-<div class="_form-thank-you" style="display:none;"></div>
+<script async data-form="7e5ea679-a893-11ec-9258-0241b9615763" src="https://eocampaign1.com/form/7e5ea679-a893-11ec-9258-0241b9615763.js"></script>
 <p style="font-size: 10px; margin-top: 5px;">Wszystkie podane przez Ciebie dane, będą przetwarzane zgodnie z <a href="../../pages/polityka-prywatnosci">polityką prywatności</a>.</p>
-</form>
-<script type="text/javascript">
-        window.cfields = [];
-        window._show_thank_you = function(id, message, trackcmp_url) {
-          var form = document.getElementById('_form_' + id + '_'), thank_you = form.querySelector('._form-thank-you');
-          form.querySelector('._form-content').style.display = 'none';
-          thank_you.innerHTML = message;
-          thank_you.style.display = 'block';
-          if (typeof(trackcmp_url) != 'undefined' && trackcmp_url) {
-            // Site tracking URL to use after inline form submission.
-            _load_script(trackcmp_url);
-          }
-          if (typeof window._form_callback !== 'undefined') window._form_callback(id);
-        };
-        window._show_error = function(id, message, html) {
-          var form = document.getElementById('_form_' + id + '_'), err = document.createElement('div'), button = form.querySelector('button'), old_error = form.querySelector('._form_error');
-          if (old_error) old_error.parentNode.removeChild(old_error);
-          err.innerHTML = message;
-          err.className = '_error-inner _form_error _no_arrow';
-          var wrapper = document.createElement('div');
-          wrapper.className = '_form-inner';
-          wrapper.appendChild(err);
-          button.parentNode.insertBefore(wrapper, button);
-          document.querySelector('[id^="_form"][id$="_submit"]').disabled = false;
-          if (html) {
-            var div = document.createElement('div');
-            div.className = '_error-html';
-            div.innerHTML = html;
-            err.appendChild(div);
-          }
-        };
-        window._load_script = function(url, callback) {
-            var head = document.querySelector('head'), script = document.createElement('script'), r = false;
-            script.type = 'text/javascript';
-            script.charset = 'utf-8';
-            script.src = url;
-            if (callback) {
-              script.onload = script.onreadystatechange = function() {
-              if (!r && (!this.readyState || this.readyState == 'complete')) {
-                r = true;
-                callback();
-                }
-              };
-            }
-            head.appendChild(script);
-        };
-        (function() {
-          if (window.location.search.search("excludeform") !== -1) return false;
-          var getCookie = function(name) {
-            var match = document.cookie.match(new RegExp('(^|; )' + name + '=([^;]+)'));
-            return match ? match[2] : null;
-          }
-          var setCookie = function(name, value) {
-            var now = new Date();
-            var time = now.getTime();
-            var expireTime = time + 1000 * 60 * 60 * 24 * 365;
-            now.setTime(expireTime);
-            document.cookie = name + '=' + value + '; expires=' + now + ';path=/';
-          }
-              var addEvent = function(element, event, func) {
-            if (element.addEventListener) {
-              element.addEventListener(event, func);
-            } else {
-              var oldFunc = element['on' + event];
-              element['on' + event] = function() {
-                oldFunc.apply(this, arguments);
-                func.apply(this, arguments);
-              };
-            }
-          }
-          var _removed = false;
-          var form_to_submit = document.getElementById('_form_5_');
-          var allInputs = form_to_submit.querySelectorAll('input, select, textarea'), tooltips = [], submitted = false;
-
-          var getUrlParam = function(name) {
-            var regexStr = '[\?&]' + name + '=([^&#]*)';
-            var results = new RegExp(regexStr, 'i').exec(window.location.href);
-            return results != undefined ? decodeURIComponent(results[1]) : false;
-          };
-
-          for (var i = 0; i < allInputs.length; i++) {
-            var regexStr = "field\\[(\\d+)\\]";
-            var results = new RegExp(regexStr).exec(allInputs[i].name);
-            if (results != undefined) {
-              allInputs[i].dataset.name = window.cfields[results[1]];
-            } else {
-              allInputs[i].dataset.name = allInputs[i].name;
-            }
-            var fieldVal = getUrlParam(allInputs[i].dataset.name);
-
-            if (fieldVal) {
-                    if (allInputs[i].dataset.autofill === "false") {
-                        continue;
-                    }
-              if (allInputs[i].type == "radio" || allInputs[i].type == "checkbox") {
-                if (allInputs[i].value == fieldVal) {
-                  allInputs[i].checked = true;
-                }
-              } else {
-                allInputs[i].value = fieldVal;
-              }
-            }
-          }
-
-          var remove_tooltips = function() {
-            for (var i = 0; i < tooltips.length; i++) {
-              tooltips[i].tip.parentNode.removeChild(tooltips[i].tip);
-            }
-              tooltips = [];
-          };
-          var remove_tooltip = function(elem) {
-            for (var i = 0; i < tooltips.length; i++) {
-              if (tooltips[i].elem === elem) {
-                tooltips[i].tip.parentNode.removeChild(tooltips[i].tip);
-                tooltips.splice(i, 1);
-                return;
-              }
-            }
-          };
-          var create_tooltip = function(elem, text) {
-            var tooltip = document.createElement('div'), arrow = document.createElement('div'), inner = document.createElement('div'), new_tooltip = {};
-            if (elem.type != 'radio' && elem.type != 'checkbox') {
-              tooltip.className = 'label label-danger';
-              tooltip.innerHTML = text;
-              elem.parentNode.parentNode.insertBefore(tooltip, elem.parentNode);
-            } else {
-              tooltip.className = '_error-inner _no_arrow';
-              tooltip.innerHTML = text;
-              elem.parentNode.insertBefore(tooltip, elem);
-              new_tooltip.no_arrow = true;
-            }
-            new_tooltip.tip = tooltip;
-            new_tooltip.elem = elem;
-            tooltips.push(new_tooltip);
-            return new_tooltip;
-          };
-          var resize_tooltip = function(tooltip) {
-            var rect = tooltip.elem.getBoundingClientRect();
-            var doc = document.documentElement, scrollPosition = rect.top - ((window.pageYOffset || doc.scrollTop)  - (doc.clientTop || 0));
-            if (scrollPosition < 40) {
-              tooltip.tip.className = tooltip.tip.className.replace(/ ?(_above|_below) ?/g, '') + ' _below';
-            } else {
-              tooltip.tip.className = tooltip.tip.className.replace(/ ?(_above|_below) ?/g, '') + ' _above';
-            }
-          };
-          var resize_tooltips = function() {
-            if (_removed) return;
-            for (var i = 0; i < tooltips.length; i++) {
-              if (!tooltips[i].no_arrow) resize_tooltip(tooltips[i]);
-            }
-          };
-          var validate_field = function(elem, remove) {
-            var tooltip = null, value = elem.value, no_error = true;
-            remove ? remove_tooltip(elem) : false;
-            if (elem.type != 'checkbox') elem.className = elem.className.replace(/ ?_has_error ?/g, '');
-            if (elem.getAttribute('required') !== null) {
-              if (elem.type == 'radio' || (elem.type == 'checkbox' && /any/.test(elem.className))) {
-                var elems = form_to_submit.elements[elem.name];
-                if (!(elems instanceof NodeList || elems instanceof HTMLCollection) || elems.length <= 1) {
-                  no_error = elem.checked;
-                }
-                else {
-                  no_error = false;
-                  for (var i = 0; i < elems.length; i++) {
-                    if (elems[i].checked) no_error = true;
-                  }
-                }
-                if (!no_error) {
-                  tooltip = create_tooltip(elem, "Wybierz opcję.");
-                }
-              } else if (elem.type =='checkbox') {
-                var elems = form_to_submit.elements[elem.name], found = false, err = [];
-                no_error = true;
-                for (var i = 0; i < elems.length; i++) {
-                  if (elems[i].getAttribute('required') === null) continue;
-                  if (!found && elems[i] !== elem) return true;
-                  found = true;
-                  elems[i].className = elems[i].className.replace(/ ?_has_error ?/g, '');
-                  if (!elems[i].checked) {
-                    no_error = false;
-                    elems[i].className = elems[i].className + ' _has_error';
-                    err.push("Zaznaczenie %s jest wymagane".replace("%s", elems[i].value));
-                  }
-                }
-                if (!no_error) {
-                  tooltip = create_tooltip(elem, err.join('<br/>'));
-                }
-              } else if (elem.tagName == '<span class="caps">SELECT</span>') {
-                var selected = true;
-                if (elem.multiple) {
-                  selected = false;
-                  for (var i = 0; i < elem.options.length; i++) {
-                    if (elem.options[i].selected) {
-                      selected = true;
-                      break;
-                    }
-                  }
-                } else {
-                  for (var i = 0; i < elem.options.length; i++) {
-                    if (elem.options[i].selected && !elem.options[i].value) {
-                      selected = false;
-                    }
-                  }
-                }
-                if (!selected) {
-                  elem.className = elem.className + ' _has_error';
-                  no_error = false;
-                  tooltip = create_tooltip(elem, "Wybierz opcję.");
-                }
-              } else if (value === undefined || value === null || value === '') {
-                elem.className = elem.className + ' _has_error';
-                no_error = false;
-                tooltip = create_tooltip(elem, "To pole jest wymagane.");
-              }
-            }
-            if (no_error && elem.name == 'email') {
-              if (!value.match(/^[\+_a-z0-9-'&=]+(\.[\+_a-z0-9-']+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,})$/i)) {
-                elem.className = elem.className + ' _has_error';
-                no_error = false;
-                tooltip = create_tooltip(elem, "Wpisz poprawny adres e-mail.");
-              }
-            }
-            if (no_error && /date_field/.test(elem.className)) {
-              if (!value.match(/^\d\d\d\d-\d\d-\d\d$/)) {
-                elem.className = elem.className + ' _has_error';
-                no_error = false;
-                tooltip = create_tooltip(elem, "Wpisz poprawną datę.");
-              }
-            }
-            tooltip ? resize_tooltip(tooltip) : false;
-            return no_error;
-          };
-          var needs_validate = function(el) {
-            return el.name == 'email' || el.getAttribute('required') !== null;
-          };
-          var validate_form = function(e) {
-            var err = form_to_submit.querySelector('._form_error'), no_error = true;
-            if (!submitted) {
-              submitted = true;
-              for (var i = 0, len = allInputs.length; i < len; i++) {
-                var input = allInputs[i];
-                if (needs_validate(input)) {
-                  if (input.type == 'text') {
-                    addEvent(input, 'blur', function() {
-                      this.value = this.value.trim();
-                      validate_field(this, true);
-                    });
-                    addEvent(input, 'input', function() {
-                      validate_field(this, true);
-                    });
-                  } else if (input.type == 'radio' || input.type == 'checkbox') {
-                    (function(el) {
-                      var radios = form_to_submit.elements[el.name];
-                      for (var i = 0; i < radios.length; i++) {
-                        addEvent(radios[i], 'click', function() {
-                          validate_field(el, true);
-                        });
-                      }
-                    })(input);
-                  } else if (input.tagName == 'SELECT') {
-                    addEvent(input, 'change', function() {
-                      validate_field(this, true);
-                    });
-                  } else if (input.type == 'textarea'){
-                    addEvent(input, 'input', function() {
-                      validate_field(this, true);
-                    });
-                  }
-                }
-              }
-            }
-            remove_tooltips();
-            for (var i = 0, len = allInputs.length; i < len; i++) {
-              var elem = allInputs[i];
-              if (needs_validate(elem)) {
-                if (elem.tagName.toLowerCase() !== "select") {
-                  elem.value = elem.value.trim();
-                }
-                validate_field(elem) ? true : no_error = false;
-              }
-            }
-            if (!no_error && e) {
-              e.preventDefault();
-            }
-            resize_tooltips();
-            return no_error;
-          };
-          addEvent(window, 'resize', resize_tooltips);
-          addEvent(window, 'scroll', resize_tooltips);
-          window._old_serialize = null;
-          if (typeof serialize !== 'undefined') window._old_serialize = window.serialize;
-          _load_script("//d3rxaij56vjege.cloudfront.net/form-serialize/0.3/serialize.min.js", function() {
-            window._form_serialize = window.serialize;
-            if (window._old_serialize) window.serialize = window._old_serialize;
-          });
-          var form_submit = function(e) {
-            e.preventDefault();
-            if (validate_form()) {
-              // use this trick to get the submit button <span class="amp">&amp;</span> disable it using plain javascript
-              document.querySelector('#_form_5_submit').disabled = true;
-                    var serialized = _form_serialize(document.getElementById('_form_5_'));
-              var err = form_to_submit.querySelector('._form_error');
-              err ? err.parentNode.removeChild(err) : false;
-              _load_script('https://maciejkusz.activehosted.com/proc.php?' + serialized + '&jsonp=true');
-            }
-            return false;
-          };
-          addEvent(form_to_submit, 'submit', form_submit);
-        })();
-
-</script></div>
+</div>
 </div>
 <aside class="postpromonav">
 <nav>
@@ -742,7 +424,8 @@
 <li><a class="tag p-category" href="../../categories/github/" rel="tag">github</a></li>
 </ul>
 <ul class="pager hidden-print">
-<li class="previous"><a href="../vlog-002-strefa-komfortu-a-twoje-zarobki/" rel="prev" title="Strefa komfortu, a Twoje zarobki [vlog 002]">Poprzedni&nbsp;post</a></li>
+<li class="previous"><a href="../youtube-itea-night-live-05-testowanie-api/" rel="prev" title="ITea Night Live 05 - Testowanie API">Poprzedni&nbsp;post</a></li>
+<li class="next"><a href="../youtube-testowanie-oprogramowania-podcast-opowiesci-z-testerskiej-krypty/" rel="next" title="Testowanie Oprogramowania Podcast - Opowieści z Testerskiej Krypty">Następny&nbsp;post</a></li>
 </ul>
 </nav>
 </aside>
@@ -788,327 +471,12 @@ var disqus_shortname="testerembyc";(function(){var a=document.createElement("scr
 <p>Nazywam się <strong>Maciej Kusz</strong> i od 2008 roku zajmuję się testowaniem oprogramowania. Na początku były to testy manualne, od 2011 początki testów automatycznych, a od 2013 automatyzacją testów z wykorzystaniem <strong>Pythona</strong>. Przez te kilka lat, zdarzyło mi się już być w kilku firmach i w kilku różnych projektach. Na stronie <a href="../../pages/o-mnie/">o mnie</a>, znajdujdziesz ciut więcej informacji na ten&nbsp;temat.</p>
 </div>
 <div class="sidebar-module sidebar-module-inset">
-<form action="https://maciejkusz.activehosted.com/proc.php" id="_form_3_" method="post" name="_form_3_" novalidate=""><input name="u" type="hidden" value="3"><input name="f" type="hidden" value="3"><input name="s" type="hidden"><input name="c" type="hidden" value="0"><input name="m" type="hidden" value="0"><input name="act" type="hidden" value="sub"><input name="v" type="hidden" value="2">
 <h3>Newsletter</h3>
-<div class="_form-content">
 <p>Chcesz być powiadamiany o nowościach na tej stronie oraz innych moich&nbsp;projektach?</p>
 <p>Jeśli tak, to zapisz się poniżej do&nbsp;newsletter’a.</p>
-<div class="input-group" id="basic-fullname-group"><span class="input-group-addon" id="basic-fullname">Imię</span> <input aria-describedby="basic-fullname" class="form-control" name="fullname" placeholder="Wpisz swoje imię" type="text"></div>
-<div class="input-group" id="basic-lastname-group"><span class="input-group-addon" id="basic-lastname">Nazwisko</span> <input aria-describedby="basic-fullname" class="form-control" name="lastname" placeholder="Wpisz swoje nazwisko" type="text"></div>
-<div class="input-group" id="basic-email-group"><span class="input-group-addon" id="basic-email">E-mail</span> <input aria-describedby="basic-email" class="form-control" name="email" placeholder="Wpisz swój e-mail" required="" type="text"></div>
-<button class="_submit btn btn-danger" id="_form_3_submit" style="margin-left: auto; margin-right: auto; display: block;" type="submit">Zapisz się</button>
-<div class="_clear-element"></div>
-</div>
-<div class="_form-thank-you" style="display:none;"></div>
+<script async data-form="7e5ea679-a893-11ec-9258-0241b9615763" src="https://eocampaign1.com/form/7e5ea679-a893-11ec-9258-0241b9615763.js"></script>
 <p style="font-size: 10px; margin-top: 5px;">Wszystkie podane przez Ciebie dane, będą przetwarzane zgodnie z <a href="../../pages/polityka-prywatnosci">polityką prywatności</a>.</p>
-</form>
-<script>
-window.cfields = [];
-window._show_thank_you = function(id, message, trackcmp_url) {
-  var form = document.getElementById('_form_' + id + '_'), thank_you = form.querySelector('._form-thank-you');
-  form.querySelector('._form-content').style.display = 'none';
-  thank_you.innerHTML = message;
-  thank_you.style.display = 'block';
-  if (typeof(trackcmp_url) != 'undefined' && trackcmp_url) {
-    // Site tracking URL to use after inline form submission.
-    _load_script(trackcmp_url);
-  }
-  if (typeof window._form_callback !== 'undefined') window._form_callback(id);
-};
-window._show_error = function(id, message, html) {
-  var form = document.getElementById('_form_' + id + '_'), err = document.createElement('div'), button = form.querySelector('button'), old_error = form.querySelector('._form_error');
-  if (old_error) old_error.parentNode.removeChild(old_error);
-  err.innerHTML = message;
-  err.className = '_error-inner _form_error _no_arrow';
-  var wrapper = document.createElement('div');
-  wrapper.className = '_form-inner';
-  wrapper.appendChild(err);
-  button.parentNode.insertBefore(wrapper, button);
-  document.querySelector('[id^="_form"][id$="_submit"]').disabled = false;
-  if (html) {
-    var div = document.createElement('div');
-    div.className = '_error-html';
-    div.innerHTML = html;
-    err.appendChild(div);
-  }
-};
-window._load_script = function(url, callback) {
-    var head = document.querySelector('head'), script = document.createElement('script'), r = false;
-    script.type = 'text/javascript';
-    script.charset = 'utf-8';
-    script.src = url;
-    if (callback) {
-      script.onload = script.onreadystatechange = function() {
-      if (!r && (!this.readyState || this.readyState == 'complete')) {
-        r = true;
-        callback();
-        }
-      };
-    }
-    head.appendChild(script);
-};
-(function() {
-  if (window.location.search.search("excludeform") !== -1) return false;
-  var getCookie = function(name) {
-    var match = document.cookie.match(new RegExp('(^|; )' + name + '=([^;]+)'));
-    return match ? match[2] : null;
-  }
-  var setCookie = function(name, value) {
-    var now = new Date();
-    var time = now.getTime();
-    var expireTime = time + 1000 * 60 * 60 * 24 * 365;
-    now.setTime(expireTime);
-    document.cookie = name + '=' + value + '; expires=' + now + ';path=/';
-  }
-      var addEvent = function(element, event, func) {
-    if (element.addEventListener) {
-      element.addEventListener(event, func);
-    } else {
-      var oldFunc = element['on' + event];
-      element['on' + event] = function() {
-        oldFunc.apply(this, arguments);
-        func.apply(this, arguments);
-      };
-    }
-  }
-  var _removed = false;
-  var form_to_submit = document.getElementById('_form_3_');
-  var allInputs = form_to_submit.querySelectorAll('input, select, textarea'), tooltips = [], submitted = false;
-
-  var getUrlParam = function(name) {
-    var regexStr = '[\?&]' + name + '=([^&#]*)';
-    var results = new RegExp(regexStr, 'i').exec(window.location.href);
-    return results != undefined ? decodeURIComponent(results[1]) : false;
-  };
-
-  for (var i = 0; i < allInputs.length; i++) {
-    var regexStr = "field\[(\d+)\]";
-    var results = new RegExp(regexStr).exec(allInputs[i].name);
-    if (results != undefined) {
-      allInputs[i].dataset.name = window.cfields[results[1]];
-    } else {
-      allInputs[i].dataset.name = allInputs[i].name;
-    }
-    var fieldVal = getUrlParam(allInputs[i].dataset.name);
-
-    if (fieldVal) {
-      if (allInputs[i].type == "radio" || allInputs[i].type == "checkbox") {
-        if (allInputs[i].value == fieldVal) {
-          allInputs[i].checked = true;
-        }
-      } else {
-        allInputs[i].value = fieldVal;
-      }
-    }
-  }
-
-  var remove_tooltips = function() {
-    for (var i = 0; i < tooltips.length; i++) {
-      tooltips[i].tip.parentNode.removeChild(tooltips[i].tip);
-    }
-      tooltips = [];
-  };
-  var remove_tooltip = function(elem) {
-    for (var i = 0; i < tooltips.length; i++) {
-      if (tooltips[i].elem === elem) {
-        tooltips[i].tip.parentNode.removeChild(tooltips[i].tip);
-        tooltips.splice(i, 1);
-        return;
-      }
-    }
-  };
-  var create_tooltip = function(elem, text) {
-    var tooltip = document.createElement('label'), arrow = document.createElement('div'), inner = document.createElement('div'), new_tooltip = {};
-    if (elem.type != 'radio' && elem.type != 'checkbox') {
-      tooltip.className = 'label label-danger';
-      tooltip.innerHTML = text;
-      elem.parentNode.parentNode.insertBefore(tooltip, elem.parentNode);
-    } else {
-      tooltip.className = '_error-inner _no_arrow';
-      tooltip.innerHTML = text;
-      elem.parentNode.insertBefore(tooltip, elem);
-      new_tooltip.no_arrow = true;
-    }
-    new_tooltip.tip = tooltip;
-    new_tooltip.elem = elem;
-    tooltips.push(new_tooltip);
-    return new_tooltip;
-  };
-  var resize_tooltip = function(tooltip) {
-    var rect = tooltip.elem.getBoundingClientRect();
-    var doc = document.documentElement, scrollPosition = rect.top - ((window.pageYOffset || doc.scrollTop)  - (doc.clientTop || 0));
-    if (scrollPosition < 40) {
-      tooltip.tip.className = tooltip.tip.className.replace(/ ?(_above|_below) ?/g, '') + ' _below';
-    } else {
-      tooltip.tip.className = tooltip.tip.className.replace(/ ?(_above|_below) ?/g, '') + ' _above';
-    }
-  };
-  var resize_tooltips = function() {
-    if (_removed) return;
-    for (var i = 0; i < tooltips.length; i++) {
-      if (!tooltips[i].no_arrow) resize_tooltip(tooltips[i]);
-    }
-  };
-  var validate_field = function(elem, remove) {
-    var tooltip = null, value = elem.value, no_error = true;
-    remove ? remove_tooltip(elem) : false;
-    if (elem.type != 'checkbox') elem.className = elem.className.replace(/ ?_has_error ?/g, '');
-    if (elem.getAttribute('required') !== null) {
-      if (elem.type == 'radio' || (elem.type == 'checkbox' && /any/.test(elem.className))) {
-        var elems = form_to_submit.elements[elem.name];
-        if (!(elems instanceof NodeList || elems instanceof HTMLCollection) || elems.length <= 1) {
-          no_error = elem.checked;
-        }
-        else {
-          no_error = false;
-          for (var i = 0; i < elems.length; i++) {
-            if (elems[i].checked) no_error = true;
-          }
-        }
-        if (!no_error) {
-          tooltip = create_tooltip(elem, "Wybierz opcję.");
-        }
-      } else if (elem.type =='checkbox') {
-        var elems = form_to_submit.elements[elem.name], found = false, err = [];
-        no_error = true;
-        for (var i = 0; i < elems.length; i++) {
-          if (elems[i].getAttribute('required') === null) continue;
-          if (!found && elems[i] !== elem) return true;
-          found = true;
-          elems[i].className = elems[i].className.replace(/ ?_has_error ?/g, '');
-          if (!elems[i].checked) {
-            no_error = false;
-            elems[i].className = elems[i].className + ' _has_error';
-            err.push("Zaznaczenie %s jest wymagane".replace("%s", elems[i].value));
-          }
-        }
-        if (!no_error) {
-          tooltip = create_tooltip(elem, err.join('<br/>'));
-        }
-      } else if (elem.tagName == '<span class="caps">SELECT</span>') {
-        var selected = true;
-        if (elem.multiple) {
-          selected = false;
-          for (var i = 0; i < elem.options.length; i++) {
-            if (elem.options[i].selected) {
-              selected = true;
-              break;
-            }
-          }
-        } else {
-          for (var i = 0; i < elem.options.length; i++) {
-            if (elem.options[i].selected && !elem.options[i].value) {
-              selected = false;
-            }
-          }
-        }
-        if (!selected) {
-          elem.className = elem.className + ' _has_error';
-          no_error = false;
-          tooltip = create_tooltip(elem, "Wybierz opcję.");
-        }
-      } else if (value === undefined || value === null || value === '') {
-        elem.className = elem.className + ' _has_error';
-        no_error = false;
-        tooltip = create_tooltip(elem, "To pole jest wymagane.");
-      }
-    }
-    if (no_error && elem.name == 'email') {
-      if (!value.match(/^[\+_a-z0-9-'&=]+(\.[\+_a-z0-9-']+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,})$/i)) {
-        elem.className = elem.className + ' _has_error';
-        no_error = false;
-        tooltip = create_tooltip(elem, "Wpisz poprawny adres e-mail.");
-      }
-    }
-    if (no_error && /date_field/.test(elem.className)) {
-      if (!value.match(/^\d\d\d\d-\d\d-\d\d$/)) {
-        elem.className = elem.className + ' _has_error';
-        no_error = false;
-        tooltip = create_tooltip(elem, "Wpisz poprawną datę.");
-      }
-    }
-    tooltip ? resize_tooltip(tooltip) : false;
-    return no_error;
-  };
-  var needs_validate = function(el) {
-    return el.name == 'email' || el.getAttribute('required') !== null;
-  };
-  var validate_form = function(e) {
-    var err = form_to_submit.querySelector('._form_error'), no_error = true;
-    if (!submitted) {
-      submitted = true;
-      for (var i = 0, len = allInputs.length; i < len; i++) {
-        var input = allInputs[i];
-        if (needs_validate(input)) {
-          if (input.type == 'text') {
-            addEvent(input, 'blur', function() {
-              this.value = this.value.trim();
-              validate_field(this, true);
-            });
-            addEvent(input, 'input', function() {
-              validate_field(this, true);
-            });
-          } else if (input.type == 'radio' || input.type == 'checkbox') {
-            (function(el) {
-              var radios = form_to_submit.elements[el.name];
-              for (var i = 0; i < radios.length; i++) {
-                addEvent(radios[i], 'click', function() {
-                  validate_field(el, true);
-                });
-              }
-            })(input);
-          } else if (input.tagName == 'SELECT') {
-            addEvent(input, 'change', function() {
-              validate_field(this, true);
-            });
-          } else if (input.type == 'textarea'){
-            addEvent(input, 'input', function() {
-              validate_field(this, true);
-            });
-          }
-        }
-      }
-    }
-    remove_tooltips();
-    for (var i = 0, len = allInputs.length; i < len; i++) {
-      var elem = allInputs[i];
-      if (needs_validate(elem)) {
-        if (elem.tagName.toLowerCase() !== "select") {
-          elem.value = elem.value.trim();
-        }
-        validate_field(elem) ? true : no_error = false;
-      }
-    }
-    if (!no_error && e) {
-      e.preventDefault();
-    }
-    resize_tooltips();
-    return no_error;
-  };
-  addEvent(window, 'resize', resize_tooltips);
-  addEvent(window, 'scroll', resize_tooltips);
-  window._old_serialize = null;
-  if (typeof serialize !== 'undefined') window._old_serialize = window.serialize;
-  _load_script("//d3rxaij56vjege.cloudfront.net/form-serialize/0.3/serialize.min.js", function() {
-    window._form_serialize = window.serialize;
-    if (window._old_serialize) window.serialize = window._old_serialize;
-  });
-  var form_submit = function(e) {
-    e.preventDefault();
-    if (validate_form()) {
-      // use this trick to get the submit button <span class="amp">&amp;</span> disable it using plain javascript
-      document.querySelector('#_form_3_submit').disabled = true;
-            var serialized = _form_serialize(document.getElementById('_form_3_'));
-      var err = form_to_submit.querySelector('._form_error');
-      err ? err.parentNode.removeChild(err) : false;
-      _load_script('https://maciejkusz.activehosted.com/proc.php?' + serialized + '&jsonp=true');
-    }
-    return false;
-  };aw
-  addEvent(form_to_submit, 'submit', form_submit);
-})();
-
-</script></div>
+</div>
 <div class="sidebar-module sidebar-module-inset" id="linki">
 <h3>Linki</h3>
 <ol class="list-unstyled">
@@ -1126,7 +494,7 @@ window._load_script = function(url, callback) {
 </div>
 <!--End of body content--></div>
 </div>
-<footer class="blog-footer" id="footer">© 2021 <span style="font-weight: bold; color: #ffffff;">Maciej Kusz</span> w oparciu o silnik <a alt="Nikola" href="https://getnikola.com/" rel="nofollow" target="_blank"><img src="../../images/nikola_logo.svg" style="max-height: 20px; max-width: 50px"></a> z wykorzystaniem <a alt="GitHub Pages" href="https://pages.github.com/" rel="nofollow" target="_blank"><img src="../../images/githubpages_logo.svg" style="max-height: 15px; max-width: 80px;"></a></footer>
+<footer class="blog-footer" id="footer">© 2022 <span style="font-weight: bold; color: #ffffff;">Maciej Kusz</span> w oparciu o silnik <a alt="Nikola" href="https://getnikola.com/" rel="nofollow" target="_blank"><img src="../../images/nikola_logo.svg" style="max-height: 20px; max-width: 50px"></a> z wykorzystaniem <a alt="GitHub Pages" href="https://pages.github.com/" rel="nofollow" target="_blank"><img src="../../images/githubpages_logo.svg" style="max-height: 15px; max-width: 80px;"></a></footer>
 </div>
 </div>
 <script>

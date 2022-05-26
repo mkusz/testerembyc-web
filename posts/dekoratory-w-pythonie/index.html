@@ -100,29 +100,36 @@
 <h2 id="funkcja-jest-obiektem">Funkcja jest obiektem<a class="headerlink" href="#funkcja-jest-obiektem" title="Permalink to this heading">¶</a></h2>
 <p>Zanim przejdziemy do sedna, to zapoznajmy się z definicją <a href="https://pl.wikipedia.org/wiki/Obiekt_(programowanie_obiektowe)" rel="nofollow">obiektu</a>. Mocno streszczając, obiekt to struktura zawierająca dane i metody/funkcje służące do wykonania jakichś operacji na tych danych. Bardzo szybko zauważymy, że ten opis idealnie pasuje do <a href="https://pl.wikipedia.org/wiki/Klasa_(programowanie_obiektowe)" rel="nofollow">klasy</a>. Obiekt stworzony na podstawie definicji klasy, jest <em>instancją</em> danej&nbsp;klasy.</p>
 <p>Dlaczego więc, w Pythonie mówimy o dekorowaniu funkcji lub metod danej klasy (które też są funkcjami)? Otóż przyczyna jest bardzo prosta: funkcje w Pythonie są obiektami/klasami (nie zdziw się, bo od teraz będę używał tych nazw zamiennie). Jak każdy obiekt w Pythonie, tak i funkcja ma swój&nbsp;typ:</p>
+<div class="code">
 <pre class="code literal-block"><span class="k">def</span> <span class="nf">example_function</span><span class="p">():</span>
     <span class="nb">print</span><span class="p">(</span><span class="s2">"Example"</span><span class="p">)</span>
 
 <span class="nb">type</span><span class="p">(</span><span class="n">example_function</span><span class="p">)</span>
-</pre>
+</pre></div>
+<div class="code">
 <pre class="code literal-block"><span class="go">function</span>
-</pre>
+</pre></div>
 <p>Ponieważ funkcja jest obiektem, możemy ją przechowywać w&nbsp;zmiennej:</p>
+<div class="code">
 <pre class="code literal-block"><span class="k">def</span> <span class="nf">example_function</span><span class="p">():</span>
     <span class="nb">print</span><span class="p">(</span><span class="s2">"Example"</span><span class="p">)</span>
 
 <span class="n">var</span> <span class="o">=</span> <span class="n">example_function</span>
 
 <span class="n">var</span><span class="p">()</span>
-</pre>
+</pre></div>
+<div class="code">
 <pre class="code literal-block"><span class="go">Example</span>
-</pre>
+</pre></div>
+<div class="code">
 <pre class="code literal-block"><span class="n">example_function</span><span class="p">()</span>
-</pre>
+</pre></div>
+<div class="code">
 <pre class="code literal-block"><span class="go">Example</span>
-</pre>
+</pre></div>
 <p>Zauważ, że podczas przypisywania funkcji do zmiennej pominąłem&nbsp;nawiasy <code>()</code>. Pominięcie nawiasów powoduje, że do&nbsp;zmiennej <code>var</code> przypisany jest adres w pamięci, gdzie przechowywane jest kod funkcji. Dopiero&nbsp;wywołanie <code>var()</code> powoduje taki sam efekt jak bezpośrednie wywołanie&nbsp;funkcji <code>example_function()</code>.</p>
 <p>Dodatkowo w ciele funkcji, można zdefiniować inną funkcję. Funkcja wewnętrzna nie będzie jednak mogła być wywołana spoza funkcji, w której jest&nbsp;umieszczona:</p>
+<div class="code">
 <pre class="code literal-block"><span class="k">def</span> <span class="nf">external_function</span><span class="p">():</span>
     <span class="k">def</span> <span class="nf">internal_function</span><span class="p">():</span>
         <span class="nb">print</span><span class="p">(</span><span class="s2">"Internal"</span><span class="p">)</span>
@@ -131,78 +138,95 @@
     <span class="n">internal_function</span><span class="p">()</span>
 
 <span class="n">external_function</span><span class="p">()</span>
-</pre>
+</pre></div>
+<div class="code">
 <pre class="code literal-block"><span class="go">External</span>
 <span class="go">Internal</span>
-</pre>
+</pre></div>
+<div class="code">
 <pre class="code literal-block"><span class="n">internal_function</span><span class="p">()</span>
-</pre>
+</pre></div>
+<div class="code">
 <pre class="code literal-block"><span class="go">Traceback (most recent call last):</span>
 <span class="go">  File "/.../interactiveshell.py", line 3326, in run_code</span>
 <span class="go">    exec(code_obj, self.user_global_ns, self.user_ns)</span>
 <span class="go">  File "&lt;ipython-input-17-6f1c04ea4501&gt;", line 1, in &lt;module&gt;</span>
 <span class="go">    internal_function()</span>
 <span class="go">NameError: name 'internal_function' is not defined</span>
-</pre>
+</pre></div>
 <p>Widzimy, że interpreter Pythona nie zna definicji&nbsp;funkcji <code>internal_function</code>.</p>
 <p>Skoro już wiemy, że funkcja jest obiektem, to ciekawe czy obiekt może być&nbsp;funkcją?</p>
 <h2 id="czy-obiekt-moze-byc-funkcja">Czy obiekt może być funkcją?<a class="headerlink" href="#czy-obiekt-moze-byc-funkcja" title="Permalink to this heading">¶</a></h2>
 <p>W Pythonie klasy posiadają pewne <a href="https://docs.python.org/3/reference/datamodel.html#basic-customization" rel="nofollow">metody magiczne</a>. Jedną z nich jest&nbsp;metoda <code>__call__</code>. W przypadku klasy funkcja ta umożliwia uruchomienie instancji klasy, tak jak by była&nbsp;funkcją:</p>
+<div class="code">
 <pre class="code literal-block"><span class="k">class</span> <span class="nc">FuncClass</span><span class="p">():</span>
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">var</span> <span class="o">=</span> <span class="p">[]</span>
 
     <span class="k">def</span> <span class="fm">__call__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">element</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">var</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">element</span><span class="p">)</span>
-</pre>
+</pre></div>
 <p>Powyżej widzisz klasę, która ma zaimplementowane 2 <em>metody magiczne</em>:</p>
 <ul>
 <li><code>__init__</code>, która definiuje&nbsp;zmienną <code>var</code> jako pustą listę i wywoływana jest podczas inicjalizacji instancji klasy (<strong>uwaga</strong>, to nie jest konstruktor, choć wiele osób tą metodę tak&nbsp;określa),</li>
 <li><code>__call__</code>, która przyjmuje jako argument wywołania&nbsp;dowolny <code>element</code> i dodanie go do listy w&nbsp;zmiennej <code>var</code>.</li>
 </ul>
 <p>Powyższa implementacja to nic skomplikowanego. Sprawdźmy zatem jak zachowuje się taka&nbsp;klasa.</p>
+<div class="code">
 <pre class="code literal-block"><span class="n">f</span> <span class="o">=</span> <span class="n">FuncClass</span><span class="p">()</span>  <span class="c1"># Utworzenie instancji klasy</span>
 <span class="n">f</span><span class="o">.</span><span class="fm">__call__</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>  <span class="c1"># Wywołujemy bezpośrednio metodę __call__ instancji f</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">f</span><span class="o">.</span><span class="n">var</span><span class="p">)</span>
-</pre>
+</pre></div>
+<div class="code">
 <pre class="code literal-block"><span class="go">[1]</span>
-</pre>
+</pre></div>
+<div class="code">
 <pre class="code literal-block"><span class="c1"># Tym razem odnosimy się do instancji f z pominięciem metody __call__</span>
 <span class="c1"># (zostanie ona automatycznie wywołana przez interpreter)</span>
 
 <span class="n">f</span><span class="p">(</span><span class="s2">"Drugi"</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">f</span><span class="o">.</span><span class="n">var</span><span class="p">)</span>
-</pre>
+</pre></div>
+<div class="code">
 <pre class="code literal-block"><span class="go">[1, 'Drugi']</span>
-</pre>
+</pre></div>
 <p>Widać powyżej, że klasa, może zachowywać się jak funkcja. Każdy obiekt w języku Python, może (nie musi) mieć zaimplementowaną&nbsp;metodę <code>__call__</code>. Skoro tak jest, to sprawdźmy czy normalna funkcja też ją ma. Wróćmy więc do naszej bardzo prostej&nbsp;funkcji:</p>
+<div class="code">
 <pre class="code literal-block"><span class="k">def</span> <span class="nf">example_function</span><span class="p">():</span>
     <span class="nb">print</span><span class="p">(</span><span class="s2">"Example"</span><span class="p">)</span>
-</pre>
+</pre></div>
 <p>Wiemy już, że możemy ją wywołać&nbsp;poprzez <code>example_function()</code> co w wyniku spowoduje wyświetlenie&nbsp;napisu <code>Example</code>. A co z&nbsp;metodą <code>__call__</code>?&nbsp;Sprawdźmy:</p>
+<div class="code">
 <pre class="code literal-block"><span class="n">example_function</span><span class="o">.</span><span class="fm">__call__</span><span class="p">()</span>
-</pre>
+</pre></div>
+<div class="code">
 <pre class="code literal-block"><span class="go">Example</span>
-</pre>
+</pre></div>
 <p>Udowodniliśmy właśnie, że klasa może zachowywać się jak funkcja oraz, że funkcja jest obiektem. Co prawda obiekt ten jest w pewien sposób ograniczony (nie da się do niego np. dynamicznie dodać zmiennej lub odczytać zmiennych z ciała funkcji), ale jednak jest&nbsp;obiektem.</p>
 <p>Wróćmy jednak do&nbsp;dekoratorów.</p>
 <h2 id="pierwszy-dekorator">Pierwszy dekorator<a class="headerlink" href="#pierwszy-dekorator" title="Permalink to this heading">¶</a></h2>
 <p>Na początku pisałem, że dekorator to klasa, która opakowuje inną klasę dodając do opakowywanej klasy nową funkcjonalność. Skoro już wiemy, że funkcja jest klasą/obiektem to w Pythonie dekoratorem może być zarówno funkcja jak i klasa. Aby sobie nie utrudniać na początku, zacznijmy od implementacji dekoratora w postaci funkcji. Jednak, aby móc zaimplementować dekorator, musimy mieć co udekorować. Rozpatrzmy zatem taką prostą&nbsp;funkcję:</p>
+<div class="code">
 <pre class="code literal-block"><span class="k">def</span> <span class="nf">add</span><span class="p">(</span><span class="n">first</span><span class="p">,</span> <span class="n">second</span><span class="p">):</span>
     <span class="nb">print</span><span class="p">(</span><span class="n">first</span> <span class="o">+</span> <span class="n">second</span><span class="p">)</span>
-</pre>
+</pre></div>
 <p>Powyższa funkcja ma za zadanie dodać do siebie 2 elementy. Sprawdźmy więc jak&nbsp;działa:</p>
+<div class="code">
 <pre class="code literal-block"><span class="n">add</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
-</pre>
+</pre></div>
+<div class="code">
 <pre class="code literal-block"><span class="go">3</span>
-</pre>
+</pre></div>
 <p>Wszystko super. Wynik taki jak się spodziewaliśmy. Sprawdźmy zatem inny zestaw&nbsp;argumentów:</p>
+<div class="code">
 <pre class="code literal-block"><span class="n">add</span><span class="p">(</span><span class="s2">"1"</span><span class="p">,</span> <span class="s2">"2"</span><span class="p">)</span>
-</pre>
+</pre></div>
+<div class="code">
 <pre class="code literal-block"><span class="go">12</span>
-</pre>
+</pre></div>
 <p>Co? Jak to możliwe, że&nbsp;dostaliśmy <code>12</code>? Zauważ, że jako argumenty podaliśmy tekst z cyframi 1 i 2, a nie liczby 1 i 2. Interpreter Pythona uznał, że zamiast dodawania dwóch liczb, chcemy połączyć dwa ciągi znaków w jeden dłuższy ciąg znaków. Jak naprawić taki, kod nie zmieniając ciała&nbsp;funkcji <code>add</code>?</p>
 <p>Wykorzystamy w tym celu dekorator. Zacznijmy jednak od kilku rzeczy, które pomogą nam zrozumieć jak w swoim wnętrzu działa taki dekorator. Sprawdźmy jak działa poniższy&nbsp;kod:</p>
+<div class="code">
 <pre class="code literal-block"><span class="k">def</span> <span class="nf">decorator</span><span class="p">(</span><span class="n">func</span><span class="p">):</span>
     <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Decorated function name: </span><span class="si">{</span><span class="n">func</span><span class="o">.</span><span class="vm">__name__</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
     <span class="k">return</span> <span class="n">func</span>
@@ -212,22 +236,25 @@
 
 <span class="n">add</span> <span class="o">=</span> <span class="n">decorator</span><span class="p">(</span><span class="n">add</span><span class="p">)</span>
 <span class="n">add</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
-</pre>
+</pre></div>
+<div class="code">
 <pre class="code literal-block"><span class="go">Decorated function name: add</span>
 <span class="go">3</span>
-</pre>
+</pre></div>
 <p>Implementacji&nbsp;funkcja <code>decorator</code> jako argument przyjmuje ciało innej funkcji. Ma za zadnie wyświetlić jej nazwę oraz po prostu ją&nbsp;zwrócić.</p>
 <p>Następnie wykorzystana została właściwość, o której pisałem powyżej, czyli możliwości przypisania funkcji do zmiennej (w tym przypadku&nbsp;funkcję <code>add</code> przypisujemy do zmiennej o tej samej nazwie, czyli&nbsp;również <code>add</code>). Takie przypisanie powoduje, że&nbsp;zmienna <code>add</code> staje się funkcją, która w pierwszej kolejności wywoła dekorator, którego argumentem będzie rzeczywista&nbsp;funkcja <code>add</code>.</p>
 <p>Niestety taki zapis jest mało czytelny i nie do końca widać (patrząc tylko na definicję&nbsp;funkcji <code>add</code>), że została ona udekorowana. W Pythonie na szczęście istnieje na to prosty&nbsp;sposób:</p>
+<div class="code">
 <pre class="code literal-block"><span class="nd">@decorator</span>
 <span class="k">def</span> <span class="nf">add</span><span class="p">(</span><span class="n">first</span><span class="p">,</span> <span class="n">second</span><span class="p">):</span>
     <span class="nb">print</span><span class="p">(</span><span class="n">first</span> <span class="o">+</span> <span class="n">second</span><span class="p">)</span>
 
 <span class="n">add</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
-</pre>
+</pre></div>
+<div class="code">
 <pre class="code literal-block"><span class="go">Decorated function name: add</span>
 <span class="go">3</span>
-</pre>
+</pre></div>
 <p>Implementację&nbsp;funkcji <code>decorator</code> pozostawiłem bez zmian, natomiast&nbsp;funkcja <code>add</code> została udekorowaną. Służy do tego&nbsp;zapis <code>@decorator</code> tuż powyżej jej&nbsp;definicji.</p>
 <p>Na końcu&nbsp;funkcja <code>add</code> została wywołana z dwoma argumentami w taki sam sposób jak&nbsp;wcześniej.</p>
 <p>W obu przypadkach wynikiem działania jest wyświetlenie nazwy funkcji (część za którą odpowiedzialny jest dekorator) oraz wynik dodawania dwóch liczb (za to odpowiedzialna jest&nbsp;funkcja <code>add</code>, która nie została w żaden sposób&nbsp;zmodyfikowana).</p>
@@ -240,37 +267,44 @@
 </ul>
 <h2 id="args-i-kwargs">args i kwargs<a class="headerlink" href="#args-i-kwargs" title="Permalink to this heading">¶</a></h2>
 <p>Wiemy już, jak stworzyć prosty (jeszcze nic nie robiący) dekorator. Skoro do środka dekoratora przekazujemy funkcję, to gdzieś powinny być jeszcze widoczne wszystkie argumenty, które do danej funkcji są przekazywane w momencie jej wywołania. Rozważmy poniższą definicję dekoratora (implementację&nbsp;funkcji <code>add</code> pominę, gdyż założyliśmy na początku, że jej nie&nbsp;zmieniamy):</p>
+<div class="code">
 <pre class="code literal-block"><span class="k">def</span> <span class="nf">decorator</span><span class="p">(</span><span class="n">func</span><span class="p">):</span>
     <span class="k">def</span> <span class="nf">wrapper</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
         <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"args (type: </span><span class="si">{</span><span class="nb">type</span><span class="p">(</span><span class="n">args</span><span class="p">)</span><span class="si">}</span><span class="s2">): </span><span class="si">{</span><span class="n">args</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
         <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"kwargs (type: </span><span class="si">{</span><span class="nb">type</span><span class="p">(</span><span class="n">kwargs</span><span class="p">)</span><span class="si">}</span><span class="s2">): </span><span class="si">{</span><span class="n">kwargs</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
     <span class="k">return</span> <span class="n">wrapper</span>
-</pre>
+</pre></div>
 <p>Do definicji wewnętrznej&nbsp;funkcji <code>wrapper</code> dodałem dwa&nbsp;atrybuty:</p>
 <ul>
 <li><code>*args</code></li>
 <li><code>**kwargs</code></li>
 </ul>
 <p>Zobaczmy teraz co się stanie jak wywołamy poniższy&nbsp;kod:</p>
+<div class="code">
 <pre class="code literal-block"><span class="n">add</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
-</pre>
+</pre></div>
+<div class="code">
 <pre class="code literal-block"><span class="go">args (type: &lt;class 'tuple'&gt;): (1, 2)</span>
 <span class="go">kwargs (type: &lt;class 'dict'&gt;): {}</span>
-</pre>
+</pre></div>
 <p>Widzimy, że argumenty przekazane do funkcji tworzą&nbsp;zmienną <code>args</code> o typie <em>touple</em> (<em>krotka</em>), natomiast&nbsp;zmienną <code>kwargs</code> jest typu <em>dict</em> (<em>słownik</em>), ale jest to pusty&nbsp;słownik.</p>
 <p>Co się stanie, jak wywołamy&nbsp;funkcję <code>add</code> w inny&nbsp;sposób:</p>
+<div class="code">
 <pre class="code literal-block"><span class="n">add</span><span class="p">(</span><span class="n">first</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">second</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
-</pre>
+</pre></div>
+<div class="code">
 <pre class="code literal-block"><span class="go">*args (type: &lt;class 'tuple'&gt;): ()</span>
 <span class="go">**kwargs (type: &lt;class 'dict'&gt;): {'first': 1, 'second': 2}</span>
-</pre>
+</pre></div>
 <p>Widzimy teraz,&nbsp;że <code>args</code> jest puste,&nbsp;natomiast <code>kwargs</code> zostało&nbsp;wypełnione.</p>
 <p>Możemy wywołać&nbsp;funkcję <code>add</code> również jako miks powyższych&nbsp;wywołań:</p>
+<div class="code">
 <pre class="code literal-block"><span class="n">add</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">second</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
-</pre>
+</pre></div>
+<div class="code">
 <pre class="code literal-block"><span class="go">*args (type: &lt;class 'tuple'&gt;): (1,)</span>
 <span class="go">**kwargs (type: &lt;class 'dict'&gt;): {'second': 2}</span>
-</pre>
+</pre></div>
 <p>Teraz&nbsp;zarówno <code>args</code> jak&nbsp;i <code>kwargs</code> zostały&nbsp;wypełnione.</p>
 <p>Domyślasz się już zapewne czym&nbsp;są <code>args</code> i <code>kwargs</code>, ale dla ścisłości odpowiedzmy sobie na&nbsp;pytanie:</p>
 <ul>
@@ -280,6 +314,7 @@
 <p>Możliwość przekazania argumentów do funkcji przy&nbsp;użyciu <code>args</code> i <code>kwargs</code> niesie za sobą pewne implikacje. Najważniejszą implikacją jest konieczność obsłużenia obu przypadków w ciele dekoratora, jeśli chcemy wykonać jakieś operacje na atrybutach przekazywanych do dekorowanej&nbsp;funkcji.</p>
 <p>Wróćmy teraz do napisania dekoratora, który ma za zadanie sprawdzić typ argumentów przekazywanych do&nbsp;funkcji <code>add</code> tak, aby przeprowadziła działanie dodawania dwóch&nbsp;liczb.</p>
 <p>Przyjmijmy najprostsze założenie, że aby funkcja zadziałała poprawnie, argumenty funkcji muszą być typu <em>int</em> lub <em>float</em>. W przypadku jeśli dowolny z argumentów, będzie innym typem, funkcja nie zostanie uruchomiona i zostanie zwrócony wyjątek typu <em>TypeErrror</em>.</p>
+<div class="code">
 <pre class="code literal-block"><span class="k">def</span> <span class="nf">decorator</span><span class="p">(</span><span class="n">func</span><span class="p">):</span>
     <span class="k">def</span> <span class="nf">wrapper</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
         <span class="c1"># Zmienna określająca czy typy argumentów są poprawne</span>
@@ -314,24 +349,29 @@
 <span class="nd">@decorator</span>
 <span class="k">def</span> <span class="nf">add</span><span class="p">(</span><span class="n">first</span><span class="p">,</span> <span class="n">second</span><span class="p">):</span>
     <span class="nb">print</span><span class="p">(</span><span class="n">first</span> <span class="o">+</span> <span class="n">second</span><span class="p">)</span>
-</pre>
+</pre></div>
 <p>Mam nadzieję, że powyższy kod jest dla Ciebie zrozumiały (umieściłem odpowiednie komentarze w samym kodzie, aby lepiej wyjaśnić co on&nbsp;robi).</p>
 <p>Jeśli jednak masz problem ze zrozumieniem&nbsp;zapisu <code>is_correct *= True if any(isinstance(arg, t) for t in [int, float]) else False</code> poniżej umieszczam jego&nbsp;ekwiwalent:</p>
+<div class="code">
 <pre class="code literal-block"><span class="n">is_correct_helper</span> <span class="o">=</span> <span class="kc">False</span>
 <span class="k">for</span> <span class="n">t</span> <span class="ow">in</span> <span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="nb">float</span><span class="p">]:</span>
     <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">arg</span><span class="p">,</span> <span class="n">t</span><span class="p">):</span>
         <span class="n">is_correct_helper</span> <span class="o">=</span> <span class="kc">True</span>
 <span class="n">is_correct</span> <span class="o">*=</span> <span class="n">is_correct_helper</span>
-</pre>
+</pre></div>
 <p>Zauważ jednak, że ten kawałek kodu wymaga wprowadzenia dodatkowej zmiennej&nbsp;pomocniczej <code>is_correct_helper</code> i nie jest tak zwięzły jak wcześniejszy zapis, a którego będę używał w późniejszych&nbsp;przykładach.</p>
 <p>Sprawdźmy teraz czy powyższy kod działa poprawnie dla argumentów o poprawnych&nbsp;typach:</p>
+<div class="code">
 <pre class="code literal-block"><span class="n">add</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mf">2.0</span><span class="p">)</span>
-</pre>
+</pre></div>
+<div class="code">
 <pre class="code literal-block"><span class="go">3.0</span>
-</pre>
+</pre></div>
 <p>Wynik jest poprawny. A co jeśli jeden z argumentów będzie ciągiem&nbsp;znaków?</p>
+<div class="code">
 <pre class="code literal-block"><span class="n">add</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="s2">"2.0"</span><span class="p">)</span>
-</pre>
+</pre></div>
+<div class="code">
 <pre class="code literal-block"><span class="go">Traceback (most recent call last):</span>
 <span class="go">  File "/.../interactiveshell.py", line 3326, in run_code</span>
 <span class="go">    exec(code_obj, self.user_global_ns, self.user_ns)</span>
@@ -340,33 +380,39 @@
 <span class="go">  File "&lt;ipython-input-2-fc0327af835d&gt;", line 13, in wrapper</span>
 <span class="go">    raise TypeError("One of the arguments is not int or float")</span>
 <span class="go">TypeError: One of the arguments is not int or float</span>
-</pre>
+</pre></div>
 <p>Zgodnie z podejrzeniem wynikiem działania jest wyjątek typu <em>TypeError</em>, a więc taki jaki&nbsp;zakładaliśmy.</p>
 <p>Widzimy więc, że nasz dekorator działa tak jak tego oczekiwaliśmy, a nasza funkcja dekorowana&nbsp;(<code>add</code>) nie została&nbsp;zmodyfikowana.</p>
 <h2 id="wraps">wraps<a class="headerlink" href="#wraps" title="Permalink to this heading">¶</a></h2>
 <p>Rozważmy teraz inną kwestię, tzn. dokumentację do naszego kodu. Do tej pory w naszym kodzie, nie ma ani jednej linijki opisującej czym nasza dekorowana funkcja się zajmuje. Dodajmy najprostszą możliwą formę dokumentacji czyli pojedynczą linię komentarza pod definicją funkcji (zauważ, że pominąłem dodanie&nbsp;dekoratora):</p>
+<div class="code">
 <pre class="code literal-block"><span class="k">def</span> <span class="nf">add</span><span class="p">(</span><span class="n">first</span><span class="p">,</span> <span class="n">second</span><span class="p">):</span>
     <span class="sd">"""Add to elements and print the result"""</span>
     <span class="nb">print</span><span class="p">(</span><span class="n">first</span> <span class="o">+</span> <span class="n">second</span><span class="p">)</span>
-</pre>
+</pre></div>
 <p>Spróbujmy teraz wywołać jedną z metod, która wykorzystywana jest przez narzędzia do budowania dokumentacji kodu, np. <a href="http://www.sphinx-doc.org/en/master/" rel="nofollow">Sphinx</a>.</p>
+<div class="code">
 <pre class="code literal-block"><span class="nb">print</span><span class="p">(</span><span class="n">add</span><span class="o">.</span><span class="vm">__doc__</span><span class="p">)</span>
-</pre>
+</pre></div>
+<div class="code">
 <pre class="code literal-block"><span class="go">Add to elements and print the result</span>
-</pre>
+</pre></div>
 <p>Widzimy, że poprzez wywołanie jednej z <em>metod magicznych</em> możemy dostać się do naszego opisu funkcji. Sprawdźmy teraz co się stanie jak udekorujemy funkcję naszym&nbsp;dekoratorem:</p>
+<div class="code">
 <pre class="code literal-block"><span class="nd">@decorator</span>
 <span class="k">def</span> <span class="nf">add</span><span class="p">(</span><span class="n">first</span><span class="p">,</span> <span class="n">second</span><span class="p">):</span>
     <span class="sd">"""Add to elements and print the result"""</span>
     <span class="nb">print</span><span class="p">(</span><span class="n">first</span> <span class="o">+</span> <span class="n">second</span><span class="p">)</span>
 
 <span class="nb">print</span><span class="p">(</span><span class="n">add</span><span class="o">.</span><span class="vm">__doc__</span><span class="p">)</span>
-</pre>
+</pre></div>
+<div class="code">
 <pre class="code literal-block"><span class="go">None</span>
-</pre>
+</pre></div>
 <p>Dekorator wszystko nam popsuł&nbsp;|disappointed|.</p>
 <p>Dlaczego tak się dzieje?&nbsp;Otóż <code>add.__doc__</code> pobiera teraz opis nie z&nbsp;funkcji <code>add</code>, a z&nbsp;dekoratora.</p>
 <p>Możemy to rozwiązać bardzo łopatologicznie, ale ponieważ ktoś już o tym pomyślał, to wykorzystamy gotową funkcję. Wchodzi ona w skład bibliotek standardowych i jest częścią pakietu <a href="https://docs.python.org/2/library/functools.html" rel="nofollow">functools</a>. Zaimportujmy zatem&nbsp;funkcję <code>wraps</code> i jej użyjmy&nbsp;(funkcja <code>add</code> pozostaje bez&nbsp;zmian).</p>
+<div class="code">
 <pre class="code literal-block"><span class="kn">from</span> <span class="nn">functools</span> <span class="kn">import</span> <span class="n">wraps</span>
 
 <span class="k">def</span> <span class="nf">decorator</span><span class="p">(</span><span class="n">func</span><span class="p">):</span>
@@ -388,13 +434,15 @@
     <span class="k">return</span> <span class="n">wrapper</span>
 
 <span class="nb">print</span><span class="p">(</span><span class="n">add</span><span class="o">.</span><span class="vm">__doc__</span><span class="p">)</span>
-</pre>
-<pre class="code literal-block"><span></span><code>Add to elements and print the result
-</code></pre>
+</pre></div>
+<div class="code">
+<pre class="code literal-block">Add to elements and print the result
+</pre></div>
 <p>Zauważ, że funkcja ta została wykorzystana do udekorowania funkcji wewnętrznej naszego dekoratora i że dokumentacja została poprawnie wyświetlona. Funkcja ta poprawia wyświetlanie również innych wartości, które nadpisywane są przez użycie dekoratora, ale po więcej szczegółów odsyłam do <a href="https://docs.python.org/3/library/functools.html#functools.wraps" rel="nofollow">dokumentacji</a>.</p>
 <h2 id="dekorator-z-parametrami">Dekorator z parametrami<a class="headerlink" href="#dekorator-z-parametrami" title="Permalink to this heading">¶</a></h2>
 <p>A co gdybyśmy chcieli np. wymusić, aby dekorator (poza już istniejącą implementacją) sprawdzał, czy oba parametry były tego samego typu? Musielibyśmy być w stanie przekazać do dekoratora jakieś dodatkowy parametr. Skoro wiemy, że dekorator jest funkcją, to być może dało by się do takiego dekoratora przekazać ten parametr jako argument funkcji? Sprawdźmy&nbsp;więc.</p>
-<pre class="code literal-block"><span></span><code><span class="k">def</span> <span class="nf">decorator</span><span class="p">(</span><span class="n">args_type_list</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>  <span class="c1"># Dekorator z argumentem</span>
+<div class="code">
+<pre class="code literal-block"><span class="k">def</span> <span class="nf">decorator</span><span class="p">(</span><span class="n">args_type_list</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>  <span class="c1"># Dekorator z argumentem</span>
     <span class="k">def</span> <span class="nf">inner_decorator</span><span class="p">(</span><span class="n">func</span><span class="p">):</span>  <span class="c1"># Wcześniejszy dekorator</span>
         <span class="k">def</span> <span class="nf">wrapper</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
             <span class="n">is_correct</span> <span class="o">=</span> <span class="kc">True</span>
@@ -421,22 +469,26 @@
                                 <span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">types_list</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
         <span class="k">return</span> <span class="n">wrapper</span>
     <span class="k">return</span> <span class="n">inner_decorator</span>
-</code></pre>
+</pre></div>
 <p>Wprowadziliśmy tutaj dodatkowy poziom zagnieżdżenia oraz dokonaliśmy drobnej modyfikacji podczas sprawdzenia typów (wszystkie zmiany opatrzone zostały komentarzem w&nbsp;kodzie).</p>
 <p>Sprawdźmy teraz jak udekorować naszą funkcję i jakie wyniki zostaną wyświetlone jak spróbujemy jej&nbsp;użyć.</p>
-<pre class="code literal-block"><span></span><code><span class="nd">@decorator</span><span class="p">([</span><span class="nb">int</span><span class="p">])</span>  <span class="c1"># Wywołanie dekoratora z parametrem</span>
+<div class="code">
+<pre class="code literal-block"><span class="nd">@decorator</span><span class="p">([</span><span class="nb">int</span><span class="p">])</span>  <span class="c1"># Wywołanie dekoratora z parametrem</span>
 <span class="k">def</span> <span class="nf">add</span><span class="p">(</span><span class="n">first</span><span class="p">,</span> <span class="n">second</span><span class="p">):</span>
     <span class="sd">"""Add to elements and print the result"""</span>
     <span class="nb">print</span><span class="p">(</span><span class="n">first</span> <span class="o">+</span> <span class="n">second</span><span class="p">)</span>
 
 <span class="n">add</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
-</code></pre>
-<pre class="code literal-block"><span></span><code><span class="go">3</span>
-</code></pre>
+</pre></div>
+<div class="code">
+<pre class="code literal-block"><span class="go">3</span>
+</pre></div>
 <p>Nic wielkiego, wszystko jest ok. A jak zmienimy typ jednego z argumentów wywołania&nbsp;funkcji <code>add</code>?</p>
-<pre class="code literal-block"><span></span><code><span class="n">add</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mf">2.0</span><span class="p">)</span>
-</code></pre>
-<pre class="code literal-block"><span></span><code><span class="go">Traceback (most recent call last):</span>
+<div class="code">
+<pre class="code literal-block"><span class="n">add</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mf">2.0</span><span class="p">)</span>
+</pre></div>
+<div class="code">
+<pre class="code literal-block"><span class="go">Traceback (most recent call last):</span>
 <span class="go">  File "/.../interactiveshell.py", line 3326, in run_code</span>
 <span class="go">    exec(code_obj, self.user_global_ns, self.user_ns)</span>
 <span class="go">  File "&lt;ipython-input-2-7a51c39f1784&gt;", line 38, in &lt;module&gt;</span>
@@ -444,21 +496,23 @@
 <span class="go">  File "&lt;ipython-input-2-7a51c39f1784&gt;", line 21, in wrapper</span>
 <span class="go">    raise TypeError(f"One of the arguments is not one type of: "</span>
 <span class="go">TypeError: One of the arguments is not one type of: [&lt;class 'int'&gt;]</span>
-</code></pre>
+</pre></div>
 <p>Super. Wynik spodziewany, ponieważ jeden z argumentów jest typu <em>float</em>.</p>
 <p>Niestety jeśli spróbujemy teraz użyć dekoratora bez parametrów czyli zamiast&nbsp;zapisu <code>decorator(...)</code> użyjemy <code>decorator</code> tak jak wcześniej, otrzymamy następujący komunikat&nbsp;błędu:</p>
-<pre class="code literal-block"><span></span><code><span class="go">Traceback (most recent call last):</span>
+<div class="code">
+<pre class="code literal-block"><span class="go">Traceback (most recent call last):</span>
 <span class="go">  File "/.../interactiveshell.py", line 3326, in run_code</span>
 <span class="go">    exec(code_obj, self.user_global_ns, self.user_ns)</span>
 <span class="go">  File "&lt;ipython-input-3-50502c662126&gt;", line 38, in &lt;module&gt;</span>
 <span class="go">    add(1, 2.0)</span>
 <span class="go">TypeError: inner_decorator() takes 1 positional argument but 2 were given</span>
-</code></pre>
+</pre></div>
 <p>Czy możemy sobie z tym problemem jakoś&nbsp;poradzić?</p>
 <p><img alt="This is Python !!!" src="../../images/posts/dekoratory-w-pythonie_this_is_python.jpg"></p>
 <p>Oczywiście. Co ciekawe, taka modyfikacja wcale nie jest taka trudna do zrobienia. Wystarczy zmienić jedną linijkę kodu w&nbsp;dekoratorze.</p>
 <p>Przeprowadźmy więc wymaganą modyfikację oraz sprawdźmy stary zapis dekoratora wraz z wywołaniem udekorowanej&nbsp;funkcji:</p>
-<pre class="code literal-block"><span></span><code><span class="k">def</span> <span class="nf">decorator</span><span class="p">(</span><span class="n">args_type_list</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<div class="code">
+<pre class="code literal-block"><span class="k">def</span> <span class="nf">decorator</span><span class="p">(</span><span class="n">args_type_list</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
     <span class="k">def</span> <span class="nf">inner_decorator</span><span class="p">(</span><span class="n">func</span><span class="p">):</span>
         <span class="k">def</span> <span class="nf">wrapper</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
             <span class="n">is_correct</span> <span class="o">=</span> <span class="kc">True</span>
@@ -491,9 +545,10 @@
     <span class="nb">print</span><span class="p">(</span><span class="n">first</span> <span class="o">+</span> <span class="n">second</span><span class="p">)</span>
 
 <span class="n">add</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mf">2.0</span><span class="p">)</span>
-</code></pre>
-<pre class="code literal-block"><span></span><code><span class="go">3.0</span>
-</code></pre>
+</pre></div>
+<div class="code">
+<pre class="code literal-block"><span class="go">3.0</span>
+</pre></div>
 <p>We własnym zakresie sprawdź jeszcze czy przekazanie argumentów do dekoratora również działa&nbsp;|wink|.</p>
 <p>Dlaczego w ogóle taka modyfikacja była potrzebna? Zauważ czym różnią się oba zapisy&nbsp;dekoratora:</p>
 <ol>
@@ -509,7 +564,8 @@
 <p>A może dało by się to ciut prościej zrobić? Poza tym co z kwestią dokumentacji,&nbsp;itp.</p>
 <h2 id="partial">partial<a class="headerlink" href="#partial" title="Permalink to this heading">¶</a></h2>
 <p>Po raz kolejny z pomocą przychodzi nam&nbsp;biblioteka <code>functools</code>. Tym razem jednak skorzystamy jednocześnie z poznanej wcześniej&nbsp;funkcji <code>wraps</code> oraz nowej <a href="https://docs.python.org/3/library/functools.html#functools.partial" rel="nofollow">partial</a>. Spójrzmy na poniższy kod (ponownie dekorowana&nbsp;funkcja <code>add</code> pozostaje bez&nbsp;zmian).</p>
-<pre class="code literal-block"><span></span><code><span class="kn">from</span> <span class="nn">functools</span> <span class="kn">import</span> <span class="n">wraps</span><span class="p">,</span> <span class="n">partial</span>
+<div class="code">
+<pre class="code literal-block"><span class="kn">from</span> <span class="nn">functools</span> <span class="kn">import</span> <span class="n">wraps</span><span class="p">,</span> <span class="n">partial</span>
 
 <span class="k">def</span> <span class="nf">decorator</span><span class="p">(</span><span class="n">func</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">args_type_list</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
     <span class="c1"># Poniższy if sprawdza czy argument func jest wywołaniem funkcji</span>
@@ -539,7 +595,7 @@
             <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span><span class="sa">f</span><span class="s2">"One of the arguments is not one type of: "</span>
                             <span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">types_list</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
     <span class="k">return</span> <span class="n">wrapper</span>
-</code></pre>
+</pre></div>
 <p>Zauważ, że przy użyciu&nbsp;funkcji <code>partial</code> kod uległ uproszczeniu, a funkcjonalność pozostała bez zmian. Dodatkowo dzięki wykorzystaniu&nbsp;dekoratora <code>wraps</code> działa dokumentacja,&nbsp;itp.</p>
 <p>Uzupełnijmy jeszcze jak działa&nbsp;funkcja <code>partial</code>. Jest to funkcja, która jeśli zostanie wywołana, zachowuje się jak funkcja, która została jej przekazana jako argument wywołania. Dodatkowo, należy zwrócić uwagę na to jakie parametry jej przekazujemy. Zwróć uwagę,&nbsp;że <code>args_type_list</code> może przyjąć jedną z 2&nbsp;wartości:</p>
 <ul>
@@ -551,7 +607,8 @@
 <p>Skoro wcześniej udowodniliśmy, że funkcja jest obiektem oraz że dekorator to funkcja, to może dało by się zmusić obiekt, aby stał się&nbsp;dekoratorem?</p>
 <p>Jak już wcześniej ustaliliśmy <strong><span class="caps">THIS</span> <span class="caps">IS</span> <span class="caps">PYTHON</span> !!!</strong> więc odpowiedź powinna być oczywista&nbsp;|wink|.</p>
 <p>Wcześniej pisałem, że jeśli w klasie zaimplementujemy&nbsp;funkcję <code>__call__</code> to obiekt, będzie zachowywał się jak funkcja, a więc możemy wykorzystać ten fakt do stworzenia dekoratora. Sprawdźmy jak wyglądał by nasz dekorator, gdybyśmy zaimplementowali go przy użyciu&nbsp;klasy.</p>
-<pre class="code literal-block"><span></span><code><span class="kn">from</span> <span class="nn">functools</span> <span class="kn">import</span> <span class="n">update_wrapper</span>
+<div class="code">
+<pre class="code literal-block"><span class="kn">from</span> <span class="nn">functools</span> <span class="kn">import</span> <span class="n">update_wrapper</span>
 
 <span class="k">class</span> <span class="nc">decorator</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">func</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
@@ -586,7 +643,7 @@
         <span class="bp">self</span><span class="o">.</span><span class="n">_func</span> <span class="o">=</span> <span class="n">func</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_type_list</span> <span class="o">=</span> <span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="nb">float</span><span class="p">]</span>
         <span class="n">update_wrapper</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_func</span><span class="p">)</span>
-</code></pre>
+</pre></div>
 <p>Powyższy kod jest odpowiednikiem dekoratora opisane we wcześniejszym punkcie. Na pierwszy rzut oka, taka implementacja wydaje się dużo bardziej zagmatwana, ale umożliwia ona zastosowanie kilku innych ciekawych mechanizmów. Przykładem może być zastosowanie wzorca projektowego podobnego do Singletona (choć popularnie określany jest jako antywzorzec), czyli tzw. Borg (to materiał&nbsp;na oddzielny wpis, który już wkrótce będzie dostępny na tym blogu), a więc może działać jak cache lub mieć inne ciekawe&nbsp;właściwości.</p>
 <p>Analizę powyższego kodu oraz sprawdzenie poprawności jego działania zostawię w Twojej&nbsp;gestii.</p>
 <h2 id="podsumowanie">Podsumowanie<a class="headerlink" href="#podsumowanie" title="Permalink to this heading">¶</a></h2>

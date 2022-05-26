@@ -110,6 +110,7 @@
 </div>
 <h2 id="gdzie-skonczylismy">Gdzie skończyliśmy?<a class="headerlink" href="#gdzie-skonczylismy" title="Permalink to this heading">¶</a></h2>
 <p>Dla małego przypomnienia zacznijmy w miejscu, gdzie skończyliśmy. Kod naszego mini frameworka wygląda&nbsp;tak:</p>
+<div class="code">
 <pre class="code literal-block"><span class="kn">import</span> <span class="nn">unittest</span><span class="o">,</span> <span class="nn">xmlrunner</span><span class="o">,</span> <span class="nn">json</span><span class="o">,</span> <span class="nn">requests</span>
 
 <span class="k">class</span> <span class="nc">Tests</span><span class="p">(</span><span class="n">unittest</span><span class="o">.</span><span class="n">TestCase</span><span class="p">):</span> <span class="k">pass</span>
@@ -125,10 +126,11 @@
 
 <span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">'__main__'</span><span class="p">:</span>
     <span class="n">unittest</span><span class="o">.</span><span class="n">main</span><span class="p">(</span><span class="n">testRunner</span><span class="o">=</span><span class="n">xmlrunner</span><span class="o">.</span><span class="n">XMLTestRunner</span><span class="p">())</span>
-</pre>
+</pre></div>
 <h3 id="w-pogoni-za-rozumem">W pogoni za rozumem<a class="headerlink" href="#w-pogoni-za-rozumem" title="Permalink to this heading">¶</a></h3>
 <h3 id="kosmetyka">Kosmetyka<a class="headerlink" href="#kosmetyka" title="Permalink to this heading">¶</a></h3>
 <p>Póki co nasz kod jest w miarę czytelny, pomimo złamania kilku reguł. Skoro i tak je łamiemy, to idźmy ciut głębiej i uprośćmy ten kod do poniższej&nbsp;postaci.</p>
+<div class="code">
 <pre class="code literal-block"><span class="kn">import</span> <span class="nn">unittest</span><span class="o">,</span> <span class="nn">xmlrunner</span><span class="o">,</span> <span class="nn">json</span><span class="o">,</span> <span class="nn">requests</span>
 
 <span class="k">def</span> <span class="nf">add_test</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">data</span><span class="p">):</span>
@@ -142,7 +144,7 @@
         <span class="n">add_test</span><span class="p">(</span><span class="n">Tests</span><span class="p">,</span> <span class="n">test_name</span><span class="p">,</span> <span class="n">test_data</span><span class="p">)</span>
 
 <span class="n">unittest</span><span class="o">.</span><span class="n">main</span><span class="p">(</span><span class="n">testRunner</span><span class="o">=</span><span class="n">xmlrunner</span><span class="o">.</span><span class="n">XMLTestRunner</span><span class="p">())</span>
-</pre>
+</pre></div>
 <p>Zmian jest niewiele i to tylko&nbsp;kosmetyka:</p>
 <ul>
 <li>usunęliśmy sprawdzanie, z jakiego skryptu jest uruchamiany nasz&nbsp;kod,</li>
@@ -154,11 +156,13 @@
 <p>Zanim jednak będziemy bardziej odchudzać kod frameworku, musimy poznać czym są tzw. <strong>wyrażenia Lambda</strong> w&nbsp;Pythonie.</p>
 <p><strong>Wyrażenia Lambda</strong> to krótkie, anonimowe funkcje (opisane w <a href="https://www.python.org/dev/peps/pep-0312/" rel="nofollow"><span class="caps">PEP</span> 312</a> oraz <a href="https://docs.python.org/3/tutorial/controlflow.html#lambda-expressions%3E" rel="nofollow">dokumentacji</a>). Funkcje takie są określane jako anonimowe, ponieważ zdefiniowane są w miejscu ich użycia. <strong>Funkcje Lambda</strong> mogą przyjmować dowolną liczbę argumentów, ale mogą zawierać tylko jedno wyrażenie. Ale jak działa&nbsp;Lambda?</p>
 <p>Zacznijmy od czegoś prostego, czyli suma 2&nbsp;liczb:</p>
+<div class="code">
 <pre class="code literal-block"><span class="n">add</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">:</span> <span class="n">a</span> <span class="o">+</span> <span class="n">b</span>
 <span class="n">add</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
-</pre>
+</pre></div>
+<div class="code">
 <pre class="code literal-block"><span class="go">4</span>
-</pre>
+</pre></div>
 <p>Nic nadzwyczajnego, ale żeby tradycji stało się zadość, kilka słów wyjaśnienia jak to&nbsp;działa:</p>
 <ol>
 <li>Tworzymy wyrażenie Lambda, które przyjmuje dwie&nbsp;zmienne: <code>a</code> i <code>b</code> oraz wykonuje operację dodawania na tych&nbsp;zmiennych.</li>
@@ -166,27 +170,32 @@
 <li>Wywołujemy tak stworzoną funkcję z 2 parametrami. W wyniku wywołania otrzymujemy wynik&nbsp;dodawania.</li>
 </ol>
 <p>Odpowiednikiem takiego wyrażenia będzie poniższy&nbsp;kod:</p>
+<div class="code">
 <pre class="code literal-block"><span class="k">def</span> <span class="nf">add</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">):</span>
     <span class="k">return</span> <span class="n">a</span> <span class="o">+</span> <span class="n">b</span>
 
 <span class="n">add</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
-</pre>
+</pre></div>
+<div class="code">
 <pre class="code literal-block"><span class="go">4</span>
-</pre>
+</pre></div>
 <p>Zysk niby niewielki, ale zawsze coś. A co, gdybyśmy chcieli osiągnąć coś ciekawszego? Zobaczmy co się stanie, jak tradycyjna metoda, w wyniku będzie zwracała wyrażenie&nbsp;lambda:</p>
+<div class="code">
 <pre class="code literal-block"><span class="k">def</span> <span class="nf">multiplier</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
     <span class="k">return</span> <span class="k">lambda</span> <span class="n">a</span><span class="p">:</span> <span class="n">a</span> <span class="o">*</span> <span class="n">n</span>
 
 <span class="n">multiplier_1k</span> <span class="o">=</span> <span class="n">multiplier</span><span class="p">(</span><span class="mi">1000</span><span class="p">)</span>
 
 <span class="n">multiplier_1k</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
-</pre>
+</pre></div>
+<div class="code">
 <pre class="code literal-block"><span class="go">3000</span>
-</pre>
+</pre></div>
 <p>Zaczyna się robić ciekawiej. Zauważ, że w ten sposób moglibyśmy bardzo szybko zdefiniować inne metody&nbsp;np. <code>multiplier_10k = multiplier(10000)</code>, czy&nbsp;też <code>doubler = multiplier(2)</code>. Zaczynasz rozumieć z jak potężnym narzędziem mamy do&nbsp;czynienia?</p>
 <p>Wszystko super, ale jak z tego skorzystać w naszym&nbsp;frameworku?</p>
 <h3 id="lambda-po-raz-pierwszy">Lambda po raz pierwszy<a class="headerlink" href="#lambda-po-raz-pierwszy" title="Permalink to this heading">¶</a></h3>
 <p>Skoro już wiemy, że przy użyciu wyrażenia lambda, można zastąpić definicję jakiejś metody, to spróbujmy to zaimplementować w naszym kodzie. Jak? Zerknij&nbsp;poniżej:</p>
+<div class="code">
 <pre class="code literal-block"><span class="kn">import</span> <span class="nn">unittest</span><span class="o">,</span> <span class="nn">xmlrunner</span><span class="o">,</span> <span class="nn">json</span><span class="o">,</span> <span class="nn">requests</span>
 
 <span class="k">def</span> <span class="nf">add_test</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">data</span><span class="p">):</span>
@@ -198,10 +207,11 @@
         <span class="n">add_test</span><span class="p">(</span><span class="n">Tests</span><span class="p">,</span> <span class="n">test_name</span><span class="p">,</span> <span class="n">test_data</span><span class="p">)</span>
 
 <span class="n">unittest</span><span class="o">.</span><span class="n">main</span><span class="p">(</span><span class="n">testRunner</span><span class="o">=</span><span class="n">xmlrunner</span><span class="o">.</span><span class="n">XMLTestRunner</span><span class="p">())</span>
-</pre>
+</pre></div>
 <p>Myślę, że zmiany nie wymagają większego komentarza, bo jedyne co tutaj zrobiliśmy to zastąpiliśmy definicję oraz wywołanie&nbsp;metody <code>abstract_test</code> wyrażeniem lambda. W wyniku, odchudziliśmy nasz kod do 11 linii kodu. Jest nieźle, ale może da się&nbsp;lepiej?</p>
 <h3 id="lambda-po-raz-drugi">Lambda po raz drugi<a class="headerlink" href="#lambda-po-raz-drugi" title="Permalink to this heading">¶</a></h3>
 <p>Skoro udało nam się pozbyć definiowania jednej metody, to może uda nam się wyrzucić jeszcze&nbsp;jedną?</p>
+<div class="code">
 <pre class="code literal-block"><span class="kn">import</span> <span class="nn">unittest</span><span class="o">,</span> <span class="nn">xmlrunner</span><span class="o">,</span> <span class="nn">json</span><span class="o">,</span> <span class="nn">requests</span>
 
 <span class="n">add_test</span> <span class="o">=</span> <span class="k">lambda</span> <span class="bp">cls</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">data</span><span class="p">:</span> <span class="nb">setattr</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="k">lambda</span> <span class="bp">self</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">assertEqual</span><span class="p">(</span><span class="n">requests</span><span class="o">.</span><span class="n">request</span><span class="p">(</span><span class="o">**</span><span class="n">data</span><span class="p">[</span><span class="s1">'request'</span><span class="p">])</span><span class="o">.</span><span class="n">status_code</span><span class="p">,</span> <span class="n">data</span><span class="p">[</span><span class="s1">'assert'</span><span class="p">][</span><span class="s1">'statusCode'</span><span class="p">]))</span>
@@ -212,8 +222,9 @@
         <span class="n">add_test</span><span class="p">(</span><span class="n">Tests</span><span class="p">,</span> <span class="n">test_name</span><span class="p">,</span> <span class="n">test_data</span><span class="p">)</span>
 
 <span class="n">unittest</span><span class="o">.</span><span class="n">main</span><span class="p">(</span><span class="n">testRunner</span><span class="o">=</span><span class="n">xmlrunner</span><span class="o">.</span><span class="n">XMLTestRunner</span><span class="p">())</span>
-</pre>
+</pre></div>
 <p>Zauważ, że dalej podążamy utartym schematem. Wykonajmy jeszcze jeden drobny zabieg, a więc przenieśmy przypisanie Lambdy do zmiennej w inne&nbsp;miejsce:</p>
+<div class="code">
 <pre class="code literal-block"><span class="kn">import</span> <span class="nn">unittest</span><span class="o">,</span> <span class="nn">xmlrunner</span><span class="o">,</span> <span class="nn">json</span><span class="o">,</span> <span class="nn">requests</span>
 
 <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">'tests.json'</span><span class="p">,</span> <span class="s1">'r'</span><span class="p">)</span> <span class="k">as</span> <span class="n">json_file</span><span class="p">:</span>
@@ -223,7 +234,7 @@
         <span class="n">add_test</span><span class="p">(</span><span class="n">Tests</span><span class="p">,</span> <span class="n">test_name</span><span class="p">,</span> <span class="n">test_data</span><span class="p">)</span>
 
 <span class="n">unittest</span><span class="o">.</span><span class="n">main</span><span class="p">(</span><span class="n">testRunner</span><span class="o">=</span><span class="n">xmlrunner</span><span class="o">.</span><span class="n">XMLTestRunner</span><span class="p">())</span>
-</pre>
+</pre></div>
 <p>Odchudziliśmy już nasz kod do 9 linii przy zachowaniu tej samej funkcjonalności. Czy to odchudzanie kiedyś się skończy? Tak, ale jeszcze nie w tym momencie. Zauważ, że sama definicja&nbsp;klasy <code>Tests</code>, metody&nbsp;testowej <code>add_test</code> oraz jej wielokrotne wywołanie zajmują aż 4 linijki kodu. Może damy radę jeszcze coś tutaj&nbsp;pokombinować?</p>
 <h3 id="type">type<a class="headerlink" href="#type" title="Permalink to this heading">¶</a></h3>
 <p>Metoda <code>type</code> to jedna z metod wbudowanych Pythona i nie wymaga importu (jest zawsze dostępna, podobnie jak używana przez nas&nbsp;metoda <code>setattr</code>). Większość osób programujących w Pythonie używa tej metody do sprawdzania typu obiektu. Nie każdy jednak zdaje sobie sprawę,&nbsp;że <code>type</code> można wykorzystać też w innym celu. <a href="https://docs.python.org/3/library/functions.html?highlight=type#type" rel="nofollow">type</a> możemy również wykorzystać do dynamicznego tworzenia obiektów w Pythonie. Jak to działa? To nic skomplikowanego. W obecnym kodzie mamy następującą definicję&nbsp;klasy: <code>class Tests(unittest.TestCase): pass</code>. Jest to klasa, dziedzicząca&nbsp;po <code>unittest.TestCase</code> oraz nieposiadająca żadnych zmiennych, oraz metod. Przy&nbsp;użyciu <code>type</code> powyższa definicja wyglądałaby&nbsp;tak: <code>Tests = type("Tests", (unittest.TestCase,), {})</code>. Co tu się&nbsp;podziało?</p>
@@ -234,6 +245,7 @@
 <li>Jako trzeci argument podaliśmy pusty słownik, ponieważ nasza klasa jest ‘pusta’ (to nie do końca prawda, bo dziedziczy, po innym obiekcie, ale nie wnikajmy w to&nbsp;tutaj).</li>
 </ol>
 <p>Po podstawieniu do naszego kodu, cały framework wyglądałby&nbsp;następująco:</p>
+<div class="code">
 <pre class="code literal-block"><span class="kn">import</span> <span class="nn">unittest</span><span class="o">,</span> <span class="nn">xmlrunner</span><span class="o">,</span> <span class="nn">json</span><span class="o">,</span> <span class="nn">requests</span>
 
 <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">'tests.json'</span><span class="p">,</span> <span class="s1">'r'</span><span class="p">)</span> <span class="k">as</span> <span class="n">json_file</span><span class="p">:</span>
@@ -243,10 +255,11 @@
         <span class="n">add_test</span><span class="p">(</span><span class="n">Tests</span><span class="p">,</span> <span class="n">test_name</span><span class="p">,</span> <span class="n">test_data</span><span class="p">)</span>
 
 <span class="n">unittest</span><span class="o">.</span><span class="n">main</span><span class="p">(</span><span class="n">testRunner</span><span class="o">=</span><span class="n">xmlrunner</span><span class="o">.</span><span class="n">XMLTestRunner</span><span class="p">())</span>
-</pre>
+</pre></div>
 <p>Na razie zysku brak. Ciągle mamy 9 linii kodu. Jednak dla wprawnego oka, przyzwyczajonego do kodu pisanego w Pythonie, widać, że coś tutaj możemy teraz&nbsp;uprościć.</p>
 <h3 id="dict-comprehension">dict comprehension<a class="headerlink" href="#dict-comprehension" title="Permalink to this heading">¶</a></h3>
 <p>Zwrot <strong>dict comprehension</strong> nie posiada sensownego tłumaczenia (dlatego będę używał go w oryginale). Czym jest <strong>dict comprehension</strong>? Jest to sposób na uproszczenie zapisu, tworzenia słownika z wykorzystaniem&nbsp;pętli <code>for</code>, który opisany jest w <a href="https://www.python.org/dev/peps/pep-0274/" rel="nofollow"><span class="caps">PEP</span> 271</a> (istnieje również bardzo podobny mechanizm jak <strong>list comprehension</strong>, który opisany jest w <a href="https://www.python.org/dev/peps/pep-0202/" rel="nofollow"><span class="caps">PEP</span> 202</a>. W skrócie&nbsp;zapis:</p>
+<div class="code">
 <pre class="code literal-block"><span class="n">keys</span> <span class="o">=</span> <span class="p">[</span><span class="s2">"a"</span><span class="p">,</span> <span class="s2">"b"</span><span class="p">,</span> <span class="s2">"c"</span><span class="p">,</span> <span class="s2">"d"</span><span class="p">]</span>
 <span class="n">values</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">]</span>
 
@@ -256,22 +269,26 @@
     <span class="n">new_dict</span><span class="p">[</span><span class="n">k</span><span class="p">]</span> <span class="o">=</span> <span class="n">values</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
 
 <span class="n">new_dict</span>
-</pre>
+</pre></div>
+<div class="code">
 <pre class="code literal-block"><span class="go">{'a': 10, 'b': 20, 'c': 30, 'd': 40}</span>
-</pre>
+</pre></div>
 <p>możemy zastąpić poprzez&nbsp;zapis:</p>
+<div class="code">
 <pre class="code literal-block"><span class="n">keys</span> <span class="o">=</span> <span class="p">[</span><span class="s2">"a"</span><span class="p">,</span> <span class="s2">"b"</span><span class="p">,</span> <span class="s2">"c"</span><span class="p">,</span> <span class="s2">"d"</span><span class="p">]</span>
 <span class="n">values</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">]</span>
 
 <span class="n">new_dict</span> <span class="o">=</span> <span class="p">{</span><span class="n">k</span><span class="p">:</span> <span class="n">values</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">k</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">keys</span><span class="p">)}</span>
 
 <span class="n">new_dict</span>
-</pre>
+</pre></div>
+<div class="code">
 <pre class="code literal-block"><span class="go">{'a': 10, 'b': 20, 'c': 30, 'd': 40}</span>
-</pre>
+</pre></div>
 <p>Oczywiście taka konstrukcja może być wykorzystywana też w połączeniu z warunkami itp. Ale jak to może pomóc w odchudzeniu naszego kodu? Trzymaj się&nbsp;krzesła.</p>
 <h3 id="najmniejszy-framework">Najmniejszy framework<a class="headerlink" href="#najmniejszy-framework" title="Permalink to this heading">¶</a></h3>
 <p>Poskładajmy więc to wszystko w&nbsp;całość:</p>
+<div class="code">
 <pre class="code literal-block"><span class="kn">import</span> <span class="nn">unittest</span><span class="o">,</span> <span class="nn">xmlrunner</span><span class="o">,</span> <span class="nn">json</span><span class="o">,</span> <span class="nn">requests</span>
 
 <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">'tests.json'</span><span class="p">,</span> <span class="s1">'r'</span><span class="p">)</span> <span class="k">as</span> <span class="n">json_file</span><span class="p">:</span>
@@ -282,16 +299,17 @@
     <span class="n">Tests</span> <span class="o">=</span> <span class="nb">type</span><span class="p">(</span><span class="s2">"Tests"</span><span class="p">,</span> <span class="p">(</span><span class="n">unittest</span><span class="o">.</span><span class="n">TestCase</span><span class="p">,),</span> <span class="n">tests_dict</span><span class="p">)</span>
 
 <span class="n">unittest</span><span class="o">.</span><span class="n">main</span><span class="p">(</span><span class="n">testRunner</span><span class="o">=</span><span class="n">xmlrunner</span><span class="o">.</span><span class="n">XMLTestRunner</span><span class="p">())</span>
-</pre>
+</pre></div>
 <p>Jak to działa? Przy wykorzystaniu <strong>dict comprehension</strong> stworzyliśmy&nbsp;słownik <code>tests_dict</code>, który zawiera wszystkie metody testowe, które wcześniej tworzone były wewnątrz&nbsp;pętli <code>for</code>. Pominęliśmy również krok dotyczący definicji oraz wywołania&nbsp;metody <code>add_test</code>. Nie jest ona w tym momencie konieczna, ponieważ przypisujemy metodę bezpośrednio do zmiennej, która jest wartością słownika, przypisaną do odpowiedniego klucza w tym słowniku. Tak zdefiniowany słownik wstawiamy do dynamicznie tworzonej&nbsp;klasy.</p>
 <p>Powyższy kod został przedstawiony w ten sposób, aby choć trochę zachować jego czytelność. Jeśli jednak pozbędziemy się niepotrzebnego formatowania oraz przypisania słownika do&nbsp;zmiennej <code>tests_dict</code>, nasz kod będzie wyglądał&nbsp;następująco:</p>
+<div class="code">
 <pre class="code literal-block"><span class="kn">import</span> <span class="nn">unittest</span><span class="o">,</span> <span class="nn">xmlrunner</span><span class="o">,</span> <span class="nn">json</span><span class="o">,</span> <span class="nn">requests</span>
 
 <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">'tests.json'</span><span class="p">,</span> <span class="s1">'r'</span><span class="p">)</span> <span class="k">as</span> <span class="n">json_file</span><span class="p">:</span>
     <span class="n">Tests</span> <span class="o">=</span> <span class="nb">type</span><span class="p">(</span><span class="s2">"Tests"</span><span class="p">,</span> <span class="p">(</span><span class="n">unittest</span><span class="o">.</span><span class="n">TestCase</span><span class="p">,),</span> <span class="p">{</span><span class="n">name</span><span class="p">:</span> <span class="p">(</span><span class="k">lambda</span> <span class="n">data</span><span class="p">:</span> <span class="k">lambda</span> <span class="bp">self</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">assertEqual</span><span class="p">(</span><span class="n">requests</span><span class="o">.</span><span class="n">request</span><span class="p">(</span><span class="o">**</span><span class="n">data</span><span class="p">[</span><span class="s1">'request'</span><span class="p">])</span><span class="o">.</span><span class="n">status_code</span><span class="p">,</span> <span class="n">data</span><span class="p">[</span><span class="s1">'assert'</span><span class="p">][</span><span class="s1">'statusCode'</span><span class="p">]))(</span><span class="n">data</span><span class="p">)</span> <span class="k">for</span> <span class="n">name</span><span class="p">,</span> <span class="n">data</span> <span class="ow">in</span> <span class="n">json</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">json_file</span><span class="p">)</span><span class="o">.</span><span class="n">items</span><span class="p">()})</span>
 
 <span class="n">unittest</span><span class="o">.</span><span class="n">main</span><span class="p">(</span><span class="n">testRunner</span><span class="o">=</span><span class="n">xmlrunner</span><span class="o">.</span><span class="n">XMLTestRunner</span><span class="p">())</span>
-</pre>
+</pre></div>
 <p>Tak dobrze widzisz, że nasz framework mieści się w <strong>6 linijkach kodu</strong> (pomijając puste linie, moglibyśmy odchudzić ten kod do zaledwie 4 linii kodu, co było by już tylko kosmetyczną zmianą). Nie wiem jak dla Ciebie, ale dla mnie to lekki&nbsp;obłęd.</p>
 <h2 id="wiecej-funkcjonalnosci">Więcej funkcjonalności<a class="headerlink" href="#wiecej-funkcjonalnosci" title="Permalink to this heading">¶</a></h2>
 <p>Skoro odchudziliśmy kod frameworku do zaledwie 6 linijek kodu, to do pierwotnie zakładanych 16 linijek, trochę nam brakuje. Spróbujmy wykorzystać ten zapas, do stworzenia testów, które testują coś&nbsp;więcej.</p>
@@ -302,6 +320,7 @@
 <li>Wsparcie dla wielu plików json, co da nam możliwość rozbicia testów do testowania mniejszych funkcjonalności lub grupowania testów jako suity&nbsp;testów.</li>
 </ol>
 <p>Abyśmy mogli wprowadzić powyższe rozszerzenia, potrzebujemy delikatnie zmodyfikować obecny kod poprzez wydzielenie metody z testem z wnętrza słownika. Poniższy kod prezentuje jak tego&nbsp;dokonać:</p>
+<div class="code">
 <pre class="code literal-block"><span class="kn">import</span> <span class="nn">unittest</span><span class="o">,</span> <span class="nn">xmlrunner</span><span class="o">,</span> <span class="nn">json</span><span class="o">,</span> <span class="nn">requests</span>
 
 <span class="k">def</span> <span class="nf">abstract_test</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">data</span><span class="p">):</span>
@@ -313,7 +332,7 @@
     <span class="n">Tests</span> <span class="o">=</span> <span class="nb">type</span><span class="p">(</span><span class="s2">"Tests"</span><span class="p">,</span> <span class="p">(</span><span class="n">unittest</span><span class="o">.</span><span class="n">TestCase</span><span class="p">,),</span> <span class="p">{</span><span class="n">name</span><span class="p">:</span> <span class="n">test</span><span class="p">(</span><span class="n">data</span><span class="p">)</span> <span class="k">for</span> <span class="n">name</span><span class="p">,</span> <span class="n">data</span> <span class="ow">in</span> <span class="n">json</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">json_file</span><span class="p">)</span><span class="o">.</span><span class="n">items</span><span class="p">()})</span>
 
 <span class="n">unittest</span><span class="o">.</span><span class="n">main</span><span class="p">(</span><span class="n">testRunner</span><span class="o">=</span><span class="n">xmlrunner</span><span class="o">.</span><span class="n">XMLTestRunner</span><span class="p">())</span>
-</pre>
+</pre></div>
 <p>Zmiany, które zostały wprowadzone, nie powinny być zaskoczeniem, gdyż bardzo podobny kod był w akapicie dotyczącym wykorzystania <a href="../jeszcze-mniejszy-framework-do-testow-w-pythonie#lambda-po-raz-pierwszy">lambdy</a>.</p>
 <p>Skoro mamy już podwaliny do dalszej zabawy, rozszerzmy kod o dodatkowe&nbsp;sprawdzenia.</p>
 <h3 id="wiecej-testow-w-tescie">Więcej testów w teście<a class="headerlink" href="#wiecej-testow-w-tescie" title="Permalink to this heading">¶</a></h3>
@@ -324,6 +343,7 @@
 </ul>
 <p>Istnieją również inne ciekawe wartości, z których można skorzystać,&nbsp;np. <code>response.headers</code>, ale nie zmieścilibyśmy się w wymaganej ilości kodu oraz musielibyśmy przechowywać dużo więcej informacji w pliku <strong>json</strong>.</p>
 <p>Abyśmy mogli z tych informacji skorzystać, musimy dołożyć pewne dane do naszego&nbsp;pliku <code>tests.json</code>:</p>
+<div class="code">
 <pre class="code literal-block"><span class="p">{</span><span class="w"></span>
 <span class="w">  </span><span class="nt">"test_get_all_users"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
 <span class="w">    </span><span class="nt">"request"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
@@ -374,8 +394,9 @@
 <span class="w">    </span><span class="p">}</span><span class="w"></span>
 <span class="w">  </span><span class="p">}</span><span class="w"></span>
 <span class="p">}</span><span class="w"></span>
-</pre>
+</pre></div>
 <p>Przeróbmy teraz nasz kod, tak aby skorzystał z tych&nbsp;danych:</p>
+<div class="code">
 <pre class="code literal-block"><span class="kn">import</span> <span class="nn">unittest</span><span class="o">,</span> <span class="nn">xmlrunner</span><span class="o">,</span> <span class="nn">json</span><span class="o">,</span> <span class="nn">requests</span><span class="o">,</span> <span class="nn">glob</span>
 
 <span class="k">def</span> <span class="nf">abstract_test</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">data</span><span class="p">):</span>
@@ -389,7 +410,7 @@
     <span class="n">Tests</span> <span class="o">=</span> <span class="nb">type</span><span class="p">(</span><span class="s2">"Tests"</span><span class="p">,</span> <span class="p">(</span><span class="n">unittest</span><span class="o">.</span><span class="n">TestCase</span><span class="p">,),</span> <span class="p">{</span><span class="n">name</span><span class="p">:</span> <span class="n">test</span><span class="p">(</span><span class="n">data</span><span class="p">)</span> <span class="k">for</span> <span class="n">name</span><span class="p">,</span> <span class="n">data</span> <span class="ow">in</span> <span class="n">json</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">json_file</span><span class="p">)</span><span class="o">.</span><span class="n">items</span><span class="p">()})</span>
 
 <span class="n">unittest</span><span class="o">.</span><span class="n">main</span><span class="p">(</span><span class="n">testRunner</span><span class="o">=</span><span class="n">xmlrunner</span><span class="o">.</span><span class="n">XMLTestRunner</span><span class="p">())</span>
-</pre>
+</pre></div>
 <p>Sprawdzenie czasu odpowiedzi nie powinno być zaskoczeniem. Natomiast jeśli chodzi o porównanie struktury danych odpowiedzi wymaga drobnej ekwilibrystyki na&nbsp;danych:</p>
 <ul>
 <li>wyciągamy same klucze z&nbsp;odpowiedzi,</li>
@@ -402,12 +423,14 @@
 <p>Biblioteka <a href="https://docs.python.org/3/library/glob.html" rel="nofollow">glob</a> w dużym uproszczeniu służy do wyszukiwania plików i katalogów. Na nasze potrzeby wykorzystamy tylko jedną metodę. a dokładniej <a href="https://docs.python.org/3/library/glob.html" rel="nofollow">glob.iglob</a>. Wykorzystamy ja do wyszukiwania plików <strong>json</strong>.</p>
 <h3 id="globals">globals()<a class="headerlink" href="#globals" title="Permalink to this heading">¶</a></h3>
 <p><a href="https://docs.python.org/3/library/functions.html#globals" rel="nofollow">globals()</a> to kolejna z wbudowanych metod Pythona, która przechowuje zmienne globalne dla danego modułu. Na tym etapie, gdybyśmy w naszym kodzie wyświetli zawartość, którą&nbsp;zwraca <code>globals()</code>, zauważylibyśmy m.in. coś&nbsp;takiego:</p>
+<div class="code">
 <pre class="code literal-block"><span class="go">'Tests': &lt;class '__main__.Tests'&gt;</span>
-</pre>
+</pre></div>
 <p>Jest to zmienna, w której przechowywana jest klasa z testami z pojedynczego pliku <strong>json</strong>. Po co nam to wiedzieć? Zapraszam&nbsp;dalej.</p>
 <h3 id="obsuga-wielu-plikow-json">Obsługa wielu plików json<a class="headerlink" href="#obsuga-wielu-plikow-json" title="Permalink to this heading">¶</a></h3>
 <p>Wiemy już czego będziemy używać, a wiec do dzieła. Rozdzielmy najpierw obecny&nbsp;plik <code>tests.json</code> na dwa&nbsp;mniejsze.</p>
 <p>Pierwszy plik&nbsp;nazwiemy <code>users_get.json</code> będzie testował <span class="caps">API</span> dotyczące pobierania danych użytkowników z testowanej&nbsp;aplikacji:</p>
+<div class="code">
 <pre class="code literal-block"><span class="p">{</span><span class="w"></span>
 <span class="w">  </span><span class="nt">"test_get_all_users"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
 <span class="w">    </span><span class="nt">"request"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
@@ -443,8 +466,9 @@
 <span class="w">    </span><span class="p">}</span><span class="w"></span>
 <span class="w">  </span><span class="p">}</span><span class="w"></span>
 <span class="p">}</span><span class="w"></span>
-</pre>
+</pre></div>
 <p>Drugi plik&nbsp;nazwiemy <code>users_create.json</code> będzie testował <span class="caps">API</span> dotyczące tworzenia nowych użytkowników w testowanej&nbsp;aplikacji:</p>
+<div class="code">
 <pre class="code literal-block"><span class="p">{</span><span class="w"></span>
 <span class="w">  </span><span class="nt">"test_create_new_user"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
 <span class="w">    </span><span class="nt">"request"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
@@ -462,9 +486,10 @@
 <span class="w">    </span><span class="p">}</span><span class="w"></span>
 <span class="w">  </span><span class="p">}</span><span class="w"></span>
 <span class="p">}</span><span class="w"></span>
-</pre>
+</pre></div>
 <p>Zauważ, że te pliki to tylko prosty podział i nie nastąpiła żadna modyfikacja danych, które oryginalnie zawarte były w&nbsp;pliku <code>tests.json</code>.</p>
 <p>Przejdźmy teraz do wprowadzenia zmian w&nbsp;kodzie:</p>
+<div class="code">
 <pre class="code literal-block"><span class="kn">import</span> <span class="nn">unittest</span><span class="o">,</span> <span class="nn">xmlrunner</span><span class="o">,</span> <span class="nn">json</span><span class="o">,</span> <span class="nn">requests</span><span class="o">,</span> <span class="nn">glob</span>
 
 <span class="k">def</span> <span class="nf">abstract_test</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">data</span><span class="p">):</span>
@@ -480,7 +505,7 @@
         <span class="nb">globals</span><span class="p">()[</span><span class="n">suite_name</span><span class="p">]</span> <span class="o">=</span> <span class="nb">type</span><span class="p">(</span><span class="n">suite_name</span><span class="p">,</span> <span class="p">(</span><span class="n">unittest</span><span class="o">.</span><span class="n">TestCase</span><span class="p">,),</span> <span class="p">{</span><span class="n">name</span><span class="p">:</span> <span class="n">test</span><span class="p">(</span><span class="n">data</span><span class="p">)</span> <span class="k">for</span> <span class="n">name</span><span class="p">,</span> <span class="n">data</span> <span class="ow">in</span> <span class="n">json</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">json_file</span><span class="p">)</span><span class="o">.</span><span class="n">items</span><span class="p">()})</span>
 
 <span class="n">unittest</span><span class="o">.</span><span class="n">main</span><span class="p">(</span><span class="n">testRunner</span><span class="o">=</span><span class="n">xmlrunner</span><span class="o">.</span><span class="n">XMLTestRunner</span><span class="p">())</span>
-</pre>
+</pre></div>
 <p>Wprowadziliśmy kilka drobnych&nbsp;zmian:</p>
 <ol>
 <li>Dodaliśmy&nbsp;pętle <code>for</code>, która iteruje po znalezionych plikach <strong>json</strong>.</li>
@@ -488,13 +513,15 @@
 <li>W dynamiczny sposób dodajemy zmienne globalne, które są oddzielnymi klasami testów, gdzie każdemu plikowi <strong>json</strong> odpowiada jedna klasa z&nbsp;testami.</li>
 </ol>
 <p>Gdybyśmy teraz w naszym kodzie wyświetli zawartość, którą&nbsp;zwraca <code>globals()</code>, zauważylibyśmy m.in. coś&nbsp;takiego:</p>
+<div class="code">
 <pre class="code literal-block"><span class="go">'user_create': &lt;class '__main__.user_create'&gt;, 'user_get': &lt;class '__main__.user_get'&gt;</span>
-</pre>
+</pre></div>
 <p>Ile mamy linii kodu? <strong>15</strong>. Uff. Dalej mieścimy się w zakładanych 16 linijkach&nbsp;kodu.</p>
 <h2 id="podsumowanie">Podsumowanie<a class="headerlink" href="#podsumowanie" title="Permalink to this heading">¶</a></h2>
 <p>To była dosyć długa przygoda (aż dwa i to dosyć rozbudowane wpisy na blogu). Sporo Pythonowych <em>trików</em>, które na pierwszy rzut oka nie wydają się oczywiste, ale pokazują potęgę tego języka. Mam nadzieję, że ta podróż zachęci Cię do poznawania zarówno bibliotek Pythonowych jakie można wykorzystać w testach oraz wewnętrznych mechanizmów, jakie są w ten język&nbsp;wbudowane.</p>
 <h2 id="bonus">Bonus<a class="headerlink" href="#bonus" title="Permalink to this heading">¶</a></h2>
 <p>Jeśli jesteś purystą i najważniejszą sprawą dla Ciebie jest zgodność kodu z <strong><span class="caps">PEP</span>-8</strong> to poniżej wersja tego frameworka, która jest z nim zgodna oraz w dalszym ciągu mieści się w 16 linijkach kodu (sprawdza status odpowiedzi oraz wspiera wiele plików <strong>json</strong>):</p>
+<div class="code">
 <pre class="code literal-block"><span class="kn">import</span> <span class="nn">unittest</span>
 <span class="kn">import</span> <span class="nn">xmlrunner</span>
 <span class="kn">import</span> <span class="nn">json</span>
@@ -510,7 +537,7 @@
         <span class="nb">globals</span><span class="p">()[</span><span class="n">suite_name</span><span class="p">]</span> <span class="o">=</span> <span class="nb">type</span><span class="p">(</span><span class="n">suite_name</span><span class="p">,</span> <span class="p">(</span><span class="n">unittest</span><span class="o">.</span><span class="n">TestCase</span><span class="p">,),</span> <span class="n">tests_dict</span><span class="p">)</span>
 
 <span class="n">unittest</span><span class="o">.</span><span class="n">main</span><span class="p">(</span><span class="n">testRunner</span><span class="o">=</span><span class="n">xmlrunner</span><span class="o">.</span><span class="n">XMLTestRunner</span><span class="p">())</span>
-</pre>
+</pre></div>
 <p>Dodatkowo linki do repozytorium z najciekawszymi (według mnie) wersjami kodu, który omawialiśmy w tej mini serii znajdziesz&nbsp;poniżej:</p>
 <ul>
 <li><a href="https://github.com/mkusz/the_smallest_rest_api_testing_framework/tree/first_article" rel="nofollow">pierwszy artykuł</a>,</li>
@@ -520,6 +547,7 @@
 </ul>
 <h2 id="bonus-2">Bonus 2<a class="headerlink" href="#bonus-2" title="Permalink to this heading">¶</a></h2>
 <p>Po raz kolejny <strong>Jakub Spórna</strong> z bloga <a href="https://sporna.dev/" rel="nofollow">https://sporna.dev/</a> podrzucił jeszcze mniejszą wersję frameworka. Tym razem wziął na tapetę wersję najbardziej rozbudowaną funkcjonalność i postanowił ją troszeczkę bardziej pomniejszyć. Poniżej jego wersja (z minimalną modyfikacją dotyczącej nazw&nbsp;plików):</p>
+<div class="code">
 <pre class="code literal-block"><span class="kn">import</span> <span class="nn">unittest</span><span class="o">,</span> <span class="nn">xmlrunner</span><span class="o">,</span> <span class="nn">json</span><span class="o">,</span> <span class="nn">requests</span><span class="o">,</span> <span class="nn">glob</span>
 
 <span class="k">def</span> <span class="nf">abstract_test</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">response</span><span class="p">):</span>
@@ -530,7 +558,7 @@
 <span class="n">test</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">data</span><span class="p">:</span> <span class="k">lambda</span> <span class="bp">self</span><span class="p">:</span> <span class="n">abstract_test</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">requests</span><span class="o">.</span><span class="n">request</span><span class="p">(</span><span class="o">**</span><span class="n">data</span><span class="p">[</span><span class="s1">'request'</span><span class="p">]))</span>
 <span class="nb">globals</span><span class="p">()</span><span class="o">.</span><span class="n">update</span><span class="p">({</span><span class="n">file_name</span><span class="p">:</span> <span class="nb">type</span><span class="p">(</span><span class="n">file_name</span><span class="p">,</span> <span class="p">(</span><span class="n">unittest</span><span class="o">.</span><span class="n">TestCase</span><span class="p">,</span> <span class="p">),</span> <span class="p">{</span><span class="n">name</span><span class="p">:</span> <span class="n">test</span><span class="p">(</span><span class="n">data</span><span class="p">)</span> <span class="k">for</span> <span class="n">name</span><span class="p">,</span> <span class="n">data</span> <span class="ow">in</span> <span class="n">json</span><span class="o">.</span><span class="n">loads</span><span class="p">(</span><span class="nb">open</span><span class="p">(</span><span class="n">file_name</span><span class="p">,</span> <span class="s1">'r'</span><span class="p">)</span><span class="o">.</span><span class="n">read</span><span class="p">())</span><span class="o">.</span><span class="n">items</span><span class="p">()})</span> <span class="k">for</span> <span class="n">file_name</span> <span class="ow">in</span> <span class="n">glob</span><span class="o">.</span><span class="n">iglob</span><span class="p">(</span><span class="s2">"*.json"</span><span class="p">)})</span>
 <span class="n">unittest</span><span class="o">.</span><span class="n">main</span><span class="p">(</span><span class="n">testRunner</span><span class="o">=</span><span class="n">xmlrunner</span><span class="o">.</span><span class="n">XMLTestRunner</span><span class="p">())</span>
-</pre>
+</pre></div>
 <p>Nie będę już analizował zmian, gdyż pozostawię to dla Ciebie w ramach&nbsp;treningu.</p>
 <p>A może Ty również pokusisz się o jakaś wersję tego kodu, np. rozbudowaną o jakieś dodatkowe&nbsp;sprawdzenia?</p>
 <div class="col-md-6"><img src="../../images/page_lm/jak_zaczac_automatyzowac.jpg"></div>

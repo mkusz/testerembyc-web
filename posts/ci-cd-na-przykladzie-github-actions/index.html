@@ -208,29 +208,33 @@
 </ul>
 <h4 id="nazwa-name">Nazwa (name)<a class="headerlink" href="#nazwa-name" title="Permalink to this heading">¶</a></h4>
 <p>Ponieważ&nbsp;sekcja <code>name</code> jest bardzo prosta i oznacza po prostu nazwę danego workflow. W formacie <span class="caps">YAML</span> wygląda to&nbsp;następująco:</p>
+<div class="code">
 <pre class="code literal-block"><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">deploy-nikola</span><span class="w"></span>
-</pre>
+</pre></div>
 <h4 id="wyzwalacze-on">Wyzwalacze (on)<a class="headerlink" href="#wyzwalacze-on" title="Permalink to this heading">¶</a></h4>
 <p>Pełna lista wyzwalaczy znajduje się <a href="https://docs.github.com/en/actions/reference/events-that-trigger-workflows" rel="nofollow">tutaj</a>. Ja w swoim workflow, wykorzystałem tylko jeden,&nbsp;czyli <code>push</code>, który skonfigurowałem tak, aby działał, tylko w momencie, gdy zmieni się zawartość głównego brancha mojego repozytorium. W formacie <span class="caps">YAML</span> wygląda to&nbsp;następująco:</p>
+<div class="code">
 <pre class="code literal-block"><span class="nt">on</span><span class="p">:</span><span class="w">  </span>
 <span class="w">  </span><span class="nt">push</span><span class="p">:</span><span class="w">  </span>
 <span class="w">    </span><span class="nt">branches</span><span class="p">:</span><span class="w">  </span>
 <span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">main</span><span class="w"></span>
-</pre>
+</pre></div>
 <p>W przypadku starszych repozytoriów nazwa głównego brancha może być inna (master). Powód zmiany nazwy doczekał&nbsp;się szerszego opisu w jednym z oficjalnych <a href="https://github.com/github/renaming" rel="nofollow">repozytoriów</a> samego&nbsp;GitHuba.</p>
 <p>Dodatkowo w przyszłości rozważę również dodanie dodatkowego wyzwalacza w postaci uruchamiania workflow każdego dnia o wybranej godzinie. Pozwoli mi to na skorzystanie z możliwości publikacji artykułów z przyszłą datą. Przyjmując, że chciałbym, aby strona przebudowywała się codziennie o godzinie 10:00, taki wyzwalacz wyglądałby&nbsp;tak:</p>
+<div class="code">
 <pre class="code literal-block"><span class="nt">on</span><span class="p">:</span><span class="w">  </span>
 <span class="w">  </span><span class="nt">schedule</span><span class="p">:</span><span class="w">  </span>
 <span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">cron</span><span class="p">:</span><span class="w"> </span><span class="s">'0</span><span class="nv"> </span><span class="s">10</span><span class="nv"> </span><span class="s">*</span><span class="nv"> </span><span class="s">*</span><span class="nv"> </span><span class="s">*'</span><span class="w"></span>
-</pre>
+</pre></div>
 <p>Zauważ, że składnia zgodna jest ze składnią tzw. <a href="https://en.wikipedia.org/wiki/Cron" rel="nofollow">cron</a>, czyli tzw. planisty (scheduler). Składnia prezentuje się&nbsp;następująco:</p>
+<div class="code">
 <pre class="code literal-block"><span class="go">┌───────────── minuta (0 - 59)</span>
 <span class="go">│ ┌───────────── godzina (0 - 23)</span>
 <span class="go">│ │ ┌───────────── dzień miesiąca (1 - 31)</span>
 <span class="go">│ │ │ ┌───────────── miesiąc (1 - 12 lub JAN-DEC)</span>
 <span class="go">│ │ │ │ ┌───────────── dzień tygodnia (0 - 6 lub SUN-SAT)       </span>
 <span class="go">* * * * *</span>
-</pre>
+</pre></div>
 <p>Istnieją również pewne znaki specjalne, modyfikujące powyższe&nbsp;wartości:</p>
 <ul>
 <li><code>*</code> - dowolna&nbsp;wartość,</li>
@@ -240,6 +244,7 @@
 </ul>
 <h4 id="zadanie-job">Zadanie (job)<a class="headerlink" href="#zadanie-job" title="Permalink to this heading">¶</a></h4>
 <p>Konfiguracja konkretnego zadania to może być bardzo krótka (np. usunięcie danego katalogu) lub bardzo złożona. Poniżej znajduje się moja konfiguracja i na jej przykładzie omówię, jak się buduje takie zadania i co one&nbsp;zawierają.</p>
+<div class="code">
 <pre class="code literal-block"><span class="nt">jobs</span><span class="p">:</span><span class="w">  </span>
 <span class="w">  </span><span class="nt">Deploy-Nikola</span><span class="p">:</span><span class="w">  </span>
 <span class="w">    </span><span class="nt">runs-on</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ubuntu-latest</span><span class="w">  </span>
@@ -267,13 +272,14 @@
 <span class="w">          </span><span class="nt">destination-github-username</span><span class="p">:</span><span class="w"> </span><span class="s">"user"</span><span class="w">  </span>
 <span class="w">          </span><span class="nt">destination-repository-name</span><span class="p">:</span><span class="w"> </span><span class="s">"public-repo"</span><span class="w">  </span>
 <span class="w">          </span><span class="nt">target-branch</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">main</span><span class="w"></span>
-</pre>
+</pre></div>
 <p>Dużo tego, ale prześledźmy wspólnie, co tu się dzieje i co oznacza. Aha. Żeby nie było, dane w ostatnich 6 linijkach zostały zmienione i nie są prawdziwymi&nbsp;danymi.</p>
+<div class="code">
 <pre class="code literal-block"><span class="nt">jobs</span><span class="p">:</span><span class="w">  </span>
 <span class="w">  </span><span class="nt">Deploy-Nikola</span><span class="p">:</span><span class="w"></span>
 <span class="w">    </span><span class="nt">runs-on</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ubuntu-latest</span><span class="w">  </span>
 <span class="w">    </span><span class="nt">steps</span><span class="p">:</span><span class="w">  </span>
-</pre>
+</pre></div>
 <p>Tu raczej nie będzie problemu:&nbsp;- <code>jobs</code> - oznacza, że w tym miejscu znajduje się konfiguracja naszego zadania,&nbsp;- <code>Deploy-Nikola</code> - to po prostu nazwa naszego zadania,&nbsp;- <code>runs-on: ubuntu-latest</code> - definiuje, w jakim systemie operacyjnym dane zadanie, a dokładniej jego kroki, mają zostać uruchomione,&nbsp;- <code>steps</code> - kolejne kroki naszego&nbsp;zadania.</p>
 <p>Powyższe nie powinno stanowić&nbsp;problemu.</p>
 <h4 id="kroki-steps">Kroki (steps)<a class="headerlink" href="#kroki-steps" title="Permalink to this heading">¶</a></h4>
@@ -305,6 +311,7 @@
 </ol>
 <h4 id="cay-workflow">Cały Workflow<a class="headerlink" href="#cay-workflow" title="Permalink to this heading">¶</a></h4>
 <p>Cały&nbsp;plik <code>deploy-nikola.yml</code> wygląda&nbsp;następująco:</p>
+<div class="code">
 <pre class="code literal-block"><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">deploy-nikola</span><span class="w">  </span>
 <span class="nt">on</span><span class="p">:</span><span class="w">  </span>
 <span class="w">  </span><span class="nt">push</span><span class="p">:</span><span class="w">  </span>
@@ -337,7 +344,7 @@
 <span class="w">          </span><span class="nt">destination-github-username</span><span class="p">:</span><span class="w"> </span><span class="s">"user"</span><span class="w">  </span>
 <span class="w">          </span><span class="nt">destination-repository-name</span><span class="p">:</span><span class="w"> </span><span class="s">"public-repo"</span><span class="w">  </span>
 <span class="w">          </span><span class="nt">target-branch</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">main</span><span class="w"></span>
-</pre>
+</pre></div>
 <h3 id="token">Token<a class="headerlink" href="#token" title="Permalink to this heading">¶</a></h3>
 <p>Token to nic innego jak klucz, dzięki któremu jesteśmy w stanie wykonywać pewne operacje z wykorzystanie <span class="caps">REST</span> <span class="caps">API</span> portalu&nbsp;GitHub.</p>
 <h4 id="generowanie-tokenu">Generowanie tokenu<a class="headerlink" href="#generowanie-tokenu" title="Permalink to this heading">¶</a></h4>
@@ -405,8 +412,9 @@
 <p>GitHub Actions udostępnia możliwość prezentacji statusu danego workflow w postaci&nbsp;graficznej.</p>
 <p class="caption"><img alt="Workflow status" src="../../images/posts/ci-cd-na-przykladzie-github-actions/status.png"> Workflow&nbsp;status</p>
 <p>Graficzny status generowany jest w postaci pliku svg dostępnego w unikatowym dla danego repozytorium oraz danego workflow linku. U mnie prezentuje się on następująco <a href="https://github.com/mkusz/testerembyc/actions/workflows/deploy-nikola.yml/badge.svg" rel="nofollow">https://github.com/mkusz/testerembyc/actions/workflows/deploy-nikola.yml/badge.svg</a>. Aby wykorzystać go np. w pliku <span class="caps">README</span>.md, który znajduje się w głównym folderze naszego repozytorium należy skorzystać z odpowiedniej składni, która umieści plik graficzny z danego linku. W moim wypadku wygląda on&nbsp;tak:</p>
+<div class="code">
 <pre class="code literal-block">![](https://github.com/mkusz/testerembyc/actions/workflows/deploy-nikola.yml/badge.svg)
-</pre>
+</pre></div>
 <div class="col-md-6"><img src="../../images/page_lm/jak_zaczac_automatyzowac.jpg"></div>
 <div class="col-md-6">
 <h3 id="zapraszam-do-newslettera">Zapraszam do newslettera<a class="headerlink" href="#zapraszam-do-newslettera" title="Permalink to this heading">¶</a></h3>

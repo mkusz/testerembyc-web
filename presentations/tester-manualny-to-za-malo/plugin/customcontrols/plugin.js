@@ -1,1 +1,69 @@
-window.RevealCustomControls=window.RevealCustomControls||{id:"RevealCustomControls",init:function(a){initCustomControls(a)}};const initCustomControls=function(g){var a=g.getConfig().customcontrols||{},h=a.collapseIcon||'<i class="fa fa-chevron-down"></i>',i=a.expandIcon||'<i class="fa fa-chevron-up"></i>',j=a.tooltip||"Show/hide controls",c=document.createElement("div");c.id="customcontrols";var d=document.createElement("button");d.title=j,d.innerHTML='<span id="collapse-customcontrols">'+h+'</span><span id="expand-customcontrols">'+i+"</span>",d.addEventListener("click",function(b){var a=document.querySelector("div#customcontrols");a.classList.contains("collapsed")?a.classList.remove("collapsed"):a.classList.add("collapsed")}),c.appendChild(d);for(var f=document.createElement("ul"),b=0;b<a.controls.length;b++){var e=document.createElement("li");a.controls[b].id&&(e.id=a.controls[b].id),e.innerHTML="<button "+(a.controls[b].title?'title="'+a.controls[b].title+'" ':"")+'onclick="'+a.controls[b].action+'">'+a.controls[b].icon+"</button>",f.appendChild(e)}return c.appendChild(f),document.querySelector(".reveal").appendChild(c),document.addEventListener("resize",function(b){var a=document.querySelector("div#customcontrols.collapsed");a&&a.classList.remove("collapsed")}),this}
+/*****************************************************************
+** Author: Asvin Goel, goel@telematique.eu
+**
+** A plugin replacing the default controls by custom controls.
+**
+** Version: 2.0.0
+** 
+** License: MIT license (see LICENSE.md)
+**
+******************************************************************/
+window.RevealCustomControls = window.RevealCustomControls || {
+    id: 'RevealCustomControls',
+    init: function(deck) {
+        initCustomControls(deck);
+    }
+};
+
+const initCustomControls = function(Reveal){
+	var config = Reveal.getConfig().customcontrols || {};
+
+	var collapseIcon = config.collapseIcon || '<i class="fa fa-chevron-down"></i>';
+	var expandIcon = config.expandIcon || '<i class="fa fa-chevron-up"></i>';
+	var tooltip = config.tooltip || 'Show/hide controls';
+
+	var div = document.createElement( 'div' );
+	div.id = 'customcontrols';
+
+	var toggleButton = document.createElement( 'button' );
+	toggleButton.title = tooltip;
+	toggleButton.innerHTML = '<span id="collapse-customcontrols">' + collapseIcon + '</span>' + '<span id="expand-customcontrols">' + expandIcon + '</span>';
+
+	toggleButton.addEventListener('click', function( event ) {
+		var div = document.querySelector("div#customcontrols");
+		if ( div.classList.contains('collapsed') ) {
+			div.classList.remove('collapsed');
+		}
+		else {
+			div.classList.add('collapsed');
+		}
+	});
+
+	div.appendChild(toggleButton);
+
+	var controls = document.createElement( 'ul' );
+	for (var i = 0; i < config.controls.length; i++ ) {
+		var control = document.createElement( 'li' );
+		if ( config.controls[i].id ) {
+			control.id = config.controls[i].id;
+		}
+		control.innerHTML = '<button ' + ( config.controls[i].title ? 'title="' + config.controls[i].title + '" ': '' ) + 'onclick="' + config.controls[i].action + '">' + config.controls[i].icon + '</button>';
+		controls.appendChild( control );
+	}
+	div.appendChild( controls );
+
+
+	document.querySelector(".reveal").appendChild( div );
+
+	document.addEventListener( 'resize', function( event ) {
+		// expand controls to make sure they are visible
+		var div = document.querySelector("div#customcontrols.collapsed");
+		if ( div ) {
+			div.classList.remove('collapsed');
+		}
+	} );
+
+	return this;
+
+};
+

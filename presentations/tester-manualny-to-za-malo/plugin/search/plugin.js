@@ -3,5 +3,241 @@
  * by navigatating to that slide and highlighting it.
  *
  * @author Jon Snyder <snyder.jon@gmail.com>, February 2013
- */ let Plugin=()=>{let b,c,d,e,f,g,h;function i(){(c=document.createElement("div")).classList.add("searchbox"),c.style.position="absolute",c.style.top="10px",c.style.right="10px",c.style.zIndex=10,c.innerHTML=`<input type="search" class="searchinput" placeholder="Search..." style="vertical-align: top;"/>
-		</span>`,(d=c.querySelector(".searchinput")).style.width="240px",d.style.fontSize="14px",d.style.padding="4px 6px",d.style.color="#000",d.style.background="#fff",d.style.borderRadius="2px",d.style.border="0",d.style.outline="0",d.style.boxShadow="0 2px 18px rgba(0, 0, 0, 0.2)",d.style["-webkit-appearance"]="none",b.getRevealElement().appendChild(c),d.addEventListener("keyup",function(a){13===a.keyCode?(a.preventDefault(),l(),g=!1):g=!0},!1),j()}function a(){c||i(),c.style.display="inline",d.focus(),d.select()}function j(){c||i(),c.style.display="none",h&&h.remove()}function k(){c||i(),"inline"!==c.style.display?a():j()}function l(){if(g){var a=d.value;""===a?(h&&h.remove(),e=null):(e=(h=new m("slidecontent")).apply(a),f=0)}e&&(e.length&&e.length<=f&&(f=0),e.length>f&&(b.slide(e[f].h,e[f].v),f++))}function m(a,c){var e=document.getElementById(a)||document.body,d=c||"EM",f=new RegExp("^(?:"+d+"|SCRIPT|FORM)$"),g=["#ff6","#a0ffff","#9f9","#f99","#f6f"],h=[],i=0,j="",k=[];this.setRegex=function(a){a=a.replace(/^[^\w]+|[^\w]+$/g,"").replace(/[^\w'-]+/g,"|"),j=new RegExp("("+a+")","i")},this.getRegex=function(){return j.toString().replace(/^\/\\b\(|\)\\b\/i$/g,"").replace(/\|/g," ")},this.hiliteWords=function(a){if(void 0!=a&&a&&j&&!f.test(a.nodeName)){if(a.hasChildNodes())for(var p,e,c=0;c<a.childNodes.length;c++)this.hiliteWords(a.childNodes[c]);if(3==a.nodeType&&(p=a.nodeValue)&&(e=j.exec(p))){for(var l=a;null!=l&&"SECTION"!=l.nodeName;)l=l.parentNode;for(var n=b.getIndices(l),r=k.length,q=!1,c=0;c<r;c++)k[c].h===n.h&&k[c].v===n.v&&(q=!0);q||k.push(n),h[e[0].toLowerCase()]||(h[e[0].toLowerCase()]=g[(i++)%g.length]);var m=document.createElement(d);m.appendChild(document.createTextNode(e[0])),m.style.backgroundColor=h[e[0].toLowerCase()],m.style.fontStyle="inherit",m.style.color="#000";var o=a.splitText(e.index);o.nodeValue=o.nodeValue.substring(e[0].length),a.parentNode.insertBefore(m,o)}}},this.remove=function(){for(var a,b=document.getElementsByTagName(d);b.length&&(a=b[0]);)a.parentNode.replaceChild(a.firstChild,a)},this.apply=function(a){if(void 0!=a&&a)return this.remove(),this.setRegex(a),this.hiliteWords(e),k}}return{id:"search",init(a){(b=a).registerKeyboardShortcut("CTRL + Shift + F","Search"),document.addEventListener("keydown",function(a){"F"==a.key&&(a.ctrlKey||a.metaKey)&&(a.preventDefault(),k())},!1)},open:a}};export default Plugin
+ */
+
+const Plugin = () => {
+
+	// The reveal.js instance this plugin is attached to
+	let deck;
+
+	let searchElement;
+	let searchButton;
+	let searchInput;
+
+	let matchedSlides;
+	let currentMatchedIndex;
+	let searchboxDirty;
+	let hilitor;
+
+	function render() {
+
+		searchElement = document.createElement( 'div' );
+		searchElement.classList.add( 'searchbox' );
+		searchElement.style.position = 'absolute';
+		searchElement.style.top = '10px';
+		searchElement.style.right = '10px';
+		searchElement.style.zIndex = 10;
+
+		//embedded base64 search icon Designed by Sketchdock - http://www.sketchdock.com/:
+		searchElement.innerHTML = `<input type="search" class="searchinput" placeholder="Search..." style="vertical-align: top;"/>
+		</span>`;
+
+		searchInput = searchElement.querySelector( '.searchinput' );
+		searchInput.style.width = '240px';
+		searchInput.style.fontSize = '14px';
+		searchInput.style.padding = '4px 6px';
+		searchInput.style.color = '#000';
+		searchInput.style.background = '#fff';
+		searchInput.style.borderRadius = '2px';
+		searchInput.style.border = '0';
+		searchInput.style.outline = '0';
+		searchInput.style.boxShadow = '0 2px 18px rgba(0, 0, 0, 0.2)';
+		searchInput.style['-webkit-appearance']  = 'none';
+
+		deck.getRevealElement().appendChild( searchElement );
+
+		// searchButton.addEventListener( 'click', function(event) {
+		// 	doSearch();
+		// }, false );
+
+		searchInput.addEventListener( 'keyup', function( event ) {
+			switch (event.keyCode) {
+				case 13:
+					event.preventDefault();
+					doSearch();
+					searchboxDirty = false;
+					break;
+				default:
+					searchboxDirty = true;
+			}
+		}, false );
+
+		closeSearch();
+
+	}
+
+	function openSearch() {
+		if( !searchElement ) render();
+
+		searchElement.style.display = 'inline';
+		searchInput.focus();
+		searchInput.select();
+	}
+
+	function closeSearch() {
+		if( !searchElement ) render();
+
+		searchElement.style.display = 'none';
+		if(hilitor) hilitor.remove();
+	}
+
+	function toggleSearch() {
+		if( !searchElement ) render();
+
+		if (searchElement.style.display !== 'inline') {
+			openSearch();
+		}
+		else {
+			closeSearch();
+		}
+	}
+
+	function doSearch() {
+		//if there's been a change in the search term, perform a new search:
+		if (searchboxDirty) {
+			var searchstring = searchInput.value;
+
+			if (searchstring === '') {
+				if(hilitor) hilitor.remove();
+				matchedSlides = null;
+			}
+			else {
+				//find the keyword amongst the slides
+				hilitor = new Hilitor("slidecontent");
+				matchedSlides = hilitor.apply(searchstring);
+				currentMatchedIndex = 0;
+			}
+		}
+
+		if (matchedSlides) {
+			//navigate to the next slide that has the keyword, wrapping to the first if necessary
+			if (matchedSlides.length && (matchedSlides.length <= currentMatchedIndex)) {
+				currentMatchedIndex = 0;
+			}
+			if (matchedSlides.length > currentMatchedIndex) {
+				deck.slide(matchedSlides[currentMatchedIndex].h, matchedSlides[currentMatchedIndex].v);
+				currentMatchedIndex++;
+			}
+		}
+	}
+
+	// Original JavaScript code by Chirp Internet: www.chirp.com.au
+	// Please acknowledge use of this code by including this header.
+	// 2/2013 jon: modified regex to display any match, not restricted to word boundaries.
+	function Hilitor(id, tag) {
+
+		var targetNode = document.getElementById(id) || document.body;
+		var hiliteTag = tag || "EM";
+		var skipTags = new RegExp("^(?:" + hiliteTag + "|SCRIPT|FORM)$");
+		var colors = ["#ff6", "#a0ffff", "#9f9", "#f99", "#f6f"];
+		var wordColor = [];
+		var colorIdx = 0;
+		var matchRegex = "";
+		var matchingSlides = [];
+
+		this.setRegex = function(input)
+		{
+			input = input.replace(/^[^\w]+|[^\w]+$/g, "").replace(/[^\w'-]+/g, "|");
+			matchRegex = new RegExp("(" + input + ")","i");
+		}
+
+		this.getRegex = function()
+		{
+			return matchRegex.toString().replace(/^\/\\b\(|\)\\b\/i$/g, "").replace(/\|/g, " ");
+		}
+
+		// recursively apply word highlighting
+		this.hiliteWords = function(node)
+		{
+			if(node == undefined || !node) return;
+			if(!matchRegex) return;
+			if(skipTags.test(node.nodeName)) return;
+
+			if(node.hasChildNodes()) {
+				for(var i=0; i < node.childNodes.length; i++)
+					this.hiliteWords(node.childNodes[i]);
+			}
+			if(node.nodeType == 3) { // NODE_TEXT
+				var nv, regs;
+				if((nv = node.nodeValue) && (regs = matchRegex.exec(nv))) {
+					//find the slide's section element and save it in our list of matching slides
+					var secnode = node;
+					while (secnode != null && secnode.nodeName != 'SECTION') {
+						secnode = secnode.parentNode;
+					}
+
+					var slideIndex = deck.getIndices(secnode);
+					var slidelen = matchingSlides.length;
+					var alreadyAdded = false;
+					for (var i=0; i < slidelen; i++) {
+						if ( (matchingSlides[i].h === slideIndex.h) && (matchingSlides[i].v === slideIndex.v) ) {
+							alreadyAdded = true;
+						}
+					}
+					if (! alreadyAdded) {
+						matchingSlides.push(slideIndex);
+					}
+
+					if(!wordColor[regs[0].toLowerCase()]) {
+						wordColor[regs[0].toLowerCase()] = colors[colorIdx++ % colors.length];
+					}
+
+					var match = document.createElement(hiliteTag);
+					match.appendChild(document.createTextNode(regs[0]));
+					match.style.backgroundColor = wordColor[regs[0].toLowerCase()];
+					match.style.fontStyle = "inherit";
+					match.style.color = "#000";
+
+					var after = node.splitText(regs.index);
+					after.nodeValue = after.nodeValue.substring(regs[0].length);
+					node.parentNode.insertBefore(match, after);
+				}
+			}
+		};
+
+		// remove highlighting
+		this.remove = function()
+		{
+			var arr = document.getElementsByTagName(hiliteTag);
+			var el;
+			while(arr.length && (el = arr[0])) {
+				el.parentNode.replaceChild(el.firstChild, el);
+			}
+		};
+
+		// start highlighting at target node
+		this.apply = function(input)
+		{
+			if(input == undefined || !input) return;
+			this.remove();
+			this.setRegex(input);
+			this.hiliteWords(targetNode);
+			return matchingSlides;
+		};
+
+	}
+
+	return {
+
+		id: 'search',
+
+		init: reveal => {
+
+			deck = reveal;
+			deck.registerKeyboardShortcut( 'CTRL + Shift + F', 'Search' );
+
+			document.addEventListener( 'keydown', function( event ) {
+				if( event.key == "F" && (event.ctrlKey || event.metaKey) ) { //Control+Shift+f
+					event.preventDefault();
+					toggleSearch();
+				}
+			}, false );
+
+		},
+
+		open: openSearch
+
+	}
+};
+
+export default Plugin;

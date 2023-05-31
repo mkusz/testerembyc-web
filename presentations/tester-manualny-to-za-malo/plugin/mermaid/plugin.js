@@ -1,3 +1,0 @@
-/*!
- * reveal.js Mermaid plugin
- */ import e from"mermaid";e.mermaidAPI.initialize({startOnLoad:!1});let Plugin={id:"mermaid",init:function(r){let t=r.getRevealElement().querySelectorAll(".mermaid");Array.from(t).forEach(function(r){var t=function(e,t){r.innerHTML=e},i=r.textContent.trim();try{e.mermaidAPI.render(`mermaid-${Math.random().toString(36).substring(2)}`,i,t)}catch(n){console.error(n,{graphDefinition:i,el:r}),r.innerHTML=n.message}})}};export default(()=>Plugin);

@@ -1,7 +1,7 @@
 
 <link href="https://testerembyc.pl/feed_rss_created.xml"rel="alternate"title="RSS (w kolejności utworzenia)"type="application/rss+xml">
 <link href="https://testerembyc.pl/feed_rss_updated.xml"rel="alternate"title="RSS (w kolejności aktualizacji)"type="application/rss+xml">
-<script async>!function(e,t,n,c,o,a){e.fbq||(c=e.fbq=function(){c.callMethod?c.callMethod.apply(c,arguments):c.queue.push(arguments)},e._fbq||(e._fbq=c),(c.push=c).loaded=!0,c.version="2.0",c.queue=[],(o=t.createElement(n)).async=!0,o.src="https://connect.facebook.net/en_US/fbevents.js",(a=t.getElementsByTagName(n)[0]).parentNode.insertBefore(o,a))}(window,document,"script"),fbq("init","444619046317574"),fbq("track","PageView")</script>
+<script defer>!function(e,t,n,c,o,a){e.fbq||(c=e.fbq=function(){c.callMethod?c.callMethod.apply(c,arguments):c.queue.push(arguments)},e._fbq||(e._fbq=c),(c.push=c).loaded=!0,c.version="2.0",c.queue=[],(o=t.createElement(n)).async=!0,o.src="https://connect.facebook.net/en_US/fbevents.js",(a=t.getElementsByTagName(n)[0]).parentNode.insertBefore(o,a))}(window,document,"script"),fbq("init","444619046317574"),fbq("track","PageView")</script>
 <noscript>
 <img src="https://www.facebook.com/tr?id=444619046317574&amp;ev=PageView&amp;noscript=1"alt="Facebook Pixel"height="1"style="display:none"width="1">
 </noscript>
@@ -769,6 +769,11 @@ Podsumowanie zmian
 Plany na przyszłość
 </a>
 </li>
+<li class="md-nav__item">
+<a href="#konczac-juz-ten-mao-testerski-wpis-mam-nadzieje-ze-i-w-nim-znajdziesz-cos-ciekawego-dla-siebie-dla-mnie-droga-do-zmiany-bya-duga-jednak-nauczyem-sie-przy-jej-okazji-bardzo-duzo-na-temat-tworzenia-i-publikowania-pakietow-pythonowych-w-pypi-z-ktorych-korzysta-min-pip-daj-znac-w-komentarzu-czy-te-zmiany-ci-sie-podobaja"class="md-nav__link">
+Kończąc już ten mało testerski wpis, mam nadzieję, że i w nim znajdziesz coś ciekawego dla siebie. Dla mnie droga do zmiany była długa, jednak nauczyłem się przy jej okazji bardzo dużo na temat tworzenia i publikowania pakietów Pythonowych w PyPi z których korzysta m.in. pip. Daj znać w komentarzu czy te zmiany Ci się podobają.
+</a>
+</li>
 </ul>
 </nav>
 </div>
@@ -1208,7 +1213,57 @@ Kolejnym elementem, który poddałem analizie to czas renderowania strony, zwią
 <a href="https://developer.mozilla.org/en-US/docs/Web/Performance/Lazy_loading">
 lazy loading
 </a>
-.
+. Również większość skryptów JavaScript posiada atrybut
+<code>
+async
+</code>
+, który umożliwia wyświetlanie treści bloga, w trakcie, gdy skrypt nadal się wykonuje.
+</p>
+<p>
+Jaki więc jest zysk po tych optymalizacjach?
+</p>
+<figure>
+<p>
+<img src="/images/posts/2023/zmiany-na-blogu/mobile-przed.jpeg"alt="Stary wersja bloga na urządzeniach mobilnych"loading="lazy">
+</p>
+<figcaption>
+<p>
+Stary wersja bloga na urządzeniach mobilnych
+</p>
+</figcaption>
+</figure>
+<figure>
+<p>
+<img src="/images/posts/2023/zmiany-na-blogu/mobile-po.jpeg"alt="Nowy wersja bloga na urządzeniach mobilnych"loading="lazy">
+</p>
+<figcaption>
+<p>
+Nowy wersja bloga na urządzeniach mobilnych
+</p>
+</figcaption>
+</figure>
+<figure>
+<p>
+<img src="/images/posts/2023/zmiany-na-blogu/cpu-przed.jpeg"alt="Stary wersja bloga na urządzeniach stacjonarnych"loading="lazy">
+</p>
+<figcaption>
+<p>
+Stary wersja bloga na urządzeniach stacjonarnych
+</p>
+</figcaption>
+</figure>
+<figure>
+<p>
+<img src="/images/posts/2023/zmiany-na-blogu/cpu-po.jpeg"alt="Nowy wersja bloga na urządzeniach stacjonarnych"loading="lazy">
+</p>
+<figcaption>
+<p>
+Nowy wersja bloga na urządzeniach stacjonarnych
+</p>
+</figcaption>
+</figure>
+<p>
+Widać, że te zmiany przyniosły oczekiwany rezultat, choć nie jest to jeszcze idealny wynik i widać tutaj jeszcze drobne pole do poprawy, choć nie wiem na ile uda mi się coś z tym zrobić.
 </p>
 <h3 id="newsletter">
 Newsletter
@@ -1277,7 +1332,7 @@ moim kanale na YouTube
 <p>
 Poza tym mam już wstępnie zaplanowane inne wpisy na blogu oraz planuje w końcu wydać 1 kurs związany z automatyzacją testów w Pythonie.
 </p>
-<p>
+<h2 id="konczac-juz-ten-mao-testerski-wpis-mam-nadzieje-ze-i-w-nim-znajdziesz-cos-ciekawego-dla-siebie-dla-mnie-droga-do-zmiany-bya-duga-jednak-nauczyem-sie-przy-jej-okazji-bardzo-duzo-na-temat-tworzenia-i-publikowania-pakietow-pythonowych-w-pypi-z-ktorych-korzysta-min-pip-daj-znac-w-komentarzu-czy-te-zmiany-ci-sie-podobaja">
 Kończąc już ten mało
 <em>
 testerski
@@ -1290,13 +1345,8 @@ z których korzysta m.in.
 <code>
 pip
 </code>
-. Zachęcam do komentowania oraz zapisania się do
-<a href="../../pages/jak-zaczac-automatyzowac-testy/"id="02-pagesjak-zaczac-automatyzowac-testy">
-newslettera
-</a>
-.
-</p>
-<hr>
+. Daj znać w komentarzu czy te zmiany Ci się podobają.
+</h2>
 <p class="obsidian_backlink_title">
 Backlinks:
 </p>

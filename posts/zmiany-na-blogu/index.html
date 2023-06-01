@@ -868,7 +868,34 @@ Jedną z największych bolączek (z mojego punktu widzenia), był brak odpowiedn
 <a href="https://getnikola.com">
 Nikola
 </a>
-) po prostu nie ma takiej funkcjonalności. Ratowałem się wtedy, wyszukiwarką Google, które można wpiąć w daną stronę, ale to rozwiązanie jest bardzo "niezintegrowane" z samą stroną i po prostu wygląda dziwnie.
+) po prostu nie ma takiej funkcjonalności. Ratowałem się wtedy, wyszukiwarką Google, które można wpiąć w daną stronę, ale to rozwiązanie jest bardzo
+<em>
+niezintegrowane
+</em>
+z samą stroną i po prostu wygląda dziwnie.
+</p>
+<p>
+Sama Nikola miała jeszcze jeden poważny problem, który był powodem mojego lekkiego
+<em>
+zawieszenia się
+</em>
+w kwestii prowadzenia bloga, tzn. zbudowana jest z wykorzystaniem biblioteki
+<a href="https://lxml.de">
+lxml
+</a>
+, która z jakichś powodów nie została dostosowana do nowej rodziny procesorów Apple (tak, używam Maca).
+<a href="https://bugs.launchpad.net/lxml?field.searchtext=M1&amp;search=Search&amp;field.status%3Alist=NEW&amp;field.status%3Alist=INCOMPLETE_WITH_RESPONSE&amp;field.status%3Alist=INCOMPLETE_WITHOUT_RESPONSE&amp;field.status%3Alist=CONFIRMED&amp;field.status%3Alist=TRIAGED&amp;field.status%3Alist=INPROGRESS&amp;field.status%3Alist=FIXCOMMITTED&amp;field.assignee=&amp;field.bug_reporter=&amp;field.omit_dupes=on&amp;field.has_patch=&amp;field.has_no_package=">
+Błędy związane z tymi procesorami
+</a>
+, a dokładniej ich architekturą (
+<code>
+arm64e
+</code>
+, a nie jest inne procesory
+<code>
+x86_64
+</code>
+) powodują, że strony po prostu nie tworzą się poprawnie. Są pewne sposoby obejścia tego problemu, jednak nie są one idealne i często powodują inne problemy lub są zwyczajnie niewygodne (np. budowanie wewnątrz Dockera). Być może nowe wersje biblioteki lxml rozwiążą te problemy, jednak zbyt długo już na to czekałem.
 </p>
 <p>
 Kolejny problem to użyta skórka która, pomimo że w moim odczuciu była dosyć estetyczna, była niemal zupełnie nieprzystosowana do urządzeń mobilnych, a jej modyfikacja była mocno uciążliwa.
@@ -1322,7 +1349,7 @@ Poza uzupełnieniem brakujących wpisów na blogu, związanych z kilkoma materia
 <a href="https://www.youtube.com/@testerembyc">
 moim kanale na YouTube
 </a>
-, a które najprawdopodobniej udostępnię na blogu z pełnym transkryptem, wrzucę również linki do materiałów, gdzie występowałem w roli gościa u innych twórców-testerów.
+, a które najprawdopodobniej udostępnię na blogu z pełnym transkryptem. Umieszczę również linki do materiałów, gdzie występowałem w roli gościa u innych twórców-testerów.
 </p>
 <p>
 Poza tym mam już wstępnie zaplanowane inne wpisy na blogu oraz planuje w końcu wydać 1 kurs związany z automatyzacją testów w Pythonie.

@@ -1,91 +1,21 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-
-    <title></title>
-    <link rel="stylesheet" href="dist/reveal.css" />
-    <link rel="stylesheet" href="dist/theme/blood.css" id="theme" />
-    <link rel="stylesheet" href="plugin/highlight/monokai.css" />
-	<link rel="stylesheet" href="css/layout.css" />
-	<link rel="stylesheet" href="plugin/customcontrols/style.css">
-	<link rel="stylesheet" href="plugin/chalkboard/style.css">
-
-
-
-    <script defer src="dist/fontawesome/all.min.js"></script>
-
-	<script type="text/javascript">
-		var forgetPop = true;
-		function onPopState(event) {
-			if(forgetPop){
-				forgetPop = false;
-			} else {
-				parent.postMessage(event.target.location.href, "app://obsidian.md");
-			}
-        }
-		window.onpopstate = onPopState;
-		window.onmessage = event => {
-			if(event.data == "reload"){
-				window.document.location.reload();
-			}
-			forgetPop = true;
-		}
-
-		function fitElements(){
-			const itemsToFit = document.getElementsByClassName('fitText');
-			for (const item in itemsToFit) {
-				if (Object.hasOwnProperty.call(itemsToFit, item)) {
-					var element = itemsToFit[item];
-					fitElement(element,1, 1000);
-					element.classList.remove('fitText');
-				}
-			}
-		}
-
-		function fitElement(element, start, end){
-
-			let size = (end + start) / 2;
-			element.style.fontSize = `${size}px`;
-
-			if(Math.abs(start - end) < 1){
-				while(element.scrollHeight > element.offsetHeight){
-					size--;
-					element.style.fontSize = `${size}px`;
-				}
-				return;
-			}
-
-			if(element.scrollHeight > element.offsetHeight){
-				fitElement(element, start, size);
-			} else {
-				fitElement(element, size, end);
-			}		
-		}
-
-
-		document.onreadystatechange = () => {
-			fitElements();
-			if (document.readyState === 'complete') {
-				if (window.location.href.indexOf("?export") != -1){
-					parent.postMessage(event.target.location.href, "app://obsidian.md");
-				}
-				if (window.location.href.indexOf("print-pdf") != -1){
-					let stateCheck = setInterval(() => {
-						clearInterval(stateCheck);
-						window.print();
-					}, 250);
-				}
-			}
-	};
-
-
-        </script>
-  </head>
-  <body>
-    <div class="reveal">
-      <div class="slides"><section  data-markdown><script type="text/template"><!-- .slide: class="drop" -->
+<head>
+<meta charset="utf-8">
+<meta content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no" name="viewport">
+<title></title>
+<link href="dist/reveal.css" rel="stylesheet">
+<link href="dist/theme/blood.css" rel="stylesheet" id="theme">
+<link href="plugin/highlight/monokai.css" rel="stylesheet">
+<link href="css/layout.css" rel="stylesheet">
+<link href="plugin/customcontrols/style.css" rel="stylesheet">
+<link href="plugin/chalkboard/style.css" rel="stylesheet">
+<script src="dist/fontawesome/all.min.js" defer></script>
+<script type="text/javascript">var forgetPop=!0;function onPopState(e){forgetPop?forgetPop=!1:parent.postMessage(e.target.location.href,"app://obsidian.md")}function fitElements(){var e,t=document.getElementsByClassName("fitText");for(const o in t)Object.hasOwnProperty.call(t,o)&&(fitElement(e=t[o],1,1e3),e.classList.remove("fitText"))}function fitElement(e,t,o){let n=(o+t)/2;if(e.style.fontSize=n+"px",Math.abs(t-o)<1)for(;e.scrollHeight>e.offsetHeight;)n--,e.style.fontSize=n+"px";else e.scrollHeight>e.offsetHeight?fitElement(e,t,n):fitElement(e,n,o)}window.onpopstate=onPopState,window.onmessage=e=>{"reload"==e.data&&window.document.location.reload(),forgetPop=!0},document.onreadystatechange=()=>{if(fitElements(),"complete"===document.readyState&&(-1!=window.location.href.indexOf("?export")&&parent.postMessage(event.target.location.href,"app://obsidian.md"),-1!=window.location.href.indexOf("print-pdf"))){let e=setInterval(()=>{clearInterval(e),window.print()},250)}}</script>
+</head>
+<body>
+<div class="reveal">
+<div class="slides"><section data-markdown><script type="text/template"><!-- .slide: class="drop" -->
 <div class="" style="position: absolute; left: 0px; top: 0px; height: 768px; width: 1366px; min-height: 768px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
 
 ## Manual tests
@@ -97,7 +27,7 @@
 ### +
 
 ## Allure
-</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" -->
+</div></script></section><section data-markdown><script type="text/template"><!-- .slide: class="drop" -->
 <div class="" style="position: absolute; left: 0px; top: 0px; height: 768px; width: 1366px; min-height: 768px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
 
 <img src="_attachments/napis_logo_white.png" alt="" style="object-fit: scale-down">
@@ -105,14 +35,14 @@
 <!-- .element: style="width: 80%" -->
 
 by Maciej 'maQ' Kusz
-</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" -->
+</div></script></section><section data-markdown><script type="text/template"><!-- .slide: class="drop" -->
 <div class="" style="position: absolute; left: 0px; top: 0px; height: 768px; width: 1366px; min-height: 768px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
 
 - Gdzie przechowujesz raporty z testów manualnych?
 - &shy;<!-- .element: class="fragment" data-fragment-index="1" -->Ile czasu poświęcasz na stworzenie raportu?
 - &shy;<!-- .element: class="fragment" data-fragment-index="2" -->Ile czasu poświęcasz na aktualizacje scenariuszy?
 - &shy;<!-- .element: class="fragment" data-fragment-index="3" -->Gdzie przechowujesz scenariusze testów manualnych?
-</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" -->
+</div></script></section><section data-markdown><script type="text/template"><!-- .slide: class="drop" -->
 <div class="" style="position: absolute; left: 0px; top: 0px; height: 768px; width: 1366px; min-height: 768px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
 
 - TestRail
@@ -120,13 +50,13 @@ by Maciej 'maQ' Kusz
 - TestLink
 - Zaphyr
 - Excel (But why?)
-</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" -->
+</div></script></section><section data-markdown><script type="text/template"><!-- .slide: class="drop" -->
 <div class="" style="position: absolute; left: 0px; top: 0px; height: 768px; width: 1366px; min-height: 768px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
 
 ## Testy manualne
 
 Cykl życia
-</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" -->
+</div></script></section><section data-markdown><script type="text/template"><!-- .slide: class="drop" -->
 <div class="" style="position: absolute; left: 0px; top: 0px; height: 768px; width: 1366px; min-height: 768px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
 
 <div class="mermaid">
@@ -146,13 +76,13 @@ stateDiagram
 	MTE --> MTR
 
 </div>
-</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" -->
+</div></script></section><section data-markdown><script type="text/template"><!-- .slide: class="drop" -->
 <div class="" style="position: absolute; left: 0px; top: 0px; height: 768px; width: 1366px; min-height: 768px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
 
 ## Testy automatyczne
 
 Cykl życia
-</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" -->
+</div></script></section><section data-markdown><script type="text/template"><!-- .slide: class="drop" -->
 <div class="" style="position: absolute; left: 0px; top: 0px; height: 768px; width: 1366px; min-height: 768px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
 
 <div class="mermaid">
@@ -173,7 +103,7 @@ stateDiagram
 	ATR --> git
 
 </div>
-</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" -->
+</div></script></section><section data-markdown><script type="text/template"><!-- .slide: class="drop" -->
 <div class="" style="position: absolute; left: 0px; top: 0px; height: 768px; width: 1366px; min-height: 768px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
 
 ### Testy manualne
@@ -185,7 +115,7 @@ stateDiagram
 ### =
 
 ### problemy?
-</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" -->
+</div></script></section><section data-markdown><script type="text/template"><!-- .slide: class="drop" -->
 <div class="" style="position: absolute; left: 0px; top: 0px; height: 768px; width: 1366px; min-height: 768px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
 
 <div class="" style="position: absolute; left: 0%; top: 0%; height: 100%; width: 50%; display: flex; flex-direction: column; align-items: center; justify-content: center" >
@@ -246,11 +176,11 @@ stateDiagram
 - &shy;<!-- .element: class="fragment" data-fragment-index="5" -->Tworzenie testów automatycznych z manualnych
 - &shy;<!-- .element: class="fragment" data-fragment-index="6" -->Bug tracking
 </div>
-</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" -->
+</div></script></section><section data-markdown><script type="text/template"><!-- .slide: class="drop" -->
 <div class="" style="position: absolute; left: 0px; top: 0px; height: 768px; width: 1366px; min-height: 768px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
 
 ## Jak żyć?
-</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" -->
+</div></script></section><section data-markdown><script type="text/template"><!-- .slide: class="drop" -->
 <div class="" style="position: absolute; left: 0px; top: 0px; height: 768px; width: 1366px; min-height: 768px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
 
 <div class="" style="position: absolute; left: 0%; top: 0%; height: 100%; width: 50%; display: flex; flex-direction: column; align-items: center; justify-content: center" >
@@ -266,7 +196,7 @@ lub <!-- .element: class="fragment" data-fragment-index="3" -->
 ## SPoT
 Single Point of Truth
 </div>
-</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" -->
+</div></script></section><section data-markdown><script type="text/template"><!-- .slide: class="drop" -->
 <div class="" style="position: absolute; left: 0px; top: 0px; height: 768px; width: 1366px; min-height: 768px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
 
 <div class="mermaid">
@@ -310,7 +240,7 @@ stateDiagram
 </div>
  
 <!-- .element: style="height: 100%; width: 100%; margin-top: 5%" -->
-</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" -->
+</div></script></section><section data-markdown><script type="text/template"><!-- .slide: class="drop" -->
 <div class="" style="position: absolute; left: 0px; top: 0px; height: 768px; width: 1366px; min-height: 768px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
 
 <div class="" style="position: absolute; left: 0%; top: 0%; height: 100%; width: 50%; display: flex; flex-direction: column; align-items: center; justify-content: center" >
@@ -347,7 +277,7 @@ stateDiagram
 - &shy;<!-- .element: class="fragment" data-fragment-index="4" -->DevTeam widzi scenariusze testów manualnych
 - &shy;<!-- .element: class="fragment" data-fragment-index="5" -->Wspólne raporty
 </div>
-</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" -->
+</div></script></section><section data-markdown><script type="text/template"><!-- .slide: class="drop" -->
 <div class="" style="position: absolute; left: 0px; top: 0px; height: 768px; width: 1366px; min-height: 768px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
 
 <div class="" style="position: absolute; left: 0%; top: 0%; height: 100%; width: 50%; display: flex; flex-direction: column; align-items: center; justify-content: center" >
@@ -383,7 +313,7 @@ stateDiagram
 - &shy;<!-- .element: class="fragment" data-fragment-index="2" -->Łatwiejsze utrzymanie scenariuszy testowych
 - &shy;<!-- .element: class="fragment" data-fragment-index="3" -->Automatyzacja raportów
 </div>
-</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" -->
+</div></script></section><section data-markdown><script type="text/template"><!-- .slide: class="drop" -->
 <div class="" style="position: absolute; left: 0px; top: 0px; height: 768px; width: 1366px; min-height: 768px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
 
 <div class="" style="position: absolute; left: 0%; top: 0%; height: 100%; width: 50%; display: flex; flex-direction: column; align-items: center; justify-content: center" >
@@ -421,11 +351,11 @@ stateDiagram
 &nbsp;
 
 </div>
-</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" -->
+</div></script></section><section data-markdown><script type="text/template"><!-- .slide: class="drop" -->
 <div class="" style="position: absolute; left: 0px; top: 0px; height: 768px; width: 1366px; min-height: 768px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
 
 ## Jak to zrobić?
-</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" -->
+</div></script></section><section data-markdown><script type="text/template"><!-- .slide: class="drop" -->
 <div class="" style="position: absolute; left: 0px; top: 0px; height: 768px; width: 1366px; min-height: 768px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
 
 ### Czego potrzebujemy?
@@ -434,7 +364,7 @@ stateDiagram
 - &shy;<!-- .element: class="fragment" data-fragment-index="2" -->2 repozytoria git (GitHub): tests, reports
 - &shy;<!-- .element: class="fragment" data-fragment-index="3" -->Allure
 - &shy;<!-- .element: class="fragment" data-fragment-index="4" -->IDE (pycharm, vscode)
-</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" -->
+</div></script></section><section data-markdown><script type="text/template"><!-- .slide: class="drop" -->
 <div class="" style="position: absolute; left: 0px; top: 0px; height: 768px; width: 1366px; min-height: 768px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
 
 #### Hierarchia Testów Manualnych
@@ -449,7 +379,7 @@ stateDiagram
 │  └─ other suite name  
 └─ other file directory  
 ```
-</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" -->
+</div></script></section><section data-markdown><script type="text/template"><!-- .slide: class="drop" -->
 <div class="" style="position: absolute; left: 0px; top: 0px; height: 768px; width: 1366px; min-height: 768px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
 
 #### Atrybuty pojedynczego testu
@@ -464,7 +394,7 @@ stateDiagram
 - &shy;<!-- .element: class="fragment" data-fragment-index="8" -->lista kroków do przeprowadzenia testu jako:
 	- &shy;<!-- .element: class="fragment" data-fragment-index="9" -->unikalny identyfikator
 	- &shy;<!-- .element: class="fragment" data-fragment-index="10" -->opis kroku/akcji do wykonania
-</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" -->
+</div></script></section><section data-markdown><script type="text/template"><!-- .slide: class="drop" -->
 <div class="" style="position: absolute; left: 0px; top: 0px; height: 768px; width: 1366px; min-height: 768px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
 
 #### Przykładowy test manualny w formacie YAML
@@ -484,7 +414,7 @@ test_existing_user_login_with_valid_password:
     sign_in: Sign in using existing user credentials with a valid password  
     verify_dashboard_page: After login, you are redirected to a portal dashboard
 ```
-</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" -->
+</div></script></section><section data-markdown><script type="text/template"><!-- .slide: class="drop" -->
 <div class="" style="position: absolute; left: 0px; top: 0px; height: 768px; width: 1366px; min-height: 768px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
 
 #### Model pojedynczego testu w Pythonie
@@ -502,7 +432,7 @@ class ManualTest(pydantic.BaseModel):
     def __repr__(self):  
         return f"{self.__class__.__name__}[title='{self.title}']"
 ```
-</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" -->
+</div></script></section><section data-markdown><script type="text/template"><!-- .slide: class="drop" -->
 <div class="" style="position: absolute; left: 0px; top: 0px; height: 768px; width: 1366px; min-height: 768px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
 
 #### Model kolekcji testów w Pythonie
@@ -533,7 +463,7 @@ class ManualTests(pydantic.BaseModel):
 ```
 
 </split>
-</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" -->
+</div></script></section><section data-markdown><script type="text/template"><!-- .slide: class="drop" -->
 <div class="" style="position: absolute; left: 0px; top: 0px; height: 768px; width: 1366px; min-height: 768px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
 
 #### Odczytywanie plików
@@ -560,7 +490,7 @@ for test_yaml_file in pathlib.Path("").rglob("**/test_*.yaml"):
 ```
 
 </split>
-</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" -->
+</div></script></section><section data-markdown><script type="text/template"><!-- .slide: class="drop" -->
 <div class="" style="position: absolute; left: 0px; top: 0px; height: 768px; width: 1366px; min-height: 768px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
 
 #### Generator testu
@@ -588,7 +518,7 @@ def generate_test(manual_test: ManualTest):
 ```
 
 </split>
-</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" -->
+</div></script></section><section data-markdown><script type="text/template"><!-- .slide: class="drop" -->
 <div class="" style="position: absolute; left: 0px; top: 0px; height: 768px; width: 1366px; min-height: 768px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
 
 #### single_test
@@ -619,7 +549,7 @@ def single_test(self):
 ```
 
 </aplit>
-</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" -->
+</div></script></section><section data-markdown><script type="text/template"><!-- .slide: class="drop" -->
 <div class="" style="position: absolute; left: 0px; top: 0px; height: 768px; width: 1366px; min-height: 768px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
 
 #### step_for_test
@@ -640,7 +570,7 @@ def step_for_test():
         )  
     assert answer, f"Failure reason: {reason_of_failure}"
 ```
-</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" -->
+</div></script></section><section data-markdown><script type="text/template"><!-- .slide: class="drop" -->
 <div class="" style="position: absolute; left: 0px; top: 0px; height: 768px; width: 1366px; min-height: 768px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
 
 #### Egzekucja testu
@@ -671,16 +601,16 @@ tests/test_manual.py::TestLogin::test_existing_user_login_with_valid_password - 
 ```
 
 </split>
-</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" -->
+</div></script></section><section data-markdown><script type="text/template"><!-- .slide: class="drop" -->
 <div class="" style="position: absolute; left: 0px; top: 0px; height: 768px; width: 1366px; min-height: 768px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
 
 # TODO: Wrzucić zrzut ekranu z allure
-</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" -->
+</div></script></section><section data-markdown><script type="text/template"><!-- .slide: class="drop" -->
 <div class="" style="position: absolute; left: 0px; top: 0px; height: 768px; width: 1366px; min-height: 768px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
 
 ## Jak wygenerować
 ## raport w GIT?
-</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" -->
+</div></script></section><section data-markdown><script type="text/template"><!-- .slide: class="drop" -->
 <div class="" style="position: absolute; left: 0px; top: 0px; height: 768px; width: 1366px; min-height: 768px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
 
 <div class="" style="position: absolute; left: 0%; top: 20%; height: 10%; width: 100%; display: flex; flex-direction: column; align-items: center; justify-content: center" >
@@ -713,7 +643,7 @@ git => reports
 
 ```
 </div>
-</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" -->
+</div></script></section><section data-markdown><script type="text/template"><!-- .slide: class="drop" -->
 <div class="" style="position: absolute; left: 0px; top: 0px; height: 768px; width: 1366px; min-height: 768px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
 
 <div class="mermaid">
@@ -725,7 +655,7 @@ sequenceDiagram
 </div>
 
 <!-- .element: style="height: 100%; width: 100%; margin-top: 20%" -->
-</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" -->
+</div></script></section><section data-markdown><script type="text/template"><!-- .slide: class="drop" -->
 <div class="" style="position: absolute; left: 0px; top: 0px; height: 768px; width: 1366px; min-height: 768px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
 
 <div class="" style="position: absolute; left: 0%; top: 20%; height: 10%; width: 100%; display: flex; flex-direction: column; align-items: center; justify-content: center" >
@@ -744,138 +674,29 @@ Pliki Allure po wykonaniu testów
 ##### reports
 Wygenerowany raport
 </div>
-</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" -->
+</div></script></section><section data-markdown><script type="text/template"><!-- .slide: class="drop" -->
 <div class="" style="position: absolute; left: 0px; top: 0px; height: 768px; width: 1366px; min-height: 768px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
 
 #### Allure.yml
-</div></script></section><section  data-markdown><script type="text/template">
+</div></script></section><section data-markdown><script type="text/template">
 </script></section></div>
-    </div>
-
-    <script src="dist/reveal.js"></script>
-
-    <script src="plugin/markdown/markdown.js"></script>
-    <script src="plugin/highlight/highlight.js"></script>
-    <script src="plugin/zoom/zoom.js"></script>
-    <script src="plugin/notes/notes.js"></script>
-    <script src="plugin/math/math.js"></script>
-	<script src="plugin/mermaid/mermaid.js"></script>
-	<script src="plugin/chart/chart.min.js"></script>
-	<script src="plugin/chart/plugin.js"></script>
-	<script src="plugin/menu/menu.js"></script>
-	<script src="plugin/customcontrols/plugin.js"></script>
-	<script src="plugin/chalkboard/plugin.js"></script>
-	<script src="plugin/elapsed-time-bar/elapsed-time-bar.js"></script>
-
-    <script>
-      function extend() {
-        var target = {};
-        for (var i = 0; i < arguments.length; i++) {
-          var source = arguments[i];
-          for (var key in source) {
-            if (source.hasOwnProperty(key)) {
-              target[key] = source[key];
-            }
-          }
-        }
-        return target;
-      }
-
-	  function isLight(color) {
-		let hex = color.replace('#', '');
-
-		// convert #fff => #ffffff
-		if(hex.length == 3){
-			hex = `${hex[0]}${hex[0]}${hex[1]}${hex[1]}${hex[2]}${hex[2]}`;
-		}
-
-		const c_r = parseInt(hex.substr(0, 2), 16);
-		const c_g = parseInt(hex.substr(2, 2), 16);
-		const c_b = parseInt(hex.substr(4, 2), 16);
-		const brightness = ((c_r * 299) + (c_g * 587) + (c_b * 114)) / 1000;
-		return brightness > 155;
-	}
-
-	var bgColor = getComputedStyle(document.documentElement).getPropertyValue('--r-background-color').trim();
-	var isLight = isLight(bgColor);
-
-	if(isLight){
-		document.body.classList.add('has-light-background');
-	} else {
-		document.body.classList.add('has-dark-background');
-	}
-
-      // default options to init reveal.js
-      var defaultOptions = {
-        controls: true,
-        progress: true,
-        history: true,
-        center: true,
-        transition: 'default', // none/fade/slide/convex/concave/zoom
-        plugins: [
-          RevealMarkdown,
-          RevealHighlight,
-          RevealZoom,
-          RevealNotes,
-          RevealMath.MathJax3,
-		  RevealMermaid,
-		  RevealChart,
-		  RevealCustomControls,
-		  RevealMenu,
-		  RevealChalkboard, 
-		  ElapsedTimeBar
-        ],
-
-
-    	allottedTime: 1800 * 1000,
-
-		mathjax3: {
-			mathjax: 'plugin/math/mathjax/tex-mml-chtml.js',
-		},
-		markdown: {
-		  gfm: true,
-		  mangle: true,
-		  pedantic: false,
-		  smartLists: false,
-		  smartypants: false,
-		},
-
-		mermaid: {
-			theme: isLight ? 'default' : 'dark',
-		},
-
-		customcontrols: {
-			controls: [
-				{id: 'toggle-overview',
-				title: 'Toggle overview (O)',
-				icon: '<i class="fa fa-th"></i>',
-				action: 'Reveal.toggleOverview();'
-				},
-				{ icon: '<i class="fa fa-pen-square"></i>',
-				title: 'Toggle chalkboard (B)',
-				action: 'RevealChalkboard.toggleChalkboard();'
-				},
-				{ icon: '<i class="fa fa-pen"></i>',
-				title: 'Toggle notes canvas (C)',
-				action: 'RevealChalkboard.toggleNotesCanvas();'
-				},
-			]
-		},
-		menu: {
-			loadIcons: false
-		}
-      };
-
-      // options from URL query string
-      var queryOptions = Reveal().getQueryHash() || {};
-
-      var options = extend(defaultOptions, {"width":1366,"height":768,"margin":0.04,"minScale":1,"maxScale":3,"controls":true,"progress":true,"slideNumber":true,"transition":"fade","transitionSpeed":"normal"}, queryOptions);
-    </script>
-
-    <script>
-      Reveal.initialize(options);
-    </script>
-  </body>
-
-  <!-- created with Advanced Slides -->
+</div>
+<script src="dist/reveal.js"></script>
+<script src="plugin/markdown/markdown.js"></script>
+<script src="plugin/highlight/highlight.js"></script>
+<script src="plugin/zoom/zoom.js"></script>
+<script src="plugin/notes/notes.js"></script>
+<script src="plugin/math/math.js"></script>
+<script src="plugin/mermaid/mermaid.js"></script>
+<script src="plugin/chart/chart.min.js"></script>
+<script src="plugin/chart/plugin.js"></script>
+<script src="plugin/menu/menu.js"></script>
+<script src="plugin/customcontrols/plugin.js"></script>
+<script src="plugin/chalkboard/plugin.js"></script>
+<script src="plugin/elapsed-time-bar/elapsed-time-bar.js"></script>
+<script>
+function extend(){for(var e={},a=0;a<arguments.length;a++){var t,o=arguments[a];for(t in o)o.hasOwnProperty(t)&&(e[t]=o[t])}return e}function isLight(e){let a=e.replace("#","");return 3==a.length&&(a=""+a[0]+a[0]+a[1]+a[1]+a[2]+a[2]),155<(299*parseInt(a.substr(0,2),16)+587*parseInt(a.substr(2,2),16)+114*parseInt(a.substr(4,2),16))/1e3}var isLight,bgColor=getComputedStyle(document.documentElement).getPropertyValue("--r-background-color").trim(),defaultOptions=((isLight=isLight(bgColor))?document.body.classList.add("has-light-background"):document.body.classList.add("has-dark-background"),{controls:!0,progress:!0,history:!0,center:!0,transition:"default",plugins:[RevealMarkdown,RevealHighlight,RevealZoom,RevealNotes,RevealMath.MathJax3,RevealMermaid,RevealChart,RevealCustomControls,RevealMenu,RevealChalkboard,ElapsedTimeBar],allottedTime:18e5,mathjax3:{mathjax:"plugin/math/mathjax/tex-mml-chtml.js"},markdown:{gfm:!0,mangle:!0,pedantic:!1,smartLists:!1,smartypants:!1},mermaid:{theme:isLight?"default":"dark"},customcontrols:{controls:[{id:"toggle-overview",title:"Toggle overview (O)",icon:'<i class="fa fa-th"></i>',action:"Reveal.toggleOverview();"},{icon:'<i class="fa fa-pen-square"></i>',title:"Toggle chalkboard (B)",action:"RevealChalkboard.toggleChalkboard();"},{icon:'<i class="fa fa-pen"></i>',title:"Toggle notes canvas (C)",action:"RevealChalkboard.toggleNotesCanvas();"}]},menu:{loadIcons:!1}}),queryOptions=Reveal().getQueryHash()||{},options=extend(defaultOptions,{width:1366,height:768,margin:.04,minScale:1,maxScale:3,controls:!0,progress:!0,slideNumber:!0,transition:"fade",transitionSpeed:"normal"},queryOptions)
+</script>
+<script>Reveal.initialize(options)</script>
+</body>
 </html>

@@ -11,11 +11,11 @@
 <link href="../../feed_rss_created.xml" rel="alternate" title="Kanał RSS" type="application/rss+xml">
 <link href="../../feed_rss_updated.xml" rel="alternate" title="Kanał RSS zaktualizowanych treści" type="application/rss+xml">
 <link href="../../assets/images/icon.svg" rel="icon">
-<meta content="mkdocs-1.5.3, mkdocs-material-9.4.5" name="generator">
+<meta content="mkdocs-1.5.3, mkdocs-material-9.4.6" name="generator">
 <title>
 Dekoratory w Pythonie - TesteremByc.pl
 </title>
-<link href="../../assets/stylesheets/main.6a10b989.min.css" rel="stylesheet">
+<link href="../../assets/stylesheets/main.35e1ed30.min.css" rel="stylesheet">
 <link href="../../assets/stylesheets/palette.356b1318.min.css" rel="stylesheet">
 <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin="">
 <link href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CLato:400,400i,700,700i&amp;display=fallback" rel="stylesheet">
@@ -910,6 +910,9 @@ dekorator
 </p>
 <h2 id="czym-jest-dekorator">
 Czym jest dekorator?
+<a href="#czym-jest-dekorator" class="headerlink" title="Anchor link to this section for reference">
+¶
+</a>
 </h2>
 <p>
 W skrócie
@@ -997,6 +1000,9 @@ inną klasę, a wspomniany PEP 318 mówi o dekorowaniu funkcji i metod. Czy przy
 </p>
 <h2 id="funkcja-jest-obiektem">
 Funkcja jest obiektem
+<a href="#funkcja-jest-obiektem" class="headerlink" title="Anchor link to this section for reference">
+¶
+</a>
 </h2>
 <p>
 Zanim przejdziemy do sedna, to zapoznajmy się z definicją
@@ -1120,6 +1126,9 @@ Skoro już wiemy, że funkcja jest obiektem, to ciekawe czy obiekt może być fu
 </p>
 <h2 id="czy-obiekt-moze-byc-funkcja">
 Czy obiekt może być funkcją?
+<a href="#czy-obiekt-moze-byc-funkcja" class="headerlink" title="Anchor link to this section for reference">
+¶
+</a>
 </h2>
 <p>
 W Pythonie klasy posiadają pewne
@@ -1246,6 +1255,9 @@ Wróćmy jednak do dekoratorów.
 </p>
 <h2 id="pierwszy-dekorator">
 Pierwszy dekorator
+<a href="#pierwszy-dekorator" class="headerlink" title="Anchor link to this section for reference">
+¶
+</a>
 </h2>
 <p>
 Na początku pisałem, że dekorator to klasa, która opakowuje inną klasę, dodając do opakowywanej klasy nową funkcjonalność. Skoro już wiemy, że funkcja jest klasą/obiektem to w Pythonie dekoratorem może być zarówno funkcja, jak i klasa. Aby sobie nie utrudniać na początku, zacznijmy od implementacji dekoratora w postaci funkcji. Jednak, aby móc zaimplementować dekorator, musimy mieć co udekorować. Rozpatrzmy zatem taką prostą funkcję:
@@ -1420,6 +1432,9 @@ Jeśli używasz już Pythona od pewnego czasu, to powyższy zapis nie powinien b
 </ul>
 <h2 id="args-i-kwargs">
 args i kwargs
+<a href="#args-i-kwargs" class="headerlink" title="Anchor link to this section for reference">
+¶
+</a>
 </h2>
 <p>
 Wiemy już, jak stworzyć prosty (jeszcze nic nierobiący) dekorator. Skoro do środka dekoratora przekazujemy funkcję, to gdzieś powinny być jeszcze widoczne wszystkie argumenty, które do danej funkcji są przekazywane w momencie jej wywołania. Rozważmy poniższą definicję dekoratora (implementację funkcji
@@ -1726,6 +1741,9 @@ add
 </p>
 <h2 id="wraps">
 wraps
+<a href="#wraps" class="headerlink" title="Anchor link to this section for reference">
+¶
+</a>
 </h2>
 <p>
 Rozważmy teraz inną kwestię, tzn. dokumentację do naszego kodu. Do tej pory w naszym kodzie, nie ma ani jednej linijki opisującej czym nasza dekorowana funkcja się zajmuje. Dodajmy najprostszą możliwą formę dokumentacji, czyli pojedynczą linię komentarza pod definicją funkcji (zauważ, że pominąłem dodanie dekoratora):
@@ -1837,6 +1855,9 @@ dokumentacji
 </p>
 <h2 id="dekorator-z-parametrami">
 Dekorator z parametrami
+<a href="#dekorator-z-parametrami" class="headerlink" title="Anchor link to this section for reference">
+¶
+</a>
 </h2>
 <p>
 A co gdybyśmy chcieli np. wymusić, aby dekorator (poza już istniejącą implementacją) sprawdzał, czy oba parametry były tego samego typu? Musielibyśmy być w stanie przekazać do dekoratora jakieś dodatkowy parametr. Skoro wiemy, że dekorator jest funkcją, to być może dałoby się do takiego dekoratora przekazać ten parametr jako argument funkcji? Sprawdźmy więc.
@@ -2093,6 +2114,9 @@ A może dałoby się to ciut prościej zrobić? Poza tym co z kwestią dokumenta
 </p>
 <h2 id="partial">
 partial
+<a href="#partial" class="headerlink" title="Anchor link to this section for reference">
+¶
+</a>
 </h2>
 <p>
 Po raz kolejny z pomocą przychodzi nam biblioteka
@@ -2223,6 +2247,9 @@ wraps
 </p>
 <h2 id="klasa-jako-dekorator">
 Klasa jako dekorator
+<a href="#klasa-jako-dekorator" class="headerlink" title="Anchor link to this section for reference">
+¶
+</a>
 </h2>
 <p>
 Skoro wcześniej udowodniliśmy, że funkcja jest obiektem oraz że dekorator to funkcja, to może dałoby się zmusić obiekt, aby stał się dekoratorem?
@@ -2287,6 +2314,9 @@ Analizę powyższego kodu oraz sprawdzenie poprawności jego działania zostawi�
 </p>
 <h2 id="podsumowanie">
 Podsumowanie
+<a href="#podsumowanie" class="headerlink" title="Anchor link to this section for reference">
+¶
+</a>
 </h2>
 <p>
 Jak więc widzisz, dekoratory to bardzo ciekawa konstrukcja w Pythonie. Umożliwiają bardzo dużo i pomimo, że powyższe przykłady były stosunkowo proste, to miały za zadanie umożliwić Ci zrozumienie mechanizmów ich działania, a nie powodować ataku paniki. Mam nadzieję, że udało mi się choć trochę je odczarować oraz, że zaczniesz ich używać podczas pisania swojego kodu.
@@ -2314,7 +2344,11 @@ Dekoratory w Pythonie
 </p>
 <hr>
 <p class="obsidian_backlink">
-- __call__ - jak sprawić, aby klasa zachowywała się jak funkcja.
+- _
+<em>
+call_
+</em>
+- jak sprawić, aby klasa zachowywała się jak funkcja.
 </p>
 <hr>
 <p class="obsidian_backlink">

@@ -11,11 +11,11 @@
 <link href="../../feed_rss_created.xml" rel="alternate" title="Kanał RSS" type="application/rss+xml">
 <link href="../../feed_rss_updated.xml" rel="alternate" title="Kanał RSS zaktualizowanych treści" type="application/rss+xml">
 <link href="../../assets/images/icon.svg" rel="icon">
-<meta content="mkdocs-1.5.3, mkdocs-material-9.4.5" name="generator">
+<meta content="mkdocs-1.5.3, mkdocs-material-9.4.6" name="generator">
 <title>
 Najmniejszy framework do testów w Pythonie - TesteremByc.pl
 </title>
-<link href="../../assets/stylesheets/main.6a10b989.min.css" rel="stylesheet">
+<link href="../../assets/stylesheets/main.35e1ed30.min.css" rel="stylesheet">
 <link href="../../assets/stylesheets/palette.356b1318.min.css" rel="stylesheet">
 <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin="">
 <link href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CLato:400,400i,700,700i&amp;display=fallback" rel="stylesheet">
@@ -979,6 +979,9 @@ i również zachęcam do jego lektury.
 </div>
 <h2 id="ale-skad-w-ogole-ten-pomys">
 Ale skąd w ogóle ten pomysł?
+<a href="#ale-skad-w-ogole-ten-pomys" class="headerlink" title="Anchor link to this section for reference">
+¶
+</a>
 </h2>
 <p>
 Historia tego pomysłu sięga początków tegorocznej pandemii i sławnego
@@ -1023,6 +1026,9 @@ wypaczeń
 </p>
 <h2 id="zaozenia">
 Założenia
+<a href="#zaozenia" class="headerlink" title="Anchor link to this section for reference">
+¶
+</a>
 </h2>
 <p>
 Aby cała powyższa zabawa w ogóle nam się udała, musimy przyjąć pewne założenia i mieć świadomość, że stworzony framework będzie miał dosyć ograniczoną funkcjonalność (choć bardzo łatwo będzie można ją rozszerzyć). Założenia, jakie przyjąłem, prezentują się następująco:
@@ -1047,6 +1053,9 @@ Założenia są proste, ale na pierwszy rzut oka wydaje się to praktycznie niem
 </p>
 <h2 id="co-bedziemy-testowac">
 Co będziemy testować?
+<a href="#co-bedziemy-testowac" class="headerlink" title="Anchor link to this section for reference">
+¶
+</a>
 </h2>
 <p>
 Skoro już wiemy, że chcemy testować jakieś REST API, to przydałoby się nam takie. Pod adresem
@@ -1057,12 +1066,18 @@ znajduje się przykładowe i dosyć proste API. Pomimo swoich ograniczeń na nas
 </p>
 <h2 id="potrzebne-biblioteki">
 Potrzebne biblioteki
+<a href="#potrzebne-biblioteki" class="headerlink" title="Anchor link to this section for reference">
+¶
+</a>
 </h2>
 <p>
 Skoro znamy już założenia, zastanówmy się, z czego możemy skorzystać, aby maksymalnie ograniczyć potrzebną ilość linii kodu.
 </p>
 <h3 id="requests">
 requests
+<a href="#requests" class="headerlink" title="Anchor link to this section for reference">
+¶
+</a>
 </h3>
 <p>
 Najpopularniejszą i najbardziej rozbudowaną biblioteką do wysyłania zapytań do REST API jest biblioteka
@@ -1077,6 +1092,9 @@ _. Biblioteka wymaga instalacji, gdyż nie jest częścią biblioteki standardow
 </div>
 <h3 id="unittest">
 unittest
+<a href="#unittest" class="headerlink" title="Anchor link to this section for reference">
+¶
+</a>
 </h3>
 <p>
 <a href="https://docs.python.org/3/library/unittest.html">
@@ -1086,6 +1104,9 @@ to wbudowany w bibliotekę standardową framework do przeprowadzania testów, a 
 </p>
 <h3 id="xmlrunner">
 xmlrunner
+<a href="#xmlrunner" class="headerlink" title="Anchor link to this section for reference">
+¶
+</a>
 </h3>
 <p>
 <a href="https://unittest-xml-reporting.readthedocs.io/en/latest/">
@@ -1107,6 +1128,9 @@ schematem JUnit
 </div>
 <h3 id="json">
 json
+<a href="#json" class="headerlink" title="Anchor link to this section for reference">
+¶
+</a>
 </h3>
 <p>
 Standardowa biblioteka Pythona, a więc nie wymaga instalacji. Biblioteka ta umożliwia obsługę danych w formacie
@@ -1117,6 +1141,9 @@ i posłuży do odczytu danych testowych z zewnętrznego pliku.
 </p>
 <h2 id="kodujemy">
 Kodujemy
+<a href="#kodujemy" class="headerlink" title="Anchor link to this section for reference">
+¶
+</a>
 </h2>
 <p>
 Skoro mamy już wszystkie potrzebne elementy tej całej układanki to zacznijmy w końcu pisać ten kod. Na początek stwórzmy sobie 2 pliki:
@@ -1135,6 +1162,9 @@ tests.py
 </p>
 <h3 id="import">
 import
+<a href="#import" class="headerlink" title="Anchor link to this section for reference">
+¶
+</a>
 </h3>
 <p>
 Każdy szanujący się programista Pythona, postępuje zgodnie z regułami i na początku pliku importuje wszystkie biblioteki. Dobry obyczaj mówi, że import każdej biblioteki powinie znajdować się w oddzielnej linijce, jednakże, ze względu na ograniczone miejsce, w naszym kodzie wszystkie importy zostaną wykonane w jednej linii:
@@ -1148,6 +1178,9 @@ Kolejność importów jest dowolna (choć i tutaj są pewne reguły, które wart
 </p>
 <h3 id="pierwszy-test">
 Pierwszy test
+<a href="#pierwszy-test" class="headerlink" title="Anchor link to this section for reference">
+¶
+</a>
 </h3>
 <p>
 Wiemy, że chcemy sprawdzać status odpowiedzi na wysłane żądanie, a więc zacznijmy od czegoś prostego: wyślemy proste żądanie typu GET na adres url
@@ -1196,6 +1229,9 @@ Czy to już koniec? Na razie mamy 4 linie kodu (po importach zostawiamy jedną l
 </p>
 <h3 id="test-w-unittest">
 Test w unittest
+<a href="#test-w-unittest" class="headerlink" title="Anchor link to this section for reference">
+¶
+</a>
 </h3>
 <p>
 Przeróbmy teraz kod tak, aby wykorzystać dobrodziejstwa unittest.
@@ -1262,6 +1298,9 @@ Wygląda to już zdecydowanie lepiej, ale to nie koniec naszej zabawy. Zajmijmy 
 </p>
 <h3 id="testsjson">
 tests.json
+<a href="#testsjson" class="headerlink" title="Anchor link to this section for reference">
+¶
+</a>
 </h3>
 <p>
 Zanim jednak dojdziemy do samego pliku, zmieńmy jeszcze jedną rzecz w naszym kodzie, tak abyś lepiej zrozumiał, dlaczego pewne rzeczy działają. Zauważ, że w naszym kodzie, do tej pory używaliśmy
@@ -1404,6 +1443,9 @@ Może da się to jakoś wykorzystać na naszą korzyść i zaoszczędzić ciut m
 </p>
 <h3 id="rozpakowywanie-sownika">
 Rozpakowywanie słownika
+<a href="#rozpakowywanie-sownika" class="headerlink" title="Anchor link to this section for reference">
+¶
+</a>
 </h3>
 <p>
 Jeśli czytałeś mój artykuł dotyczący
@@ -1508,6 +1550,9 @@ Zeszliśmy tym samym do 10 linii kodu. Na co wykorzystamy pozostałe 6 linii?
 </p>
 <h3 id="generator-testow-z-danych-testowych">
 Generator testów z danych testowych
+<a href="#generator-testow-z-danych-testowych" class="headerlink" title="Anchor link to this section for reference">
+¶
+</a>
 </h3>
 <p>
 Dochodzimy do najfajniejszej części tego wpisu, czyli jeszcze większej
@@ -1587,10 +1632,10 @@ funkcja jest obiektem
 . Zauważ, że jej wywołanie przyjęło 3 argumenty:
 </p>
 </li>
+</ol>
+<ul>
 <li>
-<p>
 obiekt, do którego wstawiamy — u nas jest to klasa `Tests``,
-</p>
 </li>
 <li>
 nazwę atrybutu, pod jakim będzie znajdowała się wstawiona wartość — u nas jest to `test_get_all_users``,
@@ -1606,7 +1651,7 @@ abstract_test
 </code>
 na końcu).
 </li>
-</ol>
+</ul>
 <p>
 Jeśli wywołamy powyższy kod, to w dalszym ciągu otrzymujemy taki sam wynik.
 </p>
@@ -1669,7 +1714,6 @@ Co zmieniliśmy?
 </p>
 <ol>
 <li>
-<p>
 Metoda
 <code>
 abstract_test
@@ -1683,24 +1727,23 @@ ukryte zostało w metodzie
 add_test
 </code>
 . Zauważ, że metoda ta przyjmuje dwa atrybuty:
-</p>
 </li>
+</ol>
+<ul>
 <li>
-<p>
 <code>
 cls
 </code>
 - to klasa, do której będziemy dodawać test,
-</p>
 </li>
 <li>
-<p>
 <code>
 name
 </code>
 - to nazwa testu, jaki będziemy dodawać.
-</p>
 </li>
+</ul>
+<ol start="2">
 <li>
 <p>
 W metodzie
@@ -1784,6 +1827,9 @@ Mamy 17 linii kodu (o 1 za dużo).
 </ol>
 <h3 id="wiecej-testow">
 Więcej testów
+<a href="#wiecej-testow" class="headerlink" title="Anchor link to this section for reference">
+¶
+</a>
 </h3>
 <p>
 Skoro tyle się napracowaliśmy, to dorzućmy więcej testów. Jak możesz się domyślić, aby dopisać nowe testy, wystarczy odpowiednie dane umieścić w pliku
@@ -1839,6 +1885,9 @@ tests.json
 </div>
 <h3 id="raporty-i-16-linii-kodu">
 Raporty i 16 linii kodu
+<a href="#raporty-i-16-linii-kodu" class="headerlink" title="Anchor link to this section for reference">
+¶
+</a>
 </h3>
 <p>
 To zadanie to w zasadzie już tylko drobna formalność. Spójrz na poniższy kod:
@@ -1910,6 +1959,9 @@ z przeprowadzonych testów.
 </p>
 <h3 id="czy-da-sie-jeszcze-lepiej">
 Czy da się jeszcze lepiej?
+<a href="#czy-da-sie-jeszcze-lepiej" class="headerlink" title="Anchor link to this section for reference">
+¶
+</a>
 </h3>
 <p>
 Jak zauważył
@@ -1949,6 +2001,9 @@ Zakres zmian w kodzie, nie wymaga zbyt dużego komentarza i powinien być zrozum
 </p>
 <h2 id="podsumowanie">
 Podsumowanie
+<a href="#podsumowanie" class="headerlink" title="Anchor link to this section for reference">
+¶
+</a>
 </h2>
 <p>
 Zmieściliśmy się w 16 linijkach kodu?
@@ -1983,6 +2038,9 @@ jeszcze mniejszy framework do testów
 </div>
 <h2 id="bonus">
 Bonus
+<a href="#bonus" class="headerlink" title="Anchor link to this section for reference">
+¶
+</a>
 </h2>
 <p>
 Cały powyższy kod znajdziesz również w poniższym

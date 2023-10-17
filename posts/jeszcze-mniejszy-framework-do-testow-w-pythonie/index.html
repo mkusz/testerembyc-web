@@ -11,11 +11,11 @@
 <link href="../../feed_rss_created.xml" rel="alternate" title="Kanał RSS" type="application/rss+xml">
 <link href="../../feed_rss_updated.xml" rel="alternate" title="Kanał RSS zaktualizowanych treści" type="application/rss+xml">
 <link href="../../assets/images/icon.svg" rel="icon">
-<meta content="mkdocs-1.5.3, mkdocs-material-9.4.5" name="generator">
+<meta content="mkdocs-1.5.3, mkdocs-material-9.4.6" name="generator">
 <title>
 Jeszcze mniejszy framework do testów w Pythonie - TesteremByc.pl
 </title>
-<link href="../../assets/stylesheets/main.6a10b989.min.css" rel="stylesheet">
+<link href="../../assets/stylesheets/main.35e1ed30.min.css" rel="stylesheet">
 <link href="../../assets/stylesheets/palette.356b1318.min.css" rel="stylesheet">
 <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin="">
 <link href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CLato:400,400i,700,700i&amp;display=fallback" rel="stylesheet">
@@ -969,6 +969,9 @@ Odpowiedzi na te pytania zapewne się domyślasz, ale jeśli chcesz wiedzieć ja
 </p>
 <h2 id="gdzie-skonczylismy">
 Gdzie skończyliśmy?
+<a href="#gdzie-skonczylismy" class="headerlink" title="Anchor link to this section for reference">
+¶
+</a>
 </h2>
 <p>
 Dla małego przypomnienia zacznijmy w miejscu, gdzie skończyliśmy. Kod naszego mini frameworka wygląda tak:
@@ -993,9 +996,15 @@ Dla małego przypomnienia zacznijmy w miejscu, gdzie skończyliśmy. Kod naszego
 </div>
 <h3 id="w-pogoni-za-rozumem">
 W pogoni za rozumem
+<a href="#w-pogoni-za-rozumem" class="headerlink" title="Anchor link to this section for reference">
+¶
+</a>
 </h3>
 <h3 id="kosmetyka">
 Kosmetyka
+<a href="#kosmetyka" class="headerlink" title="Anchor link to this section for reference">
+¶
+</a>
 </h3>
 <p>
 Póki co nasz kod jest w miarę czytelny, pomimo złamania kilku reguł. Skoro i tak je łamiemy, to idźmy ciut głębiej i uprośćmy ten kod do poniższej postaci.
@@ -1047,6 +1056,9 @@ add_test
 </p>
 <h3 id="wyrazenia-lambda">
 Wyrażenia Lambda
+<a href="#wyrazenia-lambda" class="headerlink" title="Anchor link to this section for reference">
+¶
+</a>
 </h3>
 <p>
 Zanim jednak będziemy bardziej odchudzać kod frameworku, musimy poznać czym są tzw.
@@ -1171,6 +1183,9 @@ Wszystko super, ale jak z tego skorzystać w naszym frameworku?
 </p>
 <h3 id="lambda-po-raz-pierwszy">
 Lambda po raz pierwszy
+<a href="#lambda-po-raz-pierwszy" class="headerlink" title="Anchor link to this section for reference">
+¶
+</a>
 </h3>
 <p>
 Skoro już wiemy, że przy użyciu wyrażenia lambda, można zastąpić definicję jakiejś metody, to spróbujmy to zaimplementować w naszym kodzie. Jak? Zerknij poniżej:
@@ -1198,6 +1213,9 @@ wyrażeniem lambda. W wyniku, odchudziliśmy nasz kod do 11 linii kodu. Jest nie
 </p>
 <h3 id="lambda-po-raz-drugi">
 Lambda po raz drugi
+<a href="#lambda-po-raz-drugi" class="headerlink" title="Anchor link to this section for reference">
+¶
+</a>
 </h3>
 <p>
 Skoro udało nam się pozbyć definiowania jednej metody, to może uda nam się wyrzucić jeszcze jedną?
@@ -1245,6 +1263,9 @@ oraz jej wielokrotne wywołanie zajmują aż 4 linijki kodu. Może damy radę je
 </p>
 <h2 id="type">
 type
+<a href="#type" class="headerlink" title="Anchor link to this section for reference">
+¶
+</a>
 </h2>
 <p>
 Metoda
@@ -1316,6 +1337,9 @@ Na razie zysku brak. Ciągle mamy 9 linii kodu. Jednak dla wprawnego oka, przyzw
 </p>
 <h3 id="dict-comprehension">
 dict comprehension
+<a href="#dict-comprehension" class="headerlink" title="Anchor link to this section for reference">
+¶
+</a>
 </h3>
 <p>
 Zwrot
@@ -1381,6 +1405,9 @@ Oczywiście taka konstrukcja może być wykorzystywana też w połączeniu z war
 </p>
 <h3 id="najmniejszy-framework">
 Najmniejszy framework
+<a href="#najmniejszy-framework" class="headerlink" title="Anchor link to this section for reference">
+¶
+</a>
 </h3>
 <p>
 Poskładajmy więc to wszystko w całość:
@@ -1443,6 +1470,9 @@ Tak dobrze widzisz, że nasz framework mieści się w
 </p>
 <h2 id="wiecej-funkcjonalnosci">
 Więcej funkcjonalności
+<a href="#wiecej-funkcjonalnosci" class="headerlink" title="Anchor link to this section for reference">
+¶
+</a>
 </h2>
 <p>
 Skoro odchudziliśmy kod frameworku do zaledwie 6 linijek kodu, to do pierwotnie zakładanych 16 linijek, trochę nam brakuje. Spróbujmy wykorzystać ten zapas, do stworzenia testów, które testują coś więcej.
@@ -1490,6 +1520,9 @@ Skoro mamy już podwaliny do dalszej zabawy, rozszerzmy kod o dodatkowe sprawdze
 </p>
 <h3 id="wiecej-testow-w-tescie">
 Więcej testów w teście
+<a href="#wiecej-testow-w-tescie" class="headerlink" title="Anchor link to this section for reference">
+¶
+</a>
 </h3>
 <p>
 Ponieważ wiemy już, co jeszcze chcemy testować, musimy znaleźć sposób na pobranie potrzebnych informacji. Okazuje się, że wszystko tak naprawdę już w naszym kodzie jest, ale jeszcze z tych informacji nie robimy użytku. Te i inne dodatkowe informacje otrzymujemy w
@@ -1640,6 +1673,9 @@ json
 </p>
 <h3 id="glob">
 glob
+<a href="#glob" class="headerlink" title="Anchor link to this section for reference">
+¶
+</a>
 </h3>
 <p>
 Biblioteka
@@ -1658,6 +1694,9 @@ json
 </p>
 <h3 id="globals">
 globals()
+<a href="#globals" class="headerlink" title="Anchor link to this section for reference">
+¶
+</a>
 </h3>
 <p>
 <a href="https://docs.python.org/3/library/functions.html#globals">
@@ -1682,6 +1721,9 @@ json
 </p>
 <h3 id="obsuga-wielu-plikow-json">
 Obsługa wielu plików JSON
+<a href="#obsuga-wielu-plikow-json" class="headerlink" title="Anchor link to this section for reference">
+¶
+</a>
 </h3>
 <p>
 Wiemy już, czego będziemy używać, a więc do dzieła. Rozdzielmy najpierw obecny plik
@@ -1845,6 +1887,9 @@ Ile mamy linii kodu?
 </p>
 <h2 id="podsumowanie">
 Podsumowanie
+<a href="#podsumowanie" class="headerlink" title="Anchor link to this section for reference">
+¶
+</a>
 </h2>
 <p>
 To była dosyć długa przygoda (aż dwa i to dosyć rozbudowane wpisy na blogu). Sporo Pythonowych
@@ -1855,6 +1900,9 @@ trików
 </p>
 <h2 id="bonus">
 Bonus
+<a href="#bonus" class="headerlink" title="Anchor link to this section for reference">
+¶
+</a>
 </h2>
 <p>
 Jeśli jesteś purystą i najważniejszą sprawą dla Ciebie jest zgodność kodu z
@@ -1916,6 +1964,9 @@ zgodność z PEP-8
 </ul>
 <h2 id="bonus-2">
 Bonus 2
+<a href="#bonus-2" class="headerlink" title="Anchor link to this section for reference">
+¶
+</a>
 </h2>
 <p>
 Po raz kolejny

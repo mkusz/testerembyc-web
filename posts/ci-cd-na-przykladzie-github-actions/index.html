@@ -11,11 +11,11 @@
 <link href="../../feed_rss_created.xml" rel="alternate" title="Kanał RSS" type="application/rss+xml">
 <link href="../../feed_rss_updated.xml" rel="alternate" title="Kanał RSS zaktualizowanych treści" type="application/rss+xml">
 <link href="../../assets/images/icon.svg" rel="icon">
-<meta content="mkdocs-1.5.3, mkdocs-material-9.4.5" name="generator">
+<meta content="mkdocs-1.5.3, mkdocs-material-9.4.6" name="generator">
 <title>
 CI/CD na przykładzie GitHub Actions - TesteremByc.pl
 </title>
-<link href="../../assets/stylesheets/main.6a10b989.min.css" rel="stylesheet">
+<link href="../../assets/stylesheets/main.35e1ed30.min.css" rel="stylesheet">
 <link href="../../assets/stylesheets/palette.356b1318.min.css" rel="stylesheet">
 <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin="">
 <link href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CLato:400,400i,700,700i&amp;display=fallback" rel="stylesheet">
@@ -1022,6 +1022,9 @@ zmiany na blogu
 </div>
 <h2 id="github-actions">
 GitHub Actions
+<a href="#github-actions" class="headerlink" title="Anchor link to this section for reference">
+¶
+</a>
 </h2>
 <p>
 Jak już powyżej napisałem, GitHub Actions umożliwia automatyzację procesu CI/CD. Proces ten powiązany jest z kodem źródłowym aplikacji, który przechowywany jest w repozytorium git na stronie
@@ -1097,6 +1100,9 @@ Konfiguracja GitHub Actions
 </p>
 <h2 id="blog-na-githubie">
 Blog na GitHubie?
+<a href="#blog-na-githubie" class="headerlink" title="Anchor link to this section for reference">
+¶
+</a>
 </h2>
 <p>
 Zapewne zastanawiasz się, jak wykorzystuje GitHuba i jego repozytorium git do tworzenia tego bloga? Najbardziej oczywista sprawa to przechowywanie kodu źródłowego. Nie jest to jednak jedyna funkcjonalność, z jakiej korzystam.
@@ -1165,6 +1171,9 @@ Powyższe przykłady narzędzi nie wyczerpują listy dostępnych narzędzi. Zost
 </p>
 <h3 id="wybor-narzedzi">
 Wybór narzędzi
+<a href="#wybor-narzedzi" class="headerlink" title="Anchor link to this section for reference">
+¶
+</a>
 </h3>
 <p>
 Ponieważ blog w założeniach miał generować minimalne koszty, wybrałem opcję z wykorzystaniem
@@ -1231,6 +1240,9 @@ W 2023 roku, zmieniłem część z powyższych narzędzi, jednak najważniejsza 
 </div>
 <h3 id="koszty-prowadzenia-bloga">
 Koszty prowadzenia bloga
+<a href="#koszty-prowadzenia-bloga" class="headerlink" title="Anchor link to this section for reference">
+¶
+</a>
 </h3>
 <p>
 Zapewne zastanawiasz się, jakie są koszty utrzymania bloga? Otóż są on stosunkowo nie duże, bo tak naprawdę płacę za utrzymanie domeny
@@ -1241,12 +1253,18 @@ oraz miesięczna opłata za narzędzie do zarządzania listą mailową (planuję
 </p>
 <h2 id="jak-wykorzystac-github-actions">
 Jak wykorzystać GitHub Actions?
+<a href="#jak-wykorzystac-github-actions" class="headerlink" title="Anchor link to this section for reference">
+¶
+</a>
 </h2>
 <p>
 Aby wytłumaczyć, po co mi GitHub Actions, muszę opisać jeszcze jeden aspekt, a dokładniej mechanizm działania narzędzia do generowania statycznej strony www oraz tego, jak działa GitHub Pages.
 </p>
 <h3 id="generacja-statycznej-strony-z-uzyciem-nikola">
 Generacja statycznej strony z użyciem Nikola
+<a href="#generacja-statycznej-strony-z-uzyciem-nikola" class="headerlink" title="Anchor link to this section for reference">
+¶
+</a>
 </h3>
 <p>
 Samego procesu konfiguracji całego narzędzia nie będę opisywał, ponieważ musiałbym poświęcić na to zupełnie oddzielny wpis. Chodzi tutaj bardziej o kwestie, jaka jest struktura katalogów i gdzie w niej znajduje się wynikowa, statyczna strona HTML.
@@ -1308,6 +1326,9 @@ Jak więc widzisz, wynikowe pliki znajdują się w podfolderze, a więc po wygen
 </p>
 <h3 id="github-pages">
 GitHub Pages
+<a href="#github-pages" class="headerlink" title="Anchor link to this section for reference">
+¶
+</a>
 </h3>
 <p>
 Wcześniej wspomniałem, że ta funkcjonalność w ramach repozytorium, pozwala na hostowanie statycznych stron www. Wymaga ona jednak, aby samo repozytorium było publicznie dostępne.
@@ -1317,6 +1338,9 @@ Gdzie więc jest problem?
 </p>
 <h3 id="publiczne-repozytorium">
 Publiczne repozytorium
+<a href="#publiczne-repozytorium" class="headerlink" title="Anchor link to this section for reference">
+¶
+</a>
 </h3>
 <p>
 Problemów w takiej konfiguracji jest kilka, ale sprowadzają się one głównie do faktu, że hostowana strona musi właśnie znajdować się w publicznym repozytorium. Prowadzi to do ujawnienia danych z wszelkich projektów, nad którymi pracuję i gromadzę materiały.
@@ -1330,6 +1354,9 @@ kanale YouTube
 </p>
 <h3 id="dwa-repozytoria">
 Dwa repozytoria
+<a href="#dwa-repozytoria" class="headerlink" title="Anchor link to this section for reference">
+¶
+</a>
 </h3>
 <p>
 Najłatwiejszym sposobem osiągnięcia powyższego założenia, jest utworzenie 2 repozytoriów:
@@ -1350,6 +1377,9 @@ W tym miejscu dochodzimy do punktu, gdzie GitHub Actions wkraczają na scenę.
 </p>
 <h2 id="konfiguracja-github-actions">
 Konfiguracja GitHub Actions
+<a href="#konfiguracja-github-actions" class="headerlink" title="Anchor link to this section for reference">
+¶
+</a>
 </h2>
 <p>
 Zanim zaczniemy wspólną zabawę, chciałbym uświadomić Ci jedną rzecz, tzn. ten wpis nie pokrywa pełnego zakresu możliwości oraz nie omawia wszelkich możliwych aspektów konfiguracji GitHub Actions. Jest to temat bardzo obszerny i aby to zrobić, należałoby przedstawić go w postaci kursu. Jeśli temat zainteresuje Cię, polecam zapoznać się z
@@ -1360,6 +1390,9 @@ dokumentacją znajdującą się na stronie GitHub
 </p>
 <h3 id="workflow">
 Workflow
+<a href="#workflow" class="headerlink" title="Anchor link to this section for reference">
+¶
+</a>
 </h3>
 <p>
 GitHub Actions wykonywane są pod wpływem jakiegoś wydarzenia (tzw. event-driven). Aby wiedzieć, jakie wydarzenie jest wyzwalaczem akcji (tzw. trigger) oraz jaka akcja musi się wykonać, potrzebny jest nam jakiś kontener, który będzie przetrzymywał cały ten opis. Takim kontenerem w sensie logicznym jest właśnie
@@ -1411,6 +1444,9 @@ jobs
 </ul>
 <h4 id="nazwa-name">
 Nazwa (name)
+<a href="#nazwa-name" class="headerlink" title="Anchor link to this section for reference">
+¶
+</a>
 </h4>
 <p>
 Ponieważ sekcja
@@ -1425,6 +1461,9 @@ jest bardzo prosta i oznacza po prostu nazwę danego workflow. W formacie YAML w
 </div>
 <h4 id="wyzwalacze-on">
 Wyzwalacze (on)
+<a href="#wyzwalacze-on" class="headerlink" title="Anchor link to this section for reference">
+¶
+</a>
 </h4>
 <p>
 Pełna lista wyzwalaczy znajduje się
@@ -1519,6 +1558,9 @@ Istnieją również pewne znaki specjalne, modyfikujące powyższe wartości:
 </ul>
 <h4 id="zadanie-job">
 Zadanie (job)
+<a href="#zadanie-job" class="headerlink" title="Anchor link to this section for reference">
+¶
+</a>
 </h4>
 <p>
 Konfiguracja konkretnego zadania to może być bardzo krótka (np. usunięcie danego katalogu) lub bardzo złożona. Poniżej znajduje się moja konfiguracja i na jej przykładzie omówię, jak się buduje takie zadania i co one zawierają.
@@ -1587,6 +1629,9 @@ Powyższe nie powinno stanowić problemu.
 </p>
 <h4 id="kroki-steps">
 Kroki (steps)
+<a href="#kroki-steps" class="headerlink" title="Anchor link to this section for reference">
+¶
+</a>
 </h4>
 <p>
 Zanim jednak przejdziemy do omawiania samych kroków, zastanówmy się czym, w ogóle one są? Otóż kroki to nic innego jak poszczególne akcje, które muszą zostać wykonane, aby nasze zadanie zostało uznane za ukończone.
@@ -1716,6 +1761,9 @@ Zakomituj statyczną stronę do publicznego repozytorium z włączoną usługą 
 </ol>
 <h4 id="cay-workflow">
 Cały Workflow
+<a href="#cay-workflow" class="headerlink" title="Anchor link to this section for reference">
+¶
+</a>
 </h4>
 <p>
 Cały plik
@@ -1761,12 +1809,18 @@ wygląda następująco:
 </div>
 <h3 id="token">
 Token
+<a href="#token" class="headerlink" title="Anchor link to this section for reference">
+¶
+</a>
 </h3>
 <p>
 Token to nic innego jak klucz, dzięki któremu jesteśmy w stanie wykonywać pewne operacje z wykorzystanie REST API portalu GitHub.
 </p>
 <h4 id="generowanie-tokenu">
 Generowanie tokenu
+<a href="#generowanie-tokenu" class="headerlink" title="Anchor link to this section for reference">
+¶
+</a>
 </h4>
 <p>
 Aby wygenerować token, należy być zalogowanym na swoim koncie w portalu GitHub, a następnie przejść do zakładki
@@ -1906,6 +1960,9 @@ Token
 </figure>
 <h4 id="bezpieczne-wykorzystanie-tokenu">
 Bezpieczne wykorzystanie tokenu
+<a href="#bezpieczne-wykorzystanie-tokenu" class="headerlink" title="Anchor link to this section for reference">
+¶
+</a>
 </h4>
 <p>
 Aby wykorzystać token, musimy zapisać go jako tzw. secret w repozytorium, w którym uruchamiane zostanie tworzone workflow. Secret to nic innego jak zmienna środowiskowa, do której będą miały dostęp wykonywane akcje. Aby utworzyć secret, należy wykonać kilka poniższych kroków w repozytorium.
@@ -1995,6 +2052,9 @@ New secret
 </figure>
 <h2 id="na-zakonczenie">
 Na zakończenie
+<a href="#na-zakonczenie" class="headerlink" title="Anchor link to this section for reference">
+¶
+</a>
 </h2>
 <p>
 Żeby to wszystko teraz zadziałało, musimy jeszcze umieścić plik
@@ -2037,12 +2097,18 @@ Action Status
 </figure>
 <h2 id="koszty">
 Koszty
+<a href="#koszty" class="headerlink" title="Anchor link to this section for reference">
+¶
+</a>
 </h2>
 <p>
 GitHub Actions jest darmowe, ale ma pewne ograniczenie, tzn. w ramach darmowego konta, można wykorzystać maksymalnie 2000 minut, w czasie których każdy tzw. runner, będzie wykonywał akcje opisane w ramach akcji. Ograniczenie to można obejść, jeśli wykorzystamy tzw. self-hosted runners, czyli jeśli runner będzie uruchamiany na naszym serwerze.
 </p>
 <h2 id="github-actions-w-testach-automatycznych">
 GitHub Actions w testach automatycznych?
+<a href="#github-actions-w-testach-automatycznych" class="headerlink" title="Anchor link to this section for reference">
+¶
+</a>
 </h2>
 <p>
 Zapewne po przeczytaniu całego tego wpisu, masz już kilka własnych pomysłów, jak można wykorzystać GitHub Actions w testach automatycznych. Poniżej przedstawiam listę kilku własnych pomysłów. Być może pokrywają się z Twoimi pomysłami, a być może podpowiedzą kilka nowych.
@@ -2098,6 +2164,9 @@ Jeśli masz jakiś ciekawy pomysł, którego nie umieściłem na powyższej liś
 </div>
 <h2 id="podsumowanie">
 Podsumowanie
+<a href="#podsumowanie" class="headerlink" title="Anchor link to this section for reference">
+¶
+</a>
 </h2>
 <p>
 Jeśli udało Ci się dotrzeć do tego miejsca, to gratuluję wytrwałości. Temat CI/CD jest bardzo obszerny i przedstawiony powyżej opis to zaledwie
@@ -2108,6 +2177,9 @@ tematu oraz pokazanie, że to wcale nie jest takie trudne. Mam nadzieję, że za
 </p>
 <h2 id="bonus">
 Bonus
+<a href="#bonus" class="headerlink" title="Anchor link to this section for reference">
+¶
+</a>
 </h2>
 <p>
 GitHub Actions udostępnia możliwość prezentacji statusu danego workflow w postaci graficznej.

@@ -118,7 +118,7 @@ stateDiagram
 </div></script></section><section data-markdown><script type="text/template"><!-- .slide: class="drop" -->
 <div class="" style="position: absolute; left: 0px; top: 0px; height: 768px; width: 1366px; min-height: 768px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
 
-<div class="" style="position: absolute; left: 0%; top: 0%; height: 100%; width: 50%; display: flex; flex-direction: column; align-items: center; justify-content: center" >
+<div class="" style="position: absolute; left: 0%; top: 0%; height: 100%; width: 50%; display: flex; flex-direction: column; align-items: center; justify-content: center" markdown="1">
 
 
 <div class="mermaid">
@@ -243,7 +243,7 @@ stateDiagram
 </div></script></section><section data-markdown><script type="text/template"><!-- .slide: class="drop" -->
 <div class="" style="position: absolute; left: 0px; top: 0px; height: 768px; width: 1366px; min-height: 768px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
 
-<div class="" style="position: absolute; left: 0%; top: 0%; height: 100%; width: 50%; display: flex; flex-direction: column; align-items: center; justify-content: center" >
+<div class="" style="position: absolute; left: 0%; top: 0%; height: 100%; width: 50%; display: flex; flex-direction: column; align-items: center; justify-content: center" markdown="1">
 
 
 <div class="mermaid">
@@ -280,7 +280,7 @@ stateDiagram
 </div></script></section><section data-markdown><script type="text/template"><!-- .slide: class="drop" -->
 <div class="" style="position: absolute; left: 0px; top: 0px; height: 768px; width: 1366px; min-height: 768px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
 
-<div class="" style="position: absolute; left: 0%; top: 0%; height: 100%; width: 50%; display: flex; flex-direction: column; align-items: center; justify-content: center" >
+<div class="" style="position: absolute; left: 0%; top: 0%; height: 100%; width: 50%; display: flex; flex-direction: column; align-items: center; justify-content: center" markdown="1">
 
 
 <div class="mermaid">
@@ -316,7 +316,7 @@ stateDiagram
 </div></script></section><section data-markdown><script type="text/template"><!-- .slide: class="drop" -->
 <div class="" style="position: absolute; left: 0px; top: 0px; height: 768px; width: 1366px; min-height: 768px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
 
-<div class="" style="position: absolute; left: 0%; top: 0%; height: 100%; width: 50%; display: flex; flex-direction: column; align-items: center; justify-content: center" >
+<div class="" style="position: absolute; left: 0%; top: 0%; height: 100%; width: 50%; display: flex; flex-direction: column; align-items: center; justify-content: center" markdown="1">
 
 
 <div class="mermaid">
@@ -437,7 +437,7 @@ class ManualTest(pydantic.BaseModel):
 
 #### Model kolekcji testów w Pythonie
 
-<split even gap="1" style="font-size: 0.7em; max-width: 1366px;">
+<split even gap="1" style="font-size: 0.7em; max-width: 1366px;"  markdown="1">
 
 ```python [1-20|1|2|4-20]
 class ManualTests(pydantic.BaseModel):  
@@ -468,7 +468,7 @@ class ManualTests(pydantic.BaseModel):
 
 #### Odczytywanie plików
 
-<split even gap="1" style="font-size: 0.9em; max-width: 1366px;">
+<split even gap="1" style="font-size: 0.9em; max-width: 1366px;"  markdown="1">
 
 ```python [1-15|1|3|4|6|7|8-11|12-16]
 GLOBAL_VARIABLE_CURRENT_FILE_NAME = "__current_manual_tests_file__"
@@ -495,7 +495,7 @@ for test_yaml_file in pathlib.Path("").rglob("**/test_*.yaml"):
 
 #### Generator testu
 
-<split even gap="1" style="font-size: 0.8em; max-width: 1366px;">
+<split even gap="1" style="font-size: 0.8em; max-width: 1366px;"  markdown="1">
 
 ```python [1-17|1-3|5-11|12-16|17|2,7,11]
 def generate_test(manual_test: ManualTest):  
@@ -523,7 +523,7 @@ def generate_test(manual_test: ManualTest):
 
 #### single_test
 
-<split even gap="1" style="font-size: 0.725em; max-width: 1366px;">
+<split even gap="1" style="font-size: 0.725em; max-width: 1366px;"  markdown="1">
 
 ```python [1-20|1-4|6|7-13|14-15|16-17|18-20|7,10,13,15]
 def single_test(self):  
@@ -575,7 +575,7 @@ def step_for_test():
 
 #### Egzekucja testu
 
-<split even gap="1" style="font-size: 0.725em; max-width: 1366px;">
+<split even gap="1" style="font-size: 0.725em; max-width: 1366px;"  markdown="1">
 
 ```console [1|3-6|8-9|11-12|14-15|16|17|19-20]
 pytest -s -m "manual"
@@ -604,7 +604,11 @@ tests/test_manual.py::TestLogin::test_existing_user_login_with_valid_password - 
 </div></script></section><section data-markdown><script type="text/template"><!-- .slide: class="drop" -->
 <div class="" style="position: absolute; left: 0px; top: 0px; height: 768px; width: 1366px; min-height: 768px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
 
-# TODO: Wrzucić zrzut ekranu z allure
+<img src="_attachments/allure_overview.png" alt="" style="object-fit: scale-down">
+</div></script></section><section data-markdown><script type="text/template"><!-- .slide: class="drop" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 768px; width: 1366px; min-height: 768px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+<img src="_attachments/allure_history.png" alt="" style="object-fit: scale-down">
 </div></script></section><section data-markdown><script type="text/template"><!-- .slide: class="drop" -->
 <div class="" style="position: absolute; left: 0px; top: 0px; height: 768px; width: 1366px; min-height: 768px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
 
@@ -618,7 +622,7 @@ tests/test_manual.py::TestLogin::test_existing_user_login_with_valid_password - 
 #### Struktura katalogów
 </div>
 
-<div class="fragment" style="position: absolute; left: 0%; top: 10%; height: 90%; width: 50%; display: flex; flex-direction: column; align-items: center; justify-content: center" data-fragment-index="1">
+<div class="fragment" style="position: absolute; left: 0%; top: 10%; height: 90%; width: 50%; display: flex; flex-direction: column; align-items: center; justify-content: center" markdown="1" data-fragment-index="1">
 
 git => tests
 ```console
@@ -632,7 +636,7 @@ git => tests
 ```
 </div>
 
-<div class="fragment" style="position: absolute; left: 50%; top: 10%; height: 90%; width: 50%; display: flex; flex-direction: column; align-items: center; justify-content: center" data-fragment-index="2">
+<div class="fragment" style="position: absolute; left: 50%; top: 10%; height: 90%; width: 50%; display: flex; flex-direction: column; align-items: center; justify-content: center" markdown="1" data-fragment-index="2">
 
 git => reports
 ```console
@@ -646,15 +650,26 @@ git => reports
 </div></script></section><section data-markdown><script type="text/template"><!-- .slide: class="drop" -->
 <div class="" style="position: absolute; left: 0px; top: 0px; height: 768px; width: 1366px; min-height: 768px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
 
+#### Od wykonania testów do raportu
+
+
 <div class="mermaid">
 sequenceDiagram
 	participant TM as main@tests
 	participant RM as main@reports
-	TM --> TM: test
+	participant RR as report@reports
+	TM --> TM: artifacts: switch to branch
+	TM --> TM: run tests
+	TM --> RM: artifacts: commit & push *.json files*
+	RM --> RM: open pull request
+	RR -> RM: get reports history
+	RM --> RR: generate report and push
+	RR --> RR: publish reports
+	RM --> RM: close pull request and delete branch
 
 </div>
 
-<!-- .element: style="height: 100%; width: 100%; margin-top: 20%" -->
+<!-- .element: style="height: 100%; width: 100%" -->
 </div></script></section><section data-markdown><script type="text/template"><!-- .slide: class="drop" -->
 <div class="" style="position: absolute; left: 0px; top: 0px; height: 768px; width: 1366px; min-height: 768px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
 
@@ -678,10 +693,117 @@ Wygenerowany raport
 <div class="" style="position: absolute; left: 0px; top: 0px; height: 768px; width: 1366px; min-height: 768px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
 
 #### Allure.yml
+###### (triggers)
+
+```yaml [1|2-5|6-7]
+name: Allure
+on:
+  pull_request:
+    types:
+      - opened
+    paths:
+      - '**.json'
+```
 </div></script></section><section data-markdown><script type="text/template"><!-- .slide: class="drop" -->
 <div class="" style="position: absolute; left: 0px; top: 0px; height: 768px; width: 1366px; min-height: 768px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
 
-Small test
+#### Allure.yml
+###### (job settings)
+
+```yaml [1-3|4|5-8|9-10]
+jobs:
+  Allure:
+	name: Generate Allure report
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      issues: write
+      pull-requests: write
+    steps:
+	  ...
+```
+</div></script></section><section data-markdown><script type="text/template"><!-- .slide: class="drop" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 768px; width: 1366px; min-height: 768px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+#### Allure.yml
+###### (Install and checkout)
+
+<split even gap="1" style="font-size: 0.775em; max-width: 1366px;"  markdown="1">
+
+```yaml [1-6|8-11|13-19]
+- name: Install Allure
+  run: |
+    curl -o allure-2.22.1.tgz -OLs https://repo.maven.apache.org/.../allure-commandline-2.22.1.tgz
+    sudo tar -zxvf allure-2.22.1.tgz -C .
+    sudo ln -s ./allure-2.22.1/bin/allure ./allure
+    ./allure --version
+
+- name: Checkout git repository
+  uses: actions/checkout@v3
+  with:
+    path: report
+
+- name: Get Allure history
+  uses: actions/checkout@v3
+  if: always()
+  continue-on-error: true
+  with:
+    ref: report
+    path: docs
+```
+
+</split>
+</div></script></section><section data-markdown><script type="text/template"><!-- .slide: class="drop" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 768px; width: 1366px; min-height: 768px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+#### Allure.yml
+###### (Build report)
+
+```yaml [1-2|4-5]
+- name: Get Allure reports history
+  run: cp -R ./docs/history/ ./report/history || echo
+
+- name: Build Allure reports
+  run: ./allure generate ./report -o ./docs --clean
+```
+</div></script></section><section data-markdown><script type="text/template"><!-- .slide: class="drop" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 768px; width: 1366px; min-height: 768px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+#### Allure.yml
+###### (Install and checkout)
+
+<split even gap="1" style="font-size: 0.775em; max-width: 1366px;"  markdown="1">
+
+```yaml [1-11|8,10-11|13-18]
+- name: Commit static site to repository with GitHub Pages enabled
+  uses: cpina/github-action-push-to-another-repository@main
+  env:
+    API_TOKEN_GITHUB: ${{ secrets.GITHUB_TOKEN }}
+  with:
+    user-name: ${{ secrets.USER_NAME }}
+    user-email: ${{ secrets.USER_EMAIL }}
+    source-directory: docs
+    destination-github-username: ${{ secrets.USER_NAME }}
+    destination-repository-name: reports
+    target-branch: report
+
+- name: Close pull request and delete its branch
+  uses: peter-evans/close-pull@v3
+  with:
+    token: 
+    comment: Allure report generated.
+    delete-branch: true
+```
+
+</split>
+</div></script></section><section data-markdown><script type="text/template"><!-- .slide: class="drop" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 768px; width: 1366px; min-height: 768px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+# Pytania?
+</div></script></section><section data-markdown><script type="text/template"><!-- .slide: class="drop" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 768px; width: 1366px; min-height: 768px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+# Koniec
 </div></script></section></div>
 </div>
 <script src="dist/reveal.js"></script>

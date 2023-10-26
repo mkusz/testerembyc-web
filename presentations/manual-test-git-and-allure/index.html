@@ -32,15 +32,15 @@
 
 <img src="attachments/napis_logo_white.png" alt="" style="object-fit: scale-down">
 
-<!-- .element: style="width: 80%" -->
+<!-- .element: style="width: 75%" -->
 
 by Maciej 'maQ' Kusz
 </div></script></section><section data-markdown><script type="text/template"><!-- .slide: class="drop" -->
 <div class="" style="position: absolute; left: 0px; top: 0px; height: 768px; width: 1366px; min-height: 768px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
 
-- Gdzie przechowujesz raporty z testów manualnych?
-- &shy;<!-- .element: class="fragment" data-fragment-index="1" -->Ile czasu poświęcasz na stworzenie raportu?
-- &shy;<!-- .element: class="fragment" data-fragment-index="2" -->Ile czasu poświęcasz na aktualizacje scenariuszy?
+- Ile czasu poświęcasz na stworzenie raportu?
+- &shy;<!-- .element: class="fragment" data-fragment-index="1" -->le czasu poświęcasz na aktualizacje scenariuszy?
+- &shy;<!-- .element: class="fragment" data-fragment-index="2" -->Gdzie przechowujesz raporty z testów manualnych?
 - &shy;<!-- .element: class="fragment" data-fragment-index="3" -->Gdzie przechowujesz scenariusze testów manualnych?
 </div></script></section><section data-markdown><script type="text/template"><!-- .slide: class="drop" -->
 <div class="" style="position: absolute; left: 0px; top: 0px; height: 768px; width: 1366px; min-height: 768px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
@@ -53,11 +53,14 @@ by Maciej 'maQ' Kusz
 </div></script></section><section data-markdown><script type="text/template"><!-- .slide: class="drop" -->
 <div class="" style="position: absolute; left: 0px; top: 0px; height: 768px; width: 1366px; min-height: 768px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
 
-## Testy manualne
+## Cykl życia
 
-Cykl życia
+Testy manualne vs automatyczne
 </div></script></section><section data-markdown><script type="text/template"><!-- .slide: class="drop" -->
 <div class="" style="position: absolute; left: 0px; top: 0px; height: 768px; width: 1366px; min-height: 768px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+<div class="" style="position: absolute; left: 0%; top: 0%; height: 100%; width: 50%; display: flex; flex-direction: column; align-items: center; justify-content: center" markdown="1">
+
 
 <div class="mermaid">
 stateDiagram
@@ -76,14 +79,12 @@ stateDiagram
 	MTE --> MTR
 
 </div>
-</div></script></section><section data-markdown><script type="text/template"><!-- .slide: class="drop" -->
-<div class="" style="position: absolute; left: 0px; top: 0px; height: 768px; width: 1366px; min-height: 768px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+ 
+<!-- .element: style="height: 100%; width: 100%; margin-top: 25%" -->
+</div>
 
-## Testy automatyczne
+<div class="fragment" style="position: absolute; left: 50%; top: 0%; height: 100%; width: 50%; display: flex; flex-direction: column; align-items: center; justify-content: center" markdown="1" data-fragment-index="0.5">
 
-Cykl życia
-</div></script></section><section data-markdown><script type="text/template"><!-- .slide: class="drop" -->
-<div class="" style="position: absolute; left: 0px; top: 0px; height: 768px; width: 1366px; min-height: 768px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
 
 <div class="mermaid">
 stateDiagram
@@ -102,6 +103,9 @@ stateDiagram
 	ATR --> CI/CD : Tests Rerun
 	ATR --> git
 
+</div>
+ 
+<!-- .element: style="height: 100%; width: 100%; margin-top: 20%" -->
 </div>
 </div></script></section><section data-markdown><script type="text/template"><!-- .slide: class="drop" -->
 <div class="" style="position: absolute; left: 0px; top: 0px; height: 768px; width: 1366px; min-height: 768px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
@@ -673,29 +677,10 @@ sequenceDiagram
 </div></script></section><section data-markdown><script type="text/template"><!-- .slide: class="drop" -->
 <div class="" style="position: absolute; left: 0px; top: 0px; height: 768px; width: 1366px; min-height: 768px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
 
-<div class="" style="position: absolute; left: 0%; top: 20%; height: 10%; width: 100%; display: flex; flex-direction: column; align-items: center; justify-content: center" >
-
-#### Branche
-</div>
-
-<div class="fragment" style="position: absolute; left: 0%; top: 10%; height: 90%; width: 50%; display: flex; flex-direction: column; align-items: center; justify-content: center" data-fragment-index="1">
-
-##### main
-Pliki Allure po wykonaniu testów
-</div>
-
-<div class="fragment" style="position: absolute; left: 50%; top: 10%; height: 90%; width: 50%; display: flex; flex-direction: column; align-items: center; justify-content: center" data-fragment-index="2">
-
-##### reports
-Wygenerowany raport
-</div>
-</div></script></section><section data-markdown><script type="text/template"><!-- .slide: class="drop" -->
-<div class="" style="position: absolute; left: 0px; top: 0px; height: 768px; width: 1366px; min-height: 768px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
-
 #### Allure.yml
 ###### (triggers)
 
-```yaml [1|2-5|6-7]
+```yaml [1|2-5|6-7|8-9|10-11]
 name: Allure
 on:
   pull_request:
@@ -703,6 +688,10 @@ on:
       - opened
     paths:
       - '**.json'
+    branches-ignore:
+      - 'release/**'
+env:
+  ALLURE_URL: https://repo.maven.apache.org/maven2/io/qameta/allure/allure-commandline/
 ```
 </div></script></section><section data-markdown><script type="text/template"><!-- .slide: class="drop" -->
 <div class="" style="position: absolute; left: 0px; top: 0px; height: 768px; width: 1366px; min-height: 768px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
@@ -733,10 +722,10 @@ jobs:
 ```yaml [1-6|8-11|13-19]
 - name: Install Allure
   run: |
-    curl -o allure-2.22.1.tgz -OLs https://repo.maven.apache.org/.../allure-commandline-2.22.1.tgz
-    sudo tar -zxvf allure-2.22.1.tgz -C .
-    sudo ln -s ./allure-2.22.1/bin/allure ./allure
-    ./allure --version
+    curl -o allure-${{ vars.ALLURE_VERSION }}.tgz -OLs \
+    `$ALLURE_URL$`{{ vars.ALLURE_VERSION }}/allure-commandline-${{ vars.ALLURE_VERSION }}.tgz
+    tar -zxvf allure-${{ vars.ALLURE_VERSION }}.tgz -C .
+    ln -s ./allure-${{ vars.ALLURE_VERSION }}/bin/allure ./allure
 
 - name: Checkout git repository
   uses: actions/checkout@v3
@@ -759,9 +748,12 @@ jobs:
 #### Allure.yml
 ###### (Build report)
 
-```yaml [1-2|4-5]
+```yaml [1-5|7-8]
 - name: Get Allure reports history
-  run: cp -R ./docs/history/ ./report/history || echo
+  run: |
+    cp -R ./docs/history/ ./report/history || echo
+    mkdir ./temp
+    cp -R ./docs/.git/ ./temp/
 
 - name: Build Allure reports
   run: ./allure generate ./report -o ./docs --clean
@@ -772,30 +764,32 @@ jobs:
 #### Allure.yml
 ###### (Install and checkout)
 
-<split even gap="1" style="font-size: 0.775em; max-width: 1366px;"  markdown="1">
 
-```yaml [1-11|8,10-11|13-18]
+```yaml [1-8|5-6,8|10-14]
 - name: Commit static site to repository with GitHub Pages enabled
-  uses: cpina/github-action-push-to-another-repository@main
-  env:
-    API_TOKEN_GITHUB: ${{ secrets.GITHUB_TOKEN }}
+  uses: EndBug/add-and-commit@v9
   with:
-    user-name: ${{ secrets.USER_NAME }}
-    user-email: ${{ secrets.USER_EMAIL }}
-    source-directory: docs
-    destination-github-username: ${{ secrets.USER_NAME }}
-    destination-repository-name: reports
-    target-branch: report
+    default_author: github_actions
+    add: "."
+    cwd: "./docs/"
+    message: Update Allure report
+    push: "origin report --set-upstream --force"
 
 - name: Close pull request and delete its branch
   uses: peter-evans/close-pull@v3
   with:
-    token: 
     comment: Allure report generated.
     delete-branch: true
 ```
+</div></script></section><section data-markdown><script type="text/template"><!-- .slide: class="drop" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 768px; width: 1366px; min-height: 768px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
 
-</split>
+## Podsumowanie
+
+- &shy;<!-- .element: class="fragment" data-fragment-index="1" -->SSoT
+- &shy;<!-- .element: class="fragment" data-fragment-index="2" -->Śledzenie zmian
+- &shy;<!-- .element: class="fragment" data-fragment-index="3" -->Ujednolicenie procesów
+- &shy;<!-- .element: class="fragment" data-fragment-index="4" -->Wspólne raportowanie
 </div></script></section><section data-markdown><script type="text/template"><!-- .slide: class="drop" -->
 <div class="" style="position: absolute; left: 0px; top: 0px; height: 768px; width: 1366px; min-height: 768px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
 
@@ -803,7 +797,7 @@ jobs:
 </div></script></section><section data-markdown><script type="text/template"><!-- .slide: class="drop" -->
 <div class="" style="position: absolute; left: 0px; top: 0px; height: 768px; width: 1366px; min-height: 768px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
 
-# Koniec
+# THX
 </div></script></section></div>
 </div>
 <script src="dist/reveal.js"></script>
@@ -820,7 +814,7 @@ jobs:
 <script src="plugin/chalkboard/plugin.js"></script>
 <script src="plugin/elapsed-time-bar/elapsed-time-bar.js"></script>
 <script>
-function extend(){for(var e={},a=0;a<arguments.length;a++){var t,o=arguments[a];for(t in o)o.hasOwnProperty(t)&&(e[t]=o[t])}return e}function isLight(e){let a=e.replace("#","");return 3==a.length&&(a=""+a[0]+a[0]+a[1]+a[1]+a[2]+a[2]),155<(299*parseInt(a.substr(0,2),16)+587*parseInt(a.substr(2,2),16)+114*parseInt(a.substr(4,2),16))/1e3}var isLight,bgColor=getComputedStyle(document.documentElement).getPropertyValue("--r-background-color").trim(),defaultOptions=((isLight=isLight(bgColor))?document.body.classList.add("has-light-background"):document.body.classList.add("has-dark-background"),{controls:!0,progress:!0,history:!0,center:!0,transition:"default",plugins:[RevealMarkdown,RevealHighlight,RevealZoom,RevealNotes,RevealMath.MathJax3,RevealMermaid,RevealChart,RevealCustomControls,RevealMenu,RevealChalkboard,ElapsedTimeBar],allottedTime:18e5,mathjax3:{mathjax:"plugin/math/mathjax/tex-mml-chtml.js"},markdown:{gfm:!0,mangle:!0,pedantic:!1,smartLists:!1,smartypants:!1},mermaid:{theme:isLight?"default":"dark"},customcontrols:{controls:[{id:"toggle-overview",title:"Toggle overview (O)",icon:'<i class="fa fa-th"></i>',action:"Reveal.toggleOverview();"},{icon:'<i class="fa fa-pen-square"></i>',title:"Toggle chalkboard (B)",action:"RevealChalkboard.toggleChalkboard();"},{icon:'<i class="fa fa-pen"></i>',title:"Toggle notes canvas (C)",action:"RevealChalkboard.toggleNotesCanvas();"}]},menu:{loadIcons:!1}}),queryOptions=Reveal().getQueryHash()||{},options=extend(defaultOptions,{width:1366,height:768,margin:.04,minScale:1,maxScale:3,controls:!0,progress:!0,slideNumber:!0,transition:"fade",transitionSpeed:"normal"},queryOptions)
+function extend(){for(var e={},a=0;a<arguments.length;a++){var t,o=arguments[a];for(t in o)o.hasOwnProperty(t)&&(e[t]=o[t])}return e}function isLight(e){let a=e.replace("#","");return 3==a.length&&(a=""+a[0]+a[0]+a[1]+a[1]+a[2]+a[2]),155<(299*parseInt(a.substr(0,2),16)+587*parseInt(a.substr(2,2),16)+114*parseInt(a.substr(4,2),16))/1e3}var isLight,bgColor=getComputedStyle(document.documentElement).getPropertyValue("--r-background-color").trim(),defaultOptions=((isLight=isLight(bgColor))?document.body.classList.add("has-light-background"):document.body.classList.add("has-dark-background"),{controls:!0,progress:!0,history:!0,center:!0,transition:"default",plugins:[RevealMarkdown,RevealHighlight,RevealZoom,RevealNotes,RevealMath.MathJax3,RevealMermaid,RevealChart,RevealCustomControls,RevealMenu,RevealChalkboard,ElapsedTimeBar],allottedTime:18e5,mathjax3:{mathjax:"plugin/math/mathjax/tex-mml-chtml.js"},markdown:{gfm:!0,mangle:!0,pedantic:!1,smartLists:!1,smartypants:!1},mermaid:{theme:isLight?"default":"dark"},customcontrols:{controls:[{id:"toggle-overview",title:"Toggle overview (O)",icon:'<i class="fa fa-th"></i>',action:"Reveal.toggleOverview();"},{icon:'<i class="fa fa-pen-square"></i>',title:"Toggle chalkboard (B)",action:"RevealChalkboard.toggleChalkboard();"},{icon:'<i class="fa fa-pen"></i>',title:"Toggle notes canvas (C)",action:"RevealChalkboard.toggleNotesCanvas();"}]},menu:{loadIcons:!1}}),queryOptions=Reveal().getQueryHash()||{},options=extend(defaultOptions,{width:1366,height:768,margin:.04,minScale:.7,maxScale:3,controls:!0,progress:!0,slideNumber:!0,transition:"fade",transitionSpeed:"normal"},queryOptions)
 </script>
 <script>Reveal.initialize(options)</script>
 </body>

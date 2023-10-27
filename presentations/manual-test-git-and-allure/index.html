@@ -62,50 +62,17 @@ Testy manualne vs automatyczne
 <div class="" style="position: absolute; left: 0%; top: 0%; height: 100%; width: 50%; display: flex; flex-direction: column; align-items: center; justify-content: center" markdown="1">
 
 
-<div class="mermaid">
-stateDiagram
-	TS: Tests Scenarios
-	
-	Specification --> TS
+<img src="attachments/cycle_manual_tests.png" alt="cycle_manual_tests|420" style="width: 420px; object-fit: fill">
 
-	TMT : Tests Managment Tool
-	MTE : Manual Tests Execution
-	MTR : Manual Tests Report
-	
-	TS --> TMT
-	TMT --> MTE
-	MTR --> TMT
-	MTR --> MTE : Tests Rerun
-	MTE --> MTR
 
-</div>
- 
-<!-- .element: style="height: 100%; width: 100%; margin-top: 25%" -->
 </div>
 
 <div class="fragment" style="position: absolute; left: 50%; top: 0%; height: 100%; width: 50%; display: flex; flex-direction: column; align-items: center; justify-content: center" markdown="1" data-fragment-index="0.5">
 
 
-<div class="mermaid">
-stateDiagram
-	TS: Tests Scenarios
-	
-	Specification --> TS
-	
-	ATR : Automated Tests Report
-	ATI: Automated Tests Implementation
-	
-	TS --> ATI
-	ATI --> git
-	git --> ATI : Code Review
-	git --> CI/CD
-	CI/CD --> ATR
-	ATR --> CI/CD : Tests Rerun
-	ATR --> git
+<img src="attachments/cycle_automated_tests.png" alt="cycle_automated_tests" style="object-fit: scale-down">
 
-</div>
- 
-<!-- .element: style="height: 100%; width: 100%; margin-top: 20%" -->
+
 </div>
 </div></script></section><section data-markdown><script type="text/template"><!-- .slide: class="drop" -->
 <div class="" style="position: absolute; left: 0px; top: 0px; height: 768px; width: 1366px; min-height: 768px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
@@ -125,48 +92,9 @@ stateDiagram
 <div class="" style="position: absolute; left: 0%; top: 0%; height: 100%; width: 50%; display: flex; flex-direction: column; align-items: center; justify-content: center" markdown="1">
 
 
-<div class="mermaid">
-stateDiagram
-	TS: Tests Scenarios
-	AT: Automated Tests
-	MT: Manual Tests
-	
-	Specification --> TS
-	
-	ATR : Automated Tests Report
-	ATI: Automated Test Implementation
-	
-	TS --> AT
-	
-	state AT {
-		ATI --> git
-		git --> ATI: Code Review
-		git --> CI/CD
-		CI/CD --> ATR
-		ATR --> CI/CD: Tests Rerun
-		ATR --> git
-	}
-	
-	TMT : Tests Management Tool
-	MTE : Manual Tests Execution
-	MTR : Manual Tests Report
-	
-	TS --> MT
-	state MT {
-		TMT --> MTE
-		MTR --> TMT
-		MTR --> MTE: Tests Rerun
-		MTE --> MTR
-	}
-	
-	AllTR: All Tests Report
-	
-	AT --> AllTR
-	MT --> AllTR
+<img src="attachments/cycle-both.png" alt="cycle-both" style="object-fit: scale-down">
 
-</div>
 
-<!-- .element: style="height: 100%; width: 100%; margin-top: 12%" -->
 </div>
 
 <div class="fragment" style="position: absolute; left: 50%; top: 0%; height: 100%; width: 50%; display: flex; flex-direction: column; align-items: center; justify-content: center" data-fragment-index="0.5">
@@ -203,47 +131,7 @@ Single Point of Truth
 </div></script></section><section data-markdown><script type="text/template"><!-- .slide: class="drop" -->
 <div class="" style="position: absolute; left: 0px; top: 0px; height: 768px; width: 1366px; min-height: 768px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
 
-<div class="mermaid">
-stateDiagram
-	TS: Tests Scenarios
-	AT: Automated Tests
-	MT: Manual Tests
-	
-	Specification --> TS
-	
-	ATR : Automated Tests Report
-	ATI: Automated Test Implementation
-	
-	TS --> AT
-	state AT {
-		ATI --> git
-		git --> ATI : Code Review
-		git --> CI/CD
-		CI/CD --> ATR
-		ATR --> CI/CD : Tests Rerun
-		ATR --> git
-	}
-	
-	TMT : Tests Management Tool
-	MTE : Manual Tests Execution
-	MTR : Manual Tests Report
-	
-	TS --> MT
-	state MT {
-		TMT --> MTE
-		MTR --> TMT
-		MTR --> MTE : Tests Rerun
-		MTE --> MTR
-	}
-
-	AllTR: All Tests Report
-	
-	AT --> AllTR
-	MT --> AllTR
-
-</div>
- 
-<!-- .element: style="height: 100%; width: 100%; margin-top: 5%" -->
+<img src="attachments/cycle-both.png" alt="cycle-both|" style="object-fit: scale-down">
 </div></script></section><section data-markdown><script type="text/template"><!-- .slide: class="drop" -->
 <div class="" style="position: absolute; left: 0px; top: 0px; height: 768px; width: 1366px; min-height: 768px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
 
@@ -287,25 +175,9 @@ stateDiagram
 <div class="" style="position: absolute; left: 0%; top: 0%; height: 100%; width: 50%; display: flex; flex-direction: column; align-items: center; justify-content: center" markdown="1">
 
 
-<div class="mermaid">
-stateDiagram
-	TSI: Tests Scenarios/Implementation
-	
-	Specification --> TSI
-	
-	TR : Tests Report
-	TE: Tests Execution
-	
-	TSI --> git
-	git --> TSI : Review
-	git --> TE
-	TE--> TR
-	TR --> TE : Tests Rerun
-	TR --> git
+<img src="attachments/cycle-integrated.png" alt="" style="object-fit: scale-down">
 
-</div>
- 
-<!-- .element: style="height: 100%; width: 100%; margin-top: 20%" -->
+
 </div>
 
 <div class="" style="position: absolute; left: 50%; top: 0%; height: 100%; width: 50%; display: flex; flex-direction: column; align-items: center; justify-content: center" >
@@ -323,25 +195,9 @@ stateDiagram
 <div class="" style="position: absolute; left: 0%; top: 0%; height: 100%; width: 50%; display: flex; flex-direction: column; align-items: center; justify-content: center" markdown="1">
 
 
-<div class="mermaid">
-stateDiagram
-	TSI: Tests Scenarios/Implementation
-	
-	Specification --> TSI
-	
-	TR : Tests Report
-	TE: Tests Execution
-	
-	TSI --> git
-	git --> TSI : Review
-	git --> TE
-	TE--> TR
-	TR --> TE : Tests Rerun
-	TR --> git
+<img src="attachments/cycle-integrated.png" alt="" style="object-fit: scale-down">
 
-</div>
- 
-<!-- .element: style="height: 100%; width: 100%; margin-top: 20%" -->
+
 </div>
 
 <div class="" style="position: absolute; left: 50%; top: 0%; height: 100%; width: 50%; display: flex; flex-direction: column; align-items: center; justify-content: center" >
@@ -793,11 +649,7 @@ jobs:
 </div></script></section><section data-markdown><script type="text/template"><!-- .slide: class="drop" -->
 <div class="" style="position: absolute; left: 0px; top: 0px; height: 768px; width: 1366px; min-height: 768px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
 
-# Pytania?
-</div></script></section><section data-markdown><script type="text/template"><!-- .slide: class="drop" -->
-<div class="" style="position: absolute; left: 0px; top: 0px; height: 768px; width: 1366px; min-height: 768px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
-
-# THX
+<img src="attachments/qr-pre-manual-and-allure.png" alt="qr-pre-manual-and-allure" style="object-fit: scale-down">
 </div></script></section></div>
 </div>
 <script src="dist/reveal.js"></script>

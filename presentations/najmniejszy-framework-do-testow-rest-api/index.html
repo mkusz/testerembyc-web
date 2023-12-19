@@ -1,0 +1,1700 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no" name="viewport">
+<title></title>
+<link href="dist/reveal.css" rel="stylesheet">
+<link href="dist/theme/blood.css" rel="stylesheet" id="theme">
+<link href="plugin/highlight/monokai.css" rel="stylesheet">
+<link href="css/layout.css" rel="stylesheet">
+<link href="plugin/customcontrols/style.css" rel="stylesheet">
+<link href="plugin/chalkboard/style.css" rel="stylesheet">
+<script src="dist/fontawesome/all.min.js" defer></script>
+<script type="text/javascript">var forgetPop=!0;function onPopState(e){forgetPop?forgetPop=!1:parent.postMessage(e.target.location.href,"app://obsidian.md")}function fitElements(){var e,t=document.getElementsByClassName("fitText");for(const o in t)Object.hasOwnProperty.call(t,o)&&(fitElement(e=t[o],1,1e3),e.classList.remove("fitText"))}function fitElement(e,t,o){let n=(o+t)/2;if(e.style.fontSize=n+"px",Math.abs(t-o)<1)for(;e.scrollHeight>e.offsetHeight;)n--,e.style.fontSize=n+"px";else e.scrollHeight>e.offsetHeight?fitElement(e,t,n):fitElement(e,n,o)}window.onpopstate=onPopState,window.onmessage=e=>{"reload"==e.data&&window.document.location.reload(),forgetPop=!0},document.onreadystatechange=()=>{if(fitElements(),"complete"===document.readyState&&(-1!=window.location.href.indexOf("?export")&&parent.postMessage(event.target.location.href,"app://obsidian.md"),-1!=window.location.href.indexOf("print-pdf"))){let e=setInterval(()=>{clearInterval(e),window.print()},250)}}</script>
+</head>
+<body>
+<div class="reveal">
+<div class="slides"><section data-markdown><script type="text/template"><!-- .slide: class="drop" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 768px; width: 1366px; min-height: 768px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+# Najmniejszy framework do testów REST API
+</div></script></section><section data-markdown><script type="text/template"><!-- .slide: class="drop" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 768px; width: 1366px; min-height: 768px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+<img src="attachments/napis_logo_white.png" alt="" style="object-fit: scale-down">
+
+
+by Maciej 'maQ' Kusz
+</div></script></section><section data-markdown><script type="text/template"><!-- .slide: class="drop" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 768px; width: 1366px; min-height: 768px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+## Skąd pomysł na
+
+### *najmniejszy framework*
+
+### do testów REST API
+
+# ?
+</div>
+
+<aside class="notes"><p>W 2014 roku powstała akcja #hot16challange inspirowana &quot;Ice bucket chalange&quot;, która polegała na wykonaniu tzw. &quot;szestnastki&quot;, czyli zwrotki składającej się z 16 wersów, a następnie &quot;nominowaniu&quot; kolejnej osoby. Pierwsza edycja miała cel typowo rozrywkowy. Druga edycja ogłoszona pod koniec kwietnia 2020 miała już cel typowo finansowy, a pozyskane środki miały wesprzeć personel medyczny w walce z pandemią. Kilka miesięcy później, trochę z nudów, trochę z ogólnego wkurzenia na zamknięcie w 4 ścianach, mój znajomy Bartosz Kita, ogłosił podobna zabawę, czyli #code16chalange, który miał polegać na napisaniu jakiegoś ciekawego kawałka kodu w 16 linijkach (lub mniej). Niestety akcja było ciut mało rozpowszechniona i zaledwie kilka osób wzięło w niej udział. Ja wtedy pomyślałem, że warto pokazać siłę Pythona i stworzyć coś ciekawego.</p>
+</aside></script></section><section data-markdown><script type="text/template"><!-- .slide: class="drop" data-transition="slide-in none" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 768px; width: 1366px; min-height: 768px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+## #hot16chalange
+
+<img src="attachments/bartosz_kita.png" alt="" style="object-fit: scale-down" class="fragment" data-fragment-index="1">
+</div></script></section><section data-markdown><script type="text/template"><!-- .slide: class="drop" data-transition="none none" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 768px; width: 1366px; min-height: 768px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+## #code16chalange
+
+<img src="attachments/bartosz_kita.png" alt="" style="object-fit: scale-down">
+</div></script></section><section data-markdown><script type="text/template"><!-- .slide: class="drop" data-transition="none none" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 768px; width: 1366px; min-height: 768px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+## #code16chalange
+
+<p></p>
+
+### Założenia:
+
+- &shy;<!-- .element: class="fragment" data-fragment-index="1" -->kod może mieć max 16 linijek
+- &shy;<!-- .element: class="fragment" data-fragment-index="2" -->... ma walor edukacyjny
+- &shy;<!-- .element: class="fragment" data-fragment-index="3" -->... jest użyteczny
+- &shy;<!-- .element: class="fragment" data-fragment-index="4" -->... i jest spójną całością
+
+<span style="font-size: 2.1em;">&nbsp;</span>
+</div></script></section><section data-markdown><script type="text/template"><!-- .slide: class="drop" data-transition="none none" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 768px; width: 1366px; min-height: 768px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+## Framework
+
+<p></p>
+
+### Założenia:
+
+- kod może mieć max 16 linijek
+- &shy;<!-- .element: class="fragment" data-fragment-index="1" -->testujemy REST API
+- &shy;<!-- .element: class="fragment" data-fragment-index="2" -->generujemy "jakiś" raport
+- &shy;<!-- .element: class="fragment" data-fragment-index="3" -->dane testowe poza kodem
+- &shy;<!-- .element: class="fragment" data-fragment-index="4" -->... i spodziewany wynik też
+
+<span style="font-size: 0em;">&nbsp;</span>
+</div>
+
+<aside class="notes"><p>Skoro musimy zmieścić się w 16 linijkach kodu, to dosyć luźno podejdziemy do zaleceń PEP8/black</p>
+</aside></script></section><section data-markdown><script type="text/template"><!-- .slide: class="drop" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 768px; width: 1366px; min-height: 768px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+## Co testujemy?
+
+https://reqres.in/
+
+<div class="callout callout-color8">
+<div class="callout-title">
+<div class="callout-icon">
+
+<i class="fas fa-list" ></i>
+
+
+</div>
+<div class="callout-title-inner">
+
+Przykłady endpointów
+
+</div>
+</div>
+<div class="callout-content">
+
+GET `/api/user/2` -> 200
+
+GET `/api/user/23` -> 404
+
+POST `/api/user` {"name": "john", "job": "tester"} -> 201
+
+DELETE `/api/user/2` -> 204
+
+...
+
+</div>
+</div>
+</div></script></section><section data-markdown><script type="text/template"><!-- .slide: class="drop" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 768px; width: 1366px; min-height: 768px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+## Jakie biblioteki?
+
+- `import unittest`
+- &shy;<!-- .element: class="fragment" data-fragment-index="1" -->`import xmlrunner`
+- &shy;<!-- .element: class="fragment" data-fragment-index="2" -->`import json`
+- &shy;<!-- .element: class="fragment" data-fragment-index="3" -->`import requests`
+</div></script></section><section data-markdown><script type="text/template"><!-- .slide: class="drop" data-transition="slide-in none" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 768px; width: 1366px; min-height: 768px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+## Pierwszy test
+
+<split even gap="1" style="font-size: 1.6em; max-width: 1366px;" markdown="1">
+
+```python [3|4]
+import unittest, xmlrunner, json, requests
+
+response = requests.get("https://reqres.in/api/user/2")
+print(response.status_code)  # 200
+```
+
+</split>
+<br><span style="font-size: 1em;">&nbsp;</span>
+</div></script></section><section data-markdown><script type="text/template"><!-- .slide: class="drop" data-transition="none slide-out" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 768px; width: 1366px; min-height: 768px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+## Pierwszy test
+
+<split even gap="1" style="font-size: 1.6em; max-width: 1366px;" markdown="1">
+
+```python [5]
+import unittest, xmlrunner, json, requests
+
+response = requests.get("https://reqres.in/api/user/2")
+
+assert response.status_code == 200
+```
+
+</split>
+<br><span style="font-size: 0.15em;">&nbsp;</span>
+</div></script></section><section data-markdown><script type="text/template"><!-- .slide: class="drop" data-transition="slide-in none" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 768px; width: 1366px; min-height: 768px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+## Test w unittest
+
+<split even gap="1" style="font-size: 1.5em; max-width: 1366px;" markdown="1">
+
+```python [3|4|5-6]
+import unittest, xmlrunner, json, requests
+
+class Tests(unittest.TestCase):
+    def test_get_single_user(self):
+        response = requests.get("https://reqres.in/api/user/2")
+        self.assertEqual(response.status_code, 200)
+```
+
+</split>
+<br><span style="font-size: 1.25em;">&nbsp;</span>
+</div></script></section><section data-markdown><script type="text/template"><!-- .slide: class="drop" data-transition="none slide-out" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 768px; width: 1366px; min-height: 768px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+## Test w unittest
+
+<split even gap="1" style="font-size: 1.5em; max-width: 1366px;" markdown="1">
+
+```python [8-9|5-6]
+import unittest, xmlrunner, json, requests
+
+class Tests(unittest.TestCase):
+    def test_get_single_user(self):
+        response = requests.get("https://reqres.in/api/user/2")
+        self.assertEqual(response.status_code, 200)
+
+if __name__ == '__main__':
+    unittest.main()
+```
+
+</split>
+</div>
+
+<aside class="notes"><p>No więc mamy 1 działający test. Spróbujmy wydzielić z niego dane testowe.</p>
+</aside></script></section><section data-markdown><script type="text/template"><!-- .slide: class="drop" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 768px; width: 1366px; min-height: 768px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+## tests.json
+
+<split even gap="1" style="font-size: 1.5em; max-width: 1366px;" markdown="1">
+
+```json [2-4|5-7]
+{
+  "req": {
+    "url": "https://reqres.in/api/users/2"
+  },
+  "assert": {
+    "code": 200
+  }
+}
+```
+
+</split>
+</div></script></section><section data-markdown><script type="text/template"><!-- .slide: class="drop" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 768px; width: 1366px; min-height: 768px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+## Test z tests.json
+
+<split even gap="1" style="font-size: 1.25em; max-width: 1366px;" markdown="1">
+
+```python [3|7|8|7]
+import unittest, xmlrunner, json, requests
+
+td = json.load(open('tests.json'))
+
+class Tests(unittest.TestCase):
+    def test_get_single_user(self):
+        response = requests.get(td["req"]["url"])
+        self.assertEqual(response.status_code, td["assert"]["code"])
+
+if __name__ == '__main__':
+    unittest.main()
+```
+
+</split>
+</div>
+
+<aside class="notes"><p>Przyjrzyjmy się z czego składa się <code>requests.get</code></p>
+</aside></script></section><section data-markdown><script type="text/template"><!-- .slide: class="drop" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 768px; width: 1366px; min-height: 768px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+## requests.get
+
+<split even gap="1" style="font-size: 1.5em; max-width: 1366px;" markdown="1">
+
+```python [1-3|3]
+def get(url, params=None, **kwargs):
+    kwargs.setdefault('allow_redirects', True)
+    return request('get', url, params=params, **kwargs)
+```
+
+</split>
+</div></script></section><section data-markdown><script type="text/template"><!-- .slide: class="drop" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 768px; width: 1366px; min-height: 768px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+## tests.json v2
+
+<split even gap="1" style="font-size: 1.5em; max-width: 1366px;" markdown="1">
+
+```json [3]
+{
+  "req": {
+    "method": "get",
+    "url": "https://reqres.in/api/users/2"
+  },
+  "assert": {
+    "code": 200
+  }
+}
+```
+
+</split>
+</div></script></section><section data-markdown><script type="text/template"><!-- .slide: class="drop" data-transition="slide-in none" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 768px; width: 1366px; min-height: 768px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+## Modyfikacja requestu
+
+<split even gap="1" style="font-size: 1em; max-width: 1366px;" markdown="1">
+
+```python [7,10|8|9|8-9]
+import unittest, xmlrunner, json, requests
+
+td = json.load(open('tests.json'))
+
+class Tests(unittest.TestCase):
+    def test_get_single_user(self):
+        response = requests.request(
+            method=td["req"]["method"],
+            url=td["req"]["url"]
+        )
+        self.assertEqual(response.status_code, td["assert"]["code"])
+
+if __name__ == '__main__':
+    unittest.main()
+```
+
+</split>
+<br><span style="font-size: 1em;">&nbsp;</span>
+</div>
+
+<aside class="notes"><p>Nazwa atrybutu i klucz słownika są takie same. Co ten zapis przypomina?</p>
+</aside></script></section><section data-markdown><script type="text/template"><!-- .slide: class="drop" data-transition="none none" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 768px; width: 1366px; min-height: 768px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+## Modyfikacja requestu
+
+<split even gap="1" style="font-size: 1em; max-width: 1366px;" markdown="1">
+
+```python [8]
+import unittest, xmlrunner, json, requests
+
+td = json.load(open('tests.json'))
+
+class Tests(unittest.TestCase):
+    def test_get_single_user(self):
+        response = requests.request(
+            **td["req"]
+        )
+        self.assertEqual(response.status_code, td["assert"]["code"])
+
+if __name__ == '__main__':
+    unittest.main()
+```
+
+</split>
+<br><span style="font-size: 1.5em;">&nbsp;</span>
+</div>
+
+<aside class="notes"><p>Dict unpack</p>
+</aside></script></section><section data-markdown><script type="text/template"><!-- .slide: class="drop" data-transition="none none" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 768px; width: 1366px; min-height: 768px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+## Modyfikacja requestu
+
+<split even gap="1" style="font-size: 1em; max-width: 1366px;" markdown="1">
+
+```python [7|7-8]
+import unittest, xmlrunner, json, requests
+
+td = json.load(open('tests.json'))
+
+class Tests(unittest.TestCase):
+    def test_get_single_user(self):
+        response = requests.request(**td["req"])
+        self.assertEqual(response.status_code, td["assert"]["code"])
+
+if __name__ == '__main__':
+    unittest.main()
+```
+
+</split>
+<br><span style="font-size: 2.55em;">&nbsp;</span>
+</div>
+
+<aside class="notes"><p>Wepchnijmy to w 1 linijkę</p>
+</aside></script></section><section data-markdown><script type="text/template"><!-- .slide: class="drop" data-transition="none slide-out" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 768px; width: 1366px; min-height: 768px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+## Modyfikacja requestu
+
+<split even gap="1" style="font-size: 1em; max-width: 1366px" markdown="1">
+
+```python [7|6]
+import unittest, xmlrunner, json, requests
+
+td = json.load(open('tests.json'))
+
+class Tests(unittest.TestCase):
+    def test_get_single_user(self):
+        self.assertEqual(requests.request(**td["req"]).status_code, td["assert"]["code"])
+
+if __name__ == '__main__':
+    unittest.main()
+```
+
+</split>
+<br><span style="font-size: 3em;">&nbsp;</span>
+</div></script></section><section data-markdown><script type="text/template"><!-- .slide: class="drop" data-transition="slide-in none" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 768px; width: 1366px; min-height: 768px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+## Wydzielenie testu z klasy
+
+<split even gap="1" style="font-size: 1em; max-width: 1366px" markdown="1">
+
+```python [5]
+import unittest, xmlrunner, json, requests
+
+td = json.load(open('tests.json'))
+
+class Tests(unittest.TestCase): pass
+```
+
+</split>
+<br><span style="font-size: 5em;">&nbsp;</span>
+</div></script></section><section data-markdown><script type="text/template"><!-- .slide: class="drop" data-transition="none none" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 768px; width: 1366px; min-height: 768px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+## Wydzielenie testu z klasy
+
+<split even gap="1" style="font-size: 1em; max-width: 1366px" markdown="1">
+
+```python [7-8]
+import unittest, xmlrunner, json, requests
+
+td = json.load(open('tests.json'))
+
+class Tests(unittest.TestCase): pass
+
+def abstract_test(self):
+    self.assertEqual(requests.request(**td["req"]).status_code, td["assert"]["code"])
+```
+
+</split>
+<br><span style="font-size: 3.55em;">&nbsp;</span>
+</div></script></section><section data-markdown><script type="text/template"><!-- .slide: class="drop" data-transition="none slide-out" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 768px; width: 1366px; min-height: 768px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+## Wydzielenie testu z klasy
+
+<split even gap="1" style="font-size: 1em; max-width: 1366px" markdown="1">
+
+```python [10|]
+import unittest, xmlrunner, json, requests
+
+td = json.load(open('tests.json'))
+
+class Tests(unittest.TestCase): pass
+
+def abstract_test(self):
+    self.assertEqual(requests.request(**td["req"]).status_code, td["assert"]["code"])
+
+setattr(Tests, "test_get_single_user", abstract_test)
+
+if __name__ == '__main__':
+    unittest.main()
+```
+
+</split>
+<br><span style="font-size: 1em;">&nbsp;</span>
+</div>
+
+<aside class="notes"><p>Skoro wydzieliliśmy test z klasy, to musimy go jeszcze jakoś tam wkleić. Do tego celu użyjemy <code>setattr</code></p>
+</aside></script></section><section data-markdown><script type="text/template"><!-- .slide: class="drop" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 768px; width: 1366px; min-height: 768px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+## tests.json v3
+
+<split even gap="1" style="font-size: 1.25em" markdown="1">
+
+```json [3-9|2,10]
+{
+  "test_get_single_user": {
+    "req": {
+      "method": "get",
+      "url": "https://reqres.in/api/users/2"
+    },
+    "assert": {
+      "code": 200
+    }
+  }
+}
+```
+
+</split>
+</div>
+
+<aside class="notes"><p>Dane testowe już znamy, ale opakowujemy je nazwą testu</p>
+</aside></script></section><section data-markdown><script type="text/template"><!-- .slide: class="drop" data-transition="slide-in none" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 768px; width: 1366px; min-height: 768px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+## Nazwa testu z pliku
+
+<split even gap="1" style="font-size: 0.9em; max-width: 1366px" markdown="1">
+
+```python [|7-10|10]
+import unittest, xmlrunner, json, requests
+
+td = json.load(open('tests.json'))
+
+class Tests(unittest.TestCase): pass
+
+def abstract_test(self):
+    self.assertEqual(requests.request(**td["req"]).status_code, td["assert"]["code"])
+
+setattr(Tests, "test_get_single_user", abstract_test)
+
+if __name__ == '__main__':
+    unittest.main()
+```
+
+</split>
+<br><span style="font-size: 2.4em;">&nbsp;</span>
+</div>
+
+<aside class="notes"><p>Sklejmy teraz te kawałki kodu i zmodyfikujmy trochę wywołanie <code>setattr</code></p>
+</aside></script></section><section data-markdown><script type="text/template"><!-- .slide: class="drop" data-transition="none none" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 768px; width: 1366px; min-height: 768px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+## Nazwa testu z pliku
+
+<split even gap="1" style="font-size: 0.9em; max-width: 1366px" markdown="1">
+
+```python [8-9|7,10]
+import unittest, xmlrunner, json, requests
+
+td = json.load(open('tests.json'))
+
+class Tests(unittest.TestCase): pass
+
+def add_test(cls, tn):
+    def abstract_test(self):
+        self.assertEqual(requests.request(**td["req"]).status_code, td["assert"]["code"])
+    setattr(cls, tn, abstract_test)
+```
+
+</split>
+<br><span style="font-size: 3.75em;">&nbsp;</span>
+</div></script></section><section data-markdown><script type="text/template"><!-- .slide: class="drop" data-transition="none slide-out" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 768px; width: 1366px; min-height: 768px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+## Nazwa testu z pliku
+
+<split even gap="1" style="font-size: 0.9em; max-width: 1366px" markdown="1">
+
+```python [12-13]
+import unittest, xmlrunner, json, requests
+
+td = json.load(open('tests.json'))
+
+class Tests(unittest.TestCase): pass
+
+def add_test(cls, tn):
+    def abstract_test(self):
+        self.assertEqual(requests.request(**td["req"]).status_code, td["assert"]["code"])
+    setattr(cls, tn, abstract_test)
+
+for tn in td.keys():
+    add_test(Tests, tn)
+
+if __name__ == '__main__':
+    unittest.main()
+```
+
+</split>
+<br><span style="font-size: 1em;">&nbsp;</span>
+</div></script></section><section data-markdown><script type="text/template"><!-- .slide: class="drop" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 768px; width: 1366px; min-height: 768px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+## tests.json v4
+
+<split even gap="2" style="font-size: 0.75em" markdown="1">
+
+```json [11-19]
+{
+  "test_get_single_user": {
+    "req": {
+      "method": "get",
+      "url": "https://reqres.in/api/users/2"
+    },
+    "assert": {
+      "code": 200
+    }
+  },
+  "test_get_non_existing_user": {
+    "req": {
+      "method": "get",
+      "url": "https://reqres.in/api/users/23"
+    },
+    "assert": {
+      "code": 404
+    }
+  },
+```
+
+<pre class="json"><code data-trim data-line-numbers="1-13" data-ln-start-from="20" style="white-space: pre-wrap;">
+
+  "test_create_new_user": {
+    "req": {
+      "method": "post",
+      "url": "https://reqres.in/api/users",
+      "json": {
+        "name": "testerembyc",
+        "job": "QA"
+      }
+    },
+    "assert": {
+      "code": 201
+    }
+  }
+}
+
+</code></pre>
+
+</split>
+</div></script></section><section data-markdown><script type="text/template"><!-- .slide: class="drop" data-transition="slide-in none" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 768px; width: 1366px; min-height: 768px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+## Raporty
+
+<split even gap="1" style="font-size: 0.9em; max-width: 1366px" markdown="1">
+
+```python [|1]
+import unittest, xmlrunner, json, requests
+
+td = json.load(open('tests.json'))
+
+class Tests(unittest.TestCase): pass
+
+def add_test(cls, tn):
+    def abstract_test(self):
+        self.assertEqual(requests.request(**td["req"]).status_code, td["assert"]["code"])
+    setattr(cls, tn, abstract_test)
+
+for tn in td.keys():
+    add_test(Tests, tn)
+
+if __name__ == '__main__':
+    unittest.main()
+```
+
+</split>
+<br><span style="font-size: 1em;">&nbsp;</span>
+</div></script></section><section data-markdown><script type="text/template"><!-- .slide: class="drop" data-transition="none slide-out" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 768px; width: 1366px; min-height: 768px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+## Raporty
+
+<split even gap="1" style="font-size: 0.9em; max-width: 1366px" markdown="1">
+
+```python [16]
+import unittest, xmlrunner, json, requests
+
+td = json.load(open('tests.json'))
+
+class Tests(unittest.TestCase): pass
+
+def add_test(cls, name):
+    def abstract_test(self):
+        self.assertEqual(requests.request(**td["req"]).status_code, td["assert"]["code"])
+    setattr(cls, name, abstract_test)
+
+for tn in td.keys():
+    add_test(Tests, tn)
+
+if __name__ == '__main__':
+    unittest.main(testRunner=xmlrunner.XMLTestRunner())
+```
+
+</split>
+<br><span style="font-size: 1em;">&nbsp;</span>
+</div></script></section><section data-markdown><script type="text/template"><!-- .slide: class="drop" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 768px; width: 1366px; min-height: 768px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+## Raporty
+
+<div style="font-size: 1.05em; max-width: 1366px" markdown="1">
+
+Konsola:
+
+<pre class="bash"><code data-trim data-line-numbers="" style="white-space: pre-wrap;">
+/Users/maq/git/mini/.venv/bin/python /Users/maq/git/mini/app.py
+
+Running tests...
+--------------------------------------------------------
+...
+--------------------------------------------------------
+Ran 3 tests in 0.000s
+
+OK
+
+Generating XML reports...
+
+Process finished with exit code 0
+</pre>
+</div>
+</div></script></section><section data-markdown><script type="text/template"><!-- .slide: class="drop" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 768px; width: 1366px; min-height: 768px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+## Raporty
+
+<split even gap="1" style="font-size: 1.05em; max-width: 1366px" markdown="1">
+
+TEST-Tests-20221029240608.xml
+
+```xml [|3-5]
+<?xml version="1.0" ?>
+<testsuite name="Tests-20221029230608" tests="3" time="0.000" failures="0" errors="0">  
+   <testcase classname="Tests" name="test_create_new_user" time="0.000"></testcase>  
+   <testcase classname="Tests" name="test_get_non_existing_user" time="0.000"></testcase>  
+   <testcase classname="Tests" name="test_get_single_user" time="0.000"></testcase>  
+   <system-out><![CDATA[]]></system-out>  
+   <system-err><![CDATA[]]></system-err>  
+</testsuite>
+```
+
+</split>
+</div></script></section><section data-markdown><script type="text/template"><!-- .slide: class="drop" data-transition="slide-in none" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 768px; width: 1366px; min-height: 768px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+## Odchudzanie
+
+<split even gap="1" style="font-size: 0.9em; max-width: 1366px" markdown="1">
+
+
+```python [3,12-13]
+import unittest, xmlrunner, json, requests
+
+td = json.load(open('tests.json'))
+
+class Tests(unittest.TestCase): pass
+
+def add_test(cls, tn):
+    def abstract_test(self):
+        self.assertEqual(requests.request(**td["req"]).status_code, td["assert"]["code"])
+    setattr(cls, tn, abstract_test)
+
+for tn in td.keys():
+    add_test(Tests, tn)
+
+if __name__ == '__main__':
+    unittest.main(testRunner=xmlrunner.XMLTestRunner())
+```
+
+</split>
+<br><span style="font-size: 1em;">&nbsp;</span>
+</div></script></section><section data-markdown><script type="text/template"><!-- .slide: class="drop" data-transition="none none" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 768px; width: 1366px; min-height: 768px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+## Odchudzanie
+
+<split even gap="1" style="font-size: 0.9em; max-width: 1366px" markdown="1">
+
+
+```python [10|11|5,12|3,14-15]
+import unittest, xmlrunner, json, requests
+
+class Tests(unittest.TestCase): pass
+
+def add_test(cls, tn, td):
+    def abstract_test(self):
+        self.assertEqual(requests.request(**td["req"]).status_code, td["assert"]["code"])
+    setattr(cls, tn, abstract_test)
+
+with open('tests.json') as json_file:
+    for tn, td in json.load(json_file).items():
+        add_test(Tests, tn, td)
+
+if __name__ == '__main__':
+    unittest.main(testRunner=xmlrunner.XMLTestRunner())
+```
+
+</split>
+<br><span style="font-size: 1.45em;">&nbsp;</span>
+</div></script></section><section data-markdown><script type="text/template"><!-- .slide: class="drop" data-transition="none none" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 768px; width: 1366px; min-height: 768px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+## Odchudzanie
+
+<split even gap="1" style="font-size: 0.9em; max-width: 1366px" markdown="1">
+
+
+```python [8-11|9|13|4-6]
+import unittest, xmlrunner, json, requests
+
+def add_test(cls, tn, td):
+    def abstract_test(self):
+        self.assertEqual(requests.request(**td["req"]).status_code, td["assert"]["code"])
+    setattr(cls, tn, abstract_test)
+
+with open('tests.json') as json_file:
+    class Tests(unittest.TestCase): pass
+    for tn, td in json.load(json_file).items():
+        add_test(Tests, tn, td)
+
+unittest.main(testRunner=xmlrunner.XMLTestRunner())
+```
+
+</split>
+<br><span style="font-size: 2.35em;">&nbsp;</span>
+</div></script></section><section data-markdown><script type="text/template"><!-- .slide: class="drop" data-transition="none none" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 768px; width: 1366px; min-height: 768px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+## Odchudzanie
+
+<split even gap="1" style="font-size: 0.9em; max-width: 1366px" markdown="1">
+
+
+<pre class="python"><code data-trim data-line-numbers="4|3-4"style="white-space: pre-wrap;">
+import unittest, xmlrunner, json, requests
+
+def add_test(cls, tn, td):
+    setattr(cls, tn, lambda self: self.assertEqual(requests.request(**td["req"]).status_code, td["assert"]["code"]))
+
+with open('tests.json') as json_file:
+    class Tests(unittest.TestCase): pass
+    for tn, td in json.load(json_file).items():
+        add_test(Tests, tn, td)
+
+unittest.main(testRunner=xmlrunner.XMLTestRunner())
+</code></pre>
+
+</split>
+<br><span style="font-size: 2.85em;">&nbsp;</span>
+</div></script></section><section data-markdown><script type="text/template"><!-- .slide: class="drop" data-transition="none none" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 768px; width: 1366px; min-height: 768px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+## Odchudzanie
+
+<split even gap="1" style="font-size: 0.9em; max-width: 1366px" markdown="1">
+
+
+<pre class="python"><code data-trim data-line-numbers="3"style="white-space: pre-wrap;">
+import unittest, xmlrunner, json, requests
+
+add_test = lambda cls, tn, td: setattr(cls, tn, lambda self: self.assertEqual(requests.request(**td["req"]).status_code, td["assert"]["code"]))
+
+with open('tests.json') as json_file:
+    class Tests(unittest.TestCase): pass
+    for tn, td in json.load(json_file).items():
+        add_test(Tests, tn, td)
+
+unittest.main(testRunner=xmlrunner.XMLTestRunner())
+</code></pre>
+
+</split>
+<br><span style="font-size: 3.25em;">&nbsp;</span>
+</div></script></section><section data-markdown><script type="text/template"><!-- .slide: class="drop" data-transition="none none" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 768px; width: 1366px; min-height: 768px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+## Odchudzanie
+
+<split even gap="1" style="font-size: 0.9em; max-width: 1366px">
+
+<pre class="python"><code data-trim data-line-numbers="5|3-7|4"style="white-space: pre-wrap;">
+import unittest, xmlrunner, json, requests
+
+with open('tests.json') as json_file:
+    class Tests(unittest.TestCase,): pass
+    add_test = lambda cls, tn, td: setattr(cls, tn, lambda self: self.assertEqual(requests.request(**td["req"]).status_code, td["assert"]["code"]))
+    for tn, td in json.load(json_file).items():
+        add_test(Tests, tn, td)
+
+unittest.main(testRunner=xmlrunner.XMLTestRunner())
+</code></pre>
+
+</split>
+<br><span style="font-size: 3.75em;">&nbsp;</span>
+</div></script></section><section data-markdown><script type="text/template"><!-- .slide: class="drop" data-transition="none none" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 768px; width: 1366px; min-height: 768px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+## Odchudzanie
+
+<split even gap="1" style="font-size: 0.9em; max-width: 1366px">
+
+<pre class="python"><code data-trim data-line-numbers="4|5-7"style="white-space: pre-wrap;">
+import unittest, xmlrunner, json, requests
+
+with open('tests.json') as json_file:
+    Tests = type("Tests", (unittest.TestCase,), {})
+    add_test = lambda cls, tn, td: setattr(cls, tn, lambda self: self.assertEqual(requests.request(**td["req"]).status_code, td["assert"]["code"]))
+    for tn, td in json.load(json_file).items():
+        add_test(Tests, tn, td)
+
+unittest.main(testRunner=xmlrunner.XMLTestRunner())
+</code></pre>
+
+</split>
+<br><span style="font-size: 3.75em;">&nbsp;</span>
+</div>
+
+<aside class="notes"><p>Zamiana tworzenia klasy przy użyciu <code>type</code> powoduje, że metody danej klasy, definiowane są jako słownik. Zastanówmy się czy ten kawałek kodu możemy zamienić tak, aby generował nam słownik z metodami testowymi.</p>
+</aside></script></section><section data-markdown><script type="text/template"><!-- .slide: class="drop" data-transition="none none" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 768px; width: 1366px; min-height: 768px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+## Odchudzanie
+
+<split even gap="1" style="font-size: 0.9em; max-width: 1366px">
+
+<pre class="python"><code data-trim data-line-numbers="4,10|9|5|6,8|7|4-10|6-8"style="white-space: pre-wrap;">
+import unittest, xmlrunner, json, requests
+
+with open('tests.json') as json_file:
+    tests_dict = {
+        tn:
+            (lambda ad, resp: 
+                lambda self: self.assertEqual(resp.status_code, ad["code"])
+            )(td["assert"], requests.request(**td["req"]))
+        for tn, td in json.load(json_file).items()
+    }
+    Tests = type("Tests", unittest.TestCase, tests_dict)
+
+unittest.main(testRunner=xmlrunner.XMLTestRunner())
+</code></pre>
+
+</split>
+<br><span style="font-size: 2.35em;">&nbsp;</span>
+</div></script></section><section data-markdown><script type="text/template"><!-- .slide: class="drop" data-transition="none none" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 768px; width: 1366px; min-height: 768px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+## Odchudzanie
+
+<split even gap="1" style="font-size: 0.9em; max-width: 1366px">
+
+<pre class="python"><code data-trim data-line-numbers="6|5-7" style="white-space: pre-wrap;">
+import unittest, xmlrunner, json, requests
+
+with open('tests.json') as json_file:
+    tests_dict = {
+        tn:
+            (lambda ad, resp: lambda self: self.assertEqual(resp.status_code, ad["code"]))(td["assert"], requests.request(**td["req"]))
+        for tn, td in json.load(json_file).items()
+    }
+    Tests = type("Tests", unittest.TestCase, tests_dict)
+
+unittest.main(testRunner=xmlrunner.XMLTestRunner())
+</code></pre>
+
+</split>
+<br><span style="font-size: 2.85em;">&nbsp;</span>
+</div></script></section><section data-markdown><script type="text/template"><!-- .slide: class="drop" data-transition="none none" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 768px; width: 1366px; min-height: 768px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+## Odchudzanie
+
+<split even gap="1" style="font-size: 0.9em; max-width: 1366px">
+
+<pre class="python"><code data-trim data-line-numbers="5|4-6" style="white-space: pre-wrap;">
+import unittest, xmlrunner, json, requests
+
+with open('tests.json') as json_file:
+    tests_dict = {
+        tn: (lambda ad, resp: lambda self: self.assertEqual(resp.status_code, ad["code"]))(td["assert"], requests.request(**td["req"])) for tn, td in json.load(json_file).items()
+    }
+    Tests = type("Tests", unittest.TestCase, tests_dict)
+
+unittest.main(testRunner=xmlrunner.XMLTestRunner())
+</code></pre>
+
+</split>
+<br><span style="font-size: 3.75em;">&nbsp;</span>
+</div></script></section><section data-markdown><script type="text/template"><!-- .slide: class="drop" data-transition="none none" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 768px; width: 1366px; min-height: 768px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+## Odchudzanie
+
+<split even gap="1" style="font-size: 0.9em; max-width: 1366px">
+
+<pre class="python"><code data-trim data-line-numbers="4|4-5" style="white-space: pre-wrap;">
+import unittest, xmlrunner, json, requests
+
+with open('tests.json') as json_file:
+    tests_dict = {tn: (lambda ad, resp: lambda self: self.assertEqual(resp.status_code, ad["code"]))(td["assert"], requests.request(**td["req"])) for tn, td in json.load(json_file).items()}
+    Tests = type("Tests", unittest.TestCase, tests_dict)
+
+unittest.main(testRunner=xmlrunner.XMLTestRunner())
+</code></pre>
+
+</split>
+<br><span style="font-size: 4.65em;">&nbsp;</span>
+</div></script></section><section data-markdown><script type="text/template"><!-- .slide: class="drop" data-transition="none none" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 768px; width: 1366px; min-height: 768px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+## Odchudzanie
+
+<split even gap="1" style="font-size: 0.9em; max-width: 1366px">
+
+<pre class="python"><code data-trim data-line-numbers="4|3-4"style="white-space: pre-wrap;">
+import unittest, xmlrunner, json, requests
+
+with open('tests.json') as json_file:
+    Tests = type("Tests", (unittest.TestCase,), {tn: (lambda ad, resp: lambda self: self.assertEqual(resp.status_code, ad["code"]))(td["assert"], requests.request(**td["req"])) for tn, td in json.load(json_file).items()})
+
+unittest.main(testRunner=xmlrunner.XMLTestRunner())
+</code></pre>
+
+</split>
+<br><span style="font-size: 4.65em;">&nbsp;</span>
+</div></script></section><section data-markdown><script type="text/template"><!-- .slide: class="drop" data-transition="none slide-out" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 768px; width: 1366px; min-height: 768px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+## Odchudzanie
+
+<split even gap="1" style="font-size: 0.9em; max-width: 1366px">
+
+<pre class="python"><code data-trim data-line-numbers="3|"style="white-space: pre-wrap;">
+import unittest, xmlrunner, json, requests
+
+with open('tests.json') as json_file: Tests = type("Tests", (unittest.TestCase,), {tn: (lambda ad, resp: lambda self: self.assertEqual(resp.status_code, af["code"]))(td["assert"], requests.request(**td["req"])) for tn, td in json.load(json_file).items()})
+
+unittest.main(testRunner=xmlrunner.XMLTestRunner())
+</code></pre>
+
+</split>
+<br><span style="font-size: 5.1em;">&nbsp;</span>
+</div></script></section><section data-markdown><script type="text/template"><!-- .slide: class="drop" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 768px; width: 1366px; min-height: 768px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+## Co osiągnęliśmy?
+
+- wysyłamy request do REST API
+- &shy;<!-- .element: class="fragment" data-fragment-index="1" -->sprawdzamy kod odpowiedzi
+- &shy;<!-- .element: class="fragment" data-fragment-index="2" -->dane testowe pobieramy z pliku JSON
+- &shy;<!-- .element: class="fragment" data-fragment-index="3" -->generujemy raport w formacie JUnit
+- &shy;<!-- .element: class="fragment" data-fragment-index="4" -->kod mieści się w 5 linijkach kodu
+- &shy;<!-- .element: class="fragment" data-fragment-index="5" -->... a w zasadzie to w 3, jeśli pominiemy te puste
+</div></script></section><section data-markdown><script type="text/template"><!-- .slide: class="drop" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 768px; width: 1366px; min-height: 768px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+## Chcecie więcej?
+
+<img src="attachments/matrix_more_smiths.png" alt="" style="object-fit: scale-down" height="70%" width="70%">
+</div></script></section><section data-markdown><script type="text/template"><!-- .slide: class="drop" data-transition="slide-in none" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 768px; width: 1366px; min-height: 768px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+## Więcej plików JSON
+
+<split even gap="1" style="font-size: 0.89em; max-width: 1366px">
+
+<pre class="python"><code data-trim data-line-numbers="|1-5,15"style="white-space: pre-wrap;">
+import unittest, xmlrunner, json, requests
+
+with open("tests.json") as json_file:  
+    Tests = type(  
+        "Tests",  
+        (unittest.TestCase,),  
+        {  
+            tn: (  
+                lambda ad, resp: lambda self: self.assertEqual(  
+                    resp.status_code, ad["code"]  
+                )  
+            )(td["assert"], requests.request(**td["req"]))  
+            for tn, td in json.load(json_file).items()  
+        },  
+    )
+unittest.main(testRunner=xmlrunner.XMLTestRunner())
+</code></pre>
+
+</split>
+<br><span style="font-size: 1.45em;">&nbsp;</span>
+</div></script></section><section data-markdown><script type="text/template"><!-- .slide: class="drop" data-transition="none none" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 768px; width: 1366px; min-height: 768px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+## Więcej plików JSON
+
+<split even gap="1" style="font-size: 0.89em; max-width: 1366px">
+
+<pre class="python"><code data-trim data-line-numbers="1-4|5" style="white-space: pre-wrap;">
+import unittest, xmlrunner, json, requests, glob  
+  
+for fn in glob.iglob("*.json"):  
+    with open(fn) as json_file:  
+        Tests = type(  
+            "Tests",
+            (unittest.TestCase,),  
+            {  
+                tn: (  
+                    lambda ad, resp: lambda self: self.assertEqual(  
+                        resp.status_code, ad["code"]  
+                    )  
+                )(td["assert"], requests.request(**td["req"]))  
+                for tn, td in json.load(json_file).items()  
+            },  
+        )  
+unittest.main(testRunner=xmlrunner.XMLTestRunner())
+</code></pre>
+
+</split>
+<br><span style="font-size: 1em;">&nbsp;</span>
+</div></script></section><section data-markdown><script type="text/template"><!-- .slide: class="drop" data-transition="none none" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 768px; width: 1366px; min-height: 768px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+## Więcej plików JSON
+
+<split even gap="1" style="font-size: 0.89em; max-width: 1366px">
+
+<pre class="python"><code data-trim data-line-numbers="5|6" style="white-space: pre-wrap;">
+import unittest, xmlrunner, json, requests, glob  
+  
+for fn in glob.iglob("*.json"):  
+    with open(fn) as json_file:  
+        globals()[fn.split(".")[0]] = type(  
+            "Tests",
+            (unittest.TestCase,),  
+            {  
+                tn: (  
+                    lambda ad, resp: lambda self: self.assertEqual(  
+                        resp.status_code, ad["code"]  
+                    )  
+                )(td["assert"], requests.request(**td["req"]))  
+                for tn, td in json.load(json_file).items()  
+            },  
+        )  
+unittest.main(testRunner=xmlrunner.XMLTestRunner())
+</code></pre>
+
+</split>
+<br><span style="font-size: 1em;">&nbsp;</span>
+</div></script></section><section data-markdown><script type="text/template"><!-- .slide: class="drop" data-transition="none slide-out" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 768px; width: 1366px; min-height: 768px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+## Więcej plików JSON
+
+<split even gap="1" style="font-size: 0.89em; max-width: 1366px">
+
+<pre class="python"><code data-trim data-line-numbers="6|" style="white-space: pre-wrap;">
+import unittest, xmlrunner, json, requests, glob  
+  
+for fn in glob.iglob("*.json"):  
+    with open(fn) as json_file:  
+        globals()[fn.split(".")[0]] = type(  
+            fn.split(".")[0].title().replace("_", ""),  
+            (unittest.TestCase,),  
+            {  
+                tn: (  
+                    lambda ad, resp: lambda self: self.assertEqual(  
+                        resp.status_code, ad["code"]  
+                    )  
+                )(td["assert"], requests.request(**td["req"]))  
+                for tn, td in json.load(json_file).items()  
+            },  
+        )  
+unittest.main(testRunner=xmlrunner.XMLTestRunner())
+</code></pre>
+
+</split>
+<br><span style="font-size: 1em;">&nbsp;</span>
+</div></script></section><section data-markdown><script type="text/template"><!-- .slide: class="drop" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 768px; width: 1366px; min-height: 768px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+## tests_get.json
+
+<split even gap="1" style="font-size: 0.75em; max-width: 1366px">
+
+<pre class="json"><code data-trim data-line-numbers="2,11" style="white-space: pre-wrap;">
+{  
+  "test_get_single_user": {  
+    "req": {  
+      "method": "GET",  
+      "url": "https://reqres.in/api/users/2"  
+    },  
+    "assert": {  
+      "code": 200  
+    }  
+  },  
+  "test_get_non_existing_user": {  
+    "req": {  
+      "method": "GET",  
+      "url": "https://reqres.in/api/users/23"  
+    },  
+    "assert": {  
+      "code": 404  
+    }  
+  }  
+}
+</code></pre>
+
+</split>
+<br><span style="font-size: 1em;">&nbsp;</span>
+</div>
+
+<aside class="notes"><p>Rozbijmy nasze dane testowe na 2 pliki.</p>
+</aside></script></section><section data-markdown><script type="text/template"><!-- .slide: class="drop" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 768px; width: 1366px; min-height: 768px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+## tests_post.json
+
+<split even gap="1" style="font-size: 0.9em; max-width: 1366px">
+
+<pre class="json"><code data-trim data-line-numbers="2" style="white-space: pre-wrap;">
+{  
+  "test_create_new_user": {  
+    "req": {  
+      "method": "POST",  
+      "url": "https://reqres.in/api/users",  
+      "json": {  
+        "name": "testerembyc",  
+        "job": "QA"  
+      }  
+    },  
+    "assert": {  
+      "code": 201  
+    }  
+  }  
+}
+</code></pre>
+
+</split>
+<br><span style="font-size: 1em;">&nbsp;</span>
+</div></script></section><section data-markdown><script type="text/template"><!-- .slide: class="drop" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 768px; width: 1366px; min-height: 768px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+## Raporty
+
+<split even gap="1" style="font-size: 1em; max-width: 1366px">
+
+TEST-TestsGet-20221102223755.xml <!-- .element: style="margin: 0 0 0 0" -->
+```xml [3-4]
+<?xml version="1.0" ?>
+<testsuite name="TestsGet-20221102223755" tests="2" time="0.000" failures="0" errors="0">  
+   <testcase classname="TestsGet" name="test_get_non_existing_user" time="0.000"></testcase>  
+   <testcase classname="TestsGet" name="test_get_single_user" time="0.000"></testcase>  
+   <system-out><![CDATA[]]></system-out>  
+   <system-err><![CDATA[]]></system-err>  
+</testsuite>
+```
+TEST-TestsPost-20221102223755.xml
+```xml [3]
+<?xml version="1.0" ?>
+<testsuite name="TestsPost-20221102223755" tests="1" time="0.000" failures="0" errors="0">  
+   <testcase classname="TestsPost" name="test_create_new_user" time="0.000"></testcase>  
+   <system-out><![CDATA[]]></system-out>  
+   <system-err><![CDATA[]]></system-err>  
+</testsuite>
+```
+
+</split>
+</div></script></section><section data-markdown><script type="text/template"><!-- .slide: class="drop" data-transition="slide-in none" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 768px; width: 1366px; min-height: 768px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+## Sprawdzenie odpowiedzi
+
+<split even gap="1" style="font-size: 0.79em; max-width: 1366px">
+
+<pre class="python"><code data-trim data-line-numbers="|1" style="white-space: pre-wrap;">
+import unittest, xmlrunner, json, requests, glob  
+  
+for fn in glob.iglob("*.json"):  
+    with open(fn) as json_file:  
+        globals()[fn.split(".")[0]] = type(  
+            fn.split(".")[0].title().replace("_", ""),  
+            (unittest.TestCase,),  
+            {  
+                tn: (  
+                    lambda ad, resp: lambda self: self.assertEqual(  
+                        resp.status_code, ad["code"]  
+                    )  
+                )(td["assert"], requests.request(**td["req"]))  
+                for tn, td in json.load(json_file).items()  
+            },  
+        )  
+unittest.main(testRunner=xmlrunner.XMLTestRunner())
+</code></pre>
+
+</split>
+<br><span style="font-size: 1.85em;">&nbsp;</span>
+</div></script></section><section data-markdown><script type="text/template"><!-- .slide: class="drop" data-transition="none none" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 768px; width: 1366px; min-height: 768px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+## Sprawdzenie odpowiedzi
+
+<split even gap="1" style="font-size: 0.79em; max-width: 1366px">
+
+<pre class="python"><code data-trim data-line-numbers="1|10-12" style="white-space: pre-wrap;">
+import unittest, xmlrunner, json, requests, glob, jsonschema
+  
+for fn in glob.iglob("*.json"):  
+    with open(fn) as json_file:  
+        globals()[fn.split(".")[0]] = type(  
+            fn.split(".")[0].title().replace("_", ""),  
+            (unittest.TestCase,),  
+            {  
+                tn: (  
+                    lambda ad, resp: lambda self: self.assertEqual(  
+                        resp.status_code, ad["code"]  
+                    )  
+                )(td["assert"], requests.request(**td["req"]))  
+                for tn, td in json.load(json_file).items()  
+            },  
+        )  
+unittest.main(testRunner=xmlrunner.XMLTestRunner())
+</code></pre>
+
+</split>
+<br><span style="font-size: 1.85em;">&nbsp;</span>
+</div>
+
+<aside class="notes"><p>Zamieńmy na początek zapis tego kawałka kodu, dla poprawy czytelności</p>
+</aside></script></section><section data-markdown><script type="text/template"><!-- .slide: class="drop" data-transition="none none" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 768px; width: 1366px; min-height: 768px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+## Sprawdzenie odpowiedzi
+
+<split even gap="1" style="font-size: 0.79em; max-width: 1366px">
+
+<pre class="python"><code data-trim data-line-numbers="10-11" style="white-space: pre-wrap;">
+import unittest, xmlrunner, json, requests, glob, jsonschema
+  
+for fn in glob.iglob("*.json"):  
+    with open(fn) as json_file:  
+        globals()[fn.split(".")[0]] = type(  
+            fn.split(".")[0].title().replace("_", ""),  
+            (unittest.TestCase,),  
+            {  
+                tn: (  
+                    lambda ad, resp: lambda self:
+                        self.assertEqual(resp.status_code, ad["code"])
+                        
+                )(td["assert"], requests.request(**td["req"]))  
+                for tn, td in json.load(json_file).items()  
+            },  
+        )  
+unittest.main(testRunner=xmlrunner.XMLTestRunner())
+</code></pre>
+
+</split>
+<br><span style="font-size: 1.85em;">&nbsp;</span>
+</div>
+
+<aside class="notes"><p>Widzimy tutaj, co konkretnie wywołuje lambda. Gdybyśmy zamienili tutaj sprawdzanie kodu odpowiedzi, na coś innego, było by prosto, ale my chcemy sprawdzać kilka rzeczy. Jak zmusić lambdę do wywoływania więcej niż jednej &quot;linijki&quot; kodu.</p>
+</aside></script></section><section data-markdown><script type="text/template"><!-- .slide: class="drop" data-transition="none none" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 768px; width: 1366px; min-height: 768px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+## Sprawdzenie odpowiedzi
+
+<split even gap="1" style="font-size: 0.79em; max-width: 1366px">
+
+<pre class="python"><code data-trim data-line-numbers="10-12|11" style="white-space: pre-wrap;">
+import unittest, xmlrunner, json, requests, glob, jsonschema
+  
+for fn in glob.iglob("*.json"):  
+    with open(fn) as json_file:  
+        globals()[fn.split(".")[0]] = type(  
+            fn.split(".")[0].title().replace("_", ""),  
+            (unittest.TestCase,),  
+            {  
+                tn: (  
+                    lambda ad, resp: lambda self: (
+                        self.assertEqual(resp.status_code, ad["code"]),
+                    )
+                )(td["assert"], requests.request(**td["req"]))  
+                for tn, td in json.load(json_file).items()  
+            },  
+        )  
+unittest.main(testRunner=xmlrunner.XMLTestRunner())
+</code></pre>
+
+</split>
+<br><span style="font-size: 1.85em;">&nbsp;</span>
+</div>
+
+<aside class="notes"><p>Zmieńmy delikatnie zapis. Co tutaj zrobiłem? Wepchnąłem <code>assert</code> w tuple, a do tuple można wstawić więcej niż 1 element. No więc wstawmy go</p>
+</aside></script></section><section data-markdown><script type="text/template"><!-- .slide: class="drop" data-transition="none slide-out" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 768px; width: 1366px; min-height: 768px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+## Sprawdzenie odpowiedzi
+
+<split even gap="1" style="font-size: 0.79em; max-width: 1366px">
+
+<pre class="python"><code data-trim data-line-numbers="12-13" style="white-space: pre-wrap;">
+import unittest, xmlrunner, json, requests, glob, jsonschema
+  
+for fn in glob.iglob("*.json"):  
+    with open(fn) as json_file:  
+        globals()[fn.split(".")[0]] = type(  
+            fn.split(".")[0].title().replace("_", ""),  
+            (unittest.TestCase,),  
+            {  
+                tn: (  
+                    lambda ad, resp: lambda self: (
+                        self.assertEqual(resp.status_code, ad["code"]),
+                        jsonschema.validate(resp.json(), ad["schema"])
+                        if "schema" in ad else ...,
+                    )
+                )(td["assert"], requests.request(**td["req"]))  
+                for tn, td in json.load(json_file).items()  
+            },  
+        )  
+unittest.main(testRunner=xmlrunner.XMLTestRunner())
+</code></pre>
+
+</split>
+<br><span style="font-size: 1em;">&nbsp;</span>
+</div></script></section><section data-markdown><script type="text/template"><!-- .slide: class="drop" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 768px; width: 1366px; min-height: 768px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+## tests_post.json
+
+<split even gap="1" style="font-size: 0.9em; max-width: 1366px">
+
+<pre class="json"><code data-trim data-line-numbers="1-2,13|3,12|4-11" style="white-space: pre-wrap;" data-ln-start-from="11"> 
+    "assert": {  
+      "code": 201,  
+      "schema": {  
+        "type": "object",  
+        "properties": {  
+          "name": {"type": "string"},  
+          "job": {"type": "string"},  
+          "id": {"type": "string"},  
+          "createdAt": {"type": "string"}  
+        },  
+        "required": ["name", "job", "id", "createdAt"]  
+      }
+    }
+</code></pre>
+
+</split>
+<br><span style="font-size: 1em;">&nbsp;</span>
+</div></script></section><section data-markdown><script type="text/template"><!-- .slide: class="drop" data-transition="slide-in none" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 768px; width: 1366px; min-height: 768px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+## Podsumowanie
+
+
+<split even gap="1" style="font-size: 0.77em; max-width: 1366px" >
+
+<pre class="python"><code data-trim data-line-numbers="1|3|4|5,18|6|7|8,16-17|9,15|10,14|11-13||11-13" style="white-space: pre;">
+import unittest, xmlrunner, json, requests, glob, jsonschema
+  
+for fn in glob.iglob("*.json"):  
+    with open(fn) as json_file:  
+        globals()[fn.split(".")[0]] = type(  
+            fn.split(".")[0].title().replace("_", ""),  
+            (unittest.TestCase,),  
+            {  
+                tn: (  
+                    lambda ad, resp: lambda self: (
+                        self.assertEqual(resp.status_code, ad["code"]),
+                        jsonschema.validate(resp.json(), ad["schema"])
+                        if "schema" in ad else ...,
+                    )
+                )(td["assert"], requests.request(**td["req"]))  
+                for tn, td in json.load(json_file).items()  
+            },  
+        )  
+unittest.main(testRunner=xmlrunner.XMLTestRunner())
+</code></pre>
+
+</split>
+<br><span style="font-size: 1em;">&nbsp;</span>
+</div></script></section><section data-markdown><script type="text/template"><!-- .slide: class="drop" data-transition="none none" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 768px; width: 1366px; min-height: 768px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+## Podsumowanie
+
+<split even gap="1" style="font-size: 0.79em; max-width: 1366px">
+
+<pre class="python"><code data-trim data-line-numbers="11|10-12" style="white-space: pre-wrap;">
+import unittest, xmlrunner, json, requests, glob, jsonschema
+  
+for fn in glob.iglob("*.json"):  
+    with open(fn) as json_file:  
+        globals()[fn.split(".")[0]] = type(  
+            fn.split(".")[0].title().replace("_", ""),  
+            (unittest.TestCase,),  
+            {  
+                tn: (  
+                    lambda ad, resp: lambda self: (
+                        self.assertEqual(resp.status_code, ad["code"]), jsonschema.validate(resp.json(), ad["schema"]) if "schema" in ad else ...,
+                    )
+                )(td["assert"], requests.request(**td["req"]))  
+                for tn, td in json.load(json_file).items()  
+            },  
+        )  
+unittest.main(testRunner=xmlrunner.XMLTestRunner())
+</code></pre>
+
+</split>
+<br><span style="font-size: 1.45em;">&nbsp;</span>
+</div></script></section><section data-markdown><script type="text/template"><!-- .slide: class="drop" data-transition="none none" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 768px; width: 1366px; min-height: 768px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+## Podsumowanie
+
+<split even gap="1" style="font-size: 0.79em; max-width: 1366px">
+
+<pre class="python"><code data-trim data-line-numbers="10|9-11" style="white-space: pre-wrap;">
+import unittest, xmlrunner, json, requests, glob, jsonschema
+  
+for fn in glob.iglob("*.json"):  
+    with open(fn) as json_file:  
+        globals()[fn.split(".")[0]] = type(  
+            fn.split(".")[0].title().replace("_", ""),  
+            (unittest.TestCase,),  
+            {  
+                tn: (  
+                    lambda ad, resp: lambda self: (self.assertEqual(resp.status_code, ad["code"]), jsonschema.validate(resp.json(), ad["schema"]) if "schema" in ad else ...,)
+                )(td["assert"], requests.request(**td["req"]))  
+                for tn, td in json.load(json_file).items()  
+            },  
+        )  
+unittest.main(testRunner=xmlrunner.XMLTestRunner())
+</code></pre>
+
+</split>
+<br><span style="font-size: 2.25em;">&nbsp;</span>
+</div></script></section><section data-markdown><script type="text/template"><!-- .slide: class="drop" data-transition="none none" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 768px; width: 1366px; min-height: 768px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+## Podsumowanie
+
+<split even gap="1" style="font-size: 0.79em; max-width: 1366px">
+
+<pre class="python"><code data-trim data-line-numbers="9|9-10|8-11" style="white-space: pre-wrap;">
+import unittest, xmlrunner, json, requests, glob, jsonschema
+  
+for fn in glob.iglob("*.json"):  
+    with open(fn) as json_file:  
+        globals()[fn.split(".")[0]] = type(  
+            fn.split(".")[0].title().replace("_", ""),  
+            (unittest.TestCase,),  
+            {  
+                tn: (lambda ad, resp: lambda self: (self.assertEqual(resp.status_code, ad["code"]), jsonschema.validate(resp.json(), ad["schema"]) if "schema" in ad else ...,))(td["assert"], requests.request(**td["req"]))  
+                for tn, td in json.load(json_file).items()  
+            },  
+        )  
+unittest.main(testRunner=xmlrunner.XMLTestRunner())
+</code></pre>
+
+</split>
+<br><span style="font-size: 3.05em;">&nbsp;</span>
+</div></script></section><section data-markdown><script type="text/template"><!-- .slide: class="drop" data-transition="none none" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 768px; width: 1366px; min-height: 768px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+## Podsumowanie
+
+<split even gap="1" style="font-size: 0.79em; max-width: 1366px">
+
+<pre class="python"><code data-trim data-line-numbers="8|6-8" style="white-space: pre-wrap;">
+import unittest, xmlrunner, json, requests, glob, jsonschema
+  
+for fn in glob.iglob("*.json"):  
+    with open(fn) as json_file:  
+        globals()[fn.split(".")[0]] = type(  
+            fn.split(".")[0].title().replace("_", ""),  
+            (unittest.TestCase,),  
+            {tn: (lambda ad, resp: lambda self: (self.assertEqual(resp.status_code, ad["code"]), jsonschema.validate(resp.json(), ad["schema"]) if "schema" in ad else ...,))(td["assert"], requests.request(**td["req"])) for tn, td in json.load(json_file).items()},  
+        )  
+unittest.main(testRunner=xmlrunner.XMLTestRunner())
+</code></pre>
+
+</split>
+<br><span style="font-size: 3.85em;">&nbsp;</span>
+</div></script></section><section data-markdown><script type="text/template"><!-- .slide: class="drop" data-transition="none none" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 768px; width: 1366px; min-height: 768px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+## Podsumowanie
+
+<split even gap="1" style="font-size: 0.79em; max-width: 1366px">
+
+<pre class="python"><code data-trim data-line-numbers="6|5-7" style="white-space: pre-wrap;">
+import unittest, xmlrunner, json, requests, glob, jsonschema
+  
+for fn in glob.iglob("*.json"):  
+    with open(fn) as json_file:  
+        globals()[fn.split(".")[0]] = type(  
+            fn.split(".")[0].title().replace("_", ""), (unittest.TestCase,), {tn: (lambda ad, resp: lambda self: (self.assertEqual(resp.status_code, ad["code"]), jsonschema.validate(resp.json(), ad["schema"]) if "schema" in ad else ...,))(td["assert"], requests.request(**td["req"])) for tn, td in json.load(json_file).items()},  
+        )  
+unittest.main(testRunner=xmlrunner.XMLTestRunner())
+</code></pre>
+
+</split>
+<br><span style="font-size: 4.65em;">&nbsp;</span>
+</div></script></section><section data-markdown><script type="text/template"><!-- .slide: class="drop" data-transition="none none" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 768px; width: 1366px; min-height: 768px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+## Podsumowanie
+
+<split even gap="1" style="font-size: 0.79em; max-width: 1366px">
+
+<pre class="python"><code data-trim data-line-numbers="5|4-5" style="white-space: pre-wrap;">
+import unittest, xmlrunner, json, requests, glob, jsonschema
+  
+for fn in glob.iglob("*.json"):  
+    with open(fn) as json_file:  
+        globals()[fn.split(".")[0]] = type(fn.split(".")[0].title().replace("_", ""), (unittest.TestCase,), {tn: (lambda ad, resp: lambda self: (self.assertEqual(resp.status_code, ad["code"]), jsonschema.validate(resp.json(), ad["schema"]) if "schema" in ad else ...,))(td["assert"], requests.request(**td["req"])) for tn, td in json.load(json_file).items()},)  
+unittest.main(testRunner=xmlrunner.XMLTestRunner())
+</code></pre>
+
+</split>
+<br><span style="font-size: 5.45em;">&nbsp;</span>
+</div></script></section><section data-markdown><script type="text/template"><!-- .slide: class="drop" data-transition="none none" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 768px; width: 1366px; min-height: 768px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+## Podsumowanie
+
+<split even gap="1" style="font-size: 0.79em; max-width: 1366px">
+
+<pre class="python"><code data-trim data-line-numbers="4|" style="white-space: pre-wrap;">
+import unittest, xmlrunner, json, requests, glob, jsonschema
+  
+for fn in glob.iglob("*.json"):
+    with open(fn) as json_file: globals()[fn.split(".")[0]] = type(fn.split(".")[0].title().replace("_", ""), (unittest.TestCase,), {tn: (lambda ad, resp: lambda self: (self.assertEqual(resp.status_code, ad["code"]), jsonschema.validate(resp.json(), ad["schema"]) if "schema" in ad else ...,))(td["assert"], requests.request(**td["req"])) for tn, td in json.load(json_file).items()},)  
+unittest.main(testRunner=xmlrunner.XMLTestRunner())
+</code></pre>
+
+</split>
+<br><span style="font-size: 5.45em;">&nbsp;</span>
+</div></script></section><section data-markdown><script type="text/template"><!-- .slide: class="drop" data-transition="none slide-out" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 768px; width: 1366px; min-height: 768px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+## Podsumowanie
+
+<split even gap="1" style="font-size: 0.79em; max-width: 1366px">
+
+<pre class="python"><code data-trim data-line-numbers="" style="white-space: pre-wrap;">
+import unittest, xmlrunner, json, requests, glob, jsonschema
+  
+for fn in glob.iglob("*.json"):
+    with open(fn) as json_file: globals()[fn.split(".")[0]] = type(fn.split(".")[0].title().replace("_", ""), (unittest.TestCase,), {tn: (lambda ad, resp: lambda self: (self.assertEqual(resp.status_code, ad["code"]), jsonschema.validate(resp.json(), ad["schema"]) if "schema" in ad else ...,))(td["assert"], requests.request(**td["req"])) for tn, td in json.load(json_file).items()},)
+
+unittest.main(testRunner=xmlrunner.XMLTestRunner())
+</code></pre>
+
+</split>
+<br><span style="font-size: 5em;">&nbsp;</span>
+</div></script></section><section data-markdown><script type="text/template"><!-- .slide: class="drop" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 768px; width: 1366px; min-height: 768px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+## Co osiągnęliśmy?
+
+- wysyłamy request do REST API
+- &shy;<!-- .element: class="fragment" data-fragment-index="1" -->sprawdzamy kod odpowiedzi
+- &shy;<!-- .element: class="fragment" data-fragment-index="2" -->sprawdzamy odpowiedź używając JSON Schema
+- &shy;<!-- .element: class="fragment" data-fragment-index="3" -->dane testowe pobieramy z wielu plików JSON
+- &shy;<!-- .element: class="fragment" data-fragment-index="4" -->generujemy raport w formacie JUnit
+- &shy;<!-- .element: class="fragment" data-fragment-index="5" -->kod mieści się w 6 linijkach kodu
+- &shy;<!-- .element: class="fragment" data-fragment-index="6" -->... a w zasadzie to w 4, jeśli pominiemy te puste
+- &shy;<!-- .element: class="fragment" data-fragment-index="7" -->... albo 19 jeśli zależy nam na czytelności (black)
+</div></script></section><section data-markdown><script type="text/template"><!-- .slide: class="drop" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 768px; width: 1366px; min-height: 768px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+# Koniec
+# ??? <!-- .element: class="fragment" data-fragment-index="1" -->
+</div></script></section><section data-markdown><script type="text/template"><!-- .slide: class="drop" data-transition="slide-in none" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 768px; width: 1366px; min-height: 768px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+## PyTest i open bez with
+
+<div style="font-size: 0.79em; max-width: 1366px">
+
+<pre class="python"><code data-trim data-line-numbers="1|3" style="white-space: pre-wrap;">
+import unittest, json, requests, glob, jsonschema  
+  
+for fn in glob.iglob("*.json"): globals()[fn.split(".")[0]] = type(fn.split(".")[0].title().replace("_", ""), (unittest.TestCase,), {tn: (lambda ad, resp: lambda self: (self.assertEqual(resp.status_code, ad["code"]), jsonschema.validate(resp.json(), ad["schema"]) if "schema" in ad else ...,))(td["assert"], requests.request(**td["req"])) for tn, td in json.loads("".join(open(fn).readlines())).items()},)
+</code></pre>
+
+<br><span style="font-size: 4.3em;">&nbsp;</span>
+</div></script></section><section data-markdown><script type="text/template"><!-- .slide: class="drop" data-transition="none slide-out" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 768px; width: 1366px; min-height: 768px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+## PyTest i open bez with
+
+<div style="font-size: 0.79em; max-width: 1366px">
+
+<pre class="python"><code data-trim data-line-numbers="" style="white-space: pre-wrap;">
+import unittest, json, requests, glob, jsonschema  
+  
+for fn in glob.iglob("*.json"): globals()[fn.split(".")[0]] = type(fn.split(".")[0].title().replace("_", ""), (unittest.TestCase,), {tn: (lambda ad, resp: lambda self: (self.assertEqual(resp.status_code, ad["code"]), jsonschema.validate(resp.json(), ad["schema"]) if "schema" in ad else ...,))(td["assert"], requests.request(**td["req"])) for tn, td in json.loads("".join(open(fn).readlines())).items()},)
+</code></pre>
+
+<h4>Terminal</h4>
+
+<pre class="console">pytest app.py --junitxml=junit.xml<pre>
+
+</div>
+<br><span style="font-size: 1em;">&nbsp;</span>
+</div></script></section><section data-markdown><script type="text/template"><!-- .slide: class="drop" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 768px; width: 1366px; min-height: 768px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+# Koniec
+# !!! <!-- .element: class="fragment" data-fragment-index="1" -->
+</div></script></section><section data-markdown><script type="text/template"><!-- .slide: class="drop" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 768px; width: 1366px; min-height: 768px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+<img src="attachments/napis_logo_white.png" alt="LOGO|600" style="width: 600px; object-fit: fill">
+
+
+<img src="attachments/qr-pre-najmniejszy-framework-do-testow-rest-api.png" alt="QR|600" style="width: 600px; object-fit: fill">
+</div></script></section></div>
+</div>
+<script src="dist/reveal.js"></script>
+<script src="plugin/markdown/markdown.js"></script>
+<script src="plugin/highlight/highlight.js"></script>
+<script src="plugin/zoom/zoom.js"></script>
+<script src="plugin/notes/notes.js"></script>
+<script src="plugin/math/math.js"></script>
+<script src="plugin/mermaid/mermaid.js"></script>
+<script src="plugin/chart/chart.min.js"></script>
+<script src="plugin/chart/plugin.js"></script>
+<script src="plugin/menu/menu.js"></script>
+<script src="plugin/customcontrols/plugin.js"></script>
+<script src="plugin/chalkboard/plugin.js"></script>
+<script src="plugin/elapsed-time-bar/elapsed-time-bar.js"></script>
+<script>
+function extend(){for(var e={},a=0;a<arguments.length;a++){var t,o=arguments[a];for(t in o)o.hasOwnProperty(t)&&(e[t]=o[t])}return e}function isLight(e){let a=e.replace("#","");return 3==a.length&&(a=""+a[0]+a[0]+a[1]+a[1]+a[2]+a[2]),155<(299*parseInt(a.substr(0,2),16)+587*parseInt(a.substr(2,2),16)+114*parseInt(a.substr(4,2),16))/1e3}var isLight,bgColor=getComputedStyle(document.documentElement).getPropertyValue("--r-background-color").trim(),defaultOptions=((isLight=isLight(bgColor))?document.body.classList.add("has-light-background"):document.body.classList.add("has-dark-background"),{controls:!0,progress:!0,history:!0,center:!0,transition:"default",plugins:[RevealMarkdown,RevealHighlight,RevealZoom,RevealNotes,RevealMath.MathJax3,RevealMermaid,RevealChart,RevealCustomControls,RevealMenu,RevealChalkboard,ElapsedTimeBar],allottedTime:12e4,mathjax3:{mathjax:"plugin/math/mathjax/tex-mml-chtml.js"},markdown:{gfm:!0,mangle:!0,pedantic:!1,smartLists:!1,smartypants:!1},mermaid:{theme:isLight?"default":"dark"},customcontrols:{controls:[{id:"toggle-overview",title:"Toggle overview (O)",icon:'<i class="fa fa-th"></i>',action:"Reveal.toggleOverview();"},{icon:'<i class="fa fa-pen-square"></i>',title:"Toggle chalkboard (B)",action:"RevealChalkboard.toggleChalkboard();"},{icon:'<i class="fa fa-pen"></i>',title:"Toggle notes canvas (C)",action:"RevealChalkboard.toggleNotesCanvas();"}]},menu:{loadIcons:!1}}),queryOptions=Reveal().getQueryHash()||{},options=extend(defaultOptions,{width:1366,height:768,margin:.04,minScale:.3,maxScale:2,controls:!0,progress:!0,slideNumber:!0,transition:"slide",transitionSpeed:"normal"},queryOptions)
+</script>
+<script>Reveal.initialize(options)</script>
+</body>
+</html>

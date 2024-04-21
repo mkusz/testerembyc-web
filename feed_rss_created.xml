@@ -13,12 +13,12 @@
     <language>pl</language>
 
     
-    <pubDate>Sun, 21 Apr 2024 03:18:07 -0000</pubDate>
-    <lastBuildDate>Sun, 21 Apr 2024 03:18:07 -0000</lastBuildDate>
+    <pubDate>Sun, 21 Apr 2024 15:34:40 -0000</pubDate>
+    <lastBuildDate>Sun, 21 Apr 2024 15:34:40 -0000</lastBuildDate>
     <ttl>1440</ttl>
 
     
-    <generator>MkDocs RSS plugin - v1.11.0</generator>
+    <generator>MkDocs RSS plugin - v1.12.1</generator>
 
     
     
@@ -33,7 +33,7 @@
       
       <description>Jedyne co jest pewne w życiu to zmiany. Czyli dlaczego mój blog zmienił wygląd i co jeszcze zmieni się w najbliższej przyszłości.</description>
       <link>https://testerembyc.pl/posts/zmiany-na-blogu/?utm_source=testerembyc.pl&amp;utm_medium=RSS&amp;utm_campaign=feed</link>
-      <pubDate>Wed, 31 May 2023 00:00:00 +0200</pubDate>
+      <pubDate>Wed, 31 May 2023 12:34:55 +0200</pubDate>
       <source url="https://testerembyc.pl/feed_rss_created.xml">TesteremByc.pl</source>
       
       <guid isPermaLink="true">https://testerembyc.pl/posts/zmiany-na-blogu/</guid>
@@ -50,7 +50,7 @@
       
       <description>Ciekawe historie z rekrutacji i nie tylko, czyli TestITka na prima aprillis</description>
       <link>https://testerembyc.pl/posts/testitka-12-grupowa-terapia-na-prima-aprillis/?utm_source=testerembyc.pl&amp;utm_medium=RSS&amp;utm_campaign=feed</link>
-      <pubDate>Fri, 01 Apr 2022 00:00:00 +0200</pubDate>
+      <pubDate>Fri, 01 Apr 2022 22:20:43 +0200</pubDate>
       <source url="https://testerembyc.pl/feed_rss_created.xml">TesteremByc.pl</source>
       
       <guid isPermaLink="true">https://testerembyc.pl/posts/testitka-12-grupowa-terapia-na-prima-aprillis/</guid>
@@ -67,7 +67,7 @@
       
       <description>Czy w dzisiejszych czasach, można być tylko testerem, aby odnosić sukcesy i dobrze zarabiać?</description>
       <link>https://testerembyc.pl/posts/luczniczqa-31-dlaczego-tester-to-za-malo/?utm_source=testerembyc.pl&amp;utm_medium=RSS&amp;utm_campaign=feed</link>
-      <pubDate>Tue, 15 Mar 2022 00:00:00 +0100</pubDate>
+      <pubDate>Tue, 15 Mar 2022 20:00:00 +0100</pubDate>
       <source url="https://testerembyc.pl/feed_rss_created.xml">TesteremByc.pl</source>
       
       <guid isPermaLink="true">https://testerembyc.pl/posts/luczniczqa-31-dlaczego-tester-to-za-malo/</guid>
@@ -84,7 +84,7 @@
       
       <description>Straszne historie z życia testera w podcaście Norberta Jankowskiego - Testowanie Oprogramowania Podcast</description>
       <link>https://testerembyc.pl/posts/testowanie-oprogramowania-podcast-opowiesci-z-testerskiej-krypty/?utm_source=testerembyc.pl&amp;utm_medium=RSS&amp;utm_campaign=feed</link>
-      <pubDate>Fri, 12 Nov 2021 00:00:00 +0100</pubDate>
+      <pubDate>Fri, 12 Nov 2021 00:05:13 +0100</pubDate>
       <source url="https://testerembyc.pl/feed_rss_created.xml">TesteremByc.pl</source>
       
       <guid isPermaLink="true">https://testerembyc.pl/posts/testowanie-oprogramowania-podcast-opowiesci-z-testerskiej-krypty/</guid>
@@ -101,7 +101,7 @@
       
       <description>Do czego można wykorzystać CI/CD przy tworzeniu bloga oraz potencjalne zastosowania w testach automatycznych na przykładzie GitHub Actions</description>
       <link>https://testerembyc.pl/posts/ci-cd-na-przykladzie-github-actions/?utm_source=testerembyc.pl&amp;utm_medium=RSS&amp;utm_campaign=feed</link>
-      <pubDate>Thu, 16 Sep 2021 00:00:00 +0200</pubDate>
+      <pubDate>Thu, 16 Sep 2021 18:25:00 +0200</pubDate>
       <source url="https://testerembyc.pl/feed_rss_created.xml">TesteremByc.pl</source>
       
       <guid isPermaLink="true">https://testerembyc.pl/posts/ci-cd-na-przykladzie-github-actions/</guid>
@@ -118,7 +118,7 @@
       
       <description>ITea Night Live 05 dotyczący testowania API</description>
       <link>https://testerembyc.pl/posts/itea-night-live-05-testowanie-api/?utm_source=testerembyc.pl&amp;utm_medium=RSS&amp;utm_campaign=feed</link>
-      <pubDate>Thu, 15 Jul 2021 00:00:00 +0200</pubDate>
+      <pubDate>Thu, 15 Jul 2021 20:00:00 +0200</pubDate>
       <source url="https://testerembyc.pl/feed_rss_created.xml">TesteremByc.pl</source>
       
       <guid isPermaLink="true">https://testerembyc.pl/posts/itea-night-live-05-testowanie-api/</guid>
@@ -135,7 +135,7 @@
       
       <description>Czy chęć wyższych zarobków wiążę się z wychodzeniem ze strefy komfortu, a jeśli tak to czy ma to jakiś wpływ na Twoje samopoczucie?</description>
       <link>https://testerembyc.pl/posts/strefa-komfortu-a-twoje-zarobki/?utm_source=testerembyc.pl&amp;utm_medium=RSS&amp;utm_campaign=feed</link>
-      <pubDate>Thu, 27 May 2021 00:00:00 +0200</pubDate>
+      <pubDate>Thu, 27 May 2021 10:00:00 +0200</pubDate>
       <source url="https://testerembyc.pl/feed_rss_created.xml">TesteremByc.pl</source>
       
       <guid isPermaLink="true">https://testerembyc.pl/posts/strefa-komfortu-a-twoje-zarobki/</guid>
@@ -152,7 +152,7 @@
       
       <description>Co widzi rekruter przeglądając Twój profil na LinkedIn?</description>
       <link>https://testerembyc.pl/posts/profil-na-linkedin-co-widza-rekruterzy/?utm_source=testerembyc.pl&amp;utm_medium=RSS&amp;utm_campaign=feed</link>
-      <pubDate>Thu, 01 Apr 2021 00:00:00 +0200</pubDate>
+      <pubDate>Thu, 01 Apr 2021 16:33:51 +0200</pubDate>
       <source url="https://testerembyc.pl/feed_rss_created.xml">TesteremByc.pl</source>
       
       <guid isPermaLink="true">https://testerembyc.pl/posts/profil-na-linkedin-co-widza-rekruterzy/</guid>
@@ -169,7 +169,7 @@
       
       <description>Eksploracja automatyzacji w TestITka 02, czyli jak działa bugbug.io</description>
       <link>https://testerembyc.pl/posts/testitka-02-eksploracja-automatyzacji/?utm_source=testerembyc.pl&amp;utm_medium=RSS&amp;utm_campaign=feed</link>
-      <pubDate>Thu, 18 Mar 2021 00:00:00 +0100</pubDate>
+      <pubDate>Thu, 18 Mar 2021 19:00:00 +0100</pubDate>
       <source url="https://testerembyc.pl/feed_rss_created.xml">TesteremByc.pl</source>
       
       <guid isPermaLink="true">https://testerembyc.pl/posts/testitka-02-eksploracja-automatyzacji/</guid>
@@ -186,7 +186,7 @@
       
       <description>W doborowym towarzystwie, czyli Trendbook 2021 by TestArmy</description>
       <link>https://testerembyc.pl/posts/trendbook-2021-sylwetki-autorow/?utm_source=testerembyc.pl&amp;utm_medium=RSS&amp;utm_campaign=feed</link>
-      <pubDate>Tue, 02 Mar 2021 00:00:00 +0100</pubDate>
+      <pubDate>Tue, 02 Mar 2021 12:10:21 +0100</pubDate>
       <source url="https://testerembyc.pl/feed_rss_created.xml">TesteremByc.pl</source>
       
       <guid isPermaLink="true">https://testerembyc.pl/posts/trendbook-2021-sylwetki-autorow/</guid>
@@ -203,7 +203,7 @@
       
       <description>Rozmowa o rozwoju zawodowym testera od testera manualne do automatyzującego w podcaście Norberta Jankowskiego - Testowanie Oprogramowania Podcast</description>
       <link>https://testerembyc.pl/posts/testowanie-oprogramowania-podcast-testerskie-sciezki-rozwoju/?utm_source=testerembyc.pl&amp;utm_medium=RSS&amp;utm_campaign=feed</link>
-      <pubDate>Thu, 11 Feb 2021 00:00:00 +0100</pubDate>
+      <pubDate>Thu, 11 Feb 2021 19:00:00 +0100</pubDate>
       <source url="https://testerembyc.pl/feed_rss_created.xml">TesteremByc.pl</source>
       
       <guid isPermaLink="true">https://testerembyc.pl/posts/testowanie-oprogramowania-podcast-testerskie-sciezki-rozwoju/</guid>
@@ -220,7 +220,7 @@
       
       <description>Jak rzeczywistość potrafi modyfikować wszelkie plany, czyli jak w projektach IT zmieniające się wymagania potrafią wpłynąć na jakość oprogramowania oraz sam proces testowania.</description>
       <link>https://testerembyc.pl/posts/plany-vs-rzeczywistosc/?utm_source=testerembyc.pl&amp;utm_medium=RSS&amp;utm_campaign=feed</link>
-      <pubDate>Thu, 21 Jan 2021 00:00:00 +0100</pubDate>
+      <pubDate>Thu, 21 Jan 2021 14:32:06 +0100</pubDate>
       <source url="https://testerembyc.pl/feed_rss_created.xml">TesteremByc.pl</source>
       
       <guid isPermaLink="true">https://testerembyc.pl/posts/plany-vs-rzeczywistosc/</guid>
@@ -237,7 +237,7 @@
       
       <description>Potęgi Pythona ciąg dalszy</description>
       <link>https://testerembyc.pl/posts/jeszcze-mniejszy-framework-do-testow-w-pythonie/?utm_source=testerembyc.pl&amp;utm_medium=RSS&amp;utm_campaign=feed</link>
-      <pubDate>Wed, 06 Jan 2021 00:00:00 +0100</pubDate>
+      <pubDate>Wed, 06 Jan 2021 20:53:56 +0100</pubDate>
       <source url="https://testerembyc.pl/feed_rss_created.xml">TesteremByc.pl</source>
       
       <guid isPermaLink="true">https://testerembyc.pl/posts/jeszcze-mniejszy-framework-do-testow-w-pythonie/</guid>
@@ -254,7 +254,7 @@
       
       <description>Najmniejszy framework do testów REST API w Pythonie, czyli jak upakować kod testów w 16 linijkach</description>
       <link>https://testerembyc.pl/posts/najmniejszy-framework-do-testow-w-pythonie/?utm_source=testerembyc.pl&amp;utm_medium=RSS&amp;utm_campaign=feed</link>
-      <pubDate>Fri, 18 Dec 2020 00:00:00 +0100</pubDate>
+      <pubDate>Fri, 18 Dec 2020 15:12:26 +0100</pubDate>
       <source url="https://testerembyc.pl/feed_rss_created.xml">TesteremByc.pl</source>
       
       <guid isPermaLink="true">https://testerembyc.pl/posts/najmniejszy-framework-do-testow-w-pythonie/</guid>
@@ -271,7 +271,7 @@
       
       <description>Dlaczego warto uczyć się na cudzych błędach i jaki związek ma to z płatnymą edukacją?</description>
       <link>https://testerembyc.pl/posts/ucz-sie-na-cudzych-bledach/?utm_source=testerembyc.pl&amp;utm_medium=RSS&amp;utm_campaign=feed</link>
-      <pubDate>Thu, 26 Nov 2020 00:00:00 +0100</pubDate>
+      <pubDate>Thu, 26 Nov 2020 00:30:00 +0100</pubDate>
       <source url="https://testerembyc.pl/feed_rss_created.xml">TesteremByc.pl</source>
       
       <guid isPermaLink="true">https://testerembyc.pl/posts/ucz-sie-na-cudzych-bledach/</guid>
@@ -288,7 +288,7 @@
       
       <description>Cechy dobrego testera, które nie oddają pełnego obrazu tego co jest faktycznie potrzebne, żeby stać się dobrym testerem.</description>
       <link>https://testerembyc.pl/posts/dobry-tester-a-kto-to-taki/?utm_source=testerembyc.pl&amp;utm_medium=RSS&amp;utm_campaign=feed</link>
-      <pubDate>Sun, 30 Aug 2020 00:00:00 +0200</pubDate>
+      <pubDate>Sun, 30 Aug 2020 23:00:00 +0200</pubDate>
       <source url="https://testerembyc.pl/feed_rss_created.xml">TesteremByc.pl</source>
       
       <guid isPermaLink="true">https://testerembyc.pl/posts/dobry-tester-a-kto-to-taki/</guid>
@@ -305,7 +305,7 @@
       
       <description>Czy jest RPA oraz po co się je tworzy? Czy tester może tworzyć narzędzia RPA? Czy tworząc narzędzia RPA, można dorobić do etatowej pracy testera?</description>
       <link>https://testerembyc.pl/posts/jak-dorobic-do-etatu-czyli-tester-tworzy-rpa/?utm_source=testerembyc.pl&amp;utm_medium=RSS&amp;utm_campaign=feed</link>
-      <pubDate>Thu, 13 Aug 2020 00:00:00 +0200</pubDate>
+      <pubDate>Thu, 13 Aug 2020 20:25:40 +0200</pubDate>
       <source url="https://testerembyc.pl/feed_rss_created.xml">TesteremByc.pl</source>
       
       <guid isPermaLink="true">https://testerembyc.pl/posts/jak-dorobic-do-etatu-czyli-tester-tworzy-rpa/</guid>
@@ -322,7 +322,7 @@
       
       <description>Dekoratory w Pythonie. Co dają i jak je implementować.</description>
       <link>https://testerembyc.pl/posts/dekoratory-w-pythonie/?utm_source=testerembyc.pl&amp;utm_medium=RSS&amp;utm_campaign=feed</link>
-      <pubDate>Thu, 09 Jan 2020 00:00:00 +0100</pubDate>
+      <pubDate>Thu, 09 Jan 2020 14:26:38 +0100</pubDate>
       <source url="https://testerembyc.pl/feed_rss_created.xml">TesteremByc.pl</source>
       
       <guid isPermaLink="true">https://testerembyc.pl/posts/dekoratory-w-pythonie/</guid>
@@ -339,7 +339,7 @@
       
       <description>Powody dla których tak dużo osób jest zainteresowanych przejściem do branży IT oraz dlaczego wybierają testowanie oprogramowania jako najprostszy sposób</description>
       <link>https://testerembyc.pl/posts/dlaczego-nie-bedziesz-testerem-i-co-mozesz-z-tym-fantem-zrobic-jesli-bardzo-chcesz/?utm_source=testerembyc.pl&amp;utm_medium=RSS&amp;utm_campaign=feed</link>
-      <pubDate>Thu, 14 Nov 2019 00:00:00 +0100</pubDate>
+      <pubDate>Thu, 14 Nov 2019 23:30:00 +0100</pubDate>
       <source url="https://testerembyc.pl/feed_rss_created.xml">TesteremByc.pl</source>
       
       <guid isPermaLink="true">https://testerembyc.pl/posts/dlaczego-nie-bedziesz-testerem-i-co-mozesz-z-tym-fantem-zrobic-jesli-bardzo-chcesz/</guid>
@@ -356,7 +356,7 @@
       
       <description>Jaka jest natura testów oprogramowania oraz jaki ma ona wpływ na codzienną pracę testerów, programistów i projekt menadżerów</description>
       <link>https://testerembyc.pl/posts/cala-prawda-o-testach-oprogramowania-i-czym-one-sa/?utm_source=testerembyc.pl&amp;utm_medium=RSS&amp;utm_campaign=feed</link>
-      <pubDate>Tue, 29 Oct 2019 00:00:00 +0100</pubDate>
+      <pubDate>Tue, 29 Oct 2019 22:00:00 +0100</pubDate>
       <source url="https://testerembyc.pl/feed_rss_created.xml">TesteremByc.pl</source>
       
       <guid isPermaLink="true">https://testerembyc.pl/posts/cala-prawda-o-testach-oprogramowania-i-czym-one-sa/</guid>
@@ -373,7 +373,7 @@
       
       <description>Pierwszy post na blogu testerembyc.pl</description>
       <link>https://testerembyc.pl/posts/witaj-swiecie/?utm_source=testerembyc.pl&amp;utm_medium=RSS&amp;utm_campaign=feed</link>
-      <pubDate>Thu, 24 Oct 2019 00:00:00 +0200</pubDate>
+      <pubDate>Thu, 24 Oct 2019 15:00:00 +0200</pubDate>
       <source url="https://testerembyc.pl/feed_rss_created.xml">TesteremByc.pl</source>
       
       <guid isPermaLink="true">https://testerembyc.pl/posts/witaj-swiecie/</guid>

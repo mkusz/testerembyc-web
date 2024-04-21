@@ -111,26 +111,6 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://testerembyc.pl/posts/automatyzacja-testow-fakty-i-mity/</loc>
-         <lastmod>2024-01-09</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://testerembyc.pl/posts/bdd-why-not/</loc>
-         <lastmod>2024-01-09</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://testerembyc.pl/posts/framework-czy-tylko-biblioteka/</loc>
-         <lastmod>2024-01-09</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://testerembyc.pl/posts/podsumowanie-2023-oraz-plany-na-2024/</loc>
-         <lastmod>2024-01-09</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
          <loc>https://testerembyc.pl/pages/dziekuje-za-zapisanie-do-newslettera/</loc>
          <lastmod>2023-08-01</lastmod>
          <changefreq>daily</changefreq>
@@ -161,22 +141,22 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://testerembyc.pl/posts/1/</loc>
+         <loc>https://testerembyc.pl/index-1/</loc>
          <lastmod>2024-04-21</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://testerembyc.pl/posts/2/</loc>
+         <loc>https://testerembyc.pl/index-2/</loc>
          <lastmod>2024-04-21</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://testerembyc.pl/posts/3/</loc>
+         <loc>https://testerembyc.pl/index-3/</loc>
          <lastmod>2024-04-21</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://testerembyc.pl/posts/4/</loc>
+         <loc>https://testerembyc.pl/index-4/</loc>
          <lastmod>2024-04-21</lastmod>
          <changefreq>daily</changefreq>
     </url>
@@ -246,7 +226,7 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://testerembyc.pl/posts/tags/cd/</loc>
+         <loc>https://testerembyc.pl/posts/tags/ci-cd/</loc>
          <lastmod>2024-04-21</lastmod>
          <changefreq>daily</changefreq>
     </url>
@@ -341,7 +321,7 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://testerembyc.pl/posts/tags/ogolne/</loc>
+         <loc>https://testerembyc.pl/posts/tags/og%25C3%25B3lne/</loc>
          <lastmod>2024-04-21</lastmod>
          <changefreq>daily</changefreq>
     </url>
@@ -371,7 +351,7 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://testerembyc.pl/posts/tags/rozwoj/</loc>
+         <loc>https://testerembyc.pl/posts/tags/rozw%25C3%25B3j/</loc>
          <lastmod>2024-04-21</lastmod>
          <changefreq>daily</changefreq>
     </url>
@@ -381,7 +361,7 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://testerembyc.pl/posts/tags/rzeczywistosc/</loc>
+         <loc>https://testerembyc.pl/posts/tags/rzeczywisto%25C5%259B%25C4%2587/</loc>
          <lastmod>2024-04-21</lastmod>
          <changefreq>daily</changefreq>
     </url>
@@ -426,12 +406,12 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://testerembyc.pl/posts/tags/uczniczqa/</loc>
+         <loc>https://testerembyc.pl/posts/tags/%25C5%2582uczniczqa/</loc>
          <lastmod>2024-04-21</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://testerembyc.pl/posts/tags/zycie/</loc>
+         <loc>https://testerembyc.pl/posts/tags/%25C5%25BCycie/</loc>
          <lastmod>2024-04-21</lastmod>
          <changefreq>daily</changefreq>
     </url>

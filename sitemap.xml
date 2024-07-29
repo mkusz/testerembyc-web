@@ -2,7 +2,7 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
          <loc>https://testerembyc.pl/python-kompendium/</loc>
-         <lastmod>2024-05-13</lastmod>
+         <lastmod>2024-07-27</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
@@ -108,6 +108,21 @@
     <url>
          <loc>https://testerembyc.pl/posts/zmiany-na-blogu/</loc>
          <lastmod>2024-05-10</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://testerembyc.pl/szkolenia/stacjonarne/</loc>
+         <lastmod>2024-07-29</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://testerembyc.pl/szkolenia/stacjonarne/testowanie-rest-api-w-pythonie/</loc>
+         <lastmod>2024-07-29</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://testerembyc.pl/szkolenia/stacjonarne/playwright-w-pythonie/</loc>
+         <lastmod>2024-07-29</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>

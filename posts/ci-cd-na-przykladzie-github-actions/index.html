@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html class="no-js" lang="pl">
 <head>
@@ -11,17 +12,14 @@
 <link href="../../feed_rss_created.xml" rel="alternate" title="Kanał RSS" type="application/rss+xml">
 <link href="../../feed_rss_updated.xml" rel="alternate" title="Kanał RSS zaktualizowanych treści" type="application/rss+xml">
 <link href="../../assets/images/icon.svg" rel="icon">
-<meta content="mkdocs-1.5.3, mkdocs-material-9.5.18" name="generator">
-<title>
-CI/CD na przykładzie GitHub Actions - TesteremByc.pl
-</title>
-<link href="../../assets/stylesheets/main.66ac8b77.min.css" rel="stylesheet">
+<meta content="mkdocs-1.6.0, mkdocs-material-9.5.31" name="generator">
+<title>CI/CD na przykładzie GitHub Actions - TesteremByc.pl</title>
+<link href="../../assets/stylesheets/main.3cba04c6.min.css" rel="stylesheet">
 <link href="../../assets/stylesheets/palette.06af60db.min.css" rel="stylesheet">
 <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin="">
 <link href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CLato:400,400i,700,700i&amp;display=fallback" rel="stylesheet">
 <style>:root{--md-text-font:"Roboto";--md-code-font:"Lato"}</style>
 <link href="../../assets/stylesheets/testerembyc.css" rel="stylesheet">
-<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" rel="stylesheet">
 <link href="../../assets/stylesheets/blog.min.css" rel="stylesheet">
 <link href="../../assets/stylesheets/blog.min.css.map" rel="stylesheet">
 <link href="../../assets/stylesheets/obsidian.min.css" rel="stylesheet">
@@ -31,23 +29,12 @@ CI/CD na przykładzie GitHub Actions - TesteremByc.pl
 function __md_analytics(){function e(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],e("js",new Date),e("config","G-L9Q1L6NPGD"),document.addEventListener("DOMContentLoaded",(function(){document.forms.search&&document.forms.search.query.addEventListener("blur",(function(){this.value&&e("event","search",{search_term:this.value})})),document$.subscribe((function(){var t=document.forms.feedback;if(void 0!==t)for(var a of t.querySelectorAll("[type=submit]"))a.addEventListener("click",(function(a){a.preventDefault(),e("event","feedback",{page:document.location.pathname,data:a=this.getAttribute("data-md-value")}),t.firstElementChild.disabled=!0,(a=t.querySelector(".md-feedback__note [data-md-value='"+a+"']"))&&(a.hidden=!1)})),t.hidden=!1})),location$.subscribe((function(t){e("config","G-L9Q1L6NPGD",{page_path:t.pathname})}))}));var t=document.createElement("script");t.async=!0,t.src="https://www.googletagmanager.com/gtag/js?id=G-L9Q1L6NPGD",document.getElementById("__analytics").insertAdjacentElement("afterEnd",t)}
 </script>
 <script>var consent;"undefined"==typeof __md_analytics||(consent=__md_get("__consent"))&&consent.analytics&&__md_analytics()</script>
-<meta content="article" property="og:type">
-<meta content="CI/CD na przykładzie GitHub Actions - TesteremByc.pl" property="og:title">
-<meta content="Do czego można wykorzystać CI/CD przy tworzeniu bloga oraz potencjalne zastosowania w testach automatycznych na przykładzie GitHub Actions" property="og:description">
-<meta content="TesteremByc.pl" property="og:site_name">
-<meta content="pl_PL" property="og:locale">
-<meta content="https://testerembyc.pl/posts/ci-cd-na-przykladzie-github-actions/" property="og:url">
-<meta content="https://testerembyc.pl/images/posts/2021/ci-cd-na-przykladzie-github-actions_social.jpg" property="og:image">
-<meta content="summary_large_image" property="twitter:card">
-<meta content="CI/CD na przykładzie GitHub Actions - TesteremByc.pl" property="twitter:title">
-<meta content="Do czego można wykorzystać CI/CD przy tworzeniu bloga oraz potencjalne zastosowania w testach automatycznych na przykładzie GitHub Actions" property="twitter:description">
-<meta content="https://testerembyc.pl/images/posts/2021/ci-cd-na-przykladzie-github-actions_social.jpg" property="twitter:image">
-</head>
+<meta content="article" property="og:type"><meta content="CI/CD na przykładzie GitHub Actions - TesteremByc.pl" property="og:title"><meta content="Do czego można wykorzystać CI/CD przy tworzeniu bloga oraz potencjalne zastosowania w testach automatycznych na przykładzie GitHub Actions" property="og:description"><meta content="TesteremByc.pl" property="og:site_name"><meta content="pl_PL" property="og:locale"><meta content="https://testerembyc.pl/posts/ci-cd-na-przykladzie-github-actions/" property="og:url"><meta content="https://testerembyc.pl/images/posts/2021/ci-cd-na-przykladzie-github-actions_social.jpg" property="og:image"><meta content="summary_large_image" property="twitter:card"><meta content="CI/CD na przykładzie GitHub Actions - TesteremByc.pl" property="twitter:title"><meta content="Do czego można wykorzystać CI/CD przy tworzeniu bloga oraz potencjalne zastosowania w testach automatycznych na przykładzie GitHub Actions" property="twitter:description"><meta 
+content="https://testerembyc.pl/images/posts/2021/ci-cd-na-przykladzie-github-actions_social.jpg" property="twitter:image"></head>
 <body data-md-color-accent="red" data-md-color-primary="black" data-md-color-scheme="default" dir="ltr">
 <input type="checkbox" class="md-toggle" id="__drawer" autocomplete="off" data-md-toggle="drawer">
 <input type="checkbox" class="md-toggle" id="__search" autocomplete="off" data-md-toggle="search">
-<label class="md-overlay" for="__drawer">
-</label>
+<label class="md-overlay" for="__drawer"></label>
 <div data-md-component="skip">
 <a href="#github-actions" class="md-skip">
 Przejdź do treści
@@ -61,75 +48,48 @@ Przejdź do treści
 <img src="../../assets/images/logo.svg" alt="logo">
 </a>
 <label class="md-icon md-header__button" for="__drawer">
-<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-<path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z">
-</path>
-</svg>
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"></path></svg>
 </label>
 <form class="md-header__option" data-md-component="palette">
 <input type="radio" class="md-option" id="__palette_0" aria-label="Switch to dark mode" data-md-color-accent="red" data-md-color-media="" data-md-color-primary="black" data-md-color-scheme="default" name="__palette">
 <label class="md-icon md-header__button" for="__palette_1" hidden title="Switch to dark mode">
-<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-<path d="M12 2a7 7 0 0 0-7 7c0 2.38 1.19 4.47 3 5.74V17a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1v-2.26c1.81-1.27 3-3.36 3-5.74a7 7 0 0 0-7-7M9 21a1 1 0 0 0 1 1h4a1 1 0 0 0 1-1v-1H9v1Z">
-</path>
-</svg>
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2a7 7 0 0 0-7 7c0 2.38 1.19 4.47 3 5.74V17a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1v-2.26c1.81-1.27 3-3.36 3-5.74a7 7 0 0 0-7-7M9 21a1 1 0 0 0 1 1h4a1 1 0 0 0 1-1v-1H9v1Z"></path></svg>
 </label>
 <input type="radio" class="md-option" id="__palette_1" aria-label="Switch to light mode" data-md-color-accent="red" data-md-color-media="" data-md-color-primary="black" data-md-color-scheme="slate" name="__palette">
 <label class="md-icon md-header__button" for="__palette_0" hidden title="Switch to light mode">
-<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-<path d="M12 2a7 7 0 0 1 7 7c0 2.38-1.19 4.47-3 5.74V17a1 1 0 0 1-1 1H9a1 1 0 0 1-1-1v-2.26C6.19 13.47 5 11.38 5 9a7 7 0 0 1 7-7M9 21v-1h6v1a1 1 0 0 1-1 1h-4a1 1 0 0 1-1-1m3-17a5 5 0 0 0-5 5c0 2.05 1.23 3.81 3 4.58V16h4v-2.42c1.77-.77 3-2.53 3-4.58a5 5 0 0 0-5-5Z">
-</path>
-</svg>
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2a7 7 0 0 1 7 7c0 2.38-1.19 4.47-3 5.74V17a1 1 0 0 1-1 1H9a1 1 0 0 1-1-1v-2.26C6.19 13.47 5 11.38 5 9a7 7 0 0 1 7-7M9 21v-1h6v1a1 1 0 0 1-1 1h-4a1 1 0 0 1-1-1m3-17a5 5 0 0 0-5 5c0 2.05 1.23 3.81 3 4.58V16h4v-2.42c1.77-.77 3-2.53 3-4.58a5 5 0 0 0-5-5Z"></path></svg>
 </label>
 </form>
 <script>var media,input,key,value,palette=__md_get("__palette");if(palette&&palette.color)for([key,value]of("(prefers-color-scheme)"===palette.color.media&&(media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']"),palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")),Object.entries(palette.color)))document.body.setAttribute("data-md-color-"+key,value)</script>
 <label class="md-icon md-header__button" for="__search">
-<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-<path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z">
-</path>
-</svg>
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"></path></svg>
 </label>
 <div class="md-search" data-md-component="search" role="dialog">
-<label class="md-search__overlay" for="__search">
-</label>
+<label class="md-search__overlay" for="__search"></label>
 <div class="md-search__inner" role="search">
 <form class="md-search__form" name="search">
 <input type="text" class="md-search__input" aria-label="Szukaj" name="query" autocapitalize="off" autocomplete="off" autocorrect="off" data-md-component="search-query" placeholder="Szukaj" required spellcheck="false">
 <label class="md-icon md-search__icon" for="__search">
-<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-<path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z">
-</path>
-</svg>
-<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-<path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z">
-</path>
-</svg>
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"></path></svg>
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"></path></svg>
 </label>
 <nav class="md-search__options" aria-label="Szukaj">
 <a href="javascript:void(0)" class="md-icon md-search__icon" title="Udostępnij" aria-label="Udostępnij" data-md-component="search-share" data-clipboard="" data-clipboard-text="" tabindex="-1">
-<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-<path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7 0-.24-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9a3 3 0 0 0-3 3 3 3 0 0 0 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.15c-.05.21-.08.43-.08.66 0 1.61 1.31 2.91 2.92 2.91 1.61 0 2.92-1.3 2.92-2.91A2.92 2.92 0 0 0 18 16.08Z">
-</path>
-</svg>
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7 0-.24-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9a3 3 0 0 0-3 3 3 3 0 0 0 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.15c-.05.21-.08.43-.08.66 0 1.61 1.31 2.91 2.92 2.91 1.61 0 2.92-1.3 2.92-2.91A2.92 2.92 0 0 0 18 16.08Z"></path></svg>
 </a>
 <button class="md-icon md-search__icon" type="reset" aria-label="Wyczyść" tabindex="-1" title="Wyczyść">
-<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-<path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z">
-</path>
-</svg>
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"></path></svg>
 </button>
 </nav>
-<div class="md-search__suggest" data-md-component="search-suggest">
-</div>
+<div class="md-search__suggest" data-md-component="search-suggest"></div>
 </form>
 <div class="md-search__output">
-<div class="md-search__scrollwrap" data-md-scrollfix="">
+<div class="md-search__scrollwrap" data-md-scrollfix="" tabindex="0">
 <div class="md-search-result" data-md-component="search-result">
 <div class="md-search-result__meta">
 Inicjowanie wyszukiwania
 </div>
-<ol class="md-search-result__list" role="presentation">
-</ol>
+<ol class="md-search-result__list" role="presentation"></ol>
 </div>
 </div>
 </div>
@@ -181,14 +141,12 @@ Blog
 </span>
 </a>
 <label class="md-nav__link" for="__nav_1">
-<span class="md-icon md-nav__icon">
-</span>
+<span class="md-icon md-nav__icon"></span>
 </label>
 </div>
 <nav class="md-nav" data-md-level="1" aria-expanded="false" aria-labelledby="__nav_1_label">
 <label class="md-nav__title" for="__nav_1">
-<span class="md-icon md-nav__icon">
-</span>
+<span class="md-icon md-nav__icon"></span>
 Blog
 </label>
 <ul class="md-nav__list" data-md-scrollfix="">
@@ -198,13 +156,11 @@ Blog
 <span class="md-ellipsis">
 Archiwum
 </span>
-<span class="md-icon md-nav__icon">
-</span>
+<span class="md-icon md-nav__icon"></span>
 </label>
 <nav class="md-nav" data-md-level="2" aria-expanded="false" aria-labelledby="__nav_1_2_label">
 <label class="md-nav__title" for="__nav_1_2">
-<span class="md-icon md-nav__icon">
-</span>
+<span class="md-icon md-nav__icon"></span>
 Archiwum
 </label>
 <ul class="md-nav__list" data-md-scrollfix="">
@@ -245,7 +201,6 @@ Archiwum
 </li>
 </ul>
 </nav>
-
 </li>
 <li class="md-nav__item md-nav__item--nested md-nav__item--section">
 <input type="checkbox" class="md-toggle md-nav__toggle" id="__nav_1_3">
@@ -253,13 +208,11 @@ Archiwum
 <span class="md-ellipsis">
 Kategorie
 </span>
-<span class="md-icon md-nav__icon">
-</span>
+<span class="md-icon md-nav__icon"></span>
 </label>
 <nav class="md-nav" data-md-level="2" aria-expanded="false" aria-labelledby="__nav_1_3_label">
 <label class="md-nav__title" for="__nav_1_3">
-<span class="md-icon md-nav__icon">
-</span>
+<span class="md-icon md-nav__icon"></span>
 Kategorie
 </label>
 <ul class="md-nav__list" data-md-scrollfix="">
@@ -300,7 +253,6 @@ youtube
 </li>
 </ul>
 </nav>
-
 </li>
 <li class="md-nav__item md-nav__item--nested md-nav__item--section">
 <input type="checkbox" class="md-toggle md-nav__toggle" id="__nav_1_4">
@@ -308,13 +260,11 @@ youtube
 <span class="md-ellipsis">
 Tagi
 </span>
-<span class="md-icon md-nav__icon">
-</span>
+<span class="md-icon md-nav__icon"></span>
 </label>
 <nav class="md-nav" data-md-level="2" aria-expanded="false" aria-labelledby="__nav_1_4_label">
 <label class="md-nav__title" for="__nav_1_4">
-<span class="md-icon md-nav__icon">
-</span>
+<span class="md-icon md-nav__icon"></span>
 Tagi
 </label>
 <ul class="md-nav__list" data-md-scrollfix="">
@@ -607,11 +557,9 @@ zmiana
 </li>
 </ul>
 </nav>
-
 </li>
 </ul>
 </nav>
-
 </li>
 <li class="md-nav__item">
 <a href="../../python-kompendium/" class="md-nav__link">
@@ -626,13 +574,11 @@ Python
 <span class="md-ellipsis">
 Szkolenia
 </span>
-<span class="md-icon md-nav__icon">
-</span>
+<span class="md-icon md-nav__icon"></span>
 </label>
 <nav class="md-nav" data-md-level="1" aria-expanded="false" aria-labelledby="__nav_3_label">
 <label class="md-nav__title" for="__nav_3">
-<span class="md-icon md-nav__icon">
-</span>
+<span class="md-icon md-nav__icon"></span>
 Szkolenia
 </label>
 <ul class="md-nav__list" data-md-scrollfix="">
@@ -645,14 +591,12 @@ Szkolenia stacjonarne
 </span>
 </a>
 <label class="md-nav__link" for="__nav_3_1">
-<span class="md-icon md-nav__icon">
-</span>
+<span class="md-icon md-nav__icon"></span>
 </label>
 </div>
 <nav class="md-nav" data-md-level="2" aria-expanded="false" aria-labelledby="__nav_3_1_label">
 <label class="md-nav__title" for="__nav_3_1">
-<span class="md-icon md-nav__icon">
-</span>
+<span class="md-icon md-nav__icon"></span>
 Szkolenia stacjonarne
 </label>
 <ul class="md-nav__list" data-md-scrollfix="">
@@ -675,7 +619,6 @@ Playwright w Pythonie
 </li>
 </ul>
 </nav>
-
 </li>
 </ul>
 </nav>
@@ -683,27 +626,11 @@ Playwright w Pythonie
 <div class="md-sidebar__inner">
 <div class="md-nav md-typeset tb-sidebar">
 <div class="md-nav__title">
-<a href="https://testerembyc.pl/pages/o-mnie/" class="md-nav__link md-nav__link--active">
-O mnie
-</a>
+<a href="https://testerembyc.pl/pages/o-mnie/" class="md-nav__link md-nav__link--active">O mnie</a>
 </div>
 <div class="md-nav__item">
 <img src="https://testerembyc.pl/images/pages/me_bw_small.jpg">
-<p>
-Nazywam się
-<b>
-Maciej Kusz
-</b>
-i od 2008 roku zajmuję się testowaniem oprogramowania. Na początku były to testy manualne, od 2011 początki testów automatycznych, a od 2013 automatyzacją testów z wykorzystaniem języka
-<b>
-Python
-</b>
-. Przez te kilka lat, zdarzyło mi się już być w kilku firmach i w kilku różnych projektach. Na stronie
-<a href="https://testerembyc.pl/pages/o-mnie/">
-o mnie
-</a>
-, znajdziesz ciut więcej informacji na ten temat.
-</p>
+<p>Nazywam się <b>Maciej Kusz</b> i od 2008 roku zajmuję się testowaniem oprogramowania. Na początku były to testy manualne, od 2011 początki testów automatycznych, a od 2013 automatyzacją testów z wykorzystaniem języka <b>Python</b>. Przez te kilka lat, zdarzyło mi się już być w kilku firmach i w kilku różnych projektach. Na stronie <a href="https://testerembyc.pl/pages/o-mnie/">o mnie</a>, znajdziesz ciut więcej informacji na ten temat.</p>
 </div>
 </div>
 </div>
@@ -714,8 +641,7 @@ o mnie
 <div class="md-sidebar__inner">
 <nav class="md-nav md-nav--secondary" aria-label="Spis treści">
 <label class="md-nav__title" for="__toc">
-<span class="md-icon md-nav__icon">
-</span>
+<span class="md-icon md-nav__icon"></span>
 Spis treści
 </label>
 <ul class="md-nav__list" data-md-scrollfix="" data-md-component="toc">
@@ -916,22 +842,13 @@ Bonus
 Newsletter
 </div>
 <div class="md-nav__item">
-<p>
-Chcesz być powiadamiany o nowościach na tej stronie oraz innych moich projektach? Jeśli tak, to zapisz się poniżej do newsletter'a.
+<p>Chcesz być powiadamiany o nowościach na tej stronie oraz innych moich projektach? Jeśli tak, to zapisz się poniżej do newsletter'a.
 <script src="https://eocampaign1.com/form/7e5ea679-a893-11ec-9258-0241b9615763.js" async data-form="7e5ea679-a893-11ec-9258-0241b9615763"></script>
 Wszystkie podane przez Ciebie dane, będą przetwarzane zgodnie z
-<a href="https://testerembyc.pl/pages/polityka-prywatnosci">
-polityką prywatności
-</a>
-.
+<a href="https://testerembyc.pl/pages/polityka-prywatnosci">polityką prywatności</a>.
 </p><hr>
-<a href="https://testerembyc.pl/pages/regulamin">
-Regulamin
-</a>
-<br>
-<a href="#__consent">
-Zarządzanie ciasteczkami
-</a>
+<a href="https://testerembyc.pl/pages/regulamin">Regulamin</a><br>
+<a href="#__consent">Zarządzanie ciasteczkami</a>
 <p></p>
 </div>
 </div>
@@ -942,623 +859,152 @@ Zarządzanie ciasteczkami
 <article class="md-typeset md-content__inner">
 <div class="post-extra">
 <div class="col">
-<p class="post-date">
-2021.09.16
-</p>
+<p class="post-date">2021.09.16</p>
 </div>
 <div class="col">
-<a href="https://testerembyc.pl/posts/tags/github/">
-#github
-</a>
-<a href="https://testerembyc.pl/posts/tags/ci-cd/">
-#ci-cd
-</a>
-<a href="https://testerembyc.pl/posts/tags/automatyzacja/">
-#automatyzacja
-</a>
+<a href="https://testerembyc.pl/posts/tags/github/">#github</a>
+<a href="https://testerembyc.pl/posts/tags/ci-cd/">#ci-cd</a>
+<a href="https://testerembyc.pl/posts/tags/automatyzacja/">#automatyzacja</a>
 </div>
 </div>
-<h1>
-CI/CD na przykładzie GitHub Actions
-</h1>
+<h1>CI/CD na przykładzie GitHub Actions</h1>
 <figure>
-<p>
-<img src="../../images/posts/2021/ci-cd-na-przykladzie-github-actions.jpg" alt="CI/CD na przykładzie GitHub Actions" loading="lazy">
-</p>
+<p><img src="../../images/posts/2021/ci-cd-na-przykladzie-github-actions.jpg" alt="CI/CD na przykładzie GitHub Actions" loading="lazy"></p>
 </figure>
-<p>
-Jako tester, szczególnie automatyzujący, bardzo często spotkamy się z zagadnieniami związanymi z tzw.
-<a href="https://en.wikipedia.org/wiki/Continuous_delivery">
-continuous delivery
-</a>
-oraz
-<a href="https://en.wikipedia.org/wiki/Continuous_integration">
-continuous integration
-</a>
-, czyli w skrócie
-<em>
-CI/CD
-</em>
-. Jednym z najbardziej popularnych narzędzi, wspomagających ten proces, jest niewątpliwie
-<a href="https://www.jenkins.io">
-Jenkins
-</a>
-. Ma on jednak pewną wadę, tzn. trzeba go albo zainstalować na własnym serwerze, albo zapłacić zewnętrznej firmie, która udostępni nam Jenkinsa jako usługę typu
-<a href="https://en.wikipedia.org/wiki/Software_as_a_service">
-SaaS
-</a>
-(Software as a Service). W większości firm obsługą narzędzi CI/CD zajmuje się zespół DevOps, jednak w małych firmach lub w przypadku projektów robionych
-<em>
-po godzinach
-</em>
-w ramach nauki, fajnie byłoby móc zautomatyzować sobie część zadań i nie koniecznie ponosić za to dużych opłat. Jedną z takich opcji jest
-<a href="https://github.com/features/actions">
-GitHub Actions
-</a>
-.
-</p>
-<p>
-W poniższym wpisie zajmę się, pokazaniem jak ja wykorzystuje to narzędzie przy tworzeniu tego bloga oraz omówię możliwości wykorzystania go w testach automatycznych. Zapraszam więc do dalszej lektury.
-</p>
+<p>Jako tester, szczególnie automatyzujący, bardzo często spotkamy się z zagadnieniami związanymi z tzw. <a href="https://en.wikipedia.org/wiki/Continuous_delivery">continuous delivery</a> oraz <a href="https://en.wikipedia.org/wiki/Continuous_integration">continuous integration</a>, czyli w skrócie <em>CI/CD</em>. Jednym z najbardziej popularnych narzędzi, wspomagających ten proces, jest niewątpliwie <a href="https://www.jenkins.io">Jenkins</a>. Ma on jednak pewną wadę, tzn. trzeba go albo zainstalować na własnym serwerze, albo zapłacić zewnętrznej firmie, która udostępni nam Jenkinsa jako usługę typu <a href="https://en.wikipedia.org/wiki/Software_as_a_service">SaaS</a> (Software as a Service). W większości firm obsługą narzędzi CI/CD zajmuje się zespół DevOps, jednak w małych firmach lub w przypadku projektów robionych <em>po godzinach</em> w ramach nauki, fajnie byłoby móc zautomatyzować sobie część zadań i nie koniecznie ponosić za to dużych opłat. Jedną z takich opcji jest <a 
+href="https://github.com/features/actions">GitHub Actions</a>.</p>
+<p>W poniższym wpisie zajmę się, pokazaniem jak ja wykorzystuje to narzędzie przy tworzeniu tego bloga oraz omówię możliwości wykorzystania go w testach automatycznych. Zapraszam więc do dalszej lektury.</p>
 <div class="admonition warning">
-<p class="admonition-title">
-Aktualizacja
-</p>
-<p>
-Opisany poniżej mechanizm GitHub Actions obecnie (piszę te słowa pod koniec maja 2023 roku) działa bez zmian. To co uległo zmianie, to zestaw narzędzi, jakie wykorzystuje do tworzenia bloga. Szerzej na ten temat możesz poczytać we wpisie
-<a href="../zmiany-na-blogu/" id="aa8366ab2900484ed4ee8a1dc7d610f1">
-zmiany na blogu
-</a>
-.
-</p>
+<p class="admonition-title">Aktualizacja</p>
+<p>Opisany poniżej mechanizm GitHub Actions obecnie (piszę te słowa pod koniec maja 2023 roku) działa bez zmian. To co uległo zmianie, to zestaw narzędzi, jakie wykorzystuje do tworzenia bloga. Szerzej na ten temat możesz poczytać we wpisie <a href="../zmiany-na-blogu/" id="aa8366ab2900484ed4ee8a1dc7d610f1">zmiany na blogu</a>.</p>
 </div>
-<h2 id="github-actions">
-GitHub Actions
-<a href="#github-actions" class="headerlink" title="Anchor link to this section for reference">
-¶
-</a>
-</h2>
-<p>
-Jak już powyżej napisałem, GitHub Actions umożliwia automatyzację procesu CI/CD. Proces ten powiązany jest z kodem źródłowym aplikacji, który przechowywany jest w repozytorium git na stronie
-<a href="https://github.com/">
-GitHub
-</a>
-. Samo GitHub Actions jest jedną z kilku funkcjonalności dostępnych w ramach repozytorium. Są to między innymi:
-</p>
+<h2 id="github-actions">GitHub Actions<a href="#github-actions" class="headerlink" title="Anchor link to this section for reference">¶</a></h2>
+<p>Jak już powyżej napisałem, GitHub Actions umożliwia automatyzację procesu CI/CD. Proces ten powiązany jest z kodem źródłowym aplikacji, który przechowywany jest w repozytorium git na stronie <a href="https://github.com/">GitHub</a>. Samo GitHub Actions jest jedną z kilku funkcjonalności dostępnych w ramach repozytorium. Są to między innymi:</p>
 <ul>
-<li>
-<strong>
-code
-</strong>
-- repozytorium git do przechowywania kodu,
-</li>
-<li>
-<strong>
-issues
-</strong>
-- zarządzenia błędami,
-</li>
-<li>
-<strong>
-pull requests
-</strong>
-- zarządzanie zmianami w kodzie,
-</li>
-<li>
-<strong>
-projects
-</strong>
-- zarządzanie projektem,
-</li>
-<li>
-<strong>
-wikis
-</strong>
-- baza wiedzy,
-</li>
-<li>
-<strong>
-pages
-</strong>
-- hosting statycznej strony www,
-</li>
+<li><strong>code</strong> - repozytorium git do przechowywania kodu,</li>
+<li><strong>issues</strong> - zarządzenia błędami,</li>
+<li><strong>pull requests</strong> - zarządzanie zmianami w kodzie,</li>
+<li><strong>projects</strong> - zarządzanie projektem,</li>
+<li><strong>wikis</strong> - baza wiedzy,</li>
+<li><strong>pages</strong> - hosting statycznej strony www,</li>
 </ul>
-<p>
-Jest też kilka innych, mniej istotnych. Do tworzenia tego bloga, sam wykorzystuję kilka z powyższych.
-</p>
-<p>
-Czy GitHub jest jedyną platformą, która posiada powyższe funkcjonalności? Oczywiście, że nie. Jedną z alternatyw, która posiada niemal identyczną funkcjonalność, jest
-<a href="https://gitlab.com/">
-GitLab
-</a>
-.
-</p>
-<p>
-Istnieje również wspomniany wcześniej
-<a href="https://www.jenkins.io">
-Jenkins
-</a>
-, jednak jest on narzędzie stricte do automatyzacji procesu CI/CD i nie posiada np. swojego repozytorium git.
-</p>
-<p>
-Pomiędzy GitHub oraz GitLab istnieją pewne różnice jednak większość z nich to kwestia kosmetyczne. Są również pewne mniej lub bardziej istotne różnice, ale w codziennym użytkowaniu, nie zawsze są one zauważalne. Sam używam obydwu, ale wynika to między innymi z faktu, że jeden z moich klientów, używa właśnie GitLaba. Osobiście bardziej preferuję GitHuba.
-</p>
-<p>
-O tym, czym są pojedyncze akcje oraz jak to konkretnie działa, opiszę poniżej, w punkcie
-<a href="#konfiguracja-github-actions">
-Konfiguracja GitHub Actions
-</a>
-.
-</p>
-<h2 id="blog-na-githubie">
-Blog na GitHubie?
-<a href="#blog-na-githubie" class="headerlink" title="Anchor link to this section for reference">
-¶
-</a>
-</h2>
-<p>
-Zapewne zastanawiasz się, jak wykorzystuje GitHuba i jego repozytorium git do tworzenia tego bloga? Najbardziej oczywista sprawa to przechowywanie kodu źródłowego. Nie jest to jednak jedyna funkcjonalność, z jakiej korzystam.
-</p>
-<p>
-Podejmując decyzję o rozpoczęciu blogowania, rozważałem kilka dróg, jakich narzędzi używać oraz gdzie hostować samego bloga. Opcje jakie rozważyłem to:
-</p>
+<p>Jest też kilka innych, mniej istotnych. Do tworzenia tego bloga, sam wykorzystuję kilka z powyższych.</p>
+<p>Czy GitHub jest jedyną platformą, która posiada powyższe funkcjonalności? Oczywiście, że nie. Jedną z alternatyw, która posiada niemal identyczną funkcjonalność, jest <a href="https://gitlab.com/">GitLab</a>. </p>
+<p>Istnieje również wspomniany wcześniej <a href="https://www.jenkins.io">Jenkins</a>, jednak jest on narzędzie stricte do automatyzacji procesu CI/CD i nie posiada np. swojego repozytorium git.</p>
+<p>Pomiędzy GitHub oraz GitLab istnieją pewne różnice jednak większość z nich to kwestia kosmetyczne. Są również pewne mniej lub bardziej istotne różnice, ale w codziennym użytkowaniu, nie zawsze są one zauważalne. Sam używam obydwu, ale wynika to między innymi z faktu, że jeden z moich klientów, używa właśnie GitLaba. Osobiście bardziej preferuję GitHuba.</p>
+<p>O tym, czym są pojedyncze akcje oraz jak to konkretnie działa, opiszę poniżej, w punkcie <a href="#konfiguracja-github-actions">Konfiguracja GitHub Actions</a>.</p>
+<h2 id="blog-na-githubie">Blog na GitHubie?<a href="#blog-na-githubie" class="headerlink" title="Anchor link to this section for reference">¶</a></h2>
+<p>Zapewne zastanawiasz się, jak wykorzystuje GitHuba i jego repozytorium git do tworzenia tego bloga? Najbardziej oczywista sprawa to przechowywanie kodu źródłowego. Nie jest to jednak jedyna funkcjonalność, z jakiej korzystam.</p>
+<p>Podejmując decyzję o rozpoczęciu blogowania, rozważałem kilka dróg, jakich narzędzi używać oraz gdzie hostować samego bloga. Opcje jakie rozważyłem to:</p>
 <ul>
+<li><a href="https://wordpress.com">WordPress</a> + płatny hosting - sam Wordpress jest sprawdzoną platformą i ciągle jeszcze rozwijaną, jednak mnogość pluginów (większość dobrych jest dodatkowo płatnych), możliwości konfiguracji oraz przeogromny wybór skórek potrafią na początku przytłoczyć. Dodatkowo dochodzi koszt hostingu oraz zakupu ułatwiających życie pluginów oraz zarządzanie hostingiem, wcale nie ułatwiają podjęcia takiej decyzji. Największą zaletą jest posiadanie opublikowanych materiałów na własnej platformie, a więc w przypadku, np. zmiany hostingu, da się łatwo przeprowadzić migrację.</li>
+<li><a href="https://www.blogger.com/about/">Blogger.com</a> - darmowa platforma służąca do publikacji blogów, należąca do Google. Jest to platforma, która dostarcza sporą ilość funkcjonalności, która w zupełności wystarcza do prowadzenia własnego bloga. Największe wady tego rozwiązania to zamknięta platforma, problem przy ewentualnej migracji oraz ryzyko <a href="https://spidersweb.pl/2016/07/blogspot-utrata-konta.html">usunięcia bloga przez Google</a>,</li>
 <li>
-<a href="https://wordpress.com">
-WordPress
-</a>
-+ płatny hosting - sam Wordpress jest sprawdzoną platformą i ciągle jeszcze rozwijaną, jednak mnogość pluginów (większość dobrych jest dodatkowo płatnych), możliwości konfiguracji oraz przeogromny wybór skórek potrafią na początku przytłoczyć. Dodatkowo dochodzi koszt hostingu oraz zakupu ułatwiających życie pluginów oraz zarządzanie hostingiem, wcale nie ułatwiają podjęcia takiej decyzji. Największą zaletą jest posiadanie opublikowanych materiałów na własnej platformie, a więc w przypadku, np. zmiany hostingu, da się łatwo przeprowadzić migrację.
-</li>
-<li>
-<a href="https://www.blogger.com/about/">
-Blogger.com
-</a>
-- darmowa platforma służąca do publikacji blogów, należąca do Google. Jest to platforma, która dostarcza sporą ilość funkcjonalności, która w zupełności wystarcza do prowadzenia własnego bloga. Największe wady tego rozwiązania to zamknięta platforma, problem przy ewentualnej migracji oraz ryzyko
-<a href="https://spidersweb.pl/2016/07/blogspot-utrata-konta.html">
-usunięcia bloga przez Google
-</a>
-,
-</li>
-<li>
-<p>
-Utworzenie bloga z wykorzystaniem tzw.
-<em>
-static pages
-</em>
-, czyli strony, której kod HTML generowany jest na lokalnym komputerze, a później przesyłany na dowolny hosting. Prostota tego rozwiązania ma kilka niewątpliwych zalet:
-</p>
+<p>Utworzenie bloga z wykorzystaniem tzw. <em>static pages</em>, czyli strony, której kod HTML generowany jest na lokalnym komputerze, a później przesyłany na dowolny hosting. Prostota tego rozwiązania ma kilka niewątpliwych zalet:</p>
 <ul>
-<li>
-nie wymaga bazy danych,
-</li>
-<li>
-łatwo edytować szablon strony,
-</li>
-<li>
-strona szybko się łąduje (brak połączeń z bazą danych, itp.),
-</li>
-<li>
-łatwo wykonać backup,
-</li>
+<li>nie wymaga bazy danych,</li>
+<li>łatwo edytować szablon strony,</li>
+<li>strona szybko się łąduje (brak połączeń z bazą danych, itp.),</li>
+<li>łatwo wykonać backup,</li>
 </ul>
-<p>
-Są też pewne wady tego rozwiązania:
-</p>
+<p>Są też pewne wady tego rozwiązania:</p>
 <ul>
-<li>
-konieczność delegacji komentarzy do postów do zewnętrznej usługi,
-</li>
-<li>
-brak edytora
-<a href="https://en.wikipedia.org/wiki/WYSIWYG">
-WYSiWYG
-</a>
-.
-</li>
+<li>konieczność delegacji komentarzy do postów do zewnętrznej usługi,</li>
+<li>brak edytora <a href="https://en.wikipedia.org/wiki/WYSIWYG">WYSiWYG</a>.</li>
 </ul>
 </li>
 </ul>
-<p>
-Powyższe przykłady narzędzi nie wyczerpują listy dostępnych narzędzi. Zostały one tutaj wyszczególnione, aby pokazać, jakie są ich potencjalne wady, zalety oraz koszty.
-</p>
-<h3 id="wybor-narzedzi">
-Wybór narzędzi
-<a href="#wybor-narzedzi" class="headerlink" title="Anchor link to this section for reference">
-¶
-</a>
-</h3>
-<p>
-Ponieważ blog w założeniach miał generować minimalne koszty, wybrałem opcję z wykorzystaniem
-<em>
-static pages
-</em>
-. Narzędzia, jakich użyłem to:
-</p>
+<p>Powyższe przykłady narzędzi nie wyczerpują listy dostępnych narzędzi. Zostały one tutaj wyszczególnione, aby pokazać, jakie są ich potencjalne wady, zalety oraz koszty.</p>
+<h3 id="wybor-narzedzi">Wybór narzędzi<a href="#wybor-narzedzi" class="headerlink" title="Anchor link to this section for reference">¶</a></h3>
+<p>Ponieważ blog w założeniach miał generować minimalne koszty, wybrałem opcję z wykorzystaniem <em>static pages</em>. Narzędzia, jakich użyłem to:</p>
 <ul>
-<li>
-<a href="https://getnikola.com/">
-Nikola
-</a>
-- jako silnik do tworzenia statycznych stron www, który funkcjonalnością i sposobem zarządzania treścią (podział na posty i strony) jest bardzo zbliżony do WordPressa. Dodatkowo napisany jest w Pythonie, a więc będę miał możliwość w miarę łatwego modyfikowania pewnych mechanizmów lub tworzenia pluginów, jeśli zajdzie taka potrzeba. Poza tym dostępne są już pluginy stworzone przez innych oraz istnieje możliwość tworzenia treści z wykorzystaniem plików w formacie
-<a href="https://en.wikipedia.org/wiki/Markdown">
-Markdown
-</a>
-(dlaczego to takie ważne, opiszę poniżej).
-</li>
-<li>
-<a href="https://pages.github.com/">
-GitHub Pages
-</a>
-- wspomniałem o tym powyżej. Jest to darmowy hosting statycznych stron www, który jest częścią repozytorium git, w którym mogę przechowywać cały silnik oraz treści opisane w poprzednim punkcie.
-</li>
-<li>
-<a href="https://obsidian.md/">
-Obsidian
-</a>
-- to narzędzie do zarządzania wiedzą, stworzone z myślą o zarządzaniu własnymi notatkami przy użyciu metody
-<a href="https://en.wikipedia.org/wiki/Zettelkasten">
-Zettelkasten
-</a>
-(można też spotkać się z pojęciem tzw.
-<a href="https://www.buildingasecondbrain.com">
-second brain
-</a>
-). Samo narzędzie nie narzuca struktury notatek, ale umożliwia, wspomaga oraz wizualizuje schemat połączeń. W przypadku tworzenia bloga, gdzie wpisy potrafią odnosić się do informacji umieszczonych w innych wpisach, takie wspomaganie, jest bardzo cenne oraz mocno przyspiesza pracę. Dodatkowo wszystkie pliki w tym narzędziu są plikami we wspomnianym wcześniej formacie
-<a href="https://en.wikipedia.org/wiki/Markdown">
-Markdown
-</a>
-, co idealnie zgrywa się ze wsparciem tego formatu przez Nikolę.
-</li>
-<li>
-<a href="https://disqus.com">
-Disqus
-</a>
-- zewnętrzna usługa, dostarczająca mechanizm komentarzy dla poszczególnych wpisów.
-</li>
-<li>
-<a href="https://www.activecampaign.com">
-ActiveCampaign
-</a>
-- narzędzie do zarządzania listą mailową.
-</li>
+<li><a href="https://getnikola.com/">Nikola</a> - jako silnik do tworzenia statycznych stron www, który funkcjonalnością i sposobem zarządzania treścią (podział na posty i strony) jest bardzo zbliżony do WordPressa. Dodatkowo napisany jest w Pythonie, a więc będę miał możliwość w miarę łatwego modyfikowania pewnych mechanizmów lub tworzenia pluginów, jeśli zajdzie taka potrzeba. Poza tym dostępne są już pluginy stworzone przez innych oraz istnieje możliwość tworzenia treści z wykorzystaniem plików w formacie <a href="https://en.wikipedia.org/wiki/Markdown">Markdown</a> (dlaczego to takie ważne, opiszę poniżej).</li>
+<li><a href="https://pages.github.com/">GitHub Pages</a> - wspomniałem o tym powyżej. Jest to darmowy hosting statycznych stron www, który jest częścią repozytorium git, w którym mogę przechowywać cały silnik oraz treści opisane w poprzednim punkcie.</li>
+<li><a href="https://obsidian.md/">Obsidian</a> - to narzędzie do zarządzania wiedzą, stworzone z myślą o zarządzaniu własnymi notatkami przy użyciu metody <a href="https://en.wikipedia.org/wiki/Zettelkasten">Zettelkasten</a> (można też spotkać się z pojęciem tzw. <a href="https://www.buildingasecondbrain.com">second brain</a>). Samo narzędzie nie narzuca struktury notatek, ale umożliwia, wspomaga oraz wizualizuje schemat połączeń. W przypadku tworzenia bloga, gdzie wpisy potrafią odnosić się do informacji umieszczonych w innych wpisach, takie wspomaganie, jest bardzo cenne oraz mocno przyspiesza pracę. Dodatkowo wszystkie pliki w tym narzędziu są plikami we wspomnianym wcześniej formacie <a href="https://en.wikipedia.org/wiki/Markdown">Markdown</a>, co idealnie zgrywa się ze wsparciem tego formatu przez Nikolę.</li>
+<li><a href="https://disqus.com">Disqus</a> - zewnętrzna usługa, dostarczająca mechanizm komentarzy dla poszczególnych wpisów.</li>
+<li><a href="https://www.activecampaign.com">ActiveCampaign</a> - narzędzie do zarządzania listą mailową.</li>
 </ul>
 <div class="admonition info">
-<p class="admonition-title">
-Informacja z przyszłości
-</p>
-<p>
-W 2023 roku, zmieniłem część z powyższych narzędzi, jednak najważniejsza część, czyli opis GitHub Actions oraz sama logika generowania treści z plików Markdown nie uległa zmianie, pozostawiłem ten wpis bez zmian.
-</p>
+<p class="admonition-title">Informacja z przyszłości</p>
+<p>W 2023 roku, zmieniłem część z powyższych narzędzi, jednak najważniejsza część, czyli opis GitHub Actions oraz sama logika generowania treści z plików Markdown nie uległa zmianie, pozostawiłem ten wpis bez zmian.</p>
 </div>
-<h3 id="koszty-prowadzenia-bloga">
-Koszty prowadzenia bloga
-<a href="#koszty-prowadzenia-bloga" class="headerlink" title="Anchor link to this section for reference">
-¶
-</a>
-</h3>
-<p>
-Zapewne zastanawiasz się, jakie są koszty utrzymania bloga? Otóż są on stosunkowo nie duże, bo tak naprawdę płacę za utrzymanie domeny
-<a href="https://testerembyc.pl/">
-testerembyc.pl
-</a>
-oraz miesięczna opłata za narzędzie do zarządzania listą mailową (planuję zmianę narzędzia, aby z kosztami zejść jeszcze niżej). Całość zawiera się średnio w okolicach 70 zł/miesiąc. Czy to dużo? Nie są to ogromne koszty, ale gdybym do tego doliczył koszt dowolnego (rozsądnego) hostingu dla WordPress, koszty urosłyby do około 120-150zł/miesiąc, a to już zaczyna być kwota mocno zauważalna w budżetach niektórych osób.
-</p>
-<h2 id="jak-wykorzystac-github-actions">
-Jak wykorzystać GitHub Actions?
-<a href="#jak-wykorzystac-github-actions" class="headerlink" title="Anchor link to this section for reference">
-¶
-</a>
-</h2>
-<p>
-Aby wytłumaczyć, po co mi GitHub Actions, muszę opisać jeszcze jeden aspekt, a dokładniej mechanizm działania narzędzia do generowania statycznej strony www oraz tego, jak działa GitHub Pages.
-</p>
-<h3 id="generacja-statycznej-strony-z-uzyciem-nikola">
-Generacja statycznej strony z użyciem Nikola
-<a href="#generacja-statycznej-strony-z-uzyciem-nikola" class="headerlink" title="Anchor link to this section for reference">
-¶
-</a>
-</h3>
-<p>
-Samego procesu konfiguracji całego narzędzia nie będę opisywał, ponieważ musiałbym poświęcić na to zupełnie oddzielny wpis. Chodzi tutaj bardziej o kwestie, jaka jest struktura katalogów i gdzie w niej znajduje się wynikowa, statyczna strona HTML.
-</p>
+<h3 id="koszty-prowadzenia-bloga">Koszty prowadzenia bloga<a href="#koszty-prowadzenia-bloga" class="headerlink" title="Anchor link to this section for reference">¶</a></h3>
+<p>Zapewne zastanawiasz się, jakie są koszty utrzymania bloga? Otóż są on stosunkowo nie duże, bo tak naprawdę płacę za utrzymanie domeny <a href="https://testerembyc.pl/">testerembyc.pl</a> oraz miesięczna opłata za narzędzie do zarządzania listą mailową (planuję zmianę narzędzia, aby z kosztami zejść jeszcze niżej). Całość zawiera się średnio w okolicach 70 zł/miesiąc. Czy to dużo? Nie są to ogromne koszty, ale gdybym do tego doliczył koszt dowolnego (rozsądnego) hostingu dla WordPress, koszty urosłyby do około 120-150zł/miesiąc, a to już zaczyna być kwota mocno zauważalna w budżetach niektórych osób.</p>
+<h2 id="jak-wykorzystac-github-actions">Jak wykorzystać GitHub Actions?<a href="#jak-wykorzystac-github-actions" class="headerlink" title="Anchor link to this section for reference">¶</a></h2>
+<p>Aby wytłumaczyć, po co mi GitHub Actions, muszę opisać jeszcze jeden aspekt, a dokładniej mechanizm działania narzędzia do generowania statycznej strony www oraz tego, jak działa GitHub Pages.</p>
+<h3 id="generacja-statycznej-strony-z-uzyciem-nikola">Generacja statycznej strony z użyciem Nikola<a href="#generacja-statycznej-strony-z-uzyciem-nikola" class="headerlink" title="Anchor link to this section for reference">¶</a></h3>
+<p>Samego procesu konfiguracji całego narzędzia nie będę opisywał, ponieważ musiałbym poświęcić na to zupełnie oddzielny wpis. Chodzi tutaj bardziej o kwestie, jaka jest struktura katalogów i gdzie w niej znajduje się wynikowa, statyczna strona HTML.</p>
 <ul>
-<li>
-<em>
-cache
-</em>
-- to pliki cache powstające podczas generowania statycznej strony, które przyśpieszają proces generacji i zapobiegają regeneracji podstron, które się nie zmieniły,
-</li>
-<li>
-<em>
-images
-</em>
-- folder z wszelkiej maści plikami graficznymi,
-</li>
-<li>
-<em>
-pages
-</em>
-- pełne strony (np. stronę
-<a href="../../pages/o-mnie/" id="df23255935cd1e449a83400f6f75f3b8">
-o mnie
-</a>
-),
-</li>
-<li>
-<em>
-plugins
-</em>
-- zainstalowane dodatkowe pluginy,
-</li>
-<li>
-<em>
-posts
-</em>
-- posty, jak ten, który właśnie czytasz,
-</li>
-<li>
-<em>
-themes
-</em>
-- skórka bloga, czyli opis wyglądu.
-</li>
-<li>
-<em>
-docs
-</em>
-- wynikowa statyczna strona www, którą generuje się przy pomocy polecenia
-<code>
-nikola build
-</code>
-.
-</li>
+<li><em>cache</em> - to pliki cache powstające podczas generowania statycznej strony, które przyśpieszają proces generacji i zapobiegają regeneracji podstron, które się nie zmieniły,</li>
+<li><em>images</em> - folder z wszelkiej maści plikami graficznymi,</li>
+<li><em>pages</em> - pełne strony (np. stronę <a href="../../pages/o-mnie/" id="df23255935cd1e449a83400f6f75f3b8">o mnie</a>),</li>
+<li><em>plugins</em> - zainstalowane dodatkowe pluginy,</li>
+<li><em>posts</em> - posty, jak ten, który właśnie czytasz,</li>
+<li><em>themes</em> - skórka bloga, czyli opis wyglądu.</li>
+<li><em>docs</em> - wynikowa statyczna strona www, którą generuje się przy pomocy polecenia <code>nikola build</code>.</li>
 </ul>
-<p>
-Jak więc widzisz, wynikowe pliki znajdują się w podfolderze, a więc po wygenerowaniu będą częścią repozytorium git. Można byłoby się pokusić o taką konfigurację, aby wynikowy folder był poza tą strukturą, ale każdy upload strony, wymagałby wykonywania ręcznych commitów do 2 repozytoriów.
-</p>
-<h3 id="github-pages">
-GitHub Pages
-<a href="#github-pages" class="headerlink" title="Anchor link to this section for reference">
-¶
-</a>
-</h3>
-<p>
-Wcześniej wspomniałem, że ta funkcjonalność w ramach repozytorium, pozwala na hostowanie statycznych stron www. Wymaga ona jednak, aby samo repozytorium było publicznie dostępne.
-</p>
-<p>
-Gdzie więc jest problem?
-</p>
-<h3 id="publiczne-repozytorium">
-Publiczne repozytorium
-<a href="#publiczne-repozytorium" class="headerlink" title="Anchor link to this section for reference">
-¶
-</a>
-</h3>
-<p>
-Problemów w takiej konfiguracji jest kilka, ale sprowadzają się one głównie do faktu, że hostowana strona musi właśnie znajdować się w publicznym repozytorium. Prowadzi to do ujawnienia danych z wszelkich projektów, nad którymi pracuję i gromadzę materiały.
-</p>
-<p>
-Dodatkowo w ramach repozytorium zacząłem prowadzić swoją tablicę kanban z planami dotyczącymi publikacji na blogu oraz swoim
-<a href="https://www.youtube.com/channel/UCm3xa7IkyYBFSZrisCBx53A">
-kanale YouTube
-</a>
-. Posiadanie materiałów oraz planów ich publikacji w jednym miejscu bardzo ułatwia mi pracę, a dodatkowo chciałbym, aby nie były one widoczne do czasu ukończenia prac nad nimi i samej publikacji. Aby to osiągnąć, dobrze byłoby odseparować od siebie część związaną z narzędziami oraz plikami źródłowymi od wynikowej pracy.
-</p>
-<h3 id="dwa-repozytoria">
-Dwa repozytoria
-<a href="#dwa-repozytoria" class="headerlink" title="Anchor link to this section for reference">
-¶
-</a>
-</h3>
-<p>
-Najłatwiejszym sposobem osiągnięcia powyższego założenia, jest utworzenie 2 repozytoriów:
-</p>
+<p>Jak więc widzisz, wynikowe pliki znajdują się w podfolderze, a więc po wygenerowaniu będą częścią repozytorium git. Można byłoby się pokusić o taką konfigurację, aby wynikowy folder był poza tą strukturą, ale każdy upload strony, wymagałby wykonywania ręcznych commitów do 2 repozytoriów.</p>
+<h3 id="github-pages">GitHub Pages<a href="#github-pages" class="headerlink" title="Anchor link to this section for reference">¶</a></h3>
+<p>Wcześniej wspomniałem, że ta funkcjonalność w ramach repozytorium, pozwala na hostowanie statycznych stron www. Wymaga ona jednak, aby samo repozytorium było publicznie dostępne.</p>
+<p>Gdzie więc jest problem?</p>
+<h3 id="publiczne-repozytorium">Publiczne repozytorium<a href="#publiczne-repozytorium" class="headerlink" title="Anchor link to this section for reference">¶</a></h3>
+<p>Problemów w takiej konfiguracji jest kilka, ale sprowadzają się one głównie do faktu, że hostowana strona musi właśnie znajdować się w publicznym repozytorium. Prowadzi to do ujawnienia danych z wszelkich projektów, nad którymi pracuję i gromadzę materiały.</p>
+<p>Dodatkowo w ramach repozytorium zacząłem prowadzić swoją tablicę kanban z planami dotyczącymi publikacji na blogu oraz swoim <a href="https://www.youtube.com/channel/UCm3xa7IkyYBFSZrisCBx53A">kanale YouTube</a>. Posiadanie materiałów oraz planów ich publikacji w jednym miejscu bardzo ułatwia mi pracę, a dodatkowo chciałbym, aby nie były one widoczne do czasu ukończenia prac nad nimi i samej publikacji. Aby to osiągnąć, dobrze byłoby odseparować od siebie część związaną z narzędziami oraz plikami źródłowymi od wynikowej pracy.</p>
+<h3 id="dwa-repozytoria">Dwa repozytoria<a href="#dwa-repozytoria" class="headerlink" title="Anchor link to this section for reference">¶</a></h3>
+<p>Najłatwiejszym sposobem osiągnięcia powyższego założenia, jest utworzenie 2 repozytoriów:</p>
 <ul>
-<li>
-repozytorium prywatne, gdzie będą znajdowały się wszystkie materiały oraz pliki źródłowe,
-</li>
-<li>
-repozytorium publiczne, które będzie zawierało tylko wynikowe pliki, które tworzą statyczną stronę z blogiem i z którego następuje hosting bloga przy użyciu GitHub Actions.
-</li>
+<li>repozytorium prywatne, gdzie będą znajdowały się wszystkie materiały oraz pliki źródłowe,</li>
+<li>repozytorium publiczne, które będzie zawierało tylko wynikowe pliki, które tworzą statyczną stronę z blogiem i z którego następuje hosting bloga przy użyciu GitHub Actions.</li>
 </ul>
-<p>
-Dodatkowo ideałem byłoby, aby statyczne pliki tworzyły się w momencie, gdy zmodyfikowany zostanie główny branch w prywatnym repozytorium. Następnie powinien nastąpić automatyczny commit tak utworzonym plików do publicznego repozytorium.
-</p>
-<p>
-W tym miejscu dochodzimy do punktu, gdzie GitHub Actions wkraczają na scenę.
-</p>
-<h2 id="konfiguracja-github-actions">
-Konfiguracja GitHub Actions
-<a href="#konfiguracja-github-actions" class="headerlink" title="Anchor link to this section for reference">
-¶
-</a>
-</h2>
-<p>
-Zanim zaczniemy wspólną zabawę, chciałbym uświadomić Ci jedną rzecz, tzn. ten wpis nie pokrywa pełnego zakresu możliwości oraz nie omawia wszelkich możliwych aspektów konfiguracji GitHub Actions. Jest to temat bardzo obszerny i aby to zrobić, należałoby przedstawić go w postaci kursu. Jeśli temat zainteresuje Cię, polecam zapoznać się z
-<a href="https://docs.github.com/en/actions">
-dokumentacją znajdującą się na stronie GitHub
-</a>
-.
-</p>
-<h3 id="workflow">
-Workflow
-<a href="#workflow" class="headerlink" title="Anchor link to this section for reference">
-¶
-</a>
-</h3>
-<p>
-GitHub Actions wykonywane są pod wpływem jakiegoś wydarzenia (tzw. event-driven). Aby wiedzieć, jakie wydarzenie jest wyzwalaczem akcji (tzw. trigger) oraz jaka akcja musi się wykonać, potrzebny jest nam jakiś kontener, który będzie przetrzymywał cały ten opis. Takim kontenerem w sensie logicznym jest właśnie
-<em>
-workflow
-</em>
-. Ponieważ cały czas funkcjonujemy w granicach repozytorium git, najprostszą i najbardziej logiczną formą przetrzymywania takie opisu będzie jakiś plik tekstowy. W przypadku GitHub Actions taki plik powinien być w formacie
-<a href="https://en.wikipedia.org/wiki/YAML">
-YAML
-</a>
-.
-</p>
-<p>
-Dodatkowo taki plik powinien się znajdować w odpowiednim miejscu struktury katalogów w repozytorium, tak aby narzędzia, które odpowiadają za wykonanie akcji, wiedziały gdzie szukać ich opisu.
-</p>
-<p>
-W prywatnym repozytorium z kodem bloga musiałem więc utworzyć strukturę katalogów
-<code>
-.github/workflow
-</code>
-oraz w nim umieścić plik YAML. Ja ten plik po prostu nazwałem
-<code>
-deploy-nikola.yml
-</code>
-.
-</p>
-<p>
-Zawartość tego pliku posiada 3 sekcje:
-</p>
+<p>Dodatkowo ideałem byłoby, aby statyczne pliki tworzyły się w momencie, gdy zmodyfikowany zostanie główny branch w prywatnym repozytorium. Następnie powinien nastąpić automatyczny commit tak utworzonym plików do publicznego repozytorium.</p>
+<p>W tym miejscu dochodzimy do punktu, gdzie GitHub Actions wkraczają na scenę.</p>
+<h2 id="konfiguracja-github-actions">Konfiguracja GitHub Actions<a href="#konfiguracja-github-actions" class="headerlink" title="Anchor link to this section for reference">¶</a></h2>
+<p>Zanim zaczniemy wspólną zabawę, chciałbym uświadomić Ci jedną rzecz, tzn. ten wpis nie pokrywa pełnego zakresu możliwości oraz nie omawia wszelkich możliwych aspektów konfiguracji GitHub Actions. Jest to temat bardzo obszerny i aby to zrobić, należałoby przedstawić go w postaci kursu. Jeśli temat zainteresuje Cię, polecam zapoznać się z <a href="https://docs.github.com/en/actions">dokumentacją znajdującą się na stronie GitHub</a>.</p>
+<h3 id="workflow">Workflow<a href="#workflow" class="headerlink" title="Anchor link to this section for reference">¶</a></h3>
+<p>GitHub Actions wykonywane są pod wpływem jakiegoś wydarzenia (tzw. event-driven). Aby wiedzieć, jakie wydarzenie jest wyzwalaczem akcji (tzw. trigger) oraz jaka akcja musi się wykonać, potrzebny jest nam jakiś kontener, który będzie przetrzymywał cały ten opis. Takim kontenerem w sensie logicznym jest właśnie <em>workflow</em>. Ponieważ cały czas funkcjonujemy w granicach repozytorium git, najprostszą i najbardziej logiczną formą przetrzymywania takie opisu będzie jakiś plik tekstowy. W przypadku GitHub Actions taki plik powinien być w formacie <a href="https://en.wikipedia.org/wiki/YAML">YAML</a>.</p>
+<p>Dodatkowo taki plik powinien się znajdować w odpowiednim miejscu struktury katalogów w repozytorium, tak aby narzędzia, które odpowiadają za wykonanie akcji, wiedziały gdzie szukać ich opisu.</p>
+<p>W prywatnym repozytorium z kodem bloga musiałem więc utworzyć strukturę katalogów <code>.github/workflow</code> oraz w nim umieścić plik YAML. Ja ten plik po prostu nazwałem <code>deploy-nikola.yml</code>.</p>
+<p>Zawartość tego pliku posiada 3 sekcje:</p>
 <ul>
-<li>
-<code>
-name
-</code>
-- zawiera nazwę danego workflow,
-</li>
-<li>
-<code>
-on
-</code>
-- zawiera konfigurację wyzwalaczy, które spowoduje uruchomienie danego workflow (może być ich więcej niż jedne),
-</li>
-<li>
-<code>
-jobs
-</code>
-- zawiera konfigurację danego zadania.
-</li>
+<li><code>name</code> - zawiera nazwę danego workflow,</li>
+<li><code>on</code> - zawiera konfigurację wyzwalaczy, które spowoduje uruchomienie danego workflow (może być ich więcej niż jedne),</li>
+<li><code>jobs</code> - zawiera konfigurację danego zadania.</li>
 </ul>
-<h4 id="nazwa-name">
-Nazwa (name)
-<a href="#nazwa-name" class="headerlink" title="Anchor link to this section for reference">
-¶
-</a>
-</h4>
-<p>
-Ponieważ sekcja
-<code>
-name
-</code>
-jest bardzo prosta i oznacza po prostu nazwę danego workflow. W formacie YAML wygląda to następująco:
-</p>
-<div class="highlight language-yaml">
-<pre><span></span><code><span id="__span-0-1"><a href="#__codelineno-0-1" id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">deploy-nikola</span>
-</span></code></pre>
-</div>
-<h4 id="wyzwalacze-on">
-Wyzwalacze (on)
-<a href="#wyzwalacze-on" class="headerlink" title="Anchor link to this section for reference">
-¶
-</a>
-</h4>
-<p>
-Pełna lista wyzwalaczy znajduje się
-<a href="https://docs.github.com/en/actions/reference/events-that-trigger-workflows">
-tutaj
-</a>
-. Ja w swoim workflow, wykorzystałem tylko jeden, czyli
-<code>
-push
-</code>
-, który skonfigurowałem tak, aby działał, tylko w momencie, gdy zmieni się zawartość głównego brancha mojego repozytorium. W formacie YAML wygląda to następująco:
-</p>
-<div class="highlight language-yaml">
-<pre><span></span><code><span id="__span-1-1"><a href="#__codelineno-1-1" id="__codelineno-1-1" name="__codelineno-1-1"></a><span class="nt">on</span><span class="p">:</span><span class="w">  </span>
+<h4 id="nazwa-name">Nazwa (name)<a href="#nazwa-name" class="headerlink" title="Anchor link to this section for reference">¶</a></h4>
+<p>Ponieważ sekcja <code>name</code> jest bardzo prosta i oznacza po prostu nazwę danego workflow. W formacie YAML wygląda to następująco:</p>
+<div class="highlight language-yaml"><pre><span></span><code><span id="__span-0-1"><a href="#__codelineno-0-1" id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">deploy-nikola</span>
+</span></code></pre></div>
+<h4 id="wyzwalacze-on">Wyzwalacze (on)<a href="#wyzwalacze-on" class="headerlink" title="Anchor link to this section for reference">¶</a></h4>
+<p>Pełna lista wyzwalaczy znajduje się <a href="https://docs.github.com/en/actions/reference/events-that-trigger-workflows">tutaj</a>. Ja w swoim workflow, wykorzystałem tylko jeden, czyli <code>push</code>, który skonfigurowałem tak, aby działał, tylko w momencie, gdy zmieni się zawartość głównego brancha mojego repozytorium. W formacie YAML wygląda to następująco:</p>
+<div class="highlight language-yaml"><pre><span></span><code><span id="__span-1-1"><a href="#__codelineno-1-1" id="__codelineno-1-1" name="__codelineno-1-1"></a><span class="nt">on</span><span class="p">:</span><span class="w">  </span>
 </span><span id="__span-1-2"><a href="#__codelineno-1-2" id="__codelineno-1-2" name="__codelineno-1-2"></a><span class="w">  </span><span class="nt">push</span><span class="p">:</span><span class="w">  </span>
 </span><span id="__span-1-3"><a href="#__codelineno-1-3" id="__codelineno-1-3" name="__codelineno-1-3"></a><span class="w">    </span><span class="nt">branches</span><span class="p">:</span><span class="w">  </span>
 </span><span id="__span-1-4"><a href="#__codelineno-1-4" id="__codelineno-1-4" name="__codelineno-1-4"></a><span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">main</span>
-</span></code></pre>
-</div>
-<p>
-W przypadku starszych repozytoriów nazwa głównego brancha może być inna (master). Powód zmiany nazwy doczekał się szerszego opisu w jednym z oficjalnych
-<a href="https://github.com/github/renaming">
-repozytoriów
-</a>
-samego GitHuba.
-</p>
-<p>
-Dodatkowo w przyszłości rozważę również dodanie dodatkowego wyzwalacza w postaci uruchamiania workflow każdego dnia o wybranej godzinie. Pozwoli mi to na skorzystanie z możliwości publikacji artykułów z przyszłą datą. Przyjmując, że chciałbym, aby strona przebudowywała się codziennie o godzinie 10:00, taki wyzwalacz wyglądałby tak:
-</p>
-<div class="highlight language-yaml">
-<pre><span></span><code><span id="__span-2-1"><a href="#__codelineno-2-1" id="__codelineno-2-1" name="__codelineno-2-1"></a><span class="nt">on</span><span class="p">:</span><span class="w">  </span>
+</span></code></pre></div>
+<p>W przypadku starszych repozytoriów nazwa głównego brancha może być inna (master). Powód zmiany nazwy doczekał się szerszego opisu w jednym z oficjalnych <a href="https://github.com/github/renaming">repozytoriów</a> samego GitHuba.</p>
+<p>Dodatkowo w przyszłości rozważę również dodanie dodatkowego wyzwalacza w postaci uruchamiania workflow każdego dnia o wybranej godzinie. Pozwoli mi to na skorzystanie z możliwości publikacji artykułów z przyszłą datą. Przyjmując, że chciałbym, aby strona przebudowywała się codziennie o godzinie 10:00, taki wyzwalacz wyglądałby tak:</p>
+<div class="highlight language-yaml"><pre><span></span><code><span id="__span-2-1"><a href="#__codelineno-2-1" id="__codelineno-2-1" name="__codelineno-2-1"></a><span class="nt">on</span><span class="p">:</span><span class="w">  </span>
 </span><span id="__span-2-2"><a href="#__codelineno-2-2" id="__codelineno-2-2" name="__codelineno-2-2"></a><span class="w">  </span><span class="nt">schedule</span><span class="p">:</span><span class="w">  </span>
 </span><span id="__span-2-3"><a href="#__codelineno-2-3" id="__codelineno-2-3" name="__codelineno-2-3"></a><span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">cron</span><span class="p">:</span><span class="w"> </span><span class="s">'0</span><span class="nv"> </span><span class="s">10</span><span class="nv"> </span><span class="s">*</span><span class="nv"> </span><span class="s">*</span><span class="nv"> </span><span class="s">*'</span>
-</span></code></pre>
-</div>
-<p>
-Zauważ, że składnia zgodna jest ze składnią tzw.
-<a href="https://en.wikipedia.org/wiki/Cron">
-cron
-</a>
-, czyli tzw. planisty (scheduler). Składnia prezentuje się następująco:
-</p>
-<div class="highlight language-console">
-<pre><span></span><code><span id="__span-3-1"><a href="#__codelineno-3-1" id="__codelineno-3-1" name="__codelineno-3-1"></a><span class="go">┌───────────── minuta (0 - 59)</span>
+</span></code></pre></div>
+<p>Zauważ, że składnia zgodna jest ze składnią tzw. <a href="https://en.wikipedia.org/wiki/Cron">cron</a>, czyli tzw. planisty (scheduler). Składnia prezentuje się następująco:</p>
+<div class="highlight language-console"><pre><span></span><code><span id="__span-3-1"><a href="#__codelineno-3-1" id="__codelineno-3-1" name="__codelineno-3-1"></a><span class="go">┌───────────── minuta (0 - 59)</span>
 </span><span id="__span-3-2"><a href="#__codelineno-3-2" id="__codelineno-3-2" name="__codelineno-3-2"></a><span class="go">│ ┌───────────── godzina (0 - 23)</span>
 </span><span id="__span-3-3"><a href="#__codelineno-3-3" id="__codelineno-3-3" name="__codelineno-3-3"></a><span class="go">│ │ ┌───────────── dzień miesiąca (1 - 31)</span>
 </span><span id="__span-3-4"><a href="#__codelineno-3-4" id="__codelineno-3-4" name="__codelineno-3-4"></a><span class="go">│ │ │ ┌───────────── miesiąc (1 - 12 lub JAN-DEC)</span>
 </span><span id="__span-3-5"><a href="#__codelineno-3-5" id="__codelineno-3-5" name="__codelineno-3-5"></a><span class="go">│ │ │ │ ┌───────────── dzień tygodnia (0 - 6 lub SUN-SAT)       </span>
 </span><span id="__span-3-6"><a href="#__codelineno-3-6" id="__codelineno-3-6" name="__codelineno-3-6"></a><span class="go">* * * * *</span>
-</span></code></pre>
-</div>
-<p>
-Istnieją również pewne znaki specjalne, modyfikujące powyższe wartości:
-</p>
+</span></code></pre></div>
+<p>Istnieją również pewne znaki specjalne, modyfikujące powyższe wartości:</p>
 <ul>
-<li>
-<code>
-*
-</code>
-- dowolna wartość,
-</li>
-<li>
-<code>
-,
-</code>
-- separator wartości, np. uruchom codziennie o godzinie 10:00 i 12:00:
-<code>
-0 10,12 * * *
-</code>
-,
-</li>
-<li>
-<code>
--
-</code>
-- zakres wartości od/do, np. uruchom o każdej pełnej godzinie między 15, a 20:
-<code>
-0 15-20 * * *
-</code>
-,
-</li>
-<li>
-<code>
-\
-</code>
-- wartość krokowa, np. uruchamiaj co 15 minut:
-<code>
-0/15 * * * *
-</code>
-.
-</li>
+<li><code>*</code> - dowolna wartość,</li>
+<li><code>,</code> - separator wartości, np. uruchom codziennie o godzinie 10:00 i 12:00: <code>0 10,12 * * *</code>,</li>
+<li><code>-</code> - zakres wartości od/do, np. uruchom o każdej pełnej godzinie między 15, a 20: <code>0 15-20 * * *</code>,</li>
+<li><code>\</code> - wartość krokowa, np. uruchamiaj co 15 minut: <code>0/15 * * * *</code>.</li>
 </ul>
-<h4 id="zadanie-job">
-Zadanie (job)
-<a href="#zadanie-job" class="headerlink" title="Anchor link to this section for reference">
-¶
-</a>
-</h4>
-<p>
-Konfiguracja konkretnego zadania to może być bardzo krótka (np. usunięcie danego katalogu) lub bardzo złożona. Poniżej znajduje się moja konfiguracja i na jej przykładzie omówię, jak się buduje takie zadania i co one zawierają.
-</p>
-<div class="highlight language-yaml">
-<pre><span></span><code><span id="__span-4-1"><a href="#__codelineno-4-1" id="__codelineno-4-1" name="__codelineno-4-1"></a><span class="nt">jobs</span><span class="p">:</span><span class="w">  </span>
+<h4 id="zadanie-job">Zadanie (job)<a href="#zadanie-job" class="headerlink" title="Anchor link to this section for reference">¶</a></h4>
+<p>Konfiguracja konkretnego zadania to może być bardzo krótka (np. usunięcie danego katalogu) lub bardzo złożona. Poniżej znajduje się moja konfiguracja i na jej przykładzie omówię, jak się buduje takie zadania i co one zawierają.</p>
+<div class="highlight language-yaml"><pre><span></span><code><span id="__span-4-1"><a href="#__codelineno-4-1" id="__codelineno-4-1" name="__codelineno-4-1"></a><span class="nt">jobs</span><span class="p">:</span><span class="w">  </span>
 </span><span id="__span-4-2"><a href="#__codelineno-4-2" id="__codelineno-4-2" name="__codelineno-4-2"></a><span class="w">  </span><span class="nt">Deploy-Nikola</span><span class="p">:</span><span class="w">  </span>
 </span><span id="__span-4-3"><a href="#__codelineno-4-3" id="__codelineno-4-3" name="__codelineno-4-3"></a><span class="w">    </span><span class="nt">runs-on</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ubuntu-latest</span><span class="w">  </span>
 </span><span id="__span-4-4"><a href="#__codelineno-4-4" id="__codelineno-4-4" name="__codelineno-4-4"></a><span class="w">    </span><span class="nt">steps</span><span class="p">:</span><span class="w">  </span>
@@ -1585,187 +1031,46 @@ Konfiguracja konkretnego zadania to może być bardzo krótka (np. usunięcie da
 </span><span id="__span-4-25"><a href="#__codelineno-4-25" id="__codelineno-4-25" name="__codelineno-4-25"></a><span class="w">          </span><span class="nt">destination-github-username</span><span class="p">:</span><span class="w"> </span><span class="s">"user"</span><span class="w">  </span>
 </span><span id="__span-4-26"><a href="#__codelineno-4-26" id="__codelineno-4-26" name="__codelineno-4-26"></a><span class="w">          </span><span class="nt">destination-repository-name</span><span class="p">:</span><span class="w"> </span><span class="s">"public-repo"</span><span class="w">  </span>
 </span><span id="__span-4-27"><a href="#__codelineno-4-27" id="__codelineno-4-27" name="__codelineno-4-27"></a><span class="w">          </span><span class="nt">target-branch</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">main</span>
-</span></code></pre>
-</div>
-<p>
-Dużo tego, ale prześledźmy wspólnie, co tu się dzieje i co oznacza. Aha. Żeby nie było, dane w ostatnich 6 linijkach zostały zmienione i nie są prawdziwymi danymi.
-</p>
-<div class="highlight language-yaml">
-<pre><span></span><code><span id="__span-5-1"><a href="#__codelineno-5-1" id="__codelineno-5-1" name="__codelineno-5-1"></a><span class="nt">jobs</span><span class="p">:</span><span class="w">  </span>
+</span></code></pre></div>
+<p>Dużo tego, ale prześledźmy wspólnie, co tu się dzieje i co oznacza. Aha. Żeby nie było, dane w ostatnich 6 linijkach zostały zmienione i nie są prawdziwymi danymi.</p>
+<div class="highlight language-yaml"><pre><span></span><code><span id="__span-5-1"><a href="#__codelineno-5-1" id="__codelineno-5-1" name="__codelineno-5-1"></a><span class="nt">jobs</span><span class="p">:</span><span class="w">  </span>
 </span><span id="__span-5-2"><a href="#__codelineno-5-2" id="__codelineno-5-2" name="__codelineno-5-2"></a><span class="w">  </span><span class="nt">Deploy-Nikola</span><span class="p">:</span>
 </span><span id="__span-5-3"><a href="#__codelineno-5-3" id="__codelineno-5-3" name="__codelineno-5-3"></a><span class="w">    </span><span class="nt">runs-on</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ubuntu-latest</span><span class="w">  </span>
 </span><span id="__span-5-4"><a href="#__codelineno-5-4" id="__codelineno-5-4" name="__codelineno-5-4"></a><span class="w">    </span><span class="nt">steps</span><span class="p">:</span><span class="w">  </span>
-</span></code></pre>
-</div>
-<p>
-Tu raczej nie będzie problemu: -
-<code>
-jobs
-</code>
-- oznacza, że w tym miejscu znajduje się konfiguracja naszego zadania, -
-<code>
-Deploy-Nikola
-</code>
-- to po prostu nazwa naszego zadania, -
-<code>
-runs-on: ubuntu-latest
-</code>
-- definiuje, w jakim systemie operacyjnym dane zadanie, a dokładniej jego kroki, mają zostać uruchomione, -
-<code>
-steps
-</code>
-- kolejne kroki naszego zadania.
-</p>
-<p>
-Powyższe nie powinno stanowić problemu.
-</p>
-<h4 id="kroki-steps">
-Kroki (steps)
-<a href="#kroki-steps" class="headerlink" title="Anchor link to this section for reference">
-¶
-</a>
-</h4>
-<p>
-Zanim jednak przejdziemy do omawiania samych kroków, zastanówmy się czym, w ogóle one są? Otóż kroki to nic innego jak poszczególne akcje, które muszą zostać wykonane, aby nasze zadanie zostało uznane za ukończone.
-</p>
-<p>
-Pojedynczy krok składa się z:
-</p>
+</span></code></pre></div>
+<p>Tu raczej nie będzie problemu: - <code>jobs</code> - oznacza, że w tym miejscu znajduje się konfiguracja naszego zadania, - <code>Deploy-Nikola</code> - to po prostu nazwa naszego zadania, - <code>runs-on: ubuntu-latest</code> - definiuje, w jakim systemie operacyjnym dane zadanie, a dokładniej jego kroki, mają zostać uruchomione, - <code>steps</code> - kolejne kroki naszego zadania.</p>
+<p>Powyższe nie powinno stanowić problemu.</p>
+<h4 id="kroki-steps">Kroki (steps)<a href="#kroki-steps" class="headerlink" title="Anchor link to this section for reference">¶</a></h4>
+<p>Zanim jednak przejdziemy do omawiania samych kroków, zastanówmy się czym, w ogóle one są? Otóż kroki to nic innego jak poszczególne akcje, które muszą zostać wykonane, aby nasze zadanie zostało uznane za ukończone.</p>
+<p>Pojedynczy krok składa się z:</p>
 <ul>
-<li>
-<code>
-name
-</code>
-- nazwa kroku do wyświetlenia (nie jest wymagane),
-</li>
-<li>
-<code>
-uses
-</code>
-- nazwa predefiniowanej akcji, która zostanie wykonana,
-</li>
-<li>
-<code>
-env
-</code>
-- zmienna środowiskowa, jaka powinna zostać ustawiona w danym kroku,
-</li>
-<li>
-<code>
-with
-</code>
-- dodatkowe dane konfiguracyjne, które zostaną przekazane do predefiniowanej akcji,
-</li>
-<li>
-<code>
-run
-</code>
-- komenda systemowa do wykonania (np.
-<code>
-ls -la
-</code>
-).
-</li>
+<li><code>name</code> - nazwa kroku do wyświetlenia (nie jest wymagane),</li>
+<li><code>uses</code> - nazwa predefiniowanej akcji, która zostanie wykonana,</li>
+<li><code>env</code> - zmienna środowiskowa, jaka powinna zostać ustawiona w danym kroku,</li>
+<li><code>with</code> - dodatkowe dane konfiguracyjne, które zostaną przekazane do predefiniowanej akcji,</li>
+<li><code>run</code> - komenda systemowa do wykonania (np. <code>ls -la</code>).</li>
 </ul>
-<p>
-Należy tutaj jeszcze zauważyć kilka rzeczy:
-</p>
+<p>Należy tutaj jeszcze zauważyć kilka rzeczy:</p>
 <ul>
-<li>
-<code>
-run
-</code>
-oraz
-<code>
-uses
-</code>
-nigdy nie występują razem, tzn. albo wykorzystujemy
-<code>
-run
-</code>
-do wywołania komendy systemowej, albo
-<code>
-uses
-</code>
-do wywołania akcji,
-</li>
-<li>
-<code>
-with
-</code>
-występuje tylko w połączeniu z
-<code>
-uses
-</code>
-.
-</li>
+<li><code>run</code> oraz <code>uses</code> nigdy nie występują razem, tzn. albo wykorzystujemy <code>run</code> do wywołania komendy systemowej, albo <code>uses</code> do wywołania akcji,</li>
+<li><code>with</code> występuje tylko w połączeniu z <code>uses</code>.</li>
 </ul>
 <div class="admonition warning">
-<p class="admonition-title">
-Uwaga!
-</p>
-<p>
-Zauważ, że w przypadku chęci użycia predefiniowanych kroków, to co występuje po
-<code>
-uses
-</code>
-to tak naprawdę nazwa repozytorium znajdującego się w portalu GitHub. Jako przykład, może zerknąć na pierwszy krok, czyli
-<a href="https://github.com/actions/checkout">
-actions/checkout@v2
-</a>
-. Czy to oznacza, że możemy takie kroki tworzyć samodzielnie? Oczywiście. Nic nie stoi na przeszkodzie, a cały proces został odpowiednio
-<a href="https://docs.github.com/en/actions/creating-actions/about-actions">
-udokumentowany
-</a>
-.
-</p>
+<p class="admonition-title">Uwaga!</p>
+<p>Zauważ, że w przypadku chęci użycia predefiniowanych kroków, to co występuje po <code>uses</code> to tak naprawdę nazwa repozytorium znajdującego się w portalu GitHub. Jako przykład, może zerknąć na pierwszy krok, czyli <a href="https://github.com/actions/checkout">actions/checkout@v2</a>. Czy to oznacza, że możemy takie kroki tworzyć samodzielnie? Oczywiście. Nic nie stoi na przeszkodzie, a cały proces został odpowiednio <a href="https://docs.github.com/en/actions/creating-actions/about-actions">udokumentowany</a>.</p>
 </div>
-<p>
-Wracając teraz do analizy poszczególnych kroków, omówię je jako prosty zestaw kolnych akcji, jakie zostaną wykonane, a dopasowanie, która akcja co oznacza, zostawię już Tobie (wierzę, że sobie poradzisz z tym zadaniem):
-</p>
+<p>Wracając teraz do analizy poszczególnych kroków, omówię je jako prosty zestaw kolnych akcji, jakie zostaną wykonane, a dopasowanie, która akcja co oznacza, zostawię już Tobie (wierzę, że sobie poradzisz z tym zadaniem):</p>
 <ol>
-<li>
-Pobierz zawartość repozytorium — należy mieć na uwadze, że dzieje się to w kontekście repozytorium, w którym znajduje się definicja danego workflow, czyli pobieramy dane z prywatnego repozytorium.
-</li>
-<li>
-Zainstaluj Pythona 3.8 - zauważ, że w przypadku tej akcji, określamy jaką o jaką wersję Pythona nam chodzi. Ponieważ na komputerze, na którym tworzę tego bloga, mam zainstalowanego Pythona 3.8, użyłem tej samej wersji, aby zminimalizować ilość ewentualnych błędów.
-</li>
-<li>
-Zainstaluj biblioteki z listy znajdujacej się w pliku
-<code>
-requirements.txt
-</code>
-.
-</li>
-<li>
-Zainstaluj brakujące narzędzia w systemie — ponieważ korzystamy z Ubuntu, wykorzystane zostało polecenie systemowe
-<code>
-apt-get
-</code>
-, które służy właśnie do instalacji pakietów z oprogramowaniem.
-</li>
-<li>
-Zbuduj statyczną stronę — w tym celu wywołane zostanie polecenie służące do tego celu.
-</li>
-<li>
-Zakomituj statyczną stronę do publicznego repozytorium z włączoną usługą GitHub Pages — zauważ, że w tym kroku, jest dużo danych konfiguracyjnych, oraz tworzona jest zmienna środowiskowa, w której przechowany zostanie token służący do dostępu do API GitHuba. Token ten służy do autoryzacji oraz przeprowadzenia samego procesu commitu do repozytorium. Aby móc używać tokenu, należy go najpierw wygenerować, a następnie umieścić w odpowiednim miejscu,
-</li>
+<li>Pobierz zawartość repozytorium — należy mieć na uwadze, że dzieje się to w kontekście repozytorium, w którym znajduje się definicja danego workflow, czyli pobieramy dane z prywatnego repozytorium.</li>
+<li>Zainstaluj Pythona 3.8 - zauważ, że w przypadku tej akcji, określamy jaką o jaką wersję Pythona nam chodzi. Ponieważ na komputerze, na którym tworzę tego bloga, mam zainstalowanego Pythona 3.8, użyłem tej samej wersji, aby zminimalizować ilość ewentualnych błędów.</li>
+<li>Zainstaluj biblioteki z listy znajdujacej się w pliku <code>requirements.txt</code>.</li>
+<li>Zainstaluj brakujące narzędzia w systemie — ponieważ korzystamy z Ubuntu, wykorzystane zostało polecenie systemowe <code>apt-get</code>, które służy właśnie do instalacji pakietów z oprogramowaniem.</li>
+<li>Zbuduj statyczną stronę — w tym celu wywołane zostanie polecenie służące do tego celu.</li>
+<li>Zakomituj statyczną stronę do publicznego repozytorium z włączoną usługą GitHub Pages — zauważ, że w tym kroku, jest dużo danych konfiguracyjnych, oraz tworzona jest zmienna środowiskowa, w której przechowany zostanie token służący do dostępu do API GitHuba. Token ten służy do autoryzacji oraz przeprowadzenia samego procesu commitu do repozytorium. Aby móc używać tokenu, należy go najpierw wygenerować, a następnie umieścić w odpowiednim miejscu,</li>
 </ol>
-<h4 id="cay-workflow">
-Cały Workflow
-<a href="#cay-workflow" class="headerlink" title="Anchor link to this section for reference">
-¶
-</a>
-</h4>
-<p>
-Cały plik
-<code>
-deploy-nikola.yml
-</code>
-wygląda następująco:
-</p>
-<div class="highlight language-yaml">
-<pre><span></span><code><span id="__span-6-1"><a href="#__codelineno-6-1" id="__codelineno-6-1" name="__codelineno-6-1"></a><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">deploy-nikola</span><span class="w">  </span>
+<h4 id="cay-workflow">Cały Workflow<a href="#cay-workflow" class="headerlink" title="Anchor link to this section for reference">¶</a></h4>
+<p>Cały plik <code>deploy-nikola.yml</code> wygląda następująco:</p>
+<div class="highlight language-yaml"><pre><span></span><code><span id="__span-6-1"><a href="#__codelineno-6-1" id="__codelineno-6-1" name="__codelineno-6-1"></a><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">deploy-nikola</span><span class="w">  </span>
 </span><span id="__span-6-2"><a href="#__codelineno-6-2" id="__codelineno-6-2" name="__codelineno-6-2"></a><span class="nt">on</span><span class="p">:</span><span class="w">  </span>
 </span><span id="__span-6-3"><a href="#__codelineno-6-3" id="__codelineno-6-3" name="__codelineno-6-3"></a><span class="w">  </span><span class="nt">push</span><span class="p">:</span><span class="w">  </span>
 </span><span id="__span-6-4"><a href="#__codelineno-6-4" id="__codelineno-6-4" name="__codelineno-6-4"></a><span class="w">    </span><span class="nt">branches</span><span class="p">:</span><span class="w">  </span>
@@ -1797,424 +1102,148 @@ wygląda następująco:
 </span><span id="__span-6-30"><a href="#__codelineno-6-30" id="__codelineno-6-30" name="__codelineno-6-30"></a><span class="w">          </span><span class="nt">destination-github-username</span><span class="p">:</span><span class="w"> </span><span class="s">"user"</span><span class="w">  </span>
 </span><span id="__span-6-31"><a href="#__codelineno-6-31" id="__codelineno-6-31" name="__codelineno-6-31"></a><span class="w">          </span><span class="nt">destination-repository-name</span><span class="p">:</span><span class="w"> </span><span class="s">"public-repo"</span><span class="w">  </span>
 </span><span id="__span-6-32"><a href="#__codelineno-6-32" id="__codelineno-6-32" name="__codelineno-6-32"></a><span class="w">          </span><span class="nt">target-branch</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">main</span>
-</span></code></pre>
-</div>
-<h3 id="token">
-Token
-<a href="#token" class="headerlink" title="Anchor link to this section for reference">
-¶
-</a>
-</h3>
-<p>
-Token to nic innego jak klucz, dzięki któremu jesteśmy w stanie wykonywać pewne operacje z wykorzystanie REST API portalu GitHub.
-</p>
-<h4 id="generowanie-tokenu">
-Generowanie tokenu
-<a href="#generowanie-tokenu" class="headerlink" title="Anchor link to this section for reference">
-¶
-</a>
-</h4>
-<p>
-Aby wygenerować token, należy być zalogowanym na swoim koncie w portalu GitHub, a następnie przejść do zakładki
-<strong>
-Settings
-</strong>
-&gt;
-<strong>
-Developer settings
-</strong>
-&gt;
-<strong>
-Personal access tokens
-</strong>
-&gt;
-<strong>
-Generate new token
-</strong>
-lub po prostu przejść na adres
-<a href="https://github.com/settings/tokens/new">
-https://github.com/settings/tokens/new
-</a>
-(w tym miejscu możemy zostać poproszeni o ponowne podanie naszego hasła).
-</p>
+</span></code></pre></div>
+<h3 id="token">Token<a href="#token" class="headerlink" title="Anchor link to this section for reference">¶</a></h3>
+<p>Token to nic innego jak klucz, dzięki któremu jesteśmy w stanie wykonywać pewne operacje z wykorzystanie REST API portalu GitHub.</p>
+<h4 id="generowanie-tokenu">Generowanie tokenu<a href="#generowanie-tokenu" class="headerlink" title="Anchor link to this section for reference">¶</a></h4>
+<p>Aby wygenerować token, należy być zalogowanym na swoim koncie w portalu GitHub, a następnie przejść do zakładki <strong>Settings</strong> &gt; <strong>Developer settings</strong> &gt; <strong>Personal access tokens</strong> &gt; <strong>Generate new token</strong> lub po prostu przejść na adres <a href="https://github.com/settings/tokens/new">https://github.com/settings/tokens/new</a> (w tym miejscu możemy zostać poproszeni o ponowne podanie naszego hasła).</p>
 <figure>
-<p>
-<img src="../../images/posts/2021/ci-cd-na-przykladzie-github-actions/account_settings.png" alt="Account settings" loading="lazy">
-</p>
+<p><img src="../../images/posts/2021/ci-cd-na-przykladzie-github-actions/account_settings.png" alt="Account settings" loading="lazy"></p>
 <figcaption>
-<p>
-Account settings
-</p>
+<p>Account settings</p>
 </figcaption>
 </figure>
 <figure>
-<p>
-<img src="../../images/posts/2021/ci-cd-na-przykladzie-github-actions/dev_settings.png" alt="Dev settings" loading="lazy">
-</p>
+<p><img src="../../images/posts/2021/ci-cd-na-przykladzie-github-actions/dev_settings.png" alt="Dev settings" loading="lazy"></p>
 <figcaption>
-<p>
-Dev settings
-</p>
+<p>Dev settings</p>
 </figcaption>
 </figure>
 <figure>
-<p>
-<img src="../../images/posts/2021/ci-cd-na-przykladzie-github-actions/personal_access_token.png" alt="Personal access token" loading="lazy">
-</p>
+<p><img src="../../images/posts/2021/ci-cd-na-przykladzie-github-actions/personal_access_token.png" alt="Personal access token" loading="lazy"></p>
 <figcaption>
-<p>
-Personal access token
-</p>
+<p>Personal access token</p>
 </figcaption>
 </figure>
 <figure>
-<p>
-<img src="../../images/posts/2021/ci-cd-na-przykladzie-github-actions/generate_new_token.png" alt="Generate new token" loading="lazy">
-</p>
+<p><img src="../../images/posts/2021/ci-cd-na-przykladzie-github-actions/generate_new_token.png" alt="Generate new token" loading="lazy"></p>
 <figcaption>
-<p>
-Generate new token
-</p>
+<p>Generate new token</p>
 </figcaption>
 </figure>
-<p>
-Następnie należy wypełnić/zaznaczyć poniższe pola:|
-</p>
+<p>Następnie należy wypełnić/zaznaczyć poniższe pola:|</p>
 <ul>
-<li>
-<em>
-Note
-</em>
-- tutaj podajemy nazwę naszego tokenu,
-</li>
-<li>
-<em>
-Expiration
-</em>
-- okres przez jaki nasz token będzie zdatny do użytku,
-</li>
-<li>
-<em>
-Select scopes
-</em>
-- zakres uprawnień:
-<ul>
-<li>
-<em>
-repo:status - Access commit status
-</em>
-</li>
-<li>
-<em>
-public_repo - Access public repositiories
-</em>
-</li>
+<li><em>Note</em> - tutaj podajemy nazwę naszego tokenu,</li>
+<li><em>Expiration</em> - okres przez jaki nasz token będzie zdatny do użytku,</li>
+<li><em>Select scopes</em> - zakres uprawnień:<ul>
+<li><em>repo:status - Access commit status</em></li>
+<li><em>public_repo - Access public repositiories</em></li>
 </ul>
 </li>
 </ul>
-<p>
-oraz kliknąć przycisk
-<strong>
-Generate token
-</strong>
-.
-</p>
+<p>oraz kliknąć przycisk <strong>Generate token</strong>.</p>
 <div class="admonition warning">
-<p class="admonition-title">
-Uwaga
-</p>
-<p>
-Należy pamiętać, że ten zestaw uprawnień jest wystarczający w przypadku akcji commitowania do publicznego repozytorium. Jeśli w swoim workflow, będziesz używać innych akcji, może okazać się, że powyższy zestaw uprawnień bedzie niewystarczający.
-</p>
+<p class="admonition-title">Uwaga</p>
+<p>Należy pamiętać, że ten zestaw uprawnień jest wystarczający w przypadku akcji commitowania do publicznego repozytorium. Jeśli w swoim workflow, będziesz używać innych akcji, może okazać się, że powyższy zestaw uprawnień bedzie niewystarczający.</p>
 </div>
 <figure>
-<p>
-<img src="../../images/posts/2021/ci-cd-na-przykladzie-github-actions/new_personal_access_token.png" alt="New personal access token" loading="lazy">
-</p>
+<p><img src="../../images/posts/2021/ci-cd-na-przykladzie-github-actions/new_personal_access_token.png" alt="New personal access token" loading="lazy"></p>
 <figcaption>
-<p>
-New personal access token
-</p>
+<p>New personal access token</p>
 </figcaption>
 </figure>
-<p>
-Po wygenerowaniu tokenu mamy jedyną możliwość skopiowania tokenu, o czym przypomina stosowny komunika. Należy go sobie gdzieś zapisać albo od razu wykorzystać.
-</p>
+<p>Po wygenerowaniu tokenu mamy jedyną możliwość skopiowania tokenu, o czym przypomina stosowny komunika. Należy go sobie gdzieś zapisać albo od razu wykorzystać.</p>
 <figure>
-<p>
-<img src="../../images/posts/2021/ci-cd-na-przykladzie-github-actions/token.png" alt="Token" loading="lazy">
-</p>
+<p><img src="../../images/posts/2021/ci-cd-na-przykladzie-github-actions/token.png" alt="Token" loading="lazy"></p>
 <figcaption>
-<p>
-Token
-</p>
+<p>Token</p>
 </figcaption>
 </figure>
-<h4 id="bezpieczne-wykorzystanie-tokenu">
-Bezpieczne wykorzystanie tokenu
-<a href="#bezpieczne-wykorzystanie-tokenu" class="headerlink" title="Anchor link to this section for reference">
-¶
-</a>
-</h4>
-<p>
-Aby wykorzystać token, musimy zapisać go jako tzw. secret w repozytorium, w którym uruchamiane zostanie tworzone workflow. Secret to nic innego jak zmienna środowiskowa, do której będą miały dostęp wykonywane akcje. Aby utworzyć secret, należy wykonać kilka poniższych kroków w repozytorium.
-</p>
-<p>
-W moim przypadku musiałem przejść do mojego prywatnego repozytorium, a następnie przejść do zakładki
-<strong>
-Settings
-</strong>
-&gt;
-<strong>
-Secrets
-</strong>
-&gt;
-<strong>
-New repository secret
-</strong>
-.
-</p>
+<h4 id="bezpieczne-wykorzystanie-tokenu">Bezpieczne wykorzystanie tokenu<a href="#bezpieczne-wykorzystanie-tokenu" class="headerlink" title="Anchor link to this section for reference">¶</a></h4>
+<p>Aby wykorzystać token, musimy zapisać go jako tzw. secret w repozytorium, w którym uruchamiane zostanie tworzone workflow. Secret to nic innego jak zmienna środowiskowa, do której będą miały dostęp wykonywane akcje. Aby utworzyć secret, należy wykonać kilka poniższych kroków w repozytorium.</p>
+<p>W moim przypadku musiałem przejść do mojego prywatnego repozytorium, a następnie przejść do zakładki <strong>Settings</strong> &gt; <strong>Secrets</strong> &gt; <strong>New repository secret</strong>.</p>
 <figure>
-<p>
-<img src="../../images/posts/2021/ci-cd-na-przykladzie-github-actions/repository_settings.png" alt="Repository settings" loading="lazy">
-</p>
+<p><img src="../../images/posts/2021/ci-cd-na-przykladzie-github-actions/repository_settings.png" alt="Repository settings" loading="lazy"></p>
 <figcaption>
-<p>
-Repository settings
-</p>
+<p>Repository settings</p>
 </figcaption>
 </figure>
 <figure>
-<p>
-<img src="../../images/posts/2021/ci-cd-na-przykladzie-github-actions/secrets.png" alt="Secrets" loading="lazy">
-</p>
+<p><img src="../../images/posts/2021/ci-cd-na-przykladzie-github-actions/secrets.png" alt="Secrets" loading="lazy"></p>
 <figcaption>
-<p>
-Secrets
-</p>
+<p>Secrets</p>
 </figcaption>
 </figure>
 <figure>
-<p>
-<img src="../../images/posts/2021/ci-cd-na-przykladzie-github-actions/new_repository_secret.png" alt="New repository secret" loading="lazy">
-</p>
+<p><img src="../../images/posts/2021/ci-cd-na-przykladzie-github-actions/new_repository_secret.png" alt="New repository secret" loading="lazy"></p>
 <figcaption>
-<p>
-New repository secret
-</p>
+<p>New repository secret</p>
 </figcaption>
 </figure>
-<p>
-Następnie należy wypełnić/zaznaczyć poniższe pola:|
-</p>
+<p>Następnie należy wypełnić/zaznaczyć poniższe pola:|</p>
 <ul>
-<li>
-<em>
-Name
-</em>
-- nazwa zmiennej środowiskowej, w moim przypadku było to
-<code>
-API_TOKEN_GITHUB
-</code>
-,
-</li>
-<li>
-<em>
-Value
-</em>
-- wartość zmiennej środowiskowej, w moim przypadku był to wygenerowany wcześniej token,
-</li>
+<li><em>Name</em> - nazwa zmiennej środowiskowej, w moim przypadku było to <code>API_TOKEN_GITHUB</code>,</li>
+<li><em>Value</em> - wartość zmiennej środowiskowej, w moim przypadku był to wygenerowany wcześniej token,</li>
 </ul>
-<p>
-oraz kliknąć przycisk
-<strong>
-Add secret
-</strong>
-.
-</p>
+<p>oraz kliknąć przycisk <strong>Add secret</strong>.</p>
 <figure>
-<p>
-<img src="../../images/posts/2021/ci-cd-na-przykladzie-github-actions/new_secret.png" alt="New secret" loading="lazy">
-</p>
+<p><img src="../../images/posts/2021/ci-cd-na-przykladzie-github-actions/new_secret.png" alt="New secret" loading="lazy"></p>
 <figcaption>
-<p>
-New secret
-</p>
+<p>New secret</p>
 </figcaption>
 </figure>
-<h2 id="na-zakonczenie">
-Na zakończenie
-<a href="#na-zakonczenie" class="headerlink" title="Anchor link to this section for reference">
-¶
-</a>
-</h2>
-<p>
-Żeby to wszystko teraz zadziałało, musimy jeszcze umieścić plik
-<code>
-deploy-nikola.yml
-</code>
-(
-<code>
-git commit
-</code>
-oraz
-<code>
-git push
-</code>
-) w repozytorium. Od teraz każdy kolejna zmiana lub dodanie plików do głównego brancha, spowoduje automatyczne uruchomienie utworzonego workflow oraz akcji, jakie zostało w nim ustawione. Podgląd możemy zawsze znaleźć w zakładce
-<strong>
-Actions
-</strong>
-naszego repozytorium, a następnie przejść do naszego workflow oraz ostatnio wykonanego uruchomienia workflow.
-</p>
+<h2 id="na-zakonczenie">Na zakończenie<a href="#na-zakonczenie" class="headerlink" title="Anchor link to this section for reference">¶</a></h2>
+<p>Żeby to wszystko teraz zadziałało, musimy jeszcze umieścić plik <code>deploy-nikola.yml</code> (<code>git commit</code> oraz <code>git push</code>) w repozytorium. Od teraz każdy kolejna zmiana lub dodanie plików do głównego brancha, spowoduje automatyczne uruchomienie utworzonego workflow oraz akcji, jakie zostało w nim ustawione. Podgląd możemy zawsze znaleźć w zakładce <strong>Actions</strong> naszego repozytorium, a następnie przejść do naszego workflow oraz ostatnio wykonanego uruchomienia workflow.</p>
 <figure>
-<p>
-<img src="../../images/posts/2021/ci-cd-na-przykladzie-github-actions/actions.png" alt="Actions" loading="lazy">
-</p>
+<p><img src="../../images/posts/2021/ci-cd-na-przykladzie-github-actions/actions.png" alt="Actions" loading="lazy"></p>
 <figcaption>
-<p>
-Actions
-</p>
+<p>Actions</p>
 </figcaption>
 </figure>
 <figure>
-<p>
-<img src="../../images/posts/2021/ci-cd-na-przykladzie-github-actions/action_details.png" alt="Action status" loading="lazy">
-</p>
+<p><img src="../../images/posts/2021/ci-cd-na-przykladzie-github-actions/action_details.png" alt="Action status" loading="lazy"></p>
 <figcaption>
-<p>
-Action Status
-</p>
+<p>Action Status</p>
 </figcaption>
 </figure>
-<h2 id="koszty">
-Koszty
-<a href="#koszty" class="headerlink" title="Anchor link to this section for reference">
-¶
-</a>
-</h2>
-<p>
-GitHub Actions jest darmowe, ale ma pewne ograniczenie, tzn. w ramach darmowego konta, można wykorzystać maksymalnie 2000 minut, w czasie których każdy tzw. runner, będzie wykonywał akcje opisane w ramach akcji. Ograniczenie to można obejść, jeśli wykorzystamy tzw. self-hosted runners, czyli jeśli runner będzie uruchamiany na naszym serwerze.
-</p>
-<h2 id="github-actions-w-testach-automatycznych">
-GitHub Actions w testach automatycznych?
-<a href="#github-actions-w-testach-automatycznych" class="headerlink" title="Anchor link to this section for reference">
-¶
-</a>
-</h2>
-<p>
-Zapewne po przeczytaniu całego tego wpisu, masz już kilka własnych pomysłów, jak można wykorzystać GitHub Actions w testach automatycznych. Poniżej przedstawiam listę kilku własnych pomysłów. Być może pokrywają się z Twoimi pomysłami, a być może podpowiedzą kilka nowych.
-</p>
+<h2 id="koszty">Koszty<a href="#koszty" class="headerlink" title="Anchor link to this section for reference">¶</a></h2>
+<p>GitHub Actions jest darmowe, ale ma pewne ograniczenie, tzn. w ramach darmowego konta, można wykorzystać maksymalnie 2000 minut, w czasie których każdy tzw. runner, będzie wykonywał akcje opisane w ramach akcji. Ograniczenie to można obejść, jeśli wykorzystamy tzw. self-hosted runners, czyli jeśli runner będzie uruchamiany na naszym serwerze.</p>
+<h2 id="github-actions-w-testach-automatycznych">GitHub Actions w testach automatycznych?<a href="#github-actions-w-testach-automatycznych" class="headerlink" title="Anchor link to this section for reference">¶</a></h2>
+<p>Zapewne po przeczytaniu całego tego wpisu, masz już kilka własnych pomysłów, jak można wykorzystać GitHub Actions w testach automatycznych. Poniżej przedstawiam listę kilku własnych pomysłów. Być może pokrywają się z Twoimi pomysłami, a być może podpowiedzą kilka nowych.</p>
 <ul>
-<li>
-W niemal identyczny sposób jak powyżej opisany (tzn. z wykorzystaniem GitHub Actions oraz GitHub Pages) można generować raporty z narzędzia, jakim jest
-<a href="http://allure.qatools.ru">
-Allure
-</a>
-.
-</li>
-<li>
-Podobnie ma się sprawa z generacją dokumentacji kodu testów automatycznych, np. przy użyciu biblioteki
-<a href="https://www.sphinx-doc.org/en/master/">
-Sphinx
-</a>
-.
-</li>
-<li>
-Cykliczne uruchamianie testów automatycznych.
-</li>
-<li>
-Health check środowiska testowego lub produkcji.
-</li>
-<li>
-Tworzenie i odtwarzanie backupu środowiska testowego wraz z danymi testowymi.
-</li>
-<li>
-Automatyczne zarządzanie środowiskiem testowym, np. dynamiczne tworzenie środowisk testowych na potrzeby przeprowadzenia testów oraz ich wyłączenie po ich zakończeniu.
-</li>
-<li>
-Automatyczne uruchamianie testów np. regresji po deploymencie w celu weryfikacji jego poprawności.
-</li>
-<li>
-Uruchamianie unittestów utworzonych dla naszych testów automatycznych.
-</li>
-<li>
-Automatyczne generowanie CV do celów rekrutacji (by Jakub Spórna z bloga
-<a href="https://sporna.dev">
-https://sporna.dev
-</a>
-)
-</li>
+<li>W niemal identyczny sposób jak powyżej opisany (tzn. z wykorzystaniem GitHub Actions oraz GitHub Pages) można generować raporty z narzędzia, jakim jest <a href="http://allure.qatools.ru">Allure</a>.</li>
+<li>Podobnie ma się sprawa z generacją dokumentacji kodu testów automatycznych, np. przy użyciu biblioteki <a href="https://www.sphinx-doc.org/en/master/">Sphinx</a>.</li>
+<li>Cykliczne uruchamianie testów automatycznych.</li>
+<li>Health check środowiska testowego lub produkcji.</li>
+<li>Tworzenie i odtwarzanie backupu środowiska testowego wraz z danymi testowymi.</li>
+<li>Automatyczne zarządzanie środowiskiem testowym, np. dynamiczne tworzenie środowisk testowych na potrzeby przeprowadzenia testów oraz ich wyłączenie po ich zakończeniu.</li>
+<li>Automatyczne uruchamianie testów np. regresji po deploymencie w celu weryfikacji jego poprawności.</li>
+<li>Uruchamianie unittestów utworzonych dla naszych testów automatycznych.</li>
+<li>Automatyczne generowanie CV do celów rekrutacji (by Jakub Spórna z bloga <a href="https://sporna.dev">https://sporna.dev</a>)</li>
 </ul>
 <div class="admonition warning">
-<p class="admonition-title">
-Uwaga
-</p>
-<p>
-Jeśli masz jakiś ciekawy pomysł, którego nie umieściłem na powyższej liście, daj koniecznie znać, a chętnie go dopiszę powyżej, z zaznaczeniem kto był autorem tego pomysłu.
-</p>
+<p class="admonition-title">Uwaga</p>
+<p>Jeśli masz jakiś ciekawy pomysł, którego nie umieściłem na powyższej liście, daj koniecznie znać, a chętnie go dopiszę powyżej, z zaznaczeniem kto był autorem tego pomysłu.</p>
 </div>
-<h2 id="podsumowanie">
-Podsumowanie
-<a href="#podsumowanie" class="headerlink" title="Anchor link to this section for reference">
-¶
-</a>
-</h2>
-<p>
-Jeśli udało Ci się dotrzeć do tego miejsca, to gratuluję wytrwałości. Temat CI/CD jest bardzo obszerny i przedstawiony powyżej opis to zaledwie
-<em>
-liźnięcie
-</em>
-tematu oraz pokazanie, że to wcale nie jest takie trudne. Mam nadzieję, że zachęciłem Cię do zmierzenia się z tym tematem. Jeśli tak to życzę powodzenia, a jeśli nie to zachęcam do spróbowania. Wiedza ta na pewno nie będzie wiedzą bezużyteczną, a jeszcze nie raz w Twojej karierze może okazać się bardzo pomocna, np. podczas rozmowy kwalifikacyjnej lub jako dodatkowy wpis w CV.
-</p>
-<h2 id="bonus">
-Bonus
-<a href="#bonus" class="headerlink" title="Anchor link to this section for reference">
-¶
-</a>
-</h2>
-<p>
-GitHub Actions udostępnia możliwość prezentacji statusu danego workflow w postaci graficznej.
-</p>
+<h2 id="podsumowanie">Podsumowanie<a href="#podsumowanie" class="headerlink" title="Anchor link to this section for reference">¶</a></h2>
+<p>Jeśli udało Ci się dotrzeć do tego miejsca, to gratuluję wytrwałości. Temat CI/CD jest bardzo obszerny i przedstawiony powyżej opis to zaledwie <em>liźnięcie</em> tematu oraz pokazanie, że to wcale nie jest takie trudne. Mam nadzieję, że zachęciłem Cię do zmierzenia się z tym tematem. Jeśli tak to życzę powodzenia, a jeśli nie to zachęcam do spróbowania. Wiedza ta na pewno nie będzie wiedzą bezużyteczną, a jeszcze nie raz w Twojej karierze może okazać się bardzo pomocna, np. podczas rozmowy kwalifikacyjnej lub jako dodatkowy wpis w CV.</p>
+<h2 id="bonus">Bonus<a href="#bonus" class="headerlink" title="Anchor link to this section for reference">¶</a></h2>
+<p>GitHub Actions udostępnia możliwość prezentacji statusu danego workflow w postaci graficznej.</p>
 <figure>
-<p>
-<img src="../../images/posts/2021/ci-cd-na-przykladzie-github-actions/status.png" alt="Workflow status" loading="lazy">
-</p>
+<p><img src="../../images/posts/2021/ci-cd-na-przykladzie-github-actions/status.png" alt="Workflow status" loading="lazy"></p>
 <figcaption>
-<p>
-Workflow status
-</p>
+<p>Workflow status</p>
 </figcaption>
 </figure>
-<p>
-Graficzny status generowany jest w postaci pliku SVG dostępnego w unikatowym dla danego repozytorium oraz danego workflow linku. U mnie prezentuje się on następująco
-<a href="https://github.com/mkusz/testerembyc/actions/workflows/deploy-nikola.yml/badge.svg">
-https://github.com/mkusz/testerembyc/actions/workflows/deploy-nikola.yml/badge.svg
-</a>
-. Aby wykorzystać go np. w pliku README.md, który znajduje się w głównym folderze naszego repozytorium, należy skorzystać z odpowiedniej składni, która umieści plik graficzny z danego linku. W moim wypadku wygląda on tak:
-</p>
-<div class="highlight language-md">
-<pre><span></span><code><span id="__span-7-1"><a href="#__codelineno-7-1" id="__codelineno-7-1" name="__codelineno-7-1"></a>![](https://github.com/mkusz/testerembyc/actions/workflows/deploy-nikola.yml/badge.svg)
-</span></code></pre>
-</div>
+<p>Graficzny status generowany jest w postaci pliku SVG dostępnego w unikatowym dla danego repozytorium oraz danego workflow linku. U mnie prezentuje się on następująco <a href="https://github.com/mkusz/testerembyc/actions/workflows/deploy-nikola.yml/badge.svg">https://github.com/mkusz/testerembyc/actions/workflows/deploy-nikola.yml/badge.svg</a>. Aby wykorzystać go np. w pliku README.md, który znajduje się w głównym folderze naszego repozytorium, należy skorzystać z odpowiedniej składni, która umieści plik graficzny z danego linku. W moim wypadku wygląda on tak:</p>
+<div class="highlight language-md"><pre><span></span><code><span id="__span-7-1"><a href="#__codelineno-7-1" id="__codelineno-7-1" name="__codelineno-7-1"></a>![](https://github.com/mkusz/testerembyc/actions/workflows/deploy-nikola.yml/badge.svg)
+</span></code></pre></div>
 <hr>
-<p class="obsidian_backlink_title">
-Backlinks:
-</p>
+<p class="obsidian_backlink_title">Backlinks:</p>
 <div class="obsidian_backlink">
 <details class="backlink">
-<summary>
-Zmiany na blogu
-</summary>
-<p>
-</p><p class="obsidian_backlink">
-&gt; Więcej informacji o poprzednim stacku technologicznym, którego używałem w starej wersji bloga, znajdziesz we wpisie
-<a href="https://testerembyc.pl/posts/zmiany-na-blogu/#5224191f4d7d08e81cdaa338c362e79e">
-CI/CD na przykładzie GitHub Actions
-</a>
-.
-</p>
-<p></p>
+<summary>Zmiany na blogu</summary>
+<p></p><p class="obsidian_backlink">&gt; Więcej informacji o poprzednim stacku technologicznym, którego używałem w starej wersji bloga, znajdziesz we wpisie <a href="https://testerembyc.pl/posts/zmiany-na-blogu/#5224191f4d7d08e81cdaa338c362e79e">CI/CD na przykładzie GitHub Actions</a>.</p><p></p>
 </details>
 </div>
 <script src="https://giscus.app/client.js" async crossorigin="anonymous" data-category="Komentarze na blogu" data-category-id="DIC_kwDOGBXvjM4CWu1l" data-emit-metadata="0" data-input-position="top" data-lang="pl" data-loading="lazy" data-mapping="pathname" data-reactions-enabled="1" data-repo="mkusz/testerembyc-web" data-repo-id="MDEwOlJlcG9zaXRvcnk0MDQwOTA3NjQ=" data-strict="1" data-theme="preferred_color_scheme"></script>
@@ -2226,11 +1255,8 @@ CI/CD na przykładzie GitHub Actions
 <img src="https://testerembyc.pl/images/pages/jak_zaczac_automatyzowac_small.png">
 </div>
 <p class="tb-ext-grid__desc">
-<b>
-Jak zacząć automatyzować testy?
-</b>
-Poznaj 12 pytań, które pomogą Ci rozpocząć proces automatyzacji testów. W zupełnym oderwaniu od języka programowania, frameworków do testów oraz technologi w jakiej napisana została aplikacja, którą będziesz testować. Całość opisana prostym i zrozumiałym językiem.
-<br>
+<b>Jak zacząć automatyzować testy?</b>
+Poznaj 12 pytań, które pomogą Ci rozpocząć proces automatyzacji testów. W zupełnym oderwaniu od języka programowania, frameworków do testów oraz technologi w jakiej napisana została aplikacja, którą będziesz testować. Całość opisana prostym i zrozumiałym językiem.<br>
 <a href="https://testerembyc.pl/pages/jak-zaczac-automatyzowac-testy/" class="md-button md-button--primary">
 Pobieram darmowy poradnik
 </a>
@@ -2243,10 +1269,7 @@ Pobieram darmowy poradnik
 <script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
 </div>
 <button class="md-icon md-top" type="button" data-md-component="top" hidden>
-<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-<path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12Z">
-</path>
-</svg>
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12Z"></path></svg>
 Powrót do góry
 </button>
 </main>
@@ -2254,10 +1277,7 @@ Powrót do góry
 <nav class="md-grid md-footer__inner" aria-label="Stopka">
 <a href="../testowanie-oprogramowania-podcast-opowiesci-z-testerskiej-krypty/" class="md-footer__link md-footer__link--prev" rel="prev" aria-label="Poprzednia strona: Testowanie Oprogramowania Podcast - Opowieści z Testerskiej Krypty">
 <div class="md-icon md-footer__button">
-<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-<path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z">
-</path>
-</svg>
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"></path></svg>
 </div>
 <div class="md-footer__title">
 <span class="md-footer__direction">
@@ -2278,10 +1298,7 @@ ITea Night Live 05 - Testowanie API
 </div>
 </div>
 <div class="md-icon md-footer__button">
-<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-<path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4Z">
-</path>
-</svg>
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4Z"></path></svg>
 </div>
 </a>
 </nav>
@@ -2289,74 +1306,43 @@ ITea Night Live 05 - Testowanie API
 <div class="md-grid md-footer-meta__inner">
 <div class="md-copyright">
 <div class="md-copyright__highlight">
-© 2019-2023 Maciej Kusz
+© 2019-2024 Maciej Kusz
 </div>
 Utworzono z wykorzystaniem
 <a href="https://www.mkdocs.org/" rel="noopener" target="_blank">
 MkDocs
-</a>
-,
-<a href="https://squidfunk.github.io/mkdocs-material/" rel="noopener" target="_blank">
+</a>, <a href="https://squidfunk.github.io/mkdocs-material/" rel="noopener" target="_blank">
 Material for MkDocs
-</a>
-,
-<a href="https://mkusz.github.io/mkdocs-publisher/" rel="noopener" target="_blank">
+</a>, <a href="https://mkusz.github.io/mkdocs-publisher/" rel="noopener" target="_blank">
 MkDocs Publisher
-</a>
-oraz
-<a href="https://pages.github.com" rel="noopener" target="_blank">
+</a> oraz <a href="https://pages.github.com" rel="noopener" target="_blank">
 GitHub Pages
-</a>
-.
+</a>.
 </div>
 <div class="md-social">
 <a href="feed_rss_created.xml" class="md-social__link" title="" rel="noopener" target="_blank">
-<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-<path d="M6.18 15.64a2.18 2.18 0 0 1 2.18 2.18C8.36 19 7.38 20 6.18 20 5 20 4 19 4 17.82a2.18 2.18 0 0 1 2.18-2.18M4 4.44A15.56 15.56 0 0 1 19.56 20h-2.83A12.73 12.73 0 0 0 4 7.27V4.44m0 5.66a9.9 9.9 0 0 1 9.9 9.9h-2.83A7.07 7.07 0 0 0 4 12.93V10.1Z">
-</path>
-</svg>
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M6.18 15.64a2.18 2.18 0 0 1 2.18 2.18C8.36 19 7.38 20 6.18 20 5 20 4 19 4 17.82a2.18 2.18 0 0 1 2.18-2.18M4 4.44A15.56 15.56 0 0 1 19.56 20h-2.83A12.73 12.73 0 0 0 4 7.27V4.44m0 5.66a9.9 9.9 0 0 1 9.9 9.9h-2.83A7.07 7.07 0 0 0 4 12.93V10.1Z"></path></svg>
 </a>
 <a href="https://www.facebook.com/testerembyc" class="md-social__link" title="www.facebook.com" rel="noopener" target="_blank">
-<svg viewbox="0 0 512 512" xmlns="http://www.w3.org/2000/svg">
-<!--! Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.-->
-<path d="M512 256C512 114.6 397.4 0 256 0S0 114.6 0 256c0 120 82.7 220.8 194.2 248.5V334.2h-52.8V256h52.8v-33.7c0-87.1 39.4-127.5 125-127.5 16.2 0 44.2 3.2 55.7 6.4V172c-6-.6-16.5-1-29.6-1-42 0-58.2 15.9-58.2 57.2V256h83.6l-14.4 78.2H287v175.9C413.8 494.8 512 386.9 512 256z">
-</path>
-</svg>
+<svg viewbox="0 0 512 512" xmlns="http://www.w3.org/2000/svg"><!--! Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M512 256C512 114.6 397.4 0 256 0S0 114.6 0 256c0 120 82.7 220.8 194.2 248.5V334.2h-52.8V256h52.8v-33.7c0-87.1 39.4-127.5 125-127.5 16.2 0 44.2 3.2 55.7 6.4V172c-6-.6-16.5-1-29.6-1-42 0-58.2 15.9-58.2 57.2V256h83.6l-14.4 78.2H287v175.9C413.8 494.8 512 386.9 512 256z"></path></svg>
 </a>
 <a href="https://www.instagram.com/testerembyc/" class="md-social__link" title="www.instagram.com" rel="noopener" target="_blank">
-<svg viewbox="0 0 448 512" xmlns="http://www.w3.org/2000/svg">
-<!--! Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.-->
-<path d="M224.1 141c-63.6 0-114.9 51.3-114.9 114.9s51.3 114.9 114.9 114.9S339 319.5 339 255.9 287.7 141 224.1 141zm0 189.6c-41.1 0-74.7-33.5-74.7-74.7s33.5-74.7 74.7-74.7 74.7 33.5 74.7 74.7-33.6 74.7-74.7 74.7zm146.4-194.3c0 14.9-12 26.8-26.8 26.8-14.9 0-26.8-12-26.8-26.8s12-26.8 26.8-26.8 26.8 12 26.8 26.8zm76.1 27.2c-1.7-35.9-9.9-67.7-36.2-93.9-26.2-26.2-58-34.4-93.9-36.2-37-2.1-147.9-2.1-184.9 0-35.8 1.7-67.6 9.9-93.9 36.1s-34.4 58-36.2 93.9c-2.1 37-2.1 147.9 0 184.9 1.7 35.9 9.9 67.7 36.2 93.9s58 34.4 93.9 36.2c37 2.1 147.9 2.1 184.9 0 35.9-1.7 67.7-9.9 93.9-36.2 26.2-26.2 34.4-58 36.2-93.9 2.1-37 2.1-147.8 0-184.8zM398.8 388c-7.8 19.6-22.9 34.7-42.6 42.6-29.5 11.7-99.5 9-132.1 9s-102.7 2.6-132.1-9c-19.6-7.8-34.7-22.9-42.6-42.6-11.7-29.5-9-99.5-9-132.1s-2.6-102.7 9-132.1c7.8-19.6 22.9-34.7 42.6-42.6 29.5-11.7 99.5-9 132.1-9s102.7-2.6 132.1 9c19.6 7.8 34.7 22.9 42.6 42.6 11.7 29.5 9 99.5 9 132.1s2.7 102.7-9 132.1z">
-</path>
-</svg>
+<svg viewbox="0 0 448 512" xmlns="http://www.w3.org/2000/svg"><!--! Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path 
+d="M224.1 141c-63.6 0-114.9 51.3-114.9 114.9s51.3 114.9 114.9 114.9S339 319.5 339 255.9 287.7 141 224.1 141zm0 189.6c-41.1 0-74.7-33.5-74.7-74.7s33.5-74.7 74.7-74.7 74.7 33.5 74.7 74.7-33.6 74.7-74.7 74.7zm146.4-194.3c0 14.9-12 26.8-26.8 26.8-14.9 0-26.8-12-26.8-26.8s12-26.8 26.8-26.8 26.8 12 26.8 26.8zm76.1 27.2c-1.7-35.9-9.9-67.7-36.2-93.9-26.2-26.2-58-34.4-93.9-36.2-37-2.1-147.9-2.1-184.9 0-35.8 1.7-67.6 9.9-93.9 36.1s-34.4 58-36.2 93.9c-2.1 37-2.1 147.9 0 184.9 1.7 35.9 9.9 67.7 36.2 93.9s58 34.4 93.9 36.2c37 2.1 147.9 2.1 184.9 0 35.9-1.7 67.7-9.9 93.9-36.2 26.2-26.2 34.4-58 36.2-93.9 2.1-37 2.1-147.8 0-184.8zM398.8 388c-7.8 19.6-22.9 34.7-42.6 42.6-29.5 11.7-99.5 9-132.1 9s-102.7 2.6-132.1-9c-19.6-7.8-34.7-22.9-42.6-42.6-11.7-29.5-9-99.5-9-132.1s-2.6-102.7 9-132.1c7.8-19.6 22.9-34.7 42.6-42.6 29.5-11.7 99.5-9 132.1-9s102.7-2.6 132.1 9c19.6 7.8 34.7 22.9 42.6 42.6 11.7 29.5 9 99.5 9 132.1s2.7 102.7-9 132.1z"></path></svg>
 </a>
 <a href="https://www.youtube.com/@testerembyc" class="md-social__link" title="www.youtube.com" rel="noopener" target="_blank">
-<svg viewbox="0 0 576 512" xmlns="http://www.w3.org/2000/svg">
-<!--! Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.-->
-<path d="M549.655 124.083c-6.281-23.65-24.787-42.276-48.284-48.597C458.781 64 288 64 288 64S117.22 64 74.629 75.486c-23.497 6.322-42.003 24.947-48.284 48.597-11.412 42.867-11.412 132.305-11.412 132.305s0 89.438 11.412 132.305c6.281 23.65 24.787 41.5 48.284 47.821C117.22 448 288 448 288 448s170.78 0 213.371-11.486c23.497-6.321 42.003-24.171 48.284-47.821 11.412-42.867 11.412-132.305 11.412-132.305s0-89.438-11.412-132.305zm-317.51 213.508V175.185l142.739 81.205-142.739 81.201z">
-</path>
-</svg>
+<svg viewbox="0 0 576 512" xmlns="http://www.w3.org/2000/svg"><!--! Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M549.655 124.083c-6.281-23.65-24.787-42.276-48.284-48.597C458.781 64 288 64 288 64S117.22 64 74.629 75.486c-23.497 6.322-42.003 24.947-48.284 48.597-11.412 42.867-11.412 132.305-11.412 132.305s0 89.438 11.412 132.305c6.281 23.65 24.787 41.5 48.284 47.821C117.22 448 288 448 288 448s170.78 0 213.371-11.486c23.497-6.321 42.003-24.171 48.284-47.821 11.412-42.867 11.412-132.305 11.412-132.305s0-89.438-11.412-132.305zm-317.51 213.508V175.185l142.739 81.205-142.739 81.201z"></path></svg>
 </a>
 <a href="https://www.linkedin.com/in/maciej-kusz/" class="md-social__link" title="www.linkedin.com" rel="noopener" target="_blank">
-<svg viewbox="0 0 448 512" xmlns="http://www.w3.org/2000/svg">
-<!--! Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.-->
-<path d="M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3zM135.4 416H69V202.2h66.5V416zm-33.2-243c-21.3 0-38.5-17.3-38.5-38.5S80.9 96 102.2 96c21.2 0 38.5 17.3 38.5 38.5 0 21.3-17.2 38.5-38.5 38.5zm282.1 243h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9V416z">
-</path>
-</svg>
+<svg viewbox="0 0 448 512" xmlns="http://www.w3.org/2000/svg"><!--! Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3zM135.4 416H69V202.2h66.5V416zm-33.2-243c-21.3 0-38.5-17.3-38.5-38.5S80.9 96 102.2 96c21.2 0 38.5 17.3 38.5 38.5 0 21.3-17.2 38.5-38.5 38.5zm282.1 243h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9V416z"></path></svg>
 </a>
 <a href="https://github.com/mkusz" class="md-social__link" title="github.com" rel="noopener" target="_blank">
-<svg viewbox="0 0 496 512" xmlns="http://www.w3.org/2000/svg">
-<!--! Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.-->
-<path 
+<svg viewbox="0 0 496 512" xmlns="http://www.w3.org/2000/svg"><!--! Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path 
 d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z">
-</path>
-</svg>
+</path></svg>
 </a>
 <a href="mailto:maciej@testerembyc.pl" class="md-social__link" title="" rel="noopener" target="_blank">
-<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-<path d="m4 8 8 5 8-5-8-5-8 5m18 0v10a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V8c0-.73.39-1.36.97-1.71L12 .64l9.03 5.65c.58.35.97.98.97 1.71Z">
-</path>
-</svg>
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="m4 8 8 5 8-5-8-5-8 5m18 0v10a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V8c0-.73.39-1.36.97-1.71L12 .64l9.03 5.65c.58.35.97.98.97 1.71Z"></path></svg>
 </a>
 </div>
 </div>
@@ -2364,60 +1350,40 @@ d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-
 </footer>
 </div>
 <div class="md-dialog" data-md-component="dialog">
-<div class="md-typeset md-dialog__inner">
+<div class="md-typeset md-dialog__inner"></div>
 </div>
-</div>
-<div class="md-progress" data-md-component="progress" role="progressbar">
-</div>
+<div class="md-progress" data-md-component="progress" role="progressbar"></div>
 <div class="md-consent" data-md-component="consent" hidden id="__consent">
-<div class="md-consent__overlay">
-</div>
+<div class="md-consent__overlay"></div>
 <aside class="md-consent__inner">
 <form class="md-typeset md-consent__form md-grid" name="consent">
-<h4>
-Lubisz ciasteczka?
-</h4>
-<p>
-Używam ich, aby dostarczyć Ci lepszych treści. Chcesz wiedzieć więcej? Zerknij do
-<a href="/pages/polityka-prywatnosci/" target="_blank">
-polityki prywatności
-</a>
-.
-</p>
+<h4>Lubisz ciasteczka?</h4>
+<p>Używam ich, aby dostarczyć Ci lepszych treści. Chcesz wiedzieć więcej? Zerknij do <a href="/pages/polityka-prywatnosci/" target="_blank">polityki prywatności</a>.</p>
 <input type="checkbox" class="md-toggle" id="__settings">
 <div class="md-consent__settings">
 <ul class="task-list">
 <li class="task-list-item">
 <label class="task-list-control">
 <input type="checkbox" name="analytics" checked>
-<span class="task-list-indicator">
-</span>
+<span class="task-list-indicator"></span>
 Google Analytics
 </label>
 </li>
 </ul>
 </div>
 <div class="md-consent__controls">
-<button class="md-button md-button--primary">
-Akceptuj
-</button>
-<label class="md-button" for="__settings">
-Zarządzaj ustawieniami
-</label>
+<button class="md-button md-button--primary">Akceptuj</button>
+<label class="md-button" for="__settings">Zarządzaj ustawieniami</label>
 </div>
 </form>
 </aside>
 </div>
 <script>var consent=__md_get("__consent");if(consent)for(var input of document.forms.consent.elements)input.name&&(input.checked=consent[input.name]||!1);else"file:"!==location.protocol&&setTimeout((function(){document.querySelector("[data-md-component=consent]").hidden=!1}),250);var action,form=document.forms.consent;for(action of["submit","reset"])form.addEventListener(action,(function(e){if(e.preventDefault(),"reset"===e.type)for(var n of document.forms.consent.elements)n.name&&(n.checked=!1);__md_set("__consent",Object.fromEntries(Array.from(new FormData(form).keys()).map((function(e){return[e,!0]})))),location.hash="",location.reload()}))</script>
-<script id="__config" type="application/json">
-{"base": "../..", "features": ["navigation.tabs", "navigation.tabs.sticky", "navigation.footer", "navigation.tracking", "navigation.top", "navigation.sections", "navigation.indexes", "navigation.instant", "navigation.instant.progress", "search.suggest", "search.highlight", "search.share", "content.code.copy", "content.code.annotate", "content.tabs.link", "toc.follow"], "search": "../../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "Skopiowano do schowka", "clipboard.copy": "Kopiuj do schowka", "search.result.more.one": "1 wi\u0119cej na tej stronie", "search.result.more.other": "# wi\u0119cej na tej stronie", "search.result.none": "Brak wynik\u00f3w wyszukiwania", "search.result.one": "Wyniki wyszukiwania: 1", "search.result.other": "Wyniki wyszukiwania: #", "search.result.placeholder": "Zacznij pisa\u0107, aby szuka\u0107", "search.result.term.missing": "Brak", "select.version": "Wybierz wersj\u0119"}}
-</script>
-<script src="../../assets/javascripts/bundle.3220b9d7.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/js/all.min.js"></script>
+<script id="__config" type="application/json">{"base": "../..", "features": ["navigation.tabs", "navigation.tabs.sticky", "navigation.footer", "navigation.tracking", "navigation.top", "navigation.sections", "navigation.indexes", "navigation.instant", "navigation.instant.progress", "search.suggest", "search.highlight", "search.share", "content.code.copy", "content.code.annotate", "content.tabs.link", "toc.follow"], "search": "../../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "Skopiowano do schowka", "clipboard.copy": "Kopiuj do schowka", "search.result.more.one": "1 wi\u0119cej na tej stronie", "search.result.more.other": "# wi\u0119cej na tej stronie", "search.result.none": "Brak wynik\u00f3w wyszukiwania", "search.result.one": "Wyniki wyszukiwania: 1", "search.result.other": "Wyniki wyszukiwania: #", "search.result.placeholder": "Zacznij pisa\u0107, aby szuka\u0107", "search.result.term.missing": "Brak", "select.version": "Wybierz wersj\u0119"}}</script>
+<script src="../../assets/javascripts/bundle.fe8b6f2b.min.js"></script>
 <script defer>!function(e,t,n,c,o,a,f){e.fbq||(o=e.fbq=function(){o.callMethod?o.callMethod.apply(o,arguments):o.queue.push(arguments)},e._fbq||(e._fbq=o),o.push=o,o.loaded=!0,o.version="2.0",o.queue=[],(a=t.createElement(n)).async=!0,a.src="https://connect.facebook.net/en_US/fbevents.js",(f=t.getElementsByTagName(n)[0]).parentNode.insertBefore(a,f))}(window,document,"script"),fbq("init","444619046317574"),fbq("track","PageView")</script>
 <noscript>
 <img src="https://www.facebook.com/tr?id=444619046317574&amp;ev=PageView&amp;noscript=1" alt="Facebook Pixel" height="1" style="display:none" width="1">
-
 </noscript>
 </body>
 </html>

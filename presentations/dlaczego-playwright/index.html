@@ -4,29 +4,32 @@
 <meta charset="utf-8">
 <meta content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no" name="viewport">
 <title></title>
+<link href="dist/reset.css" rel="stylesheet">
 <link href="dist/reveal.css" rel="stylesheet">
+<link href="css/slides-extended.css" rel="stylesheet">
 <link href="dist/theme/blood.css" rel="stylesheet" id="theme">
 <link href="plugin/highlight/monokai.css" rel="stylesheet">
-<link href="css/layout.css" rel="stylesheet">
 <link href="plugin/customcontrols/style.css" rel="stylesheet">
-<link href="plugin/chalkboard/style.css" rel="stylesheet">
 <script src="dist/fontawesome/all.min.js" defer></script>
-<script type="text/javascript">var forgetPop=!0;function onPopState(e){forgetPop?forgetPop=!1:parent.postMessage(e.target.location.href,"app://obsidian.md")}function fitElements(){var e,t=document.getElementsByClassName("fitText");for(const o in t)Object.hasOwnProperty.call(t,o)&&(fitElement(e=t[o],1,1e3),e.classList.remove("fitText"))}function fitElement(e,t,o){let n=(o+t)/2;if(e.style.fontSize=n+"px",Math.abs(t-o)<1)for(;e.scrollHeight>e.offsetHeight;)n--,e.style.fontSize=n+"px";else e.scrollHeight>e.offsetHeight?fitElement(e,t,n):fitElement(e,n,o)}window.onpopstate=onPopState,window.onmessage=e=>{"reload"==e.data&&window.document.location.reload(),forgetPop=!0},document.onreadystatechange=()=>{if(fitElements(),"complete"===document.readyState&&(-1!=window.location.href.indexOf("?export")&&parent.postMessage(event.target.location.href,"app://obsidian.md"),-1!=window.location.href.indexOf("print-pdf"))){let e=setInterval(()=>{clearInterval(e),window.print()},250)}}</script>
+<script type="text/javascript">
+function pageInIframe(){return window.location!==window.parent.location}let forgetPop=!0;function onPopState(e){forgetPop?forgetPop=!1:pageInIframe()&&parent.postMessage(e.target.location.href,"app://obsidian.md")}function fitElements(){const e=document.getElementsByClassName("fitText");for(const t in e)if(Object.hasOwnProperty.call(e,t)){const o=e[t];fitElement(o,1,1e3),o.classList.remove("fitText")}}function fitElement(e,t,o){let n=(o+t)/2;if(e.style.fontSize=`${n}px`,Math.abs(t-o)<1)for(;e.scrollHeight>e.offsetHeight;)n--,e.style.fontSize=`${n}px`;else e.scrollHeight>e.offsetHeight?fitElement(e,t,n):fitElement(e,n,o)}window.onpopstate=onPopState,window.onmessage=e=>{"reload"==e.data&&window.document.location.reload(),forgetPop=!0},document.onreadystatechange=()=>{if(fitElements(),"complete"===document.readyState&&(pageInIframe()&&-1!=window.location.href.indexOf("?export")&&parent.postMessage(event.target.location.href,"app://obsidian.md"),-1!=window.location.href.indexOf("print-pdf"))){let e=setInterval((()=>{clearInterval(e),window.print()}),250)}}
+</script>
 </head>
 <body>
 <div class="reveal">
-<div class="slides"><section data-markdown><script type="text/template"><!-- .slide: class="drop" -->
+<div class="slides"><section data-markdown><script type="text/template"><!-- .slide: class="drop" template="" -->
 <div class="" style="position: absolute; left: 0px; top: 0px; height: 768px; width: 1366px; min-height: 768px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
 
 # Dlaczego Playwright?
-</div></script></section><section data-markdown><script type="text/template"><!-- .slide: class="drop" -->
+</div></script></section><section data-markdown><script type="text/template"><!-- .slide: class="drop" template="" -->
 <div class="" style="position: absolute; left: 0px; top: 0px; height: 768px; width: 1366px; min-height: 768px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
 
-<img src="dlaczego-playwright-img/napis_logo_white.png" alt="" style="object-fit: scale-down">
+<img src="images/tb_logo_white.png" alt="" style="width: 600px; object-fit: fill">
 
+<img src="images/tb_napis_white.png" alt="" style="width: 800px; object-fit: fill">
 
-by Maciej 'maQ' Kusz
-</div></script></section><section data-markdown><script type="text/template"><!-- .slide: class="drop" -->
+by Maciej Kusz
+</div></script></section><section data-markdown><script type="text/template"><!-- .slide: class="drop" template="" -->
 <div class="" style="position: absolute; left: 0px; top: 0px; height: 768px; width: 1366px; min-height: 768px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
 
 ## O mnie
@@ -39,11 +42,11 @@ by Maciej 'maQ' Kusz
 - &shy;<!-- .element: class="fragment" data-fragment-index="6" -->­... i współorganizator ŚlonzaczQA i ConSelenium
 - &shy;<!-- .element: class="fragment" data-fragment-index="7" -->­a prywatnie mąż, ojciec i zapalony majsterkowicz ...
 - &shy;<!-- .element: class="fragment" data-fragment-index="8" -->­... oraz autor mkdocs-publisher
-</div></script></section><section data-markdown><script type="text/template"><!-- .slide: class="drop" -->
+</div></script></section><section data-markdown><script type="text/template"><!-- .slide: class="drop" template="" -->
 <div class="" style="position: absolute; left: 0px; top: 0px; height: 768px; width: 1366px; min-height: 768px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
 
 <iframe src="https://wall.sli.do/event/sJNhaP2gDizx3ChDNjR6UU?section=edc46c52-390f-4562-9f87-f41423c5c3c1" width="1366" height="768"></iframe>
-</div></script></section><section data-markdown><script type="text/template"><!-- .slide: class="drop" -->
+</div></script></section><section data-markdown><script type="text/template"><!-- .slide: class="drop" template="" -->
 <div class="" style="position: absolute; left: 0px; top: 0px; height: 768px; width: 1366px; min-height: 768px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
 
 ## Trochę historii
@@ -53,53 +56,56 @@ by Maciej 'maQ' Kusz
 | Selenium   |   2004   | .NET, Java, Ruby, Python, JavaScript |
 | Cypress    |   2017   |             JavaScript             |
 | Playwright |   2020   |    .NET, Java, Python, JavaScript    |
+
 <div class="" style="font-size: 20px; position: absolute; left: 50%; top: 90%; height: 10%; width: 50%; display: flex; flex-direction: column; align-items: center; justify-content: center" >
 
 Selenium 4.0.0 ukazał się z końcem października 2021
 </div>
-</div></script></section><section data-markdown><script type="text/template"><!-- .slide: class="drop" -->
+</div></script></section><section data-markdown><script type="text/template"><!-- .slide: class="drop" template="" -->
 <div class="" style="position: absolute; left: 0px; top: 0px; height: 768px; width: 1366px; min-height: 768px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
 
 ## Ilość pobrań
 
-<img src="dlaczego-playwright-img/npm-downloads-all.png" alt="" style="object-fit: scale-down">
+<img src="images/npm-5y.png" alt="" style="object-fit: scale-down">
 
 
-<div class="" style="font-size: 16px; position: absolute; left: 90%; top: 90%; height: 10%; width: 10%; display: flex; flex-direction: column; align-items: center; justify-content: center" >
+<div class="" style="font-size: 16px; position: absolute; left: 90%; top: 100%; height: 0%; width: 10%; display: flex; flex-direction: column; align-items: center; justify-content: center" >
 
 
 żródło: npm trends
 
 </div>
-</div></script></section><section data-markdown><script type="text/template"><!-- .slide: class="drop" -->
+</div></script></section><section data-markdown><script type="text/template"><!-- .slide: class="drop" template="" -->
 <div class="" style="position: absolute; left: 0px; top: 0px; height: 768px; width: 1366px; min-height: 768px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
 
 ## Ilość pobrań
 
-<img src="dlaczego-playwright-img/npm-downloads-5y.png" alt="" style="object-fit: scale-down">
+<img src="images/npm-2y.png" alt="" style="object-fit: scale-down">
 
 
-<div class="" style="font-size: 16px; position: absolute; left: 90%; top: 90%; height: 10%; width: 10%; display: flex; flex-direction: column; align-items: center; justify-content: center" >
+<div class="" style="font-size: 16px; position: absolute; left: 90%; top: 100%; height: 0%; width: 10%; display: flex; flex-direction: column; align-items: center; justify-content: center" >
 
 
 żródło: npm trends
 
 </div>
-</div></script></section><section data-markdown><script type="text/template"><!-- .slide: class="drop" -->
+</div></script></section><section data-markdown><script type="text/template"><!-- .slide: class="drop" template="" -->
 <div class="" style="position: absolute; left: 0px; top: 0px; height: 768px; width: 1366px; min-height: 768px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
 
-## Ilość pobrań
+### Ilość pobrań
 
-<img src="dlaczego-playwright-img/npm-downloads-1y.png" alt="" style="object-fit: scale-down">
+<img src="images/pypi-selenium.png" alt="" style="width: 900px; object-fit: fill">
+
+<img src="images/pypi-playwright.png" alt="" style="width: 900px; object-fit: fill">
 
 
-<div class="" style="font-size: 16px; position: absolute; left: 90%; top: 90%; height: 10%; width: 10%; display: flex; flex-direction: column; align-items: center; justify-content: center" >
+<div class="" style="font-size: 16px; position: absolute; left: 80%; top: 100%; height: 0%; width: 20%; display: flex; flex-direction: column; align-items: center; justify-content: center" >
 
 
-żródło: npm trends
+żródło: pypi stats
 
 </div>
-</div></script></section><section data-markdown><script type="text/template"><!-- .slide: class="drop" -->
+</div></script></section><section data-markdown><script type="text/template"><!-- .slide: class="drop" template="" -->
 <div class="" style="position: absolute; left: 0px; top: 0px; height: 768px; width: 1366px; min-height: 768px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
 
 ## Problemy Selenium
@@ -114,11 +120,11 @@ Selenium 4.0.0 ukazał się z końcem października 2021
 - &shy;<!-- .element: class="fragment" data-fragment-index="8" -->nagrywanie video z testu
 - &shy;<!-- .element: class="fragment" data-fragment-index="9" -->nagrywanie komunikacji
 - &shy;<!-- .element: class="fragment" data-fragment-index="10" -->... ogólnie debugowanie testu
-</div></script></section><section data-markdown><script type="text/template"><!-- .slide: class="drop" -->
+</div></script></section><section data-markdown><script type="text/template"><!-- .slide: class="drop" template="" -->
 <div class="" style="position: absolute; left: 0px; top: 0px; height: 768px; width: 1366px; min-height: 768px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
 
 # Playwright
-</div></script></section><section data-markdown><script type="text/template"><!-- .slide: class="drop" -->
+</div></script></section><section data-markdown><script type="text/template"><!-- .slide: class="drop" template="" -->
 <div class="" style="position: absolute; left: 0px; top: 0px; height: 768px; width: 1366px; min-height: 768px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
 
 ## Filozofia
@@ -127,12 +133,14 @@ Selenium 4.0.0 ukazał się z końcem października 2021
 - &shy;<!-- .element: class="fragment" data-fragment-index="2" -->wsparcie dla wielu okien przeglądarek (tzw. [browser context](https://playwright.dev/python/docs/api/class-browsercontext))
 - &shy;<!-- .element: class="fragment" data-fragment-index="3" -->wsparcie dla wielu tabów (tzw. [page context](https://playwright.dev/python/docs/api/class-page))
 - &shy;<!-- .element: class="fragment" data-fragment-index="4" -->wsparcie dla Shadow DOM i iframe
-- &shy;<!-- .element: class="fragment" data-fragment-index="5" -->natywne wsparcie dla async w 🐍
-- &shy;<!-- .element: class="fragment" data-fragment-index="6" -->mockowanie i modyfikacja REST API
-- &shy;<!-- .element: class="fragment" data-fragment-index="7" -->logowanie testu: screenshots, video, tracing
-- &shy;<!-- .element: class="fragment" data-fragment-index="8" -->wbudowane narzędzia: Codegen, Inspector, Trace Viewer
-- &shy;<!-- .element: class="fragment" data-fragment-index="9" -->dokumentacja oparta o `pytest` w 🐍
-</div></script></section><section data-markdown><script type="text/template"><!-- .slide: class="drop" -->
+- &shy;<!-- .element: class="fragment" data-fragment-index="5" -->mockowanie i modyfikacja REST API
+- &shy;<!-- .element: class="fragment" data-fragment-index="6" -->logowanie testu: screenshots, video, tracing
+- &shy;<!-- .element: class="fragment" data-fragment-index="7" -->wbudowane narzędzia: Codegen, Inspector, Trace Viewer
+- &shy;<!-- .element: class="fragment" data-fragment-index="8" -->tagi, grupowanie, parametryzacja, zrównoleglanie, itp.
+- &shy;<!-- .element: class="fragment" data-fragment-index="9" -->natywne wsparcie dla async w Pythonie
+- &shy;<!-- .element: class="fragment" data-fragment-index="10" -->dokumentacja oparta o `pytest` w Pythonie
+- &shy;<!-- .element: class="fragment" data-fragment-index="11" -->łatwiejsza konfiguracja w TypeScript
+</div></script></section><section data-markdown><script type="text/template"><!-- .slide: class="drop" template="" -->
 <div class="" style="position: absolute; left: 0px; top: 0px; height: 768px; width: 1366px; min-height: 768px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
 
 ## Mobile
@@ -147,9 +155,18 @@ async def run(playwright: Playwright):
 	browser = await playwright.webkit.launch(headless=False)  
 	context = await browser.new_context(**iphone_13, )
 ```
-
 <!-- .element: class="fragment" data-fragment-index="4" -->
-</div></script></section><section data-markdown><script type="text/template"><!-- .slide: class="drop" -->
+
+```javascript
+const { chromium, devices } = require('playwright');
+const browser = await chromium.launch();
+const iphone13 = devices['iPhone 13'];
+const context = await browser.newContext({
+  ...iphone13,
+});
+```
+<!-- .element: class="fragment" data-fragment-index="5" -->
+</div></script></section><section data-markdown><script type="text/template"><!-- .slide: class="drop" template="" -->
 <div class="" style="position: absolute; left: 0px; top: 0px; height: 768px; width: 1366px; min-height: 768px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
 
 ## Auto-wait
@@ -162,36 +179,51 @@ czyli np. dla [locator.click()](https://playwright.dev/python/docs/api/class-lo
 - &shy;<!-- .element: class="fragment" data-fragment-index="4" -->element [Receives Events](https://playwright.dev/python/docs/actionability#receives-events "Receives Events") - nie jest przesłonięty
 - &shy;<!-- .element: class="fragment" data-fragment-index="5" -->element jest [Enabled](https://playwright.dev/python/docs/actionability#enabled "Enabled")
 - &shy;<!-- .element: class="fragment" data-fragment-index="6" -->element jest [Editable](https://playwright.dev/python/docs/actionability#editable) - nie jest `readonly`
-</div></script></section><section data-markdown><script type="text/template"><!-- .slide: class="drop" -->
+</div></script></section><section data-markdown><script type="text/template"><!-- .slide: class="drop" template="" -->
 <div class="" style="position: absolute; left: 0px; top: 0px; height: 768px; width: 1366px; min-height: 768px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
 
-<img src="dlaczego-playwright-img/auto-waits.png" alt="" style="object-fit: scale-down">
+<img src="images/auto-waits.png" alt="" style="object-fit: scale-down">
 
 
 <div class="" style="font-size: 20px" >
 
 Dokumentacja Playwright - sekcja [Auto-waiting](https://playwright.dev/python/docs/actionability)
 </div>
-</div></script></section><section data-markdown><script type="text/template"><!-- .slide: class="drop" -->
+</div></script></section><section data-markdown><script type="text/template"><!-- .slide: class="drop" template="" -->
 <div class="" style="position: absolute; left: 0px; top: 0px; height: 768px; width: 1366px; min-height: 768px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
 
 ## Asercje
 
 - &shy;<!-- .element: class="fragment" data-fragment-index="1" -->uniwersalne, tzn. można sprawdzić każdy stan
-- &shy;<!-- .element: class="fragment" data-fragment-index="2" -->prosta składnia<br></br>`expect(locator).to_be_something()`)<br></br>
-- &shy;<!-- .element: class="fragment" data-fragment-index="3" -->wbudowane error message<br></br>`expect(locator, "Some error").to_be_something()`)<br></br>
-- &shy;<!-- .element: class="fragment" data-fragment-index="4" -->unikalny timeout<br></br>`expect(locator).to_be_something(timeout=10000)`<br></br>
-</div></script></section><section data-markdown><script type="text/template"><!-- .slide: class="drop" -->
+- &shy;<!-- .element: class="fragment" data-fragment-index="2" -->prosta składnia
+- &shy;<!-- .element: class="fragment" data-fragment-index="3" -->wbudowane error message
+- &shy;<!-- .element: class="fragment" data-fragment-index="4" -->unikalny timeout
+- &shy;<!-- .element: class="fragment" data-fragment-index="5" -->soft assertions (???)
+
+```python
+with check:
+	expect(locator, "Some error").to_be_something(timeout=10000)
+```
+<!-- .element: class="fragment" data-fragment-index="6" -->
+
+```javascript
+await expect.soft(locator, "Some error").toBeSomething(timeout=10000)
+
+// Avoid running further if there were soft assertion failures.  
+expect(test.info().errors).toHaveLength(0);
+```
+<!-- .element: class="fragment" data-fragment-index="7" -->
+</div></script></section><section data-markdown><script type="text/template"><!-- .slide: class="drop" template="" -->
 <div class="" style="position: absolute; left: 0px; top: 0px; height: 768px; width: 1366px; min-height: 768px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
 
-<img src="dlaczego-playwright-img/assertions.png" alt="" style="object-fit: scale-down">
+<img src="images/assertions.png" alt="" style="object-fit: scale-down">
 
 
 <div class="" style="font-size: 20px" >
 
 Dokumentacja Playwright - sekcja [Assertions]([https://playwright.dev/python/docs/actionability](https://playwright.dev/python/docs/test-assertions))
 </div>
-</div></script></section><section data-markdown><script type="text/template"><!-- .slide: class="drop" -->
+</div></script></section><section data-markdown><script type="text/template"><!-- .slide: class="drop" template="" -->
 <div class="" style="position: absolute; left: 0px; top: 0px; height: 768px; width: 1366px; min-height: 768px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
 
 ## Timeouty
@@ -200,7 +232,15 @@ Dokumentacja Playwright - sekcja [Assertions]([https://playwright.dev/python/doc
 - &shy;<!-- .element: class="fragment" data-fragment-index="2" -->`page.set_default_navigation_timeout(10000)`
 - &shy;<!-- .element: class="fragment" data-fragment-index="3" -->`expect.set_options(timeout=10000)`
 - &shy;<!-- .element: class="fragment" data-fragment-index="4" -->... i unikatowe per dana akcja
-</div></script></section><section data-markdown><script type="text/template"><!-- .slide: class="drop" -->
+<br></br>
+- &shy;<!-- .element: class="fragment" data-fragment-index="5" -->nawigacji
+- &shy;<!-- .element: class="fragment" data-fragment-index="6" -->asercji
+- &shy;<!-- .element: class="fragment" data-fragment-index="7" -->`beforeAll` \ `afterAll`
+- &shy;<!-- .element: class="fragment" data-fragment-index="8" -->fixtury
+- &shy;<!-- .element: class="fragment" data-fragment-index="9" -->czas trwania testu
+- &shy;<!-- .element: class="fragment" data-fragment-index="10" -->czas trwania wszystkich testów (tylko globalnie)
+- &shy;<!-- .element: class="fragment" data-fragment-index="11" -->... i unikatowe per dana akcja
+</div></script></section><section data-markdown><script type="text/template"><!-- .slide: class="drop" template="" -->
 <div class="" style="position: absolute; left: 0px; top: 0px; height: 768px; width: 1366px; min-height: 768px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
 
 ## Lokatory
@@ -217,7 +257,7 @@ Dokumentacja Playwright - sekcja [Assertions]([https://playwright.dev/python/doc
 - &shy;<!-- .element: class="fragment" data-fragment-index="10" -->[page.locator("_react=...")](https://playwright.dev/python/docs/other-locators#react-locator)
 - &shy;<!-- .element: class="fragment" data-fragment-index="11" -->[page.locator("_vue=...")](https://playwright.dev/python/docs/other-locators#vue-locator)
 - &shy;<!-- .element: class="fragment" data-fragment-index="12" -->..., bo można definiować własne
-</div></script></section><section data-markdown><script type="text/template"><!-- .slide: class="drop" -->
+</div></script></section><section data-markdown><script type="text/template"><!-- .slide: class="drop" template="" -->
 <div class="" style="position: absolute; left: 0px; top: 0px; height: 768px; width: 1366px; min-height: 768px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
 
 ## Sztuczki z lokatorami
@@ -239,12 +279,12 @@ page.get_by_role("button").and_(page.getByTitle("Subscribe"))
 ```
 
 W dokumentacji jest więcej o: [filtrach](https://playwright.dev/python/docs/locators#filtering-locators), [operatorach](https://playwright.dev/python/docs/locators#locator-operators) i [innych](https://playwright.dev/python/docs/api/class-locator#locator-first)
-</div></script></section><section data-markdown><script type="text/template"><!-- .slide: class="drop" -->
+</div></script></section><section data-markdown><script type="text/template"><!-- .slide: class="drop" template="" -->
 <div class="" style="position: absolute; left: 0px; top: 0px; height: 768px; width: 1366px; min-height: 768px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
 
 ## Mockowanie REST API
 
-```python [1-14|1,7-8|2-5|10-11|13-14]
+```python [1|1,7-8|2-5|9-10|11-12|]
 async def test_mock_the_fruit_api(page: Page):
     async def handle(route: Route):
         json = [{"name": "Strawberry", "id": 21}]
@@ -253,22 +293,50 @@ async def test_mock_the_fruit_api(page: Page):
 
     # Intercept the route to the fruit API
     await page.route("*/**/api/v1/fruits", handle)
-
     # Go to the page
     await page.goto("https://demo.playwright.dev/api-mocking")
-
     # Assert that the Strawberry fruit is visible
     await expect(page.get_by_text("Strawberry")).to_be_visible()
 ```
-</div></script></section><section data-markdown><script type="text/template"><!-- .slide: class="drop" -->
+
+```javascript [1|1,13|2-6|8-9|10-11|]
+test("mocks a fruit and doesn't call api", async ({ page }) => {  
+  // Mock the api call before navigating  
+  await page.route('*/**/api/v1/fruits', async route => {  
+    const json = [{ name: 'Strawberry', id: 21 }];  
+    await route.fulfill({ json });  
+  });
+    
+  // Go to the page  
+  await page.goto('https://demo.playwright.dev/api-mocking');  
+  // Assert that the Strawberry fruit is visible  
+  await expect(page.getByText('Strawberry')).toBeVisible();  
+});
+```
+</div></script></section><section data-markdown><script type="text/template"><!-- .slide: class="drop" template="" -->
 <div class="" style="position: absolute; left: 0px; top: 0px; height: 768px; width: 1366px; min-height: 768px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
 
 ## Instalacja
 
-- &shy;<!-- .element: class="fragment" data-fragment-index="1" -->`pip install pytest`
-- &shy;<!-- .element: class="fragment" data-fragment-index="2" -->`pip install playwright`
-- &shy;<!-- .element: class="fragment" data-fragment-index="3" -->`playwright install`
-</div></script></section><section data-markdown><script type="text/template"><!-- .slide: class="drop" -->
+```bash [1|3|5|7|]
+pip install pytest
+
+pip install playwright
+
+playwright install --with-deps
+
+playwright --version
+```
+
+
+```bash [1|3|5|]
+npm init playwright@latest
+
+npx playwright install --with-deps
+
+npx playwright --version
+```
+</div></script></section><section data-markdown><script type="text/template"><!-- .slide: class="drop" template="" -->
 <div class="" style="position: absolute; left: 0px; top: 0px; height: 768px; width: 1366px; min-height: 768px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
 
 ## pytest plugin, ale ...
@@ -281,7 +349,7 @@ async def test_mock_the_fruit_api(page: Page):
 	- &shy;<!-- .element: class="fragment" data-fragment-index="6" -->mniejsza kontrola
 	- &shy;<!-- .element: class="fragment" data-fragment-index="7" -->podawanie parametrów przez CLI
 	- &shy;<!-- .element: class="fragment" data-fragment-index="8" -->(?) średnio działa z CI/CD
-</div></script></section><section data-markdown><script type="text/template"><!-- .slide: class="drop" -->
+</div></script></section><section data-markdown><script type="text/template"><!-- .slide: class="drop" template="" -->
 <div class="" style="position: absolute; left: 0px; top: 0px; height: 768px; width: 1366px; min-height: 768px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
 
 ## jak żyć?
@@ -289,7 +357,7 @@ async def test_mock_the_fruit_api(page: Page):
 - &shy;<!-- .element: class="fragment" data-fragment-index="1" -->własna implementacja fixtur
 - &shy;<!-- .element: class="fragment" data-fragment-index="2" -->parametry konfiguracyjne Playwright przechowywać w zmiennych środowiskowych (biblioteka `pydantic`)
 - &shy;<!-- .element: class="fragment" data-fragment-index="3" -->... i tak samo parametry konfiguracyjne środowiska testowego
-</div></script></section><section data-markdown><script type="text/template"><!-- .slide: class="drop" -->
+</div></script></section><section data-markdown><script type="text/template"><!-- .slide: class="drop" template="" -->
 <div class="" style="position: absolute; left: 0px; top: 0px; height: 768px; width: 1366px; min-height: 768px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
 
 ## pydantic
@@ -311,47 +379,48 @@ class PlaywrightConfig(pydantic_settings.BaseSettings):
     tracing_screenshots: bool = True  
     tracing_snapshots: bool = True
 ```
-</div></script></section><section data-markdown><script type="text/template"><!-- .slide: class="drop" -->
+</div></script></section><section data-markdown><script type="text/template"><!-- .slide: class="drop" template="" -->
 <div class="" style="position: absolute; left: 0px; top: 0px; height: 768px; width: 1366px; min-height: 768px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
 
-## .env
+## .env i direnv
 
 ```bash [1-3]
 QA_PLAYWRIGHT_BROWSER=chromium  
 QA_PLAYWRIGHT_HEADLESS=false  
 QA_PLAYWRIGHT_TRACING_ENABLE=true
 ```
-</div></script></section><section data-markdown><script type="text/template"><!-- .slide: class="drop" -->
+</div></script></section><section data-markdown><script type="text/template"><!-- .slide: class="drop" template="" -->
 <div class="" style="position: absolute; left: 0px; top: 0px; height: 768px; width: 1366px; min-height: 768px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
 
 ## Codegen
-</div></script></section><section data-markdown><script type="text/template"><!-- .slide: class="drop" -->
+</div></script></section><section data-markdown><script type="text/template"><!-- .slide: class="drop" template="" -->
 <div class="" style="position: absolute; left: 0px; top: 0px; height: 768px; width: 1366px; min-height: 768px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
 
-`playwright codegen demo.playwright.dev/todomvc`
+`(npx) playwright codegen demo.playwright.dev/todomvc`
 
-<img src="dlaczego-playwright-img/codegen.jpeg" alt="Codegen|1024" style="width: 1024px; object-fit: fill">
-</div></script></section><section data-markdown><script type="text/template"><!-- .slide: class="drop" -->
+<img src="images/codegen.jpeg" alt="Codegen" style="width: 1024px; object-fit: fill">
+</div></script></section><section data-markdown><script type="text/template"><!-- .slide: class="drop" template="" -->
 <div class="" style="position: absolute; left: 0px; top: 0px; height: 768px; width: 1366px; min-height: 768px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
 
 ## Inspector
-</div></script></section><section data-markdown><script type="text/template"><!-- .slide: class="drop" -->
+</div></script></section><section data-markdown><script type="text/template"><!-- .slide: class="drop" template="" -->
 <div class="" style="position: absolute; left: 0px; top: 0px; height: 768px; width: 1366px; min-height: 768px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
 
 `PWDEBUG=1 pytest -s -k test_get_started_link`
+`npx playwright test --debug`
 
-<img src="dlaczego-playwright-img/inspector.png" alt="Inspector|1024" style="width: 1024px; object-fit: fill">
-</div></script></section><section data-markdown><script type="text/template"><!-- .slide: class="drop" -->
+<img src="images/inspector.png" alt="Inspector" style="width: 1024px; object-fit: fill">
+</div></script></section><section data-markdown><script type="text/template"><!-- .slide: class="drop" template="" -->
 <div class="" style="position: absolute; left: 0px; top: 0px; height: 768px; width: 1366px; min-height: 768px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
 
 ## Trace viewer
-</div></script></section><section data-markdown><script type="text/template"><!-- .slide: class="drop" -->
+</div></script></section><section data-markdown><script type="text/template"><!-- .slide: class="drop" template="" -->
 <div class="" style="position: absolute; left: 0px; top: 0px; height: 768px; width: 1366px; min-height: 768px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
 
-`playwright show-trace trace.zip`
+`(npx) playwright show-trace trace.zip`
 
-<img src="dlaczego-playwright-img/traceviewer.png" alt="Trace viewer|1024" style="width: 1024px; object-fit: fill">
-</div></script></section><section data-markdown><script type="text/template"><!-- .slide: class="drop" -->
+<img src="images/traceviewer.png" alt="Trace viewer" style="width: 1024px; object-fit: fill">
+</div></script></section><section data-markdown><script type="text/template"><!-- .slide: class="drop" template="" -->
 <div class="" style="position: absolute; left: 0px; top: 0px; height: 768px; width: 1366px; min-height: 768px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
 
 ## Tips & tricks
@@ -359,13 +428,13 @@ QA_PLAYWRIGHT_TRACING_ENABLE=true
 - &shy;<!-- .element: class="fragment" data-fragment-index="1" -->nagrywaj `traces`
 - &shy;<!-- .element: class="fragment" data-fragment-index="2" -->używaj `page.pause()` do developmentu (i debugowania)
 - &shy;<!-- .element: class="fragment" data-fragment-index="3" -->zimplementuj własne fixtury
-- &shy;<!-- .element: class="fragment" data-fragment-index="4" -->do testowania REST API używaj `requests` lub `httpx`
-</div></script></section><section data-markdown><script type="text/template"><!-- .slide: class="drop" -->
+- &shy;<!-- .element: class="fragment" data-fragment-index="4" -->do testowania tylko REST API używaj `requests` lub `httpx`
+</div></script></section><section data-markdown><script type="text/template"><!-- .slide: class="drop" template="" -->
 <div class="" style="position: absolute; left: 0px; top: 0px; height: 768px; width: 1366px; min-height: 768px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
 
 ## O czym jeszcze nie powiedziałem?
 
-- &shy;<!-- .element: class="fragment" data-fragment-index="1" -->[network](https://playwright.dev/python/docs/network) - zabawa z requestami, np. abort, zmiana kodu błędy, websockets
+- &shy;<!-- .element: class="fragment" data-fragment-index="1" -->[network](https://playwright.dev/python/docs/network) - zabawa z requestami, np. abort, zmiana kodu błędu, websockets
 - &shy;<!-- .element: class="fragment" data-fragment-index="2" -->[session storage](https://playwright.dev/python/docs/auth#session-storage)
 - &shy;<!-- .element: class="fragment" data-fragment-index="3" -->[wstrzykiwanie JS'a](https://playwright.dev/python/docs/evaluating)
 - &shy;<!-- .element: class="fragment" data-fragment-index="4" -->[dialog windows](https://playwright.dev/python/docs/dialogs) - wszelkie alerty, itp.
@@ -374,52 +443,60 @@ QA_PLAYWRIGHT_TRACING_ENABLE=true
 - &shy;<!-- .element: class="fragment" data-fragment-index="7" -->[drag & drop](https://playwright.dev/python/docs/input#drag-and-drop)
 - &shy;<!-- .element: class="fragment" data-fragment-index="8" -->[DevTools Protocol](https://playwright.dev/python/docs/api/class-cdpsession)
 - &shy;<!-- .element: class="fragment" data-fragment-index="9" -->..., bo pewnie coś pominąłem 😉
-</div></script></section><section data-markdown><script type="text/template"><!-- .slide: class="drop" -->
+</div></script></section><section data-markdown><script type="text/template"><!-- .slide: class="drop" template="" -->
 <div class="" style="position: absolute; left: 0px; top: 0px; height: 768px; width: 1366px; min-height: 768px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
 
-## Co jeszcze warto?
+## Co jeszcze warto w 🐍?
 
 - &shy;<!-- .element: class="fragment" data-fragment-index="1" -->`pytest-xdist`
 - &shy;<!-- .element: class="fragment" data-fragment-index="2" -->`pytest-check`
 - &shy;<!-- .element: class="fragment" data-fragment-index="3" -->`allure-pytest`
 - &shy;<!-- .element: class="fragment" data-fragment-index="4" -->`faker`
 - &shy;<!-- .element: class="fragment" data-fragment-index="5" -->..., bo pewnie i tu coś pominąłem 😉
-</div></script></section><section data-markdown><script type="text/template"><!-- .slide: class="drop" -->
+</div></script></section><section data-markdown><script type="text/template"><!-- .slide: class="drop" template="" -->
 <div class="" style="position: absolute; left: 0px; top: 0px; height: 768px; width: 1366px; min-height: 768px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
 
 ## Podsumowanie
 
 - &shy;<!-- .element: class="fragment" data-fragment-index="1" -->codegen, inspector i trace viewer
 - &shy;<!-- .element: class="fragment" data-fragment-index="2" -->auto-waits
-- &shy;<!-- .element: class="fragment" data-fragment-index="3" -->asercje (`expect`)
-- &shy;<!-- .element: class="fragment" data-fragment-index="4" -->3 globalne timeouty (+ unikatowe per element/akcja)
+- &shy;<!-- .element: class="fragment" data-fragment-index="3" -->(soft) asercje (`expect`)
+- &shy;<!-- .element: class="fragment" data-fragment-index="4" -->definiowalne timeouty na różnych poziomach
 - &shy;<!-- .element: class="fragment" data-fragment-index="5" -->do CI/CD używaj zmiennych środowiskowych
-- &shy;<!-- .element: class="fragment" data-fragment-index="6" -->do testowania REST API używaj `requests` lub `httpx`
-</div></script></section><section data-markdown><script type="text/template"><!-- .slide: class="drop" -->
+</div></script></section><section data-markdown><script type="text/template"><!-- .slide: class="drop" template="" -->
 <div class="" style="position: absolute; left: 0px; top: 0px; height: 768px; width: 1366px; min-height: 768px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
-
-<img src="dlaczego-playwright-img/napis_logo_white.png" alt="Logo|600" style="width: 600px; object-fit: fill">
 
 A samą prezentację znajdziecie tu:
 
-<img src="dlaczego-playwright-img/qr-code.png" alt="QR|400" style="width: 400px; object-fit: fill">
+<img src="images/qr-code.png" alt="QR" style="width: 500px; object-fit: fill">
+</div></script></section><section data-markdown><script type="text/template"><!-- .slide: class="drop" template="" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 768px; width: 1366px; min-height: 768px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+### Kurs Playwright w TypeScript
+
+https://akademiaqa.pl/pwts/
+
+ Z kodem: **KraQA** 10% zniżki (dla 5 osób)
+
+<img src="images/qr-pwts.png" alt="" style="width: 400px; object-fit: fill">
+</div></script></section><section data-markdown><script type="text/template"><!-- .slide: class="drop" template="" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 768px; width: 1366px; min-height: 768px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+# Koniec
 </div></script></section></div>
 </div>
 <script src="dist/reveal.js"></script>
+<script src="plugin/notes/notes.js"></script>
 <script src="plugin/markdown/markdown.js"></script>
 <script src="plugin/highlight/highlight.js"></script>
 <script src="plugin/zoom/zoom.js"></script>
-<script src="plugin/notes/notes.js"></script>
 <script src="plugin/math/math.js"></script>
 <script src="plugin/mermaid/mermaid.js"></script>
 <script src="plugin/chart/chart.min.js"></script>
 <script src="plugin/chart/plugin.js"></script>
-<script src="plugin/menu/menu.js"></script>
 <script src="plugin/customcontrols/plugin.js"></script>
-<script src="plugin/chalkboard/plugin.js"></script>
-<script src="plugin/elapsed-time-bar/elapsed-time-bar.js"></script>
 <script>
-function extend(){for(var e={},a=0;a<arguments.length;a++){var t,o=arguments[a];for(t in o)o.hasOwnProperty(t)&&(e[t]=o[t])}return e}function isLight(e){let a=e.replace("#","");return 3==a.length&&(a=""+a[0]+a[0]+a[1]+a[1]+a[2]+a[2]),155<(299*parseInt(a.substr(0,2),16)+587*parseInt(a.substr(2,2),16)+114*parseInt(a.substr(4,2),16))/1e3}var isLight,bgColor=getComputedStyle(document.documentElement).getPropertyValue("--r-background-color").trim(),defaultOptions=((isLight=isLight(bgColor))?document.body.classList.add("has-light-background"):document.body.classList.add("has-dark-background"),{controls:!0,progress:!0,history:!0,center:!0,transition:"default",plugins:[RevealMarkdown,RevealHighlight,RevealZoom,RevealNotes,RevealMath.MathJax3,RevealMermaid,RevealChart,RevealCustomControls,RevealMenu,RevealChalkboard,ElapsedTimeBar],allottedTime:12e4,mathjax3:{mathjax:"plugin/math/mathjax/tex-mml-chtml.js"},markdown:{gfm:!0,mangle:!0,pedantic:!1,smartLists:!1,smartypants:!1},mermaid:{theme:isLight?"default":"dark"},customcontrols:{controls:[{id:"toggle-overview",title:"Toggle overview (O)",icon:'<i class="fa fa-th"></i>',action:"Reveal.toggleOverview();"},{icon:'<i class="fa fa-pen-square"></i>',title:"Toggle chalkboard (B)",action:"RevealChalkboard.toggleChalkboard();"},{icon:'<i class="fa fa-pen"></i>',title:"Toggle notes canvas (C)",action:"RevealChalkboard.toggleNotesCanvas();"}]},menu:{loadIcons:!1}}),queryOptions=Reveal().getQueryHash()||{},options=extend(defaultOptions,{width:1366,height:768,margin:.04,minScale:.3,maxScale:2,controls:!0,progress:!0,slideNumber:!0,transition:"slide",transitionSpeed:"normal"},queryOptions)
+function extend(){const t={};for(let e=0;e<arguments.length;e++){const a=arguments[e];for(const e in a)a.hasOwnProperty(e)&&(t[e]=a[e])}return t}function isLight(t){let e=t.replace("#","");3==e.length&&(e=`${e[0]}${e[0]}${e[1]}${e[1]}${e[2]}${e[2]}`);return(299*parseInt(e.substr(0,2),16)+587*parseInt(e.substr(2,2),16)+114*parseInt(e.substr(4,2),16))/1e3>155}const bgColor=getComputedStyle(document.documentElement).getPropertyValue("--r-background-color").trim();isLight(bgColor)?document.body.classList.add("has-light-background"):document.body.classList.add("has-dark-background");const defaultOptions={controls:!0,progress:!0,history:!0,center:!0,transition:"default",plugins:[RevealMarkdown,RevealHighlight,RevealZoom,RevealNotes,RevealMath.MathJax3,RevealMermaid,RevealChart,RevealCustomControls],allottedTime:12e4,mathjax3:{mathjax:"plugin/math/mathjax/tex-mml-chtml.js"},markdown:{gfm:!0,mangle:!0,pedantic:!1,smartLists:!1,smartypants:!1},mermaid:{theme:isLight?"default":"dark"},customcontrols:{controls:[]}};pageInIframe()&&(defaultOptions.scrollActivationWidth=5);const queryOptions=Reveal().getQueryHash()||{},options=extend(defaultOptions,{controls:!0,progress:!0,slideNumber:!0,center:!0,transition:"slide",transitionSpeed:"default",width:1366,height:768,margin:.04,minScale:.3,maxScale:2},queryOptions)
 </script>
 <script>Reveal.initialize(options)</script>
 </body>

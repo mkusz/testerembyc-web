@@ -13,17 +13,34 @@
     <language>pl</language>
 
     
-    <pubDate>Thu, 17 Oct 2024 03:27:36 -0000</pubDate>
-    <lastBuildDate>Thu, 17 Oct 2024 03:27:36 -0000</lastBuildDate>
+    <pubDate>Tue, 05 Nov 2024 19:39:28 -0000</pubDate>
+    <lastBuildDate>Tue, 05 Nov 2024 19:39:28 -0000</lastBuildDate>
     <ttl>1440</ttl>
 
     
-    <generator>MkDocs RSS plugin - v1.15.0</generator>
+    <generator>MkDocs RSS plugin - v1.16.0</generator>
 
     
     
 
     
+    
+    <item>
+      <title>TrendBook 2021 - sylwetki autorów</title>
+      
+      
+      
+      
+      <description>W doborowym towarzystwie, czyli Trendbook 2021 by TestArmy</description>
+      <link>https://testerembyc.pl/posts/trendbook-2021-sylwetki-autorow/?utm_source=testerembyc.pl&amp;utm_medium=RSS&amp;utm_campaign=feed</link>
+      <pubDate>Mon, 30 Sep 2024 15:31:06 +0200</pubDate>
+      <source url="https://testerembyc.pl/feed_rss_updated.xml">TesteremByc.pl</source>
+      
+      <guid isPermaLink="true">https://testerembyc.pl/posts/trendbook-2021-sylwetki-autorow/</guid>
+      
+      <enclosure url="https://testerembyc.pl//images/posts/2021/trendbook-2021-sylwetki-autorow/trendbook2021.jpg" type="image/jpeg" length="None" />
+      
+    </item>
     
     <item>
       <title>Zmiany na blogu</title>
@@ -277,23 +294,6 @@
       <guid isPermaLink="true">https://testerembyc.pl/posts/itea-night-live-05-testowanie-api/</guid>
       
       <enclosure url="https://testerembyc.pl//images/posts/2021/yt-itea-night-live-05-testowanie-api.jpg" type="image/jpeg" length="None" />
-      
-    </item>
-    
-    <item>
-      <title>TrendBook 2021 - sylwetki autorów</title>
-      
-      
-      
-      
-      <description>W doborowym towarzystwie, czyli Trendbook 2021 by TestArmy</description>
-      <link>https://testerembyc.pl/posts/trendbook-2021-sylwetki-autorow/?utm_source=testerembyc.pl&amp;utm_medium=RSS&amp;utm_campaign=feed</link>
-      <pubDate>Tue, 01 Aug 2023 01:10:54 +0200</pubDate>
-      <source url="https://testerembyc.pl/feed_rss_updated.xml">TesteremByc.pl</source>
-      
-      <guid isPermaLink="true">https://testerembyc.pl/posts/trendbook-2021-sylwetki-autorow/</guid>
-      
-      <enclosure url="https://testerembyc.pl//images/posts/2021/trendbook-2021-sylwetki-autorow/trendbook2021.jpg" type="image/jpeg" length="None" />
       
     </item>
     

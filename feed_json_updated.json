@@ -13,6 +13,16 @@
     "language": "pl",
     "items": [
         {
+            "id": "https://testerembyc.pl/posts/podsumowanie-roku-2024/",
+            "url": "https://testerembyc.pl/posts/podsumowanie-roku-2024/?utm_source=testerembyc.pl&utm_medium=RSS&utm_campaign=feed",
+            "title": "Podsumowanie roku 2024",
+            "content_html": "Rok 2024 by\u0142 rokiem pe\u0142nym wyzwa\u0144, nowo\u015bci ale i te\u017c sporych zmian. Spr\u00f3buj\u0119 wi\u0119c podsumowa\u0107 wszystkie najwa\u017cniejsze wydarzenia oraz przedstawi\u0119 mglist\u0105 wizj\u0119 na rok 2025.",
+            "image": "https://testerembyc.pl//images/posts/2024/podsumowanie-roku-2024_social.jpg",
+            "date_modified": "2025-01-01T08:00:00+01:00",
+            "authors": [],
+            "tags": null
+        },
+        {
             "id": "https://testerembyc.pl/posts/zmiany-na-blogu/",
             "url": "https://testerembyc.pl/posts/zmiany-na-blogu/?utm_source=testerembyc.pl&utm_medium=RSS&utm_campaign=feed",
             "title": "Zmiany na blogu",

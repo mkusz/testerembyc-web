@@ -24,9 +24,9 @@ function pageInIframe(){return window.location!==window.parent.location}let forg
 </div></script></section><section data-markdown><script type="text/template"><!-- .slide: class="drop" template="" -->
 <div class="" style="position: absolute; left: 0px; top: 0px; height: 768px; width: 1366px; min-height: 768px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
 
-<img src="images/tb_logo_white.png" alt="" style="width: 600px; object-fit: fill">
+<img src="dlaczego-playwright/images/tb_logo_white.png" alt="" style="width: 600px; object-fit: fill">
 
-<img src="images/tb_napis_white.png" alt="" style="width: 800px; object-fit: fill">
+<img src="dlaczego-playwright/images/tb_napis_white.png" alt="" style="width: 800px; object-fit: fill">
 
 by Maciej Kusz
 </div></script></section><section data-markdown><script type="text/template"><!-- .slide: class="drop" template="" -->
@@ -34,14 +34,17 @@ by Maciej Kusz
 
 ## O mnie
 
-- &shy;<!-- .element: class="fragment" data-fragment-index="1" -->­tester od ponad 15 lat
-- &shy;<!-- .element: class="fragment" data-fragment-index="2" -->­automatyzacja w 🐍 od ponad 10 lat
-- &shy;<!-- .element: class="fragment" data-fragment-index="3" -->­testowanie UI, API, IoT
-- &shy;<!-- .element: class="fragment" data-fragment-index="4" -->­tester, test lead, architekt, itp.
-- &shy;<!-- .element: class="fragment" data-fragment-index="5" -->­prelegent na ŁuczniczQA, PyConPL, TestWarez ...
-- &shy;<!-- .element: class="fragment" data-fragment-index="6" -->­... i współorganizator ŚlonzaczQA i ConSelenium
-- &shy;<!-- .element: class="fragment" data-fragment-index="7" -->­a prywatnie mąż, ojciec i zapalony majsterkowicz ...
-- &shy;<!-- .element: class="fragment" data-fragment-index="8" -->­... oraz autor mkdocs-publisher
+- ­tester od ponad 15 lat
+- ­automatyzacja w 🐍 od ponad 10 lat
+- ­testowanie UI, API, IoT
+- ­tester, test lead, architekt, itp.
+- ­prelegent na:
+	- meetupach: ŁuczniczQA, KrakQA, ŚlonzaczQA
+	- konferenjach: PyConPL, ConSelenium, TestWarez
+-­... oraz współorganizator ŚlonzaczQA, ConSelenium i TestWarez
+- ­a prywatnie mąż, ojciec i zapalony majsterkowicz ...
+- ­... autor mkdocs-publisher
+- ... oraz szkoleniowiec w ramach **pwts.dev**
 </div></script></section><section data-markdown><script type="text/template"><!-- .slide: class="drop" template="" -->
 <div class="" style="position: absolute; left: 0px; top: 0px; height: 768px; width: 1366px; min-height: 768px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
 
@@ -66,7 +69,21 @@ Selenium 4.0.0 ukazał się z końcem października 2021
 
 ## Ilość pobrań
 
-<img src="images/npm-5y.png" alt="" style="object-fit: scale-down">
+<img src="dlaczego-playwright/images/npm-5y.png" alt="" style="object-fit: scale-down">
+
+
+<div class="" style="font-size: 16px; position: absolute; left: 90%; top: 100%; height: 0%; width: 10%; display: flex; flex-direction: column; align-items: center; justify-content: center" >
+
+
+żródło: npm trends
+
+</div>
+</div></script></section><section data-markdown><script type="text/template"><!-- .slide: class="drop" template="" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 768px; width: 1366px; min-height: 768px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+## Statystyki
+
+<img src="dlaczego-playwright/images/npm-table.png" alt="" style="object-fit: scale-down">
 
 
 <div class="" style="font-size: 16px; position: absolute; left: 90%; top: 100%; height: 0%; width: 10%; display: flex; flex-direction: column; align-items: center; justify-content: center" >
@@ -80,7 +97,7 @@ Selenium 4.0.0 ukazał się z końcem października 2021
 
 ## Ilość pobrań
 
-<img src="images/npm-2y.png" alt="" style="object-fit: scale-down">
+<img src="dlaczego-playwright/images/npm-2y.png" alt="" style="object-fit: scale-down">
 
 
 <div class="" style="font-size: 16px; position: absolute; left: 90%; top: 100%; height: 0%; width: 10%; display: flex; flex-direction: column; align-items: center; justify-content: center" >
@@ -94,9 +111,9 @@ Selenium 4.0.0 ukazał się z końcem października 2021
 
 ### Ilość pobrań
 
-<img src="images/pypi-selenium.png" alt="" style="width: 900px; object-fit: fill">
+<img src="dlaczego-playwright/images/pypi-selenium.png" alt="" style="width: 900px; object-fit: fill">
 
-<img src="images/pypi-playwright.png" alt="" style="width: 900px; object-fit: fill">
+<img src="dlaczego-playwright/images/pypi-playwright.png" alt="" style="width: 900px; object-fit: fill">
 
 
 <div class="" style="font-size: 16px; position: absolute; left: 80%; top: 100%; height: 0%; width: 20%; display: flex; flex-direction: column; align-items: center; justify-content: center" >
@@ -114,7 +131,7 @@ Selenium 4.0.0 ukazał się z końcem października 2021
 - &shy;<!-- .element: class="fragment" data-fragment-index="2" -->Shadow DOM (wprowadzone w 4.x)
 - &shy;<!-- .element: class="fragment" data-fragment-index="3" -->network (wprowadzone w 4.x przez DevTools)
 - &shy;<!-- .element: class="fragment" data-fragment-index="4" -->brak natywnego API dla testowania REST API
-- &shy;<!-- .element: class="fragment" data-fragment-index="5" -->testowanie mobile
+- &shy;<!-- .element: class="fragment" data-fragment-index="5" -->[ ] testowanie mobile (appi)
 - &shy;<!-- .element: class="fragment" data-fragment-index="6" -->explicit, implicit, fluent wait
 - &shy;<!-- .element: class="fragment" data-fragment-index="7" -->brak wsparcia dla async w 🐍
 - &shy;<!-- .element: class="fragment" data-fragment-index="8" -->nagrywanie video z testu
@@ -140,14 +157,16 @@ Selenium 4.0.0 ukazał się z końcem października 2021
 - &shy;<!-- .element: class="fragment" data-fragment-index="9" -->natywne wsparcie dla async w Pythonie
 - &shy;<!-- .element: class="fragment" data-fragment-index="10" -->dokumentacja oparta o `pytest` w Pythonie
 - &shy;<!-- .element: class="fragment" data-fragment-index="11" -->łatwiejsza konfiguracja w TypeScript
+- &shy;<!-- .element: class="fragment" data-fragment-index="12" -->wbudowane raporty w TypeScript
 </div></script></section><section data-markdown><script type="text/template"><!-- .slide: class="drop" template="" -->
 <div class="" style="position: absolute; left: 0px; top: 0px; height: 768px; width: 1366px; min-height: 768px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
 
-## Mobile
+## Wsparcie eksperymentalne
 
-- &shy;<!-- .element: class="fragment" data-fragment-index="1" -->emulacja Google Chrome dla Androida
-- &shy;<!-- .element: class="fragment" data-fragment-index="2" -->emulacja Safari
-- &shy;<!-- .element: class="fragment" data-fragment-index="3" -->[touch screen tap](https://playwright.dev/python/docs/api/class-touchscreen)
+- &shy;<!-- .element: class="fragment" data-fragment-index="1" -->Google Chrome i WebView dla Androida (tylko wersja JS)
+- &shy;<!-- .element: class="fragment" data-fragment-index="2" -->Elektron Apps
+- &shy;<!-- .element: class="fragment" data-fragment-index="3" -->emulacja Safari
+- &shy;<!-- .element: class="fragment" data-fragment-index="4" -->[touch screen tap](https://playwright.dev/python/docs/api/class-touchscreen)
 
 ```python
 async def run(playwright: Playwright):  
@@ -182,7 +201,7 @@ czyli np. dla [locator.click()](https://playwright.dev/python/docs/api/class-lo
 </div></script></section><section data-markdown><script type="text/template"><!-- .slide: class="drop" template="" -->
 <div class="" style="position: absolute; left: 0px; top: 0px; height: 768px; width: 1366px; min-height: 768px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
 
-<img src="images/auto-waits.png" alt="" style="object-fit: scale-down">
+<img src="dlaczego-playwright/images/auto-waits.png" alt="" style="object-fit: scale-down">
 
 
 <div class="" style="font-size: 20px" >
@@ -216,7 +235,7 @@ expect(test.info().errors).toHaveLength(0);
 </div></script></section><section data-markdown><script type="text/template"><!-- .slide: class="drop" template="" -->
 <div class="" style="position: absolute; left: 0px; top: 0px; height: 768px; width: 1366px; min-height: 768px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
 
-<img src="images/assertions.png" alt="" style="object-fit: scale-down">
+<img src="dlaczego-playwright/images/assertions.png" alt="" style="object-fit: scale-down">
 
 
 <div class="" style="font-size: 20px" >
@@ -265,7 +284,7 @@ Dokumentacja Playwright - sekcja [Assertions]([https://playwright.dev/python/doc
 ```python [1-5| 6-11|13]
 page.get_by_role("listitem").filter(
     has_text="Product 2"
-).get_by_role(
+- [ ] ).get_by_role(
     "button", name="Add to cart"
 ).click()
 
@@ -398,7 +417,7 @@ QA_PLAYWRIGHT_TRACING_ENABLE=true
 
 `(npx) playwright codegen demo.playwright.dev/todomvc`
 
-<img src="images/codegen.jpeg" alt="Codegen" style="width: 1024px; object-fit: fill">
+<img src="dlaczego-playwright/images/codegen.jpeg" alt="Codegen" style="width: 1024px; object-fit: fill">
 </div></script></section><section data-markdown><script type="text/template"><!-- .slide: class="drop" template="" -->
 <div class="" style="position: absolute; left: 0px; top: 0px; height: 768px; width: 1366px; min-height: 768px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
 
@@ -409,7 +428,7 @@ QA_PLAYWRIGHT_TRACING_ENABLE=true
 `PWDEBUG=1 pytest -s -k test_get_started_link`
 `npx playwright test --debug`
 
-<img src="images/inspector.png" alt="Inspector" style="width: 1024px; object-fit: fill">
+<img src="dlaczego-playwright/images/inspector.png" alt="Inspector" style="width: 1024px; object-fit: fill">
 </div></script></section><section data-markdown><script type="text/template"><!-- .slide: class="drop" template="" -->
 <div class="" style="position: absolute; left: 0px; top: 0px; height: 768px; width: 1366px; min-height: 768px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
 
@@ -419,7 +438,7 @@ QA_PLAYWRIGHT_TRACING_ENABLE=true
 
 `(npx) playwright show-trace trace.zip`
 
-<img src="images/traceviewer.png" alt="Trace viewer" style="width: 1024px; object-fit: fill">
+<img src="dlaczego-playwright/images/traceviewer.png" alt="Trace viewer" style="width: 1024px; object-fit: fill">
 </div></script></section><section data-markdown><script type="text/template"><!-- .slide: class="drop" template="" -->
 <div class="" style="position: absolute; left: 0px; top: 0px; height: 768px; width: 1366px; min-height: 768px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
 
@@ -451,8 +470,20 @@ QA_PLAYWRIGHT_TRACING_ENABLE=true
 - &shy;<!-- .element: class="fragment" data-fragment-index="1" -->`pytest-xdist`
 - &shy;<!-- .element: class="fragment" data-fragment-index="2" -->`pytest-check`
 - &shy;<!-- .element: class="fragment" data-fragment-index="3" -->`allure-pytest`
-- &shy;<!-- .element: class="fragment" data-fragment-index="4" -->`faker`
+- &shy;<!-- .element: class="fragment" data-fragment-index="4" -->`faker` (w JS też)
 - &shy;<!-- .element: class="fragment" data-fragment-index="5" -->..., bo pewnie i tu coś pominąłem 😉
+</div></script></section><section data-markdown><script type="text/template"><!-- .slide: class="drop" template="" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 768px; width: 1366px; min-height: 768px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+## Dodatkowe narzędzia w Pythonie i JavaScript
+
+
+|     | Python    |  JavaScript |
+| --- | --- |---|
+|  "upiększanie"  kodu | ruff/black    |  prettier |
+| sprawdzanie kodu | ruff/flake8 | eslint |
+| sprawdzanie typów | pyright/mypy | eslint |
+| pre commit | pre-commit | husky |
 </div></script></section><section data-markdown><script type="text/template"><!-- .slide: class="drop" template="" -->
 <div class="" style="position: absolute; left: 0px; top: 0px; height: 768px; width: 1366px; min-height: 768px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
 
@@ -466,19 +497,19 @@ QA_PLAYWRIGHT_TRACING_ENABLE=true
 </div></script></section><section data-markdown><script type="text/template"><!-- .slide: class="drop" template="" -->
 <div class="" style="position: absolute; left: 0px; top: 0px; height: 768px; width: 1366px; min-height: 768px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
 
-A samą prezentację znajdziecie tu:
+### Kurs Playwright w TypeScript
 
-<img src="images/qr-code.png" alt="QR" style="width: 500px; object-fit: fill">
+[TypeScript + Playwright UI + Playwright API + AI](https://kursy.akademiaqa.pl/zamowienie/?add-to-cart=30557)
+
+<img src="dlaczego-playwright/images/qr-pwts.png" alt="" style="width: 400px; object-fit: fill">
 </div></script></section><section data-markdown><script type="text/template"><!-- .slide: class="drop" template="" -->
 <div class="" style="position: absolute; left: 0px; top: 0px; height: 768px; width: 1366px; min-height: 768px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
 
-### Kurs Playwright w TypeScript
+## Pytania?
 
-https://akademiaqa.pl/pwts/
+A samą prezentację znajdziecie tu:
 
- Z kodem: **KraQA** 10% zniżki (dla 5 osób)
-
-<img src="images/qr-pwts.png" alt="" style="width: 400px; object-fit: fill">
+<img src="dlaczego-playwright/images/qr-code.png" alt="QR" style="width: 400px; object-fit: fill">
 </div></script></section><section data-markdown><script type="text/template"><!-- .slide: class="drop" template="" -->
 <div class="" style="position: absolute; left: 0px; top: 0px; height: 768px; width: 1366px; min-height: 768px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
 

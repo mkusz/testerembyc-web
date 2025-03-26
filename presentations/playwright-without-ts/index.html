@@ -1,0 +1,522 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no" name="viewport">
+<title></title>
+<link href="dist/reset.css" rel="stylesheet">
+<link href="dist/reveal.css" rel="stylesheet">
+<link href="css/slides-extended.css" rel="stylesheet">
+<link href="dist/theme/blood.css" rel="stylesheet" id="theme">
+<link href="plugin/highlight/monokai.css" rel="stylesheet">
+<link href="plugin/customcontrols/style.css" rel="stylesheet">
+<script src="dist/fontawesome/all.min.js" defer></script>
+<script type="text/javascript">
+function pageInIframe(){return window.location!==window.parent.location}let forgetPop=!0;function onPopState(e){forgetPop?forgetPop=!1:pageInIframe()&&parent.postMessage(e.target.location.href,"app://obsidian.md")}function fitElements(){const e=document.getElementsByClassName("fitText");for(const t in e)if(Object.hasOwnProperty.call(e,t)){const o=e[t];fitElement(o,1,1e3),o.classList.remove("fitText")}}function fitElement(e,t,o){let n=(o+t)/2;if(e.style.fontSize=`${n}px`,Math.abs(t-o)<1)for(;e.scrollHeight>e.offsetHeight;)n--,e.style.fontSize=`${n}px`;else e.scrollHeight>e.offsetHeight?fitElement(e,t,n):fitElement(e,n,o)}window.onpopstate=onPopState,window.onmessage=e=>{"reload"==e.data&&window.document.location.reload(),forgetPop=!0},document.onreadystatechange=()=>{if(fitElements(),"complete"===document.readyState&&(pageInIframe()&&-1!=window.location.href.indexOf("?export")&&parent.postMessage(event.target.location.href,"app://obsidian.md"),-1!=window.location.href.indexOf("print-pdf"))){let e=setInterval((()=>{clearInterval(e),window.print()}),250)}}
+</script>
+</head>
+<body>
+<div class="reveal">
+<div class="slides"><section data-markdown><script type="text/template"><!-- .slide: class="drop" template="" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 768px; width: 1366px; min-height: 768px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+#### Dlaczego Playwright
+## bez TypeScript
+# jest lepszy?
+</div></script></section><section data-markdown><script type="text/template"><!-- .slide: class="drop" template="" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 768px; width: 1366px; min-height: 768px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+<img src="playwright-without-ts/images/tb_logo_white.png" alt="" style="width: 600px; object-fit: fill">
+
+<img src="playwright-without-ts/images/tb_napis_white.png" alt="" style="width: 800px; object-fit: fill">
+
+by Maciej Kusz
+</div></script></section><section data-markdown><script type="text/template"><!-- .slide: class="drop" template="" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 768px; width: 1366px; min-height: 768px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+### O mnie
+
+- ­tester od blisko 16 lat
+- ­automatyzacja w 🐍 od ponad 11 lat
+- ­testowanie UI, API, IoT, wydajność
+- ­tester, test lead, architekt
+- ­prelegent na:
+	- meetupach: ŁuczniczQA, KrakQA, ŚlonzaczQA
+	- konferenjcach: PyConPL, ConSelenium/TADA, TestWarez
+-­... oraz współorganizator: ŚlonzaczQA, ConSelenium i TestWarez
+- ­a prywatnie mąż, ojciec i zapalony majsterkowicz ...
+- ... autor bloga [testerembyc.pl](https://testerembyc.pl)
+- ­... twórca biblioteki [mkdocs-publisher](https://mkdocs-publisher.github.io/)
+- ... oraz trener w [pwts.dev](https://pwts.devl) oraz [testerembyc.pl](https://testerembyc.pl)
+</div></script></section><section data-markdown><script type="text/template"><!-- .slide: class="drop" template="" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 768px; width: 1366px; min-height: 768px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+<iframe src="https://wall.sli.do/event/5PkWMjQGinKkxyFesStLzP?section=953fc212-5c4d-439d-9dc1-cc602fe1f38c" width="1366" height="768"></iframe>
+</div></script></section><section data-markdown><script type="text/template"><!-- .slide: class="drop" template="" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 768px; width: 1366px; min-height: 768px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+## Trochę historii
+
+| Framework  | 1 commit |          Wspierane języki          |
+| ---------- |:--------:|:----------------------------------:|
+| Selenium   |   2004   | .NET, Java, Ruby, Python, JavaScript |
+| Cypress    |   2017   |             JavaScript             |
+| Playwright |   2020   |    .NET, Java, Python, JavaScript    |
+
+<div class="" style="font-size: 20px; position: absolute; left: 50%; top: 90%; height: 10%; width: 50%; display: flex; flex-direction: column; align-items: center; justify-content: center" >
+
+Selenium 4.0.0 ukazał się z końcem października 2021
+</div>
+</div></script></section><section data-markdown><script type="text/template"><!-- .slide: class="drop" template="" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 768px; width: 1366px; min-height: 768px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+### Ilość pobrań
+
+<img src="playwright-without-ts/images/npm-2y.png" alt="" style="width: 900px; object-fit: fill">
+
+
+<img src="playwright-without-ts/images/pypi-playwright.png" alt="" style="width: 900px; object-fit: fill">
+
+<br></br>
+<div class="" style="font-size: 16px; position: absolute; left: 50%; top: 90%; height: 10%; width: 50%; display: flex; flex-direction: column; align-items: center; justify-content: center" >
+
+żródło: npm trends i  pypi stats
+</div>
+</div></script></section><section data-markdown><script type="text/template"><!-- .slide: class="drop" template="" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 768px; width: 1366px; min-height: 768px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+### Instalacja
+
+```bash
+pip install playwright pytest-playwright
+
+playwright install --with-deps
+
+playwright --version
+```
+<!-- .element: class="fragment" data-fragment-index="1" -->
+
+```bash
+npm init playwright@latest
+
+npx playwright install --with-deps
+
+npx playwright --version
+```
+<!-- .element: class="fragment" data-fragment-index="2" -->
+</div></script></section><section data-markdown><script type="text/template"><!-- .slide: class="drop" template="" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 768px; width: 1366px; min-height: 768px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+###  Wbudowane narzędzia
+
+|     | Python | TypeScript |
+| --- | :---: | :---: |
+| Codegen | ✅ | ✅ | 
+| Inspector | ✅ | ✅ | 
+| Trace viewer | ✅ | ✅ |
+</div></script></section><section data-markdown><script type="text/template"><!-- .slide: class="drop" template="" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 768px; width: 1366px; min-height: 768px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+### Codegen
+
+```bash
+playwright codegen demo.playwright.dev/todomvc
+```
+<!-- .element: class="fragment" data-fragment-index="1" -->
+
+```bash
+npx playwright codegen demo.playwright.dev/todomvc
+```
+<!-- .element: class="fragment" data-fragment-index="2" -->
+
+<img src="playwright-without-ts/images/codegen.jpeg" alt="Codegen" style="width: 900px; object-fit: fill">
+
+<!-- .element: class="fragment" data-fragment-index="3" -->
+</div></script></section><section data-markdown><script type="text/template"><!-- .slide: class="drop" template="" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 768px; width: 1366px; min-height: 768px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+### Inspector
+
+```bash
+PWDEBUG=1 pytest -s -k test_get_started_link
+```
+<!-- .element: class="fragment" data-fragment-index="1" -->
+
+```bash
+npx playwright test --debug
+```
+<!-- .element: class="fragment" data-fragment-index="2" -->
+
+<img src="playwright-without-ts/images/inspector.png" alt="Inspector" style="width: 900px; object-fit: fill">
+
+<!-- .element: class="fragment" data-fragment-index="3" -->
+</div></script></section><section data-markdown><script type="text/template"><!-- .slide: class="drop" template="" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 768px; width: 1366px; min-height: 768px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+### Trace viewer
+
+```bash
+playwright show-trace trace.zip
+```
+<!-- .element: class="fragment" data-fragment-index="1" -->
+
+```bash
+npx playwright show-trace trace.zip
+```
+<!-- .element: class="fragment" data-fragment-index="2" -->
+
+<img src="playwright-without-ts/images/traceviewer.png" alt="Trace viewer" style="width: 900px; object-fit: fill">
+
+<!-- .element: class="fragment" data-fragment-index="3" -->
+</div></script></section><section data-markdown><script type="text/template"><!-- .slide: class="drop" template="" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 768px; width: 1366px; min-height: 768px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+### PIerwszy test
+
+```python
+from playwright.sync_api import Page, expect  
+  
+def test_has_title(page: Page):  
+    page.goto("https://playwright.dev/")  
+  
+    # Expect a title "to contain" a substring.  
+    expect(page).to_have_title(re.compile("Playwright"))
+```
+<!-- .element: class="fragment" data-fragment-index="1" -->
+
+```javascript
+import { test, expect } from '@playwright/test';  
+  
+test('has title', async ({ page }) => {  
+  await page.goto('https://playwright.dev/');  
+  
+  // Expect a title "to contain" a substring.  
+  await expect(page).toHaveTitle(/Playwright/);  
+});
+```
+<!-- .element: class="fragment" data-fragment-index="2" -->
+</div></script></section><section data-markdown><script type="text/template"><!-- .slide: class="drop" template="" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 768px; width: 1366px; min-height: 768px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+### Asercje
+
+|     | Python | TypeScript |
+| --- | :---: | :---: |
+| Timeout | ✅ | ✅ |
+| Error message | ✅ | ✅ |
+| Soft assertion | ✅ <sup>pytest-check</sup> | ✅ |
+
+
+```python
+with check:
+	expect(locator, "Some error").to_be_something(timeout=10000)
+```
+<!-- .element: class="fragment" data-fragment-index="1" -->
+
+```javascript
+await expect.soft(locator, "Some error").toBeSomething(timeout=10000)
+
+// Avoid running further if there were soft assertion failures.  
+expect(test.info().errors).toHaveLength(0);
+```
+<!-- .element: class="fragment" data-fragment-index="2" -->
+</div></script></section><section data-markdown><script type="text/template"><!-- .slide: class="drop" template="" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 768px; width: 1366px; min-height: 768px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+### Timeouty
+
+|     | Python | TypeScript |
+| --- | :---: | :---: |
+| Domyślny | ✅ | ✅ |
+| Nawigacja między stronami | ✅ | ✅ |
+| Globalny dla asercji | ✅ | ✅ |
+| Per asercja | ✅ | ✅ |
+| Per akcja/lokator | ✅ | ✅ |
+| Per fikstura | ✅ <sup>pytest-timeout</sup> | ✅ |
+| Per test | ✅ <sup>pytest-timeout</sup> | ✅ |
+| Wszystkie testy | ✅ <sup>pytest-timeout</sup> | ✅ |
+</div></script></section><section data-markdown><script type="text/template"><!-- .slide: class="drop" template="" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 768px; width: 1366px; min-height: 768px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+### Parametryzacja testów
+
+```python
+@pytest.mark.parametrize(
+    "name, expected",
+    [
+        ("Alice", "Hello, Alice!"),
+        ("Bob", "Hello, Bob!"),
+        ("Charlie", "Hello, Charlie!"),
+    ],
+)
+def test_greet(page, name, expected):
+    page.goto(f"https://example.com/greet?name={name}")
+    assert page.get_by_role("heading").text_content() == expected
+
+```
+<!-- .element: class="fragment" data-fragment-index="1" -->
+
+```javascript
+[  
+  { name: 'Alice', expected: 'Hello, Alice!' },  
+  { name: 'Bob', expected: 'Hello, Bob!' },  
+  { name: 'Charlie', expected: 'Hello, Charlie!' },  
+].forEach(({ name, expected }) => {  
+  test(`testing with ${name}`, async ({ page }) => {  
+    await page.goto(`https://example.com/greet?name=${name}`);  
+    await expect(page.getByRole('heading')).toHaveText(expected);  
+  });  
+});
+```
+<!-- .element: class="fragment" data-fragment-index="2" -->
+</div></script></section><section data-markdown><script type="text/template"><!-- .slide: class="drop" template="" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 768px; width: 1366px; min-height: 768px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+### Mockowanie REST API
+
+```python
+async def test_mock_the_fruit_api(page: Page):
+    async def handle(route: Route):
+        json = [{"name": "Strawberry", "id": 21}]
+        # Fulfill the route with the mock data
+        await route.fulfill(json=json)
+
+    # Intercept the route to the fruit API
+    await page.route("*/**/api/v1/fruits", handle)
+    # Go to the page
+    await page.goto("https://demo.playwright.dev/api-mocking")
+    # Assert that the Strawberry fruit is visible
+    await expect(page.get_by_text("Strawberry")).to_be_visible()
+```
+<!-- .element: class="fragment" data-fragment-index="1" -->
+
+```javascript
+test("mocks a fruit and doesn't call api", async ({ page }) => {  
+  const handle = async (route) => {
+    const json = [{ name: 'Strawberry', id: 21 }];
+    // Fulfill the route with the mock data
+    await route.fulfill({ json });
+  };
+
+  // Intercept the route to the fruit API
+  await page.route('*/**/api/v1/fruits', handle);
+  // Go to the page  
+  await page.goto('https://demo.playwright.dev/api-mocking');  
+  // Assert that the Strawberry fruit is visible  
+  await expect(page.getByText('Strawberry')).toBeVisible();  
+});
+```
+<!-- .element: class="fragment" data-fragment-index="2" -->
+</div></script></section><section data-markdown><script type="text/template"><!-- .slide: class="drop" template="" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 768px; width: 1366px; min-height: 768px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+### Emulacja urządzeń mobilnych
+
+```python
+async def run(playwright: Playwright):  
+	iphone_13 = playwright.devices['iPhone 13']  
+	browser = await playwright.webkit.launch(headless=False)  
+	context = await browser.new_context(**iphone_13, )
+```
+<!-- .element: class="fragment" data-fragment-index="1" -->
+
+```javascript
+const { chromium, devices } = require('playwright');
+const browser = await chromium.launch();
+const iphone13 = devices['iPhone 13'];
+const context = await browser.newContext({
+  ...iphone13,
+});
+```
+<!-- .element: class="fragment" data-fragment-index="2" -->
+</div></script></section><section data-markdown><script type="text/template"><!-- .slide: class="drop" template="" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 768px; width: 1366px; min-height: 768px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+### Inne funkcjonalności
+
+|     | Python | TypeScript |
+| --- | :---: | :---: |
+| Fikstury | ✅ | ✅ |
+| Parametryzacja testów | ✅ | ✅ |
+| Async/await | ✅ <sup>pytest-asyncio</sup> | ✅ |
+| Zrzuty ekranu | ✅ | ✅ |
+| Nagrywanie trace | ✅ | ✅ |
+| Magrywanie video | ✅ | ✅ |
+| Visual comparisons | ✅ <sup>pytest-image-snapshot</sup> | ✅ |
+| "Zrównoleglanie" testów | ✅ <sup>pytest-xdist</sup> | ✅ |
+| Plugin dla VSCode | ❌ <sup>*</sup> | ✅ <sup>**</sup> |
+
+<div class="" style="font-size: 20px; padding: 110px 0 0 110px; box-sizing: border-box; position: absolute; left: 0%; top: 90%; height: 10%; width: 60%; display: flex; flex-direction: column; align-items: flex-start; justify-content: space-evenly" align="left">
+
+<br><sup>*</sup>Bardzo dobre wsparcie dla pytest i debugowania w VSCode i PyCharm
+<br><sup>**</sup>Praktycznie brak wsparcia w innych narzędziach
+</div>
+</div></script></section><section data-markdown><script type="text/template"><!-- .slide: class="drop" template="" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 768px; width: 1366px; min-height: 768px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+### Wsparcie eksperymentalne
+
+|     | Python | TypeScript |
+| --- | :---: | :---: |
+| Component testing | ❌ | ✅ |
+| Android | ❌ | ✅ |
+| Android Chrome | ❌ | ✅ |
+| Android WebView | ❌ | ✅ |
+| Elektron Apps | ❌ | ✅ |
+</div></script></section><section data-markdown><script type="text/template"><!-- .slide: class="drop" template="" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 768px; width: 1366px; min-height: 768px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+### Raporty
+
+|     | Python | TypeScript |
+| --- | :---: | :---: |
+| JUnit | ✅ | ✅ |
+| HTML | ✅ <sup>pytest-html</sup> | ✅ |
+| JSON | ✅ <sup>pytest-json-report</sup> | ✅ |
+| List / Line / Dot | ✅ <sup>*</sup> | ✅ <sup>**</sup> |
+| Allure | ✅ <sup>allure-pytest</sup> | ✅ <sup>allure-playwright</sup> |
+
+<div class="" style="font-size: 20px; padding: 0 0 0 180px; box-sizing: border-box; position: absolute; left: 0%; top: 90%; height: 10%; width: 50%; display: flex; flex-direction: column; align-items: flex-start; justify-content: space-evenly" align="left">
+
+<br><sup>*</sup>W zasadzie działają jednocześnie
+<br><sup>**</sup>Każdy z tych raportów trzeba oddzielnie wybrać
+</div>
+</div></script></section><section data-markdown><script type="text/template"><!-- .slide: class="drop" template="" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 768px; width: 1366px; min-height: 768px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+### Dodatkowe narzędzia
+
+|     | Python | TypeScript |
+| --- | :---: | :---: |
+| zarządzanie zależnościami | poetry/uv | npm |
+| środowisko "wirtualne" | venv<sup>*</sup>/poetry/uv | node_modules<sup>**</sup> |
+| "upiększanie"  kodu | ruff/black | prettier | 
+| sprawdzanie kodu | ruff/flake8 | eslint | 
+| sprawdzanie typów | pyright/mypy | eslint |
+| pre commit | pre-commit | husky |
+| zmienne środowiskowe | direnv | direnv |
+
+<div class="" style="font-size: 20px; padding: 0 0 0 100px; box-sizing: border-box; position: absolute; left: 0%; top: 90%; height: 10%; width: 50%; display: flex; flex-direction: column; align-items: flex-start; justify-content: space-evenly" align="left">
+
+<br><sup>*</sup>Wymaga konfiguracji
+<br><sup>**</sup>Działa automatycznie
+</div>
+</div></script></section><section data-markdown><script type="text/template"><!-- .slide: class="drop" template="" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 768px; width: 1366px; min-height: 768px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+### Struktury danych
+
+|     | Python | TypeScript |
+| --- | :---: | :---: |
+| Lista elementów | list | array |
+| Lista unikatowych elementów | set | set |
+| Klucz/wartość | dict | object/map<sup>*</sup> |
+| Enumerator | Enum | enum** |
+
+<div class="" style="font-size: 20px; padding: 0 0 0 180px; box-sizing: border-box; position: absolute; left: 0%; top: 90%; height: 10%; width: 50%; display: flex; flex-direction: column; align-items: flex-start; justify-content: space-evenly" align="left">
+
+<sup>*</sup>Nie jest to dokładnie to samo<br>
+<sup>**</sup>Brak w JavaScript
+</div>
+</div></script></section><section data-markdown><script type="text/template"><!-- .slide: class="drop" template="" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 768px; width: 1366px; min-height: 768px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+### Obsługa formatów plików
+
+|     | Python | TypeScript |
+| --- | :---: | :---: |
+| JSON | ✅ | ✅ |
+| YAML | ✅ | ✅ <sup>yaml</sup> |
+| XML | ✅ | ✅ <sup>xml</sup> |
+| CSV | ✅ | ✅ <sup>fast-csv/papaparse</sup> |
+| HTML | ✅ <sup>beautifulsoup4</sup> | ✅ <sup>jsdom/htmlparser2</sup> |
+</div></script></section><section data-markdown><script type="text/template"><!-- .slide: class="drop" template="" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 768px; width: 1366px; min-height: 768px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+### Dodatkowe biblioteki
+
+|     | Python | TypeScript |
+| --- | :---: | :---: |
+| Obsługa zmiennych środowiskowych | ✅ <sup>/pydantic</sup> | ✅ |
+| Specjalizowane klasy dla danych | <sup>pydantic/dataclasses</sup> | ❌ |
+| Tworzenie narzędzia CLI | <sup>typer</sup> | <sup>oclif</sup> |
+| Lepsze testowanie REST API | <sup>requests/httpx</sup>| <sup>axios</sup>|
+| Inny test runner | <sup>unittest*</sup> | <sup>vitest**</sup> |
+
+<div class="" style="font-size: 20px; padding: 0 0 0 50px; box-sizing: border-box; position: absolute; left: 0%; top: 90%; height: 10%; width: 50%; display: flex; flex-direction: column; align-items: flex-start; justify-content: space-evenly" align="left">
+
+<sup>*</sup>Gorszy od pytest<br>
+<sup>**</sup>Można zaintegrować z Playwright i ma lepsze wsparcie dla component testing
+</div>
+</div></script></section><section data-markdown><script type="text/template"><!-- .slide: class="drop" template="" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 768px; width: 1366px; min-height: 768px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+<div class="" style="position: absolute; left: 0%; top: 0%; height: 10%; width: 100%; display: flex; flex-direction: column; align-items: center; justify-content: center" >
+
+## Podsumowanie
+</div>
+
+<div class="" style="transform: rotate(-10deg); position: absolute; left: 5%; top: 30%; height: 50%; width: 40%; display: flex; flex-direction: column; align-items: center; justify-content: center" >
+
+<img src="playwright-without-ts/images/python.svg" alt="python" style="width: 210px; object-fit: fill">
+
+#### without Type Hinting
+#### 🔄
+<img src="playwright-without-ts/images/javascript.svg" alt="javascript" style="width: 190px; object-fit: fill">
+
+</div>
+<!-- .element: class="fragment" data-fragment-index="1" -->
+
+<div class="" style="transform: rotate(10deg); position: absolute; left: 55%; top: 30%; height: 50%; width: 40%; display: flex; flex-direction: column; align-items: center; justify-content: center" >
+
+<img src="playwright-without-ts/images/python.svg" alt="python" style="width: 210px; object-fit: fill">
+
+#### with Type Hinting
+####  🔄
+<img src="playwright-without-ts/images/typescript.svg" alt="typescript" style="width: 190px; object-fit: fill">
+
+</div>
+<!-- .element: class="fragment" data-fragment-index="2" -->
+</div></script></section><section data-markdown><script type="text/template"><!-- .slide: class="drop" template="" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 768px; width: 1366px; min-height: 768px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+<div class="" style="position: absolute; left: 0%; top: 0%; height: 10%; width: 100%; display: flex; flex-direction: column; align-items: center; justify-content: center" >
+
+## Pytania?
+</div>
+
+<div class="" style="transform: rotate(-10deg); position: absolute; left: 5%; top: 30%; height: 50%; width: 40%; display: flex; flex-direction: column; align-items: center; justify-content: center" >
+
+### Prezentacja
+<img src="playwright-without-ts/images/qr-presentation.png" alt="prezentacja" style="width: 350px; object-fit: fill">
+
+</div>
+
+<div class="" style="transform: rotate(10deg); position: absolute; left: 55%; top: 30%; height: 50%; width: 40%; display: flex; flex-direction: column; align-items: center; justify-content: center" >
+
+### Mój LinkedIn
+<img src="playwright-without-ts/images/qr-linkedin.png" alt="linkedin" style="width: 350px; object-fit: fill">
+
+</div>
+</div></script></section><section data-markdown><script type="text/template"><!-- .slide: class="drop" template="" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 768px; width: 1366px; min-height: 768px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+# Koniec
+</div></script></section></div>
+</div>
+<script src="dist/reveal.js"></script>
+<script src="plugin/notes/notes.js"></script>
+<script src="plugin/markdown/markdown.js"></script>
+<script src="plugin/highlight/highlight.js"></script>
+<script src="plugin/zoom/zoom.js"></script>
+<script src="plugin/math/math.js"></script>
+<script src="plugin/mermaid/mermaid.js"></script>
+<script src="plugin/chart/chart.min.js"></script>
+<script src="plugin/chart/plugin.js"></script>
+<script src="plugin/customcontrols/plugin.js"></script>
+<script>
+function extend(){const t={};for(let e=0;e<arguments.length;e++){const a=arguments[e];for(const e in a)a.hasOwnProperty(e)&&(t[e]=a[e])}return t}function isLight(t){let e=t.replace("#","");3==e.length&&(e=`${e[0]}${e[0]}${e[1]}${e[1]}${e[2]}${e[2]}`);return(299*parseInt(e.substr(0,2),16)+587*parseInt(e.substr(2,2),16)+114*parseInt(e.substr(4,2),16))/1e3>155}const bgColor=getComputedStyle(document.documentElement).getPropertyValue("--r-background-color").trim();isLight(bgColor)?document.body.classList.add("has-light-background"):document.body.classList.add("has-dark-background");const defaultOptions={controls:!0,progress:!0,history:!0,center:!0,transition:"default",plugins:[RevealMarkdown,RevealHighlight,RevealZoom,RevealNotes,RevealMath.MathJax3,RevealMermaid,RevealChart,RevealCustomControls],allottedTime:12e4,mathjax3:{mathjax:"plugin/math/mathjax/tex-mml-chtml.js"},markdown:{gfm:!0,mangle:!0,pedantic:!1,smartLists:!1,smartypants:!1},mermaid:{theme:isLight?"default":"dark"},customcontrols:{controls:[]}};pageInIframe()&&(defaultOptions.scrollActivationWidth=5);const queryOptions=Reveal().getQueryHash()||{},options=extend(defaultOptions,{controls:!0,progress:!0,slideNumber:!0,center:!0,transition:"slide",transitionSpeed:"default",width:1366,height:768,margin:.04,minScale:.3,maxScale:2},queryOptions)
+</script>
+<script>Reveal.initialize(options)</script>
+</body>
+</html>

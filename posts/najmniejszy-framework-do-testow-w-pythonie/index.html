@@ -12,9 +12,9 @@
 <link href="../../feed_rss_created.xml" rel="alternate" title="Kanał RSS" type="application/rss+xml">
 <link href="../../feed_rss_updated.xml" rel="alternate" title="Kanał RSS zaktualizowanych treści" type="application/rss+xml">
 <link href="../../assets/images/icon.svg" rel="icon">
-<meta content="mkdocs-1.6.1, mkdocs-material-9.6.2" name="generator">
+<meta content="mkdocs-1.6.1, mkdocs-material-9.6.14" name="generator">
 <title>Najmniejszy framework do testów w Pythonie - TesteremByc.pl</title>
-<link href="../../assets/stylesheets/main.d7758b05.min.css" rel="stylesheet">
+<link href="../../assets/stylesheets/main.342714a4.min.css" rel="stylesheet">
 <link href="../../assets/stylesheets/palette.06af60db.min.css" rel="stylesheet">
 <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin="">
 <link href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CLato:400,400i,700,700i&amp;display=fallback" rel="stylesheet">
@@ -112,6 +112,11 @@ Python
 <li class="md-tabs__item">
 <a href="../../szkolenia/stacjonarne/" class="md-tabs__link">
 Szkolenia
+</a>
+</li>
+<li class="md-tabs__item">
+<a href="../../kontakt/" class="md-tabs__link">
+Kontakt
 </a>
 </li>
 </ul>
@@ -634,6 +639,13 @@ Playwright w Pythonie
 </ul>
 </nav>
 </li>
+<li class="md-nav__item">
+<a href="../../kontakt/" class="md-nav__link">
+<span class="md-ellipsis">
+Kontakt
+</span>
+</a>
+</li>
 </ul>
 </nav>
 </div>
@@ -848,10 +860,10 @@ Wszystkie podane przez Ciebie dane, będą przetwarzane zgodnie z
 <p>Wykorzystano zdjęcie autorstwa <a href="https://www.pexels.com/pl-pl/@readymade">ready made</a> z <a href="https://www.pexels.com/">Pexels</a></p>
 </figcaption>
 </figure>
-<p>Jeśli interesujesz się choć trochę programowaniem, to zapewne trafiłeś kiedyś na artykuły porównujące, ile linii kodu potrzebnych jest do stworzenia uwielbianego <em>hello world</em> w różnych językach programowania. Sam zresztą pokazywałem, w pierwszym wpisie na tym blogu ile linii kodu potrzebne jest w Pythonie, aby wyświetlić proste <a href="../witaj-swiecie/" id="7c7cb4b0ba288545d7ed55ec3e3273e6">witaj swiecie</a>. A co by się stało, gdybyśmy w tych rozważaniach poszli ciut dalej i zastanowili się, ile potrzebnych jest linii kodu, aby stworzyć działający framework do testów?</p>
+<p>Jeśli interesujesz się choć trochę programowaniem, to zapewne trafiłeś kiedyś na artykuły porównujące, ile linii kodu potrzebnych jest do stworzenia uwielbianego <em>hello world</em> w różnych językach programowania. Sam zresztą pokazywałem, w pierwszym wpisie na tym blogu ile linii kodu potrzebne jest w Pythonie, aby wyświetlić proste <a href="../witaj-swiecie/">witaj swiecie</a>. A co by się stało, gdybyśmy w tych rozważaniach poszli ciut dalej i zastanowili się, ile potrzebnych jest linii kodu, aby stworzyć działający framework do testów?</p>
 <div class="admonition info">
 <p class="admonition-title">Jeszcze mniejszy framework do testów</p>
-<p>Do tego artykułu istnieje kontynuacja, ale zachęcam do przeczytania obu artykułów w kolejności, w jakiej były publikowane. Jeśli jednak znasz już ten artykuł, to kolejny zatytułowany jest <a href="../jeszcze-mniejszy-framework-do-testow-w-pythonie/" id="a1aaba9912699231da65939dd2092c37">jeszcze mniejszy framework do testów w pythonie</a> i również zachęcam do jego lektury.</p>
+<p>Do tego artykułu istnieje kontynuacja, ale zachęcam do przeczytania obu artykułów w kolejności, w jakiej były publikowane. Jeśli jednak znasz już ten artykuł, to kolejny zatytułowany jest <a href="../jeszcze-mniejszy-framework-do-testow-w-pythonie/">jeszcze mniejszy framework do testów w pythonie</a> i również zachęcam do jego lektury.</p>
 </div>
 <h2 id="ale-skad-w-ogole-ten-pomys">Ale skąd w ogóle ten pomysł?<a href="#ale-skad-w-ogole-ten-pomys" class="headerlink" title="Anchor link to this section for reference">¶</a></h2>
 <p>Historia tego pomysłu sięga początków tegorocznej pandemii i sławnego <a href="https://www.siepomaga.pl/hot16challenge">#hot16challenge</a> oraz pomysłu, o jakim opowiedział mi wtedy <strong>Bartosz Kita</strong> z bloga <a href="https://testerprogramuje.pl/">Tester Programuje</a>. Sam pomysł był prosty i do tej pory mocno żałuję, że pomimo gotowego kodu, nie znalazłem czasu na nagranie krótkiego filmu, gdzie bym o tym opowiedział (wybacz Bartek, bo pomysł był przedni). O co chodzi? Najlepiej niech sam autor o tym opowie:</p>
@@ -985,7 +997,7 @@ Wszystkie podane przez Ciebie dane, będą przetwarzane zgodnie z
 <p>Podpowiem: porównaj nazwę argumentu, do którego wstawiane są dane z nazwą klucza, z jakiego te dane są pobierane.</p>
 <p>Może da się to jakoś wykorzystać na naszą korzyść i zaoszczędzić ciut miejsca w kodzie? Przecież w tym momencie mamy już 14 linii kodu, a nie mamy jeszcze ani, większej ilości testów, ani raportów.</p>
 <h3 id="rozpakowywanie-sownika">Rozpakowywanie słownika<a href="#rozpakowywanie-sownika" class="headerlink" title="Anchor link to this section for reference">¶</a></h3>
-<p>Jeśli czytałeś mój artykuł dotyczący <a href="../dekoratory-w-pythonie/" id="7ea9799ca8f72fd8cbd49cd2810e0660">dekoratorów w Pythonie</a>, to wspominam w nim o dwóch sposobach przekazywania argumentów do funkcji: przez <a href="../dekoratory-w-pythonie/#args-i-kwargs" id="7ea9799ca8f72fd8cbd49cd2810e0660">args i kwargs</a> (jeśli nie wiesz, o co chodzi, to zanim przejdziesz dalej, polecam się z tym zapoznać). W naszym kodzie przekazanie argumentów do metody <code>requests.request</code> wykonaliśmy właśnie przy użyciu <code>kwargs</code>, a więc de facto jako słownik, gdzie kluczem jest nazwa argumentu, a wartością danego klucza, wartość argumentu. Mówię o tym kawałku kodu:</p>
+<p>Jeśli czytałeś mój artykuł dotyczący <a href="../dekoratory-w-pythonie/">dekoratorów w Pythonie</a>, to wspominam w nim o dwóch sposobach przekazywania argumentów do funkcji: przez <a href="../dekoratory-w-pythonie/#args-i-kwargs">args i kwargs</a> (jeśli nie wiesz, o co chodzi, to zanim przejdziesz dalej, polecam się z tym zapoznać). W naszym kodzie przekazanie argumentów do metody <code>requests.request</code> wykonaliśmy właśnie przy użyciu <code>kwargs</code>, a więc de facto jako słownik, gdzie kluczem jest nazwa argumentu, a wartością danego klucza, wartość argumentu. Mówię o tym kawałku kodu:</p>
 <div class="highlight language-python"><pre><span></span><code><span id="__span-13-1"><a href="#__codelineno-13-1" id="__codelineno-13-1" name="__codelineno-13-1"></a><span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">request</span><span class="p">(</span>
 </span><span id="__span-13-2"><a href="#__codelineno-13-2" id="__codelineno-13-2" name="__codelineno-13-2"></a>    <span class="n">method</span><span class="o">=</span><span class="n">data</span><span class="p">[</span><span class="s1">'request'</span><span class="p">][</span><span class="s1">'method'</span><span class="p">],</span>
 </span><span id="__span-13-3"><a href="#__codelineno-13-3" id="__codelineno-13-3" name="__codelineno-13-3"></a>    <span class="n">url</span><span class="o">=</span><span class="n">data</span><span class="p">[</span><span class="s1">'request'</span><span class="p">][</span><span class="s1">'url'</span><span class="p">],</span>
@@ -1047,7 +1059,7 @@ Wszystkie podane przez Ciebie dane, będą przetwarzane zgodnie z
 <p>Metoda służąca do wysyłania żądania do endpointu, znajdują się teraz poza ciałem klasy oraz została nazwana <code>abstract_test</code>. Sam sposób wysyłania żądania się nie zmienił.</p>
 </li>
 <li>
-<p>Następnie wywołujemy metodę <a href="https://docs.python.org/3/library/functions.html#setattr">setattr</a>, która jest metodą wbudowaną w język Python. Pozwala ona na wstawienie do obiektu, nowego atrybutu oraz przypisania mu wartości (o tym również wspominałem w artykule dotyczącym dekoratorów w sekcji <a href="../dekoratory-w-pythonie/#funkcja-jest-obiektem" id="7ea9799ca8f72fd8cbd49cd2810e0660">funkcja jest obiektem</a>. Zauważ, że jej wywołanie przyjęło 3 argumenty:</p>
+<p>Następnie wywołujemy metodę <a href="https://docs.python.org/3/library/functions.html#setattr">setattr</a>, która jest metodą wbudowaną w język Python. Pozwala ona na wstawienie do obiektu, nowego atrybutu oraz przypisania mu wartości (o tym również wspominałem w artykule dotyczącym dekoratorów w sekcji <a href="../dekoratory-w-pythonie/#funkcja-jest-obiektem">funkcja jest obiektem</a>. Zauważ, że jej wywołanie przyjęło 3 argumenty:</p>
 </li>
 </ol>
 <ul>
@@ -1223,22 +1235,10 @@ Wszystkie podane przez Ciebie dane, będą przetwarzane zgodnie z
 <p>Oczywiście, że tak, ale wtedy nie zmieścimy się w 16 linijkach kodu. Jako ćwiczenie dla Ciebie mogę podpowiedzieć, że przy niewielkim nakładzie pracy, można dodać dodatkowe sprawdzenia, np. czy dane, które otrzymujemy w odpowiedzi na wysłane żądanie, są danymi, jakich się spodziewamy. Jak to zrobić, to już zostawiam Ci jako dalsze ćwiczenie swoich szarych komórek (ten kod dla mnie był takim właśnie ćwiczeniem).</p>
 <div class="admonition info">
 <p class="admonition-title">Ciąg dalszy ...</p>
-<p>Kontynuację zmagań z najmniejszym frameworkiem do testów, możesz odnaleźć w kolejnym artykule zatytułowanym <a href="../jeszcze-mniejszy-framework-do-testow-w-pythonie/" id="a1aaba9912699231da65939dd2092c37">jeszcze mniejszy framework do testów</a>. Zapraszam do jego lektury.</p>
+<p>Kontynuację zmagań z najmniejszym frameworkiem do testów, możesz odnaleźć w kolejnym artykule zatytułowanym <a href="../jeszcze-mniejszy-framework-do-testow-w-pythonie/">jeszcze mniejszy framework do testów</a>. Zapraszam do jego lektury.</p>
 </div>
 <h2 id="bonus">Bonus<a href="#bonus" class="headerlink" title="Anchor link to this section for reference">¶</a></h2>
 <p>Cały powyższy kod znajdziesz również w poniższym <a href="https://github.com/mkusz/the_smallest_rest_api_testing_framework/tree/first_article">repozytorium w GitHubie</a>.</p>
-<hr>
-<p class="obsidian_backlink_title">Backlinks:</p>
-<div class="obsidian_backlink">
-<details class="backlink">
-<summary>Python</summary>
-<p></p><p class="obsidian_backlink">- <a href="https://testerembyc.pl/python-kompendium/#4a7bef894493d8c04487067e08fc26f3">Najmniejszy framework do testów w Pythonie</a></p><hr><p class="obsidian_backlink">- <a href="https://testerembyc.pl/python-kompendium/#4a7bef894493d8c04487067e08fc26f3">json</a> - obsługa formatu JSON,</p><hr><p class="obsidian_backlink">- <a href="https://testerembyc.pl/python-kompendium/#4a7bef894493d8c04487067e08fc26f3">requests</a> - wysyłanie zapytań do REST API,</p><hr><p class="obsidian_backlink">- <a href="https://testerembyc.pl/python-kompendium/#4a7bef894493d8c04487067e08fc26f3">unittest</a> - framework do testów będący częścią biblioteki standardowej,</p><hr><p class="obsidian_backlink">- <a href="https://testerembyc.pl/python-kompendium/#4a7bef894493d8c04487067e08fc26f3">xmlrunner</a> - runner dla biblioteki unittest, wspomagający tworzenie raportów w formacie JUnit akceptowanym przez większość narzędzi CI/CD.</p><p></p>
-</details>
-<details class="backlink">
-<summary>Jeszcze mniejszy framework do testów w Pythonie</summary>
-<p></p><p class="obsidian_backlink">Poniższy wpis jest kontynuacją poprzedniego wpisu, gdzie próbowałem pokazać Ci jak w Pythonie można stworzyć <a href="https://testerembyc.pl/posts/jeszcze-mniejszy-framework-do-testow-w-pythonie/#375a1ee7202307cc9655c294f2eef312">najmniejszy framework do testów</a>.</p><p></p>
-</details>
-</div>
 <script src="https://giscus.app/client.js" async crossorigin="anonymous" data-category="Komentarze na blogu" data-category-id="DIC_kwDOGBXvjM4CWu1l" data-emit-metadata="0" data-input-position="top" data-lang="pl" data-loading="lazy" data-mapping="pathname" data-reactions-enabled="1" data-repo="mkusz/testerembyc-web" data-repo-id="MDEwOlJlcG9zaXRvcnk0MDQwOTA3NjQ=" data-strict="1" data-theme="preferred_color_scheme"></script>
 <script>var giscus=document.querySelector("script[src*=giscus]"),palette=__md_get("__palette");if(palette&&"object"==typeof palette.color){var theme="slate"===palette.color.scheme?"dark":"light";giscus.setAttribute("data-theme",theme)}document.addEventListener("DOMContentLoaded",(function(){document.querySelector("[data-md-component=palette]").addEventListener("change",(function(){var e=__md_get("__palette");if(e&&"object"==typeof e.color){var t="slate"===e.color.scheme?"dark":"light";document.querySelector(".giscus-frame").contentWindow.postMessage({giscus:{setConfig:{theme:t}}},"https://giscus.app")}}))}))</script>
 <div class="md-typeset tb-ext">
@@ -1372,8 +1372,8 @@ Google Analytics
 </aside>
 </div>
 <script>var consent=__md_get("__consent");if(consent)for(var input of document.forms.consent.elements)input.name&&(input.checked=consent[input.name]||!1);else"file:"!==location.protocol&&setTimeout((function(){document.querySelector("[data-md-component=consent]").hidden=!1}),250);var form=document.forms.consent;for(var action of["submit","reset"])form.addEventListener(action,(function(e){if(e.preventDefault(),"reset"===e.type)for(var n of document.forms.consent.elements)n.name&&(n.checked=!1);__md_set("__consent",Object.fromEntries(Array.from(new FormData(form).keys()).map((function(e){return[e,!0]})))),location.hash="",location.reload()}))</script>
-<script id="__config" type="application/json">{"base": "../..", "features": ["navigation.tabs", "navigation.tabs.sticky", "navigation.footer", "navigation.tracking", "navigation.top", "navigation.indexes", "navigation.instant", "navigation.instant.progress", "search.suggest", "search.highlight", "search.share", "content.code.copy", "content.code.annotate", "content.tabs.link", "toc.follow"], "search": "../../assets/javascripts/workers/search.f8cc74c7.min.js", "translations": {"clipboard.copied": "Skopiowano do schowka", "clipboard.copy": "Kopiuj do schowka", "search.result.more.one": "1 wi\u0119cej na tej stronie", "search.result.more.other": "# wi\u0119cej na tej stronie", "search.result.none": "Brak wynik\u00f3w wyszukiwania", "search.result.one": "Wyniki wyszukiwania: 1", "search.result.other": "Wyniki wyszukiwania: #", "search.result.placeholder": "Zacznij pisa\u0107, aby szuka\u0107", "search.result.term.missing": "Brak", "select.version": "Wybierz wersj\u0119"}}</script>
-<script src="../../assets/javascripts/bundle.f13b1293.min.js"></script>
+<script id="__config" type="application/json">{"base": "../..", "features": ["navigation.tabs", "navigation.tabs.sticky", "navigation.footer", "navigation.tracking", "navigation.top", "navigation.indexes", "navigation.instant", "navigation.instant.progress", "search.suggest", "search.highlight", "search.share", "content.code.copy", "content.code.annotate", "content.tabs.link", "toc.follow"], "search": "../../assets/javascripts/workers/search.d50fe291.min.js", "tags": null, "translations": {"clipboard.copied": "Skopiowano do schowka", "clipboard.copy": "Kopiuj do schowka", "search.result.more.one": "1 wi\u0119cej na tej stronie", "search.result.more.other": "# wi\u0119cej na tej stronie", "search.result.none": "Brak wynik\u00f3w wyszukiwania", "search.result.one": "Wyniki wyszukiwania: 1", "search.result.other": "Wyniki wyszukiwania: #", "search.result.placeholder": "Zacznij pisa\u0107, aby szuka\u0107", "search.result.term.missing": "Brak", "select.version": "Wybierz wersj\u0119"}, "version": null}</script>
+<script src="../../assets/javascripts/bundle.13a4f30d.min.js"></script>
 <script defer>!function(e,t,n,c,o,a,f){e.fbq||(o=e.fbq=function(){o.callMethod?o.callMethod.apply(o,arguments):o.queue.push(arguments)},e._fbq||(e._fbq=o),o.push=o,o.loaded=!0,o.version="2.0",o.queue=[],(a=t.createElement(n)).async=!0,a.src="https://connect.facebook.net/en_US/fbevents.js",(f=t.getElementsByTagName(n)[0]).parentNode.insertBefore(a,f))}(window,document,"script"),fbq("init","444619046317574"),fbq("track","PageView")</script>
 <noscript>
 <img src="https://www.facebook.com/tr?id=444619046317574&amp;ev=PageView&amp;noscript=1" alt="Facebook Pixel" height="1" style="display:none" width="1">

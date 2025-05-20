@@ -12,9 +12,9 @@
 <link href="../../feed_rss_created.xml" rel="alternate" title="Kanał RSS" type="application/rss+xml">
 <link href="../../feed_rss_updated.xml" rel="alternate" title="Kanał RSS zaktualizowanych treści" type="application/rss+xml">
 <link href="../../assets/images/icon.svg" rel="icon">
-<meta content="mkdocs-1.6.1, mkdocs-material-9.6.2" name="generator">
+<meta content="mkdocs-1.6.1, mkdocs-material-9.6.14" name="generator">
 <title>Dobry tester? A kto to taki? - TesteremByc.pl</title>
-<link href="../../assets/stylesheets/main.d7758b05.min.css" rel="stylesheet">
+<link href="../../assets/stylesheets/main.342714a4.min.css" rel="stylesheet">
 <link href="../../assets/stylesheets/palette.06af60db.min.css" rel="stylesheet">
 <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin="">
 <link href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CLato:400,400i,700,700i&amp;display=fallback" rel="stylesheet">
@@ -112,6 +112,11 @@ Python
 <li class="md-tabs__item">
 <a href="../../szkolenia/stacjonarne/" class="md-tabs__link">
 Szkolenia
+</a>
+</li>
+<li class="md-tabs__item">
+<a href="../../kontakt/" class="md-tabs__link">
+Kontakt
 </a>
 </li>
 </ul>
@@ -634,6 +639,13 @@ Playwright w Pythonie
 </ul>
 </nav>
 </li>
+<li class="md-nav__item">
+<a href="../../kontakt/" class="md-nav__link">
+<span class="md-ellipsis">
+Kontakt
+</span>
+</a>
+</li>
 </ul>
 </nav>
 </div>
@@ -774,8 +786,7 @@ Wszystkie podane przez Ciebie dane, będą przetwarzane zgodnie z
 <p>Pisząc scenariusze testów oraz później, czy to wykonując je manualnie, czy też przekształcając je w testy automatyczne, robimy to w bardzo powtarzalny sposób. Opisujemy lub określamy, co nam będzie potrzebne do testu, np. jakiś użytkownik, co będzie on robił i co powinno się wydarzyć. Na zakończenie naszego testu, sporządzimy jakąś formę protokołu, z przeprowadzonego testu i jeśli znajdziemy błędy, to je odpowiednio raportujemy (choć to już bardziej proces testowania niż sam test).</p>
 <p>Dlaczego o tym wspominam? Ponieważ taki opis nie mówi nam nic na temat technicznych aspektów. Zauważ, że opisany powyżej użytkownik mógłby być równie dobrze innym systemem (dlatego często używa się pojęcia <em>aktor</em>). Nie ma tu mowy ani o bazie danych, ani o niczym innym. Po prostu mamy opis stanu początkowego (co było przed), opis akcji (tego, co zrobił aktor) i oraz opis stanu końcowego (co się powinno wydarzyć). To jest opis tzw. <a href="https://pl.wikipedia.org/wiki/Automat_skończony">automatu skończonego</a>. Zauważ również, że nie ma znaczenia, czy czynności zostały wykonane manualnie, czy też automatycznie. Wiem, że możesz powiedzieć, że akcje manualne nie pasują do automatu skończonego, który opisuje akcje jakiegoś urządzenia, ale jeśli tester manualny wykonuje pewien z góry zdefiniowany algorytm, jakim jest scenariusz testy, to taki tester (w dużym uproszczeniu) od urządzenia różni się tylko tym, że oddycha.</p>
 <h2 id="ale-po-co-to-wszystko">Ale po co to wszystko?<a href="#ale-po-co-to-wszystko" class="headerlink" title="Anchor link to this section for reference">¶</a></h2>
-<p>Powód jest bardzo prosty: sprowadzenie testu do tego poziomu powoduje, że przestajesz patrzeć na testy w kontekście technologii, w jakiej została wykonana sama aplikacja, którą testujesz. Nie ma znaczenia czy jest to aplikacja webowa, aplikacja w telefonie, czy może komputer sterujący zapłonem w silniku. Testy dowolnej rzeczy zawsze możesz sprowadzić do tych 3 rzeczy: stanu początkowego, akcji i stanu końcowego. Idąc dalej tym tokiem rozumowania, przestawienie się z testowania aplikacji webowej na testowanie czegoś innego nie powinno stanowić aż tak dużego problemu. Znam całą masę osób, które przeszły taką ścieżkę i pomimo pewnych obaw, są zadowolone ze zmiany (jeśli chcesz zobaczyć, jak taka ścieżka może wyglądać, to zapraszam na stronę <a href="../../pages/o-mnie/" id="df23255935cd1e449a83400f6f75f3b8">o mnie</a>
-, gdzie opisuje, jak to wyglądało w moim przypadku). Oczywiście nie każdy się odważy na taki krok, ale chciałem pokazać Ci, że na pewne rzeczy można spojrzeć ciut inaczej. Wróćmy teraz do sedna tematu.</p>
+<p>Powód jest bardzo prosty: sprowadzenie testu do tego poziomu powoduje, że przestajesz patrzeć na testy w kontekście technologii, w jakiej została wykonana sama aplikacja, którą testujesz. Nie ma znaczenia czy jest to aplikacja webowa, aplikacja w telefonie, czy może komputer sterujący zapłonem w silniku. Testy dowolnej rzeczy zawsze możesz sprowadzić do tych 3 rzeczy: stanu początkowego, akcji i stanu końcowego. Idąc dalej tym tokiem rozumowania, przestawienie się z testowania aplikacji webowej na testowanie czegoś innego nie powinno stanowić aż tak dużego problemu. Znam całą masę osób, które przeszły taką ścieżkę i pomimo pewnych obaw, są zadowolone ze zmiany (jeśli chcesz zobaczyć, jak taka ścieżka może wyglądać, to zapraszam na stronę <a href="../../pages/o-mnie/">o mnie</a>, gdzie opisuje, jak to wyglądało w moim przypadku). Oczywiście nie każdy się odważy na taki krok, ale chciałem pokazać Ci, że na pewne rzeczy można spojrzeć ciut inaczej. Wróćmy teraz do sedna tematu.</p>
 <h2 id="dobry-tester-czyli-kto">Dobry tester, czyli kto?<a href="#dobry-tester-czyli-kto" class="headerlink" title="Anchor link to this section for reference">¶</a></h2>
 <p>Powyższy akapit, powinien Cię ciut nakierować na odpowiedź na to pytanie. Jak jeszcze nie odpowiedziałeś na nie, to pozwól, że ja to zrobię. Dobry tester powinien być jak szwajcarski scyzoryk, czyli:</p>
 <ul>
@@ -802,7 +813,7 @@ Wszystkie podane przez Ciebie dane, będą przetwarzane zgodnie z
 <li>gdzie do tej pory pracowaliśmy — zdobyte do tej pory doświadczenie zawodowe to w większości wypadków bardzo praktyczne umiejętności,</li>
 <li>gdzie chcemy być za jakiś czas — team leader, menadżer, a może właściciel swojej własnej firmy.</li>
 </ul>
-<p>Jedno czego jestem pewien, to musisz nastawić się na ciągły rozwój i to czasem w kierunkach, które nie muszą być oczywiste, bo nigdy nie wiesz, co i kiedy może Ci się przydać (jeśli przeczytałeś stronę <a href="../../pages/o-mnie/" id="df23255935cd1e449a83400f6f75f3b8">o mnie</a>, to wiesz, co mam na myśli).</p>
+<p>Jedno czego jestem pewien, to musisz nastawić się na ciągły rozwój i to czasem w kierunkach, które nie muszą być oczywiste, bo nigdy nie wiesz, co i kiedy może Ci się przydać (jeśli przeczytałeś stronę <a href="../../pages/o-mnie/">o mnie</a>, to wiesz, co mam na myśli).</p>
 <h2 id="podsumowanie">Podsumowanie<a href="#podsumowanie" class="headerlink" title="Anchor link to this section for reference">¶</a></h2>
 <p>
 Pomimo że powyższy artykuł nie dostarcza Ci bardzo konkretnej wiedzy, a zapewne spodziewałeś się znaleźć tu złoty przepis na sukces, to nie taki był cel tego artykułu. Chciałem Ci uświadomić, że nikt nie da Ci wskazówek, które się na pewno sprawdzą. To, co zadziała u jednej osoby, u innej może prowadzić do porażki. Jest bardzo wiele elementów, które każdy z nas odbiera inaczej. Nie ma jednej drogi, bo idąc tą samą ścieżką, jeden będzie biegł, a drugi będzie się potykał o każdy kamień i wystający korzeń. Jeśli ktoś mówi Ci, np. że ukończenie tego, a tego kursu da Ci gwarancje zatrudnienia, to najdelikatniej mówiąc, mija się z prawdą. Kurs może Ci to ułatwić i/lub nauczyć pewnych rzeczy. Reszta zależy od Ciebie, okoliczności oraz odrobiny szczęścia. Cały artykuł miał za zadanie otworzyć Ci oczy na ciut inne, szersze spojrzenie na same testy oraz skłonić do refleksji na temat Twojej kariery w testowaniu. Jeśli choć trochę mi się to udało i wyciągniesz jakieś konstruktywne wnioski, które pomogą Ci w rozwoju Twojej kariery, to będę się bardzo cieszył. Pamiętaj też, że im więcej umiesz, tym lepiej poradzisz sobie z wieloma aspektami w testowaniu i nie tylko. Spowoduje to również wzrost Twojej wartości na rynku pracy, a więc będziesz mógł negocjować wyższe zarobki.
@@ -940,8 +951,8 @@ Google Analytics
 </aside>
 </div>
 <script>var consent=__md_get("__consent");if(consent)for(var input of document.forms.consent.elements)input.name&&(input.checked=consent[input.name]||!1);else"file:"!==location.protocol&&setTimeout((function(){document.querySelector("[data-md-component=consent]").hidden=!1}),250);var form=document.forms.consent;for(var action of["submit","reset"])form.addEventListener(action,(function(e){if(e.preventDefault(),"reset"===e.type)for(var n of document.forms.consent.elements)n.name&&(n.checked=!1);__md_set("__consent",Object.fromEntries(Array.from(new FormData(form).keys()).map((function(e){return[e,!0]})))),location.hash="",location.reload()}))</script>
-<script id="__config" type="application/json">{"base": "../..", "features": ["navigation.tabs", "navigation.tabs.sticky", "navigation.footer", "navigation.tracking", "navigation.top", "navigation.indexes", "navigation.instant", "navigation.instant.progress", "search.suggest", "search.highlight", "search.share", "content.code.copy", "content.code.annotate", "content.tabs.link", "toc.follow"], "search": "../../assets/javascripts/workers/search.f8cc74c7.min.js", "translations": {"clipboard.copied": "Skopiowano do schowka", "clipboard.copy": "Kopiuj do schowka", "search.result.more.one": "1 wi\u0119cej na tej stronie", "search.result.more.other": "# wi\u0119cej na tej stronie", "search.result.none": "Brak wynik\u00f3w wyszukiwania", "search.result.one": "Wyniki wyszukiwania: 1", "search.result.other": "Wyniki wyszukiwania: #", "search.result.placeholder": "Zacznij pisa\u0107, aby szuka\u0107", "search.result.term.missing": "Brak", "select.version": "Wybierz wersj\u0119"}}</script>
-<script src="../../assets/javascripts/bundle.f13b1293.min.js"></script>
+<script id="__config" type="application/json">{"base": "../..", "features": ["navigation.tabs", "navigation.tabs.sticky", "navigation.footer", "navigation.tracking", "navigation.top", "navigation.indexes", "navigation.instant", "navigation.instant.progress", "search.suggest", "search.highlight", "search.share", "content.code.copy", "content.code.annotate", "content.tabs.link", "toc.follow"], "search": "../../assets/javascripts/workers/search.d50fe291.min.js", "tags": null, "translations": {"clipboard.copied": "Skopiowano do schowka", "clipboard.copy": "Kopiuj do schowka", "search.result.more.one": "1 wi\u0119cej na tej stronie", "search.result.more.other": "# wi\u0119cej na tej stronie", "search.result.none": "Brak wynik\u00f3w wyszukiwania", "search.result.one": "Wyniki wyszukiwania: 1", "search.result.other": "Wyniki wyszukiwania: #", "search.result.placeholder": "Zacznij pisa\u0107, aby szuka\u0107", "search.result.term.missing": "Brak", "select.version": "Wybierz wersj\u0119"}, "version": null}</script>
+<script src="../../assets/javascripts/bundle.13a4f30d.min.js"></script>
 <script defer>!function(e,t,n,c,o,a,f){e.fbq||(o=e.fbq=function(){o.callMethod?o.callMethod.apply(o,arguments):o.queue.push(arguments)},e._fbq||(e._fbq=o),o.push=o,o.loaded=!0,o.version="2.0",o.queue=[],(a=t.createElement(n)).async=!0,a.src="https://connect.facebook.net/en_US/fbevents.js",(f=t.getElementsByTagName(n)[0]).parentNode.insertBefore(a,f))}(window,document,"script"),fbq("init","444619046317574"),fbq("track","PageView")</script>
 <noscript>
 <img src="https://www.facebook.com/tr?id=444619046317574&amp;ev=PageView&amp;noscript=1" alt="Facebook Pixel" height="1" style="display:none" width="1">

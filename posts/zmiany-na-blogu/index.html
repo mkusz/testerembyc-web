@@ -12,9 +12,9 @@
 <link href="../../feed_rss_created.xml" rel="alternate" title="Kanał RSS" type="application/rss+xml">
 <link href="../../feed_rss_updated.xml" rel="alternate" title="Kanał RSS zaktualizowanych treści" type="application/rss+xml">
 <link href="../../assets/images/icon.svg" rel="icon">
-<meta content="mkdocs-1.6.1, mkdocs-material-9.6.2" name="generator">
+<meta content="mkdocs-1.6.1, mkdocs-material-9.6.14" name="generator">
 <title>Zmiany na blogu - TesteremByc.pl</title>
-<link href="../../assets/stylesheets/main.d7758b05.min.css" rel="stylesheet">
+<link href="../../assets/stylesheets/main.342714a4.min.css" rel="stylesheet">
 <link href="../../assets/stylesheets/palette.06af60db.min.css" rel="stylesheet">
 <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin="">
 <link href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CLato:400,400i,700,700i&amp;display=fallback" rel="stylesheet">
@@ -111,6 +111,11 @@ Python
 <li class="md-tabs__item">
 <a href="../../szkolenia/stacjonarne/" class="md-tabs__link">
 Szkolenia
+</a>
+</li>
+<li class="md-tabs__item">
+<a href="../../kontakt/" class="md-tabs__link">
+Kontakt
 </a>
 </li>
 </ul>
@@ -633,6 +638,13 @@ Playwright w Pythonie
 </ul>
 </nav>
 </li>
+<li class="md-nav__item">
+<a href="../../kontakt/" class="md-nav__link">
+<span class="md-ellipsis">
+Kontakt
+</span>
+</a>
+</li>
 </ul>
 </nav>
 </div>
@@ -890,7 +902,7 @@ Wszystkie podane przez Ciebie dane, będą przetwarzane zgodnie z
 <p>Zastanówmy się, czy coś z poprzedniego stacku technologicznego możemy zachować i co działa dobrze, a może kilka wymagań będziemy mogli uznać gotowe.</p>
 <div class="admonition info">
 <p class="admonition-title">Poprzedni stack technologiczny</p>
-<p>Więcej informacji o poprzednim stacku technologicznym, którego używałem w starej wersji bloga, znajdziesz we wpisie <a href="../ci-cd-na-przykladzie-github-actions/" id="5224191f4d7d08e81cdaa338c362e79e">CI/CD na przykładzie GitHub Actions</a>.</p>
+<p>Więcej informacji o poprzednim stacku technologicznym, którego używałem w starej wersji bloga, znajdziesz we wpisie <a href="../ci-cd-na-przykladzie-github-actions/">CI/CD na przykładzie GitHub Actions</a>.</p>
 </div>
 <h3 id="static-site">Static site<a href="#static-site" class="headerlink" title="Anchor link to this section for reference">¶</a></h3>
 <p>Zacznijmy trochę od końca tej listy i zastanówmy się nad 3 ostatnimi punktami, czyli:</p>
@@ -916,14 +928,14 @@ Wszystkie podane przez Ciebie dane, będą przetwarzane zgodnie z
 <h3 id="mkdocs-material-for-mkdocs">MkDocs + Material for MkDocs<a href="#mkdocs-material-for-mkdocs" class="headerlink" title="Anchor link to this section for reference">¶</a></h3>
 <p>MkDocs jest bardzo popularnym narzędziem do tworzenia dokumentacji w Pythonie i jest używany przez takie projekty jak m.in. <a href="https://fastapi.tiangolo.com">FastAPI</a>, <a href="https://typer.tiangolo.com">Typer</a> czy <a href="https://circleci.com">CircusCI</a>. Idealnym uzupełnieniem dla samego MkDocs, jest skórka <a href="https://squidfunk.github.io/mkdocs-material/">Material for MkDocs</a>, która dostarcza kilku ciekawych pluginów, jak np. Blog (ale o tym za moment). Poza dokumentacją tych 2 uzupełniających się projektów istnieje również strona <a href="https://github.com/mkdocs/best-of-mkdocs">Best of MkDocs</a>, na której umieszczona jest lista najpopularniejszych pluginów, rozszerzających narzędzie oraz rozbudowana (choć nie idealna) <a href="https://www.mkdocs.org/dev-guide/plugins/">dokumentacja opisująca tworzenie nowych pluginów</a> (o tym również za moment napiszę ciut więcej).</p>
 <p>Okazuje się, że sam zestaw MkDocs + Material for MkDocs, załatwiają sprawę wyszukiwania, widoku dla urządzeń mobilnych oraz częściowo kwestie optymalizacji SEO. Niestety to, czego nie ma, a raczej jest za płatnym <em>"pay wallem"</em> to funkcjonalność bloga. Istnieją co prawda pluginy lub mocne modyfikacje skórek, które wprowadzają taką funkcjonalność, ale jest ona dosyć uboga. Podobnie kwestia integracji z Obsidianem, częściowo można ograć dodatkowymi pluginami, np. wsparcie dla tzw. <a href="https://help.obsidian.md/Linking+notes+and+files/Internal+links#Supported+formats+for+internal+links">WikiLinks</a>, ale to rozwiązanie również jest lekko ułomne, ze względu na fakt, w jaki rozumiane są linki wewnątrz dokumentacji przez MkDosc oraz Obsidian. Te rozbieżności powodują, że o ile WikiLinki działają poprawnie, o tyle tradycyjne link Markdown już nie. Do tego dochodzi cała masa innych braków, jak np. brak wykresów (jest pewien plugin, który znów ma pewne rozbieżności), a których używałem np. we wpisie <a 
-href="../profil-na-linkedin-co-widza-rekruterzy/" id="5d41d3f0de16a17cb107832b2c778769">Profil na Linkedin - co widzą rekruterzy</a>. Optymalizacja SEO ma również pewne braki, bo skupia się tylko na optymalizacji rozmiaru plików graficznych, a plugin do udostępniania wpisów z bloga w mediach społecznościowych nie korzysta z grafik umieszczonych na blogu. Jest zapewne jeszcze kilka innych aspektów, o których w tym momencie nie pamiętam.</p>
+href="../profil-na-linkedin-co-widza-rekruterzy/">Profil na Linkedin - co widzą rekruterzy</a>. Optymalizacja SEO ma również pewne braki, bo skupia się tylko na optymalizacji rozmiaru plików graficznych, a plugin do udostępniania wpisów z bloga w mediach społecznościowych nie korzysta z grafik umieszczonych na blogu. Jest zapewne jeszcze kilka innych aspektów, o których w tym momencie nie pamiętam.</p>
 <p>No więc wydaje się, że ten zestaw ma jednak dużo braków. Tak niby jest, ale skoro MkDocs napisany jest w Pythonie, to może da się coś z tym fantem zrobić?</p>
 <h3 id="mkdocs-publisher">MkDocs Publisher<a href="#mkdocs-publisher" class="headerlink" title="Anchor link to this section for reference">¶</a></h3>
 <p>No więc skoro czegoś brakuje, to może napiszę to sam? Tak zaczęła się moja mini przygoda z tworzeniem pluginu, a w zasadzie to zestawu pluginów dla MkDocs, które są uzupełnieniem dla Material for MkDocs (niektóre pluginy bazują na mechanizmach w nim zawartych). Zestaw ten nazwałem <a href="https://pypi.org/project/mkdocs-publisher/">MkDocs Publisher</a> i jest oficjalnie dostępny do instalacja przy użyciu m.in. <code>pip</code>:</p>
 <div class="highlight language-console"><pre><span></span><code><span id="__span-0-1"><a href="#__codelineno-0-1" id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="go">pip install mkdocs-publisher</span>
 </span></code></pre></div>
 <p>Nie będę się aż tak bardzo rozpisywał o możliwościach tego narzędzia, ponieważ szerzej opisane jest to w dokumentacji, która wymaga jeszcze sporego nakładu pracy i uzupełnienia, a w momencie pisania tego tekstu, jest mocno do tyłu (łącznie z tym że ten blog, opublikowany został z wersji 0.6.0, która nie jest jeszcze oficjalnie wydana). Samą przygodę z tworzeniem tego narzędzia, postaram się w najbliższej przyszłości opisać tutaj na blogu (jeśli jesteś tym zainteresowany, zostaw komentarz na pod tym postem), a obecnie możesz zerknąć na <a href="https://mkdocs-publisher.github.io/blog/">blog projektu</a>.</p>
-<p>Można by się tutaj zapytać: "po co ta cała zabawa"? Otóż jak chyba już wiesz, lubię się uczyć nowych rzeczy, a dodatkowo, uwielbiam "piec 2 pieczenie przy 1 ogniu". O co chodzi? A no sprawa jest prosta, tzn. to narzędzie będzie w najbliższej przyszłości wykorzystane przeze mnie jeszcze w jednym projekcie, ale o tym poinformuje w stosownym czasie (aby tego nie przegapić, już dziś polecam zapisać się do <a href="../../pages/jak-zaczac-automatyzowac-testy/" id="ec4f7f2dce2c5c872db2f2abf085b700">newslettera</a>).</p>
+<p>Można by się tutaj zapytać: "po co ta cała zabawa"? Otóż jak chyba już wiesz, lubię się uczyć nowych rzeczy, a dodatkowo, uwielbiam "piec 2 pieczenie przy 1 ogniu". O co chodzi? A no sprawa jest prosta, tzn. to narzędzie będzie w najbliższej przyszłości wykorzystane przeze mnie jeszcze w jednym projekcie, ale o tym poinformuje w stosownym czasie (aby tego nie przegapić, już dziś polecam zapisać się do <a href="../../pages/jak-zaczac-automatyzowac-testy/">newslettera</a>).</p>
 <p>Po tym przydługim wstępie przejdźmy teraz do suchych faktów na temat nowej odsłony bloga.</p>
 <h2 id="co-sie-zmienio-na-blogu">Co się zmieniło na blogu?<a href="#co-sie-zmienio-na-blogu" class="headerlink" title="Anchor link to this section for reference">¶</a></h2>
 <h3 id="dostep-z-urzadzen-mobilnych">Dostęp z urządzeń mobilnych<a href="#dostep-z-urzadzen-mobilnych" class="headerlink" title="Anchor link to this section for reference">¶</a></h3>
@@ -972,27 +984,15 @@ href="../profil-na-linkedin-co-widza-rekruterzy/" id="5d41d3f0de16a17cb107832b2c
 <h3 id="jasno-lub-ciemno">Jasno lub ciemno<a href="#jasno-lub-ciemno" class="headerlink" title="Anchor link to this section for reference">¶</a></h3>
 <p>Material for MkDocs udostępnia możliwość wyboru jasnego i ciemnej wersji strony, a więc daję Ci możliwość wyboru trybu, w jakim lubisz oglądać interfejs systemu operacyjnego czy też samych stron. Osobiście jestem zwolennikiem ciemnych barw, ale nie chciałem Cię do tego zmuszać, jeśli wolisz bardziej tradycyjne podejście. Aby zmienić kolor strony, wystarczy, że kliknięć w ikonkę <em>żarówki</em>, która znajduje się tuż obok pola wyszukiwania, na samej górze strony.</p>
 <h3 id="rss">RSS<a href="#rss" class="headerlink" title="Anchor link to this section for reference">¶</a></h3>
-<p>Tutaj jedyna zmiana, jaka zaszła to adres feedu <a href="/feed_rss_created.xml" id="f8787f6008b50d202a5540a7531b37f9">RSS</a>, związana z samą zmianą narzędzia.</p>
+<p>Tutaj jedyna zmiana, jaka zaszła to adres feedu <a href="/feed_rss_created.xml">RSS</a>, związana z samą zmianą narzędzia.</p>
 <h3 id="aktualizacja-dokumentow">Aktualizacja dokumentów<a href="#aktualizacja-dokumentow" class="headerlink" title="Anchor link to this section for reference">¶</a></h3>
-<p>Przy okazji tych wszystkich powyższych zmian, zaktualizowałem dokumenty <a href="../../pages/polityka-prywatnosci/" id="c7c2dcb59f49e5b208098719602013b2">polityki prywatności</a> oraz <a href="../../pages/regulamin/" id="13aedd876d58f79cdc48b1a5576d0a43">regulamin</a>.</p>
+<p>Przy okazji tych wszystkich powyższych zmian, zaktualizowałem dokumenty <a href="../../pages/polityka-prywatnosci/">polityki prywatności</a> oraz <a href="../../pages/regulamin/">regulamin</a>.</p>
 <h2 id="podsumowanie-zmian">Podsumowanie zmian<a href="#podsumowanie-zmian" class="headerlink" title="Anchor link to this section for reference">¶</a></h2>
-<p>Wszystkie opisane powyżej zmiany mają na celu nie tylko odświeżenie wyglądu bloga, ale również uproszczenie pewnych rzeczy (np. mniejsza ilość miejsc, w których potencjalnie mogą znaleźć się Twoje dane osobowe) oraz zwiększenie jego funkcjonalności. Jeśli jednak nie zgadzasz się ze zmianami <a href="../../pages/polityka-prywatnosci/" id="c7c2dcb59f49e5b208098719602013b2">polityki prywatności</a> czy <a href="../../pages/regulamin/" id="13aedd876d58f79cdc48b1a5576d0a43">regulminu</a>, możesz w każdej chwili zrezygnować z newslettera (jeśli jesteś jego subskrybentem, to informacja o tym wpisie znajduje się na Twoim mailu, a w nim jest link, aby tego dokonać). Mam jednak nadzieję, że tego nie zrobisz i spotkamy się tam jeszcze kilka razy w najbliższej przyszłości.</p>
+<p>Wszystkie opisane powyżej zmiany mają na celu nie tylko odświeżenie wyglądu bloga, ale również uproszczenie pewnych rzeczy (np. mniejsza ilość miejsc, w których potencjalnie mogą znaleźć się Twoje dane osobowe) oraz zwiększenie jego funkcjonalności. Jeśli jednak nie zgadzasz się ze zmianami <a href="../../pages/polityka-prywatnosci/">polityki prywatności</a> czy <a href="../../pages/regulamin/">regulminu</a>, możesz w każdej chwili zrezygnować z newslettera (jeśli jesteś jego subskrybentem, to informacja o tym wpisie znajduje się na Twoim mailu, a w nim jest link, aby tego dokonać). Mam jednak nadzieję, że tego nie zrobisz i spotkamy się tam jeszcze kilka razy w najbliższej przyszłości.</p>
 <h2 id="plany-na-przyszosc">Plany na przyszłość<a href="#plany-na-przyszosc" class="headerlink" title="Anchor link to this section for reference">¶</a></h2>
 <p>Poza uzupełnieniem brakujących wpisów na blogu, związanych z kilkoma materiałami umieszczonymi na <a href="https://www.youtube.com/@testerembyc">moim kanale na YouTube</a>, a które najprawdopodobniej udostępnię na blogu z pełnym transkryptem. Umieszczę również linki do materiałów, gdzie występowałem w roli gościa u innych twórców-testerów.</p>
 <p>Poza tym mam już wstępnie zaplanowane inne wpisy na blogu oraz planuje w końcu wydać 1 kurs związany z automatyzacją testów w Pythonie.</p>
 <p>Kończąc już ten mało <em>testerski</em> wpis, mam nadzieję, że i w nim znajdziesz coś ciekawego dla siebie. Dla mnie droga do zmiany była długa, jednak nauczyłem się przy jej okazji bardzo dużo na temat tworzenia i publikowania pakietów Pythonowych w <a href="https://pypi.org">PyPi</a> z których korzysta m.in. <code>pip</code>. Daj znać w komentarzu czy te zmiany Ci się podobają.</p>
-<hr>
-<p class="obsidian_backlink_title">Backlinks:</p>
-<div class="obsidian_backlink">
-<details class="backlink">
-<summary>CI/CD na przykładzie GitHub Actions</summary>
-<p></p><p class="obsidian_backlink">&gt; Opisany poniżej mechanizm GitHub Actions obecnie (piszę te słowa pod koniec maja 2023 roku) działa bez zmian. To co uległo zmianie, to zestaw narzędzi, jakie wykorzystuje do tworzenia bloga. Szerzej na ten temat możesz poczytać we wpisie <a href="https://testerembyc.pl/posts/ci-cd-na-przykladzie-github-actions/#aa8366ab2900484ed4ee8a1dc7d610f1">zmiany na blogu</a>.</p><p></p>
-</details>
-<details class="backlink">
-<summary>Podsumowanie roku 2024</summary>
-<p></p><p class="obsidian_backlink">Jeśli już jesteśmy przy samym blogu, to tutaj pośrednio muszę nawiązać do narzędzia, które umożliwia mi jego tworzenie, czyli do <a href="https://mkdocs-publisher.github.io/">https://mkdocs-publisher.github.io/</a>, którego jestem autorem. Więcej informacji na jego temat możesz znaleźć we wpisie <a href="https://testerembyc.pl/posts/podsumowanie-roku-2024/#aa8366ab2900484ed4ee8a1dc7d610f1">zmiany na blogu</a>. Natomiast samo narzędzie jest coraz częściej wykorzystywane przez innych twórców, co mnie bardzo cieszy, gdyż pomimo braku jego promocji, w momencie, kiedy pisze te słowa, projekt ma już ponad 70 gwiazdek oraz ponad 2 tysiące miesięcznych pobrań.</p><p></p>
-</details>
-</div>
 <script src="https://giscus.app/client.js" async crossorigin="anonymous" data-category="Komentarze na blogu" data-category-id="DIC_kwDOGBXvjM4CWu1l" data-emit-metadata="0" data-input-position="top" data-lang="pl" data-loading="lazy" data-mapping="pathname" data-reactions-enabled="1" data-repo="mkusz/testerembyc-web" data-repo-id="MDEwOlJlcG9zaXRvcnk0MDQwOTA3NjQ=" data-strict="1" data-theme="preferred_color_scheme"></script>
 <script>var giscus=document.querySelector("script[src*=giscus]"),palette=__md_get("__palette");if(palette&&"object"==typeof palette.color){var theme="slate"===palette.color.scheme?"dark":"light";giscus.setAttribute("data-theme",theme)}document.addEventListener("DOMContentLoaded",(function(){document.querySelector("[data-md-component=palette]").addEventListener("change",(function(){var e=__md_get("__palette");if(e&&"object"==typeof e.color){var t="slate"===e.color.scheme?"dark":"light";document.querySelector(".giscus-frame").contentWindow.postMessage({giscus:{setConfig:{theme:t}}},"https://giscus.app")}}))}))</script>
 <div class="md-typeset tb-ext">
@@ -1126,8 +1126,8 @@ Google Analytics
 </aside>
 </div>
 <script>var consent=__md_get("__consent");if(consent)for(var input of document.forms.consent.elements)input.name&&(input.checked=consent[input.name]||!1);else"file:"!==location.protocol&&setTimeout((function(){document.querySelector("[data-md-component=consent]").hidden=!1}),250);var form=document.forms.consent;for(var action of["submit","reset"])form.addEventListener(action,(function(e){if(e.preventDefault(),"reset"===e.type)for(var n of document.forms.consent.elements)n.name&&(n.checked=!1);__md_set("__consent",Object.fromEntries(Array.from(new FormData(form).keys()).map((function(e){return[e,!0]})))),location.hash="",location.reload()}))</script>
-<script id="__config" type="application/json">{"base": "../..", "features": ["navigation.tabs", "navigation.tabs.sticky", "navigation.footer", "navigation.tracking", "navigation.top", "navigation.indexes", "navigation.instant", "navigation.instant.progress", "search.suggest", "search.highlight", "search.share", "content.code.copy", "content.code.annotate", "content.tabs.link", "toc.follow"], "search": "../../assets/javascripts/workers/search.f8cc74c7.min.js", "translations": {"clipboard.copied": "Skopiowano do schowka", "clipboard.copy": "Kopiuj do schowka", "search.result.more.one": "1 wi\u0119cej na tej stronie", "search.result.more.other": "# wi\u0119cej na tej stronie", "search.result.none": "Brak wynik\u00f3w wyszukiwania", "search.result.one": "Wyniki wyszukiwania: 1", "search.result.other": "Wyniki wyszukiwania: #", "search.result.placeholder": "Zacznij pisa\u0107, aby szuka\u0107", "search.result.term.missing": "Brak", "select.version": "Wybierz wersj\u0119"}}</script>
-<script src="../../assets/javascripts/bundle.f13b1293.min.js"></script>
+<script id="__config" type="application/json">{"base": "../..", "features": ["navigation.tabs", "navigation.tabs.sticky", "navigation.footer", "navigation.tracking", "navigation.top", "navigation.indexes", "navigation.instant", "navigation.instant.progress", "search.suggest", "search.highlight", "search.share", "content.code.copy", "content.code.annotate", "content.tabs.link", "toc.follow"], "search": "../../assets/javascripts/workers/search.d50fe291.min.js", "tags": null, "translations": {"clipboard.copied": "Skopiowano do schowka", "clipboard.copy": "Kopiuj do schowka", "search.result.more.one": "1 wi\u0119cej na tej stronie", "search.result.more.other": "# wi\u0119cej na tej stronie", "search.result.none": "Brak wynik\u00f3w wyszukiwania", "search.result.one": "Wyniki wyszukiwania: 1", "search.result.other": "Wyniki wyszukiwania: #", "search.result.placeholder": "Zacznij pisa\u0107, aby szuka\u0107", "search.result.term.missing": "Brak", "select.version": "Wybierz wersj\u0119"}, "version": null}</script>
+<script src="../../assets/javascripts/bundle.13a4f30d.min.js"></script>
 <script defer>!function(e,t,n,c,o,a,f){e.fbq||(o=e.fbq=function(){o.callMethod?o.callMethod.apply(o,arguments):o.queue.push(arguments)},e._fbq||(e._fbq=o),o.push=o,o.loaded=!0,o.version="2.0",o.queue=[],(a=t.createElement(n)).async=!0,a.src="https://connect.facebook.net/en_US/fbevents.js",(f=t.getElementsByTagName(n)[0]).parentNode.insertBefore(a,f))}(window,document,"script"),fbq("init","444619046317574"),fbq("track","PageView")</script>
 <noscript>
 <img src="https://www.facebook.com/tr?id=444619046317574&amp;ev=PageView&amp;noscript=1" alt="Facebook Pixel" height="1" style="display:none" width="1">

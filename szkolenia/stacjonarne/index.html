@@ -1,79 +1,78 @@
 
 <!DOCTYPE html>
+
 <html class="no-js" lang="pl">
 <head>
-<meta charset="utf-8">
-<meta content="width=device-width,initial-scale=1" name="viewport">
-<meta content="Lista szkoleń stacjonarnych dla testerów z wykorzystaniem języka Python. Na liście między innymi testowanie REST API oraz UI w przeglądarce z wykorzystaniem biblioteki Playwright." name="description">
-<meta content="Maciej 'maQ' Kusz" name="author">
-<link href="https://testerembyc.pl/szkolenia/stacjonarne/" rel="canonical">
-<link href="../../python-kompendium/" rel="prev">
-<link href="testowanie-rest-api-w-pythonie/" rel="next">
-<link href="../../feed_rss_created.xml" rel="alternate" title="Kanał RSS" type="application/rss+xml">
-<link href="../../feed_rss_updated.xml" rel="alternate" title="Kanał RSS zaktualizowanych treści" type="application/rss+xml">
-<link href="../../assets/images/icon.svg" rel="icon">
-<meta content="mkdocs-1.6.1, mkdocs-material-9.6.14" name="generator">
+<meta charset="utf-8"/>
+<meta content="width=device-width,initial-scale=1" name="viewport"/>
+<meta content="Lista szkoleń stacjonarnych dla testerów z wykorzystaniem języka Python. Na liście między innymi testowanie REST API oraz UI w przeglądarce z wykorzystaniem biblioteki Playwright." name="description"/>
+<meta content="Maciej 'maQ' Kusz" name="author"/>
+<link href="https://testerembyc.pl/szkolenia/stacjonarne/" rel="canonical"/>
+<link href="../../python-kompendium/" rel="prev"/>
+<link href="testowanie-rest-api-w-pythonie/" rel="next"/>
+<link href="../../feed_rss_created.xml" rel="alternate" title="Kanał RSS" type="application/rss+xml"/>
+<link href="../../feed_rss_updated.xml" rel="alternate" title="Kanał RSS zaktualizowanych treści" type="application/rss+xml"/>
+<link href="../../assets/images/icon.svg" rel="icon"/>
+<meta content="mkdocs-1.6.1, mkdocs-material-9.6.14" name="generator"/>
 <title>Szkolenia stacjonarne - TesteremByc.pl</title>
-<link href="../../assets/stylesheets/main.342714a4.min.css" rel="stylesheet">
-<link href="../../assets/stylesheets/palette.06af60db.min.css" rel="stylesheet">
-<link href="https://fonts.gstatic.com" rel="preconnect" crossorigin="">
-<link href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CLato:400,400i,700,700i&amp;display=fallback" rel="stylesheet">
+<link href="../../assets/stylesheets/main.342714a4.min.css" rel="stylesheet"/>
+<link href="../../assets/stylesheets/palette.06af60db.min.css" rel="stylesheet"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CLato:400,400i,700,700i&amp;display=fallback" rel="stylesheet"/>
 <style>:root{--md-text-font:"Roboto";--md-code-font:"Lato"}</style>
-<link href="../../assets/stylesheets/testerembyc.css" rel="stylesheet">
-<link href="../../assets/stylesheets/blog.min.css" rel="stylesheet">
-<link href="../../assets/stylesheets/blog.min.css.map" rel="stylesheet">
-<link href="../../assets/stylesheets/obsidian.min.css" rel="stylesheet">
-<link href="../../assets/stylesheets/obsidian.min.css.map" rel="stylesheet">
-<script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
-<script id="__analytics">
-function __md_analytics(){function e(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],e("js",new Date),e("config","G-L9Q1L6NPGD"),document.addEventListener("DOMContentLoaded",function(){document.forms.search&&document.forms.search.query.addEventListener("blur",function(){this.value&&e("event","search",{search_term:this.value})}),document$.subscribe(function(){var t=document.forms.feedback;if(void 0!==t)for(var a of t.querySelectorAll("[type=submit]"))a.addEventListener("click",function(a){a.preventDefault();var n=document.location.pathname,d=this.getAttribute("data-md-value");e("event","feedback",{page:n,data:d}),t.firstElementChild.disabled=!0;var c=t.querySelector(".md-feedback__note [data-md-value='"+d+"']");c&&(c.hidden=!1)}),t.hidden=!1}),location$.subscribe(function(t){e("config","G-L9Q1L6NPGD",{page_path:t.pathname})})});var t=document.createElement("script");t.async=!0,t.src="https://www.googletagmanager.com/gtag/js?id=G-L9Q1L6NPGD",document.getElementById("__analytics").insertAdjacentElement("afterEnd",t)}
-</script>
+<link href="../../assets/stylesheets/testerembyc.css" rel="stylesheet"/>
+<link href="../../assets/stylesheets/blog.min.css" rel="stylesheet"/>
+<link href="../../assets/stylesheets/blog.min.css.map" rel="stylesheet"/>
+<link href="../../assets/stylesheets/obsidian.min.css" rel="stylesheet"/>
+<link href="../../assets/stylesheets/obsidian.min.css.map" rel="stylesheet"/>
+<script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+<script id="__analytics">function __md_analytics(){function e(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],e("js",new Date),e("config","G-L9Q1L6NPGD"),document.addEventListener("DOMContentLoaded",(function(){document.forms.search&&document.forms.search.query.addEventListener("blur",(function(){this.value&&e("event","search",{search_term:this.value})}));document$.subscribe((function(){var t=document.forms.feedback;if(void 0!==t)for(var a of t.querySelectorAll("[type=submit]"))a.addEventListener("click",(function(a){a.preventDefault();var n=document.location.pathname,d=this.getAttribute("data-md-value");e("event","feedback",{page:n,data:d}),t.firstElementChild.disabled=!0;var r=t.querySelector(".md-feedback__note [data-md-value='"+d+"']");r&&(r.hidden=!1)})),t.hidden=!1})),location$.subscribe((function(t){e("config","G-L9Q1L6NPGD",{page_path:t.pathname})}))}));var t=document.createElement("script");t.async=!0,t.src="https://www.googletagmanager.com/gtag/js?id=G-L9Q1L6NPGD",document.getElementById("__analytics").insertAdjacentElement("afterEnd",t)}</script>
 <script>if("undefined"!=typeof __md_analytics){var consent=__md_get("__consent");consent&&consent.analytics&&__md_analytics()}</script>
-<meta content="article" property="og:type"><meta content="Szkolenia stacjonarne - TesteremByc.pl" property="og:title"><meta content="Lista szkoleń stacjonarnych dla testerów z wykorzystaniem języka Python. Na liście między innymi testowanie REST API oraz UI w przeglądarce z wykorzystaniem biblioteki Playwright." property="og:description"><meta content="TesteremByc.pl" property="og:site_name"><meta content="pl_PL" property="og:locale"><meta content="https://testerembyc.pl/szkolenia/stacjonarne/" property="og:url"><meta content="summary" property="twitter:card"><meta content="Szkolenia stacjonarne - TesteremByc.pl" property="twitter:title"><meta content="Lista szkoleń stacjonarnych dla testerów z wykorzystaniem języka Python. Na liście między innymi testowanie REST API oraz UI w przeglądarce z wykorzystaniem biblioteki Playwright." property="twitter:description"></head>
+<meta content="article" property="og:type"/><meta content="Szkolenia stacjonarne - TesteremByc.pl" property="og:title"/><meta content="Lista szkoleń stacjonarnych dla testerów z wykorzystaniem języka Python. Na liście między innymi testowanie REST API oraz UI w przeglądarce z wykorzystaniem biblioteki Playwright." property="og:description"/><meta content="TesteremByc.pl" property="og:site_name"/><meta content="pl_PL" property="og:locale"/><meta content="https://testerembyc.pl/szkolenia/stacjonarne/" property="og:url"/><meta content="summary" property="twitter:card"/><meta content="Szkolenia stacjonarne - TesteremByc.pl" property="twitter:title"/><meta content="Lista szkoleń stacjonarnych dla testerów z wykorzystaniem języka Python. Na liście między innymi testowanie REST API oraz UI w przeglądarce z wykorzystaniem biblioteki Playwright." property="twitter:description"/></head>
 <body data-md-color-accent="red" data-md-color-primary="black" data-md-color-scheme="default" dir="ltr">
-<input type="checkbox" class="md-toggle" id="__drawer" autocomplete="off" data-md-toggle="drawer">
-<input type="checkbox" class="md-toggle" id="__search" autocomplete="off" data-md-toggle="search">
+<input autocomplete="off" class="md-toggle" data-md-toggle="drawer" id="__drawer" type="checkbox"/>
+<input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
 <label class="md-overlay" for="__drawer"></label>
 <div data-md-component="skip">
 </div>
 <div data-md-component="announce">
 </div>
-<header class="md-header md-header--lifted md-header--shadow" data-md-component="header">
-<nav class="md-grid md-header__inner" aria-label="Nagłówek">
-<a href="https://testerembyc.pl" class="md-header__button md-logo" title="TesteremByc.pl" aria-label="TesteremByc.pl" data-md-component="logo">
-<img src="../../assets/images/logo.svg" alt="logo">
+<header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
+<nav aria-label="Nagłówek" class="md-header__inner md-grid">
+<a aria-label="TesteremByc.pl" class="md-header__button md-logo" data-md-component="logo" href="https://testerembyc.pl" title="TesteremByc.pl">
+<img alt="logo" src="../../assets/images/logo.svg"/>
 </a>
-<label class="md-icon md-header__button" for="__drawer">
+<label class="md-header__button md-icon" for="__drawer">
 <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"></path></svg>
 </label>
 <form class="md-header__option" data-md-component="palette">
-<input type="radio" class="md-option" id="__palette_0" aria-label="Switch to dark mode" data-md-color-accent="red" data-md-color-media="" data-md-color-primary="black" data-md-color-scheme="default" name="__palette">
-<label class="md-icon md-header__button" for="__palette_1" hidden title="Switch to dark mode">
+<input aria-label="Switch to dark mode" class="md-option" data-md-color-accent="red" data-md-color-media="" data-md-color-primary="black" data-md-color-scheme="default" id="__palette_0" name="__palette" type="radio"/>
+<label class="md-header__button md-icon" for="__palette_1" hidden="" title="Switch to dark mode">
 <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2a7 7 0 0 0-7 7c0 2.38 1.19 4.47 3 5.74V17a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1v-2.26c1.81-1.27 3-3.36 3-5.74a7 7 0 0 0-7-7M9 21a1 1 0 0 0 1 1h4a1 1 0 0 0 1-1v-1H9z"></path></svg>
 </label>
-<input type="radio" class="md-option" id="__palette_1" aria-label="Switch to light mode" data-md-color-accent="red" data-md-color-media="" data-md-color-primary="black" data-md-color-scheme="slate" name="__palette">
-<label class="md-icon md-header__button" for="__palette_0" hidden title="Switch to light mode">
+<input aria-label="Switch to light mode" class="md-option" data-md-color-accent="red" data-md-color-media="" data-md-color-primary="black" data-md-color-scheme="slate" id="__palette_1" name="__palette" type="radio"/>
+<label class="md-header__button md-icon" for="__palette_0" hidden="" title="Switch to light mode">
 <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2a7 7 0 0 1 7 7c0 2.38-1.19 4.47-3 5.74V17a1 1 0 0 1-1 1H9a1 1 0 0 1-1-1v-2.26C6.19 13.47 5 11.38 5 9a7 7 0 0 1 7-7M9 21v-1h6v1a1 1 0 0 1-1 1h-4a1 1 0 0 1-1-1m3-17a5 5 0 0 0-5 5c0 2.05 1.23 3.81 3 4.58V16h4v-2.42c1.77-.77 3-2.53 3-4.58a5 5 0 0 0-5-5"></path></svg>
 </label>
 </form>
 <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
-<label class="md-icon md-header__button" for="__search">
+<label class="md-header__button md-icon" for="__search">
 <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"></path></svg>
 </label>
 <div class="md-search" data-md-component="search" role="dialog">
 <label class="md-search__overlay" for="__search"></label>
 <div class="md-search__inner" role="search">
 <form class="md-search__form" name="search">
-<input type="text" class="md-search__input" aria-label="Szukaj" name="query" autocapitalize="off" autocomplete="off" autocorrect="off" data-md-component="search-query" placeholder="Szukaj" required spellcheck="false">
-<label class="md-icon md-search__icon" for="__search">
+<input aria-label="Szukaj" autocapitalize="off" autocomplete="off" autocorrect="off" class="md-search__input" data-md-component="search-query" name="query" placeholder="Szukaj" required="" spellcheck="false" type="text"/>
+<label class="md-search__icon md-icon" for="__search">
 <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"></path></svg>
 <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"></path></svg>
 </label>
-<nav class="md-search__options" aria-label="Szukaj">
-<a href="javascript:void(0)" class="md-icon md-search__icon" title="Udostępnij" aria-label="Udostępnij" data-md-component="search-share" data-clipboard="" data-clipboard-text="" tabindex="-1">
+<nav aria-label="Szukaj" class="md-search__options">
+<a aria-label="Udostępnij" class="md-search__icon md-icon" data-clipboard="" data-clipboard-text="" data-md-component="search-share" href="javascript:void(0)" tabindex="-1" title="Udostępnij">
 <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9a3 3 0 0 0-3 3 3 3 0 0 0 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.15c-.05.21-.08.43-.08.66 0 1.61 1.31 2.91 2.92 2.91s2.92-1.3 2.92-2.91A2.92 2.92 0 0 0 18 16.08"></path></svg>
 </a>
-<button class="md-icon md-search__icon" type="reset" aria-label="Wyczyść" tabindex="-1" title="Wyczyść">
+<button aria-label="Wyczyść" class="md-search__icon md-icon" tabindex="-1" title="Wyczyść" type="reset">
 <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"></path></svg>
 </button>
 </nav>
@@ -83,8 +82,8 @@ function __md_analytics(){function e(){dataLayer.push(arguments)}window.dataLaye
 <div class="md-search__scrollwrap" data-md-scrollfix="" tabindex="0">
 <div class="md-search-result" data-md-component="search-result">
 <div class="md-search-result__meta">
-Inicjowanie wyszukiwania
-</div>
+            Inicjowanie wyszukiwania
+          </div>
 <ol class="md-search-result__list" role="presentation"></ol>
 </div>
 </div>
@@ -92,28 +91,52 @@ Inicjowanie wyszukiwania
 </div>
 </div>
 </nav>
-<nav class="md-tabs" aria-label="Zakładki" data-md-component="tabs">
+<nav aria-label="Zakładki" class="md-tabs" data-md-component="tabs">
 <div class="md-grid">
 <ul class="md-tabs__list">
 <li class="md-tabs__item">
-<a href="../.." class="md-tabs__link">
-Blog
-</a>
+<a class="md-tabs__link" href="../..">
+          
+  
+  
+    
+  
+  Blog
+
+        </a>
 </li>
 <li class="md-tabs__item">
-<a href="../../python-kompendium/" class="md-tabs__link">
-Python
-</a>
+<a class="md-tabs__link" href="../../python-kompendium/">
+        
+  
+  
+    
+  
+  Python
+
+      </a>
 </li>
 <li class="md-tabs__item md-tabs__item--active">
-<a href="./" class="md-tabs__link">
-Szkolenia
-</a>
+<a class="md-tabs__link" href="./">
+          
+  
+  
+    
+  
+  Szkolenia
+
+        </a>
 </li>
 <li class="md-tabs__item">
-<a href="../../kontakt/" class="md-tabs__link">
-Kontakt
-</a>
+<a class="md-tabs__link" href="../../kontakt/">
+        
+  
+  
+    
+  
+  Kontakt
+
+      </a>
 </li>
 </ul>
 </div>
@@ -121,545 +144,937 @@ Kontakt
 </header>
 <div class="md-container" data-md-component="container">
 <main class="md-main" data-md-component="main">
-<div class="md-grid md-main__inner">
+<div class="md-main__inner md-grid">
+<!-- Navigation -->
 <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation">
 <div class="md-sidebar__scrollwrap">
 <div class="md-sidebar__inner">
-<nav class="md-nav md-nav--lifted md-nav--primary" data-md-level="0" aria-label="Nawigacja">
+<!-- Determine classes -->
+<!-- Navigation -->
+<nav aria-label="Nawigacja" class="md-nav md-nav--primary md-nav--lifted" data-md-level="0">
+<!-- Site title -->
 <label class="md-nav__title" for="__drawer">
-<a href="https://testerembyc.pl" class="md-logo md-nav__button" title="TesteremByc.pl" aria-label="TesteremByc.pl" data-md-component="logo">
-<img src="../../assets/images/logo.svg" alt="logo">
+<a aria-label="TesteremByc.pl" class="md-nav__button md-logo" data-md-component="logo" href="https://testerembyc.pl" title="TesteremByc.pl">
+<img alt="logo" src="../../assets/images/logo.svg"/>
 </a>
-TesteremByc.pl
-</label>
+    TesteremByc.pl
+  </label>
+<!-- Repository information -->
+<!-- Navigation list -->
 <ul class="md-nav__list" data-md-scrollfix="">
+<!-- Determine classes -->
+<!-- Navigation item with nested items -->
+<!-- Determine all nested items that are index pages -->
+<!-- Determine whether to render item as a section -->
+<!-- Nested navigation item -->
 <li class="md-nav__item md-nav__item--nested">
-<input type="checkbox" class="md-toggle md-nav__toggle" id="__nav_1">
+<!-- Determine checked and indeterminate state -->
+<!-- Active checkbox expands items contained within nested section -->
+<input class="md-nav__toggle md-toggle" id="__nav_1" type="checkbox">
+<!-- Toggle to expand nested items -->
 <div class="md-nav__link md-nav__container">
-<a href="../.." class="md-nav__link">
+<a class="md-nav__link" href="../..">
+<!-- Navigation link icon -->
+<!-- Navigation link title -->
 <span class="md-ellipsis">
-Blog
-</span>
+    Blog
+  </span>
+<!-- Navigation link status -->
 </a>
+<!-- Only render toggle if there's at least one more page -->
 <label class="md-nav__link" for="__nav_1">
-<span class="md-icon md-nav__icon"></span>
+<span class="md-nav__icon md-icon"></span>
 </label>
 </div>
-<nav class="md-nav" data-md-level="1" aria-expanded="false" aria-labelledby="__nav_1_label">
+<!-- Nested navigation -->
+<nav aria-expanded="false" aria-labelledby="__nav_1_label" class="md-nav" data-md-level="1">
 <label class="md-nav__title" for="__nav_1">
-<span class="md-icon md-nav__icon"></span>
-Blog
-</label>
+<span class="md-nav__icon md-icon"></span>
+            Blog
+          </label>
 <ul class="md-nav__list" data-md-scrollfix="">
+<!-- Nested navigation item -->
+<!-- Determine classes -->
+<!-- Navigation item with nested items -->
+<!-- Determine all nested items that are index pages -->
+<!-- Determine whether to render item as a section -->
+<!-- Nested navigation item -->
 <li class="md-nav__item md-nav__item--nested">
-<input type="checkbox" class="md-toggle md-nav__toggle" id="__nav_1_2">
+<!-- Determine checked and indeterminate state -->
+<!-- Active checkbox expands items contained within nested section -->
+<input class="md-nav__toggle md-toggle" id="__nav_1_2" type="checkbox">
+<!-- Toggle to expand nested items -->
 <label class="md-nav__link" for="__nav_1_2" id="__nav_1_2_label" tabindex="0">
+<!-- Navigation link icon -->
+<!-- Navigation link title -->
 <span class="md-ellipsis">
-Archiwum
-</span>
-<span class="md-icon md-nav__icon"></span>
+    Archiwum
+  </span>
+<!-- Navigation link status -->
+<span class="md-nav__icon md-icon"></span>
 </label>
-<nav class="md-nav" data-md-level="2" aria-expanded="false" aria-labelledby="__nav_1_2_label">
+<!-- Toggle to expand nested items with link to index page -->
+<!-- Nested navigation -->
+<nav aria-expanded="false" aria-labelledby="__nav_1_2_label" class="md-nav" data-md-level="2">
 <label class="md-nav__title" for="__nav_1_2">
-<span class="md-icon md-nav__icon"></span>
-Archiwum
-</label>
+<span class="md-nav__icon md-icon"></span>
+            Archiwum
+          </label>
 <ul class="md-nav__list" data-md-scrollfix="">
+<!-- Nested navigation item -->
+<!-- Determine classes -->
+<!-- Navigation item with nested items -->
 <li class="md-nav__item">
-<a href="../../posts/archive/2025/" class="md-nav__link">
+<a class="md-nav__link" href="../../posts/archive/2025/">
+<!-- Navigation link icon -->
+<!-- Navigation link title -->
 <span class="md-ellipsis">
-2025
-</span>
+    2025
+  </span>
+<!-- Navigation link status -->
 </a>
 </li>
+<!-- Determine classes -->
+<!-- Navigation item with nested items -->
 <li class="md-nav__item">
-<a href="../../posts/archive/2023/" class="md-nav__link">
+<a class="md-nav__link" href="../../posts/archive/2023/">
+<!-- Navigation link icon -->
+<!-- Navigation link title -->
 <span class="md-ellipsis">
-2023
-</span>
+    2023
+  </span>
+<!-- Navigation link status -->
 </a>
 </li>
+<!-- Determine classes -->
+<!-- Navigation item with nested items -->
 <li class="md-nav__item">
-<a href="../../posts/archive/2022/" class="md-nav__link">
+<a class="md-nav__link" href="../../posts/archive/2022/">
+<!-- Navigation link icon -->
+<!-- Navigation link title -->
 <span class="md-ellipsis">
-2022
-</span>
+    2022
+  </span>
+<!-- Navigation link status -->
 </a>
 </li>
+<!-- Determine classes -->
+<!-- Navigation item with nested items -->
 <li class="md-nav__item">
-<a href="../../posts/archive/2021/" class="md-nav__link">
+<a class="md-nav__link" href="../../posts/archive/2021/">
+<!-- Navigation link icon -->
+<!-- Navigation link title -->
 <span class="md-ellipsis">
-2021
-</span>
+    2021
+  </span>
+<!-- Navigation link status -->
 </a>
 </li>
+<!-- Determine classes -->
+<!-- Navigation item with nested items -->
 <li class="md-nav__item">
-<a href="../../posts/archive/2020/" class="md-nav__link">
+<a class="md-nav__link" href="../../posts/archive/2020/">
+<!-- Navigation link icon -->
+<!-- Navigation link title -->
 <span class="md-ellipsis">
-2020
-</span>
+    2020
+  </span>
+<!-- Navigation link status -->
 </a>
 </li>
+<!-- Determine classes -->
+<!-- Navigation item with nested items -->
 <li class="md-nav__item">
-<a href="../../posts/archive/2019/" class="md-nav__link">
+<a class="md-nav__link" href="../../posts/archive/2019/">
+<!-- Navigation link icon -->
+<!-- Navigation link title -->
 <span class="md-ellipsis">
-2019
-</span>
+    2019
+  </span>
+<!-- Navigation link status -->
 </a>
 </li>
 </ul>
 </nav>
-</li>
+<!-- Pruned navigation item -->
+</input></li>
+<!-- Currently active page -->
+<!-- Determine classes -->
+<!-- Navigation item with nested items -->
+<!-- Determine all nested items that are index pages -->
+<!-- Determine whether to render item as a section -->
+<!-- Nested navigation item -->
 <li class="md-nav__item md-nav__item--nested">
-<input type="checkbox" class="md-toggle md-nav__toggle" id="__nav_1_3">
+<!-- Determine checked and indeterminate state -->
+<!-- Active checkbox expands items contained within nested section -->
+<input class="md-nav__toggle md-toggle" id="__nav_1_3" type="checkbox">
+<!-- Toggle to expand nested items -->
 <label class="md-nav__link" for="__nav_1_3" id="__nav_1_3_label" tabindex="0">
+<!-- Navigation link icon -->
+<!-- Navigation link title -->
 <span class="md-ellipsis">
-Kategorie
-</span>
-<span class="md-icon md-nav__icon"></span>
+    Kategorie
+  </span>
+<!-- Navigation link status -->
+<span class="md-nav__icon md-icon"></span>
 </label>
-<nav class="md-nav" data-md-level="2" aria-expanded="false" aria-labelledby="__nav_1_3_label">
+<!-- Toggle to expand nested items with link to index page -->
+<!-- Nested navigation -->
+<nav aria-expanded="false" aria-labelledby="__nav_1_3_label" class="md-nav" data-md-level="2">
 <label class="md-nav__title" for="__nav_1_3">
-<span class="md-icon md-nav__icon"></span>
-Kategorie
-</label>
+<span class="md-nav__icon md-icon"></span>
+            Kategorie
+          </label>
 <ul class="md-nav__list" data-md-scrollfix="">
+<!-- Nested navigation item -->
+<!-- Determine classes -->
+<!-- Navigation item with nested items -->
 <li class="md-nav__item">
-<a href="../../posts/categories/felieton/" class="md-nav__link">
+<a class="md-nav__link" href="../../posts/categories/felieton/">
+<!-- Navigation link icon -->
+<!-- Navigation link title -->
 <span class="md-ellipsis">
-felieton
-</span>
+    felieton
+  </span>
+<!-- Navigation link status -->
 </a>
 </li>
+<!-- Determine classes -->
+<!-- Navigation item with nested items -->
 <li class="md-nav__item">
-<a href="../../posts/categories/git/" class="md-nav__link">
+<a class="md-nav__link" href="../../posts/categories/git/">
+<!-- Navigation link icon -->
+<!-- Navigation link title -->
 <span class="md-ellipsis">
-git
-</span>
+    git
+  </span>
+<!-- Navigation link status -->
 </a>
 </li>
+<!-- Determine classes -->
+<!-- Navigation item with nested items -->
 <li class="md-nav__item">
-<a href="../../posts/categories/ludzie/" class="md-nav__link">
+<a class="md-nav__link" href="../../posts/categories/ludzie/">
+<!-- Navigation link icon -->
+<!-- Navigation link title -->
 <span class="md-ellipsis">
-ludzie
-</span>
+    ludzie
+  </span>
+<!-- Navigation link status -->
 </a>
 </li>
+<!-- Determine classes -->
+<!-- Navigation item with nested items -->
 <li class="md-nav__item">
-<a href="../../posts/categories/python/" class="md-nav__link">
+<a class="md-nav__link" href="../../posts/categories/python/">
+<!-- Navigation link icon -->
+<!-- Navigation link title -->
 <span class="md-ellipsis">
-python
-</span>
+    python
+  </span>
+<!-- Navigation link status -->
 </a>
 </li>
+<!-- Determine classes -->
+<!-- Navigation item with nested items -->
 <li class="md-nav__item">
-<a href="../../posts/categories/youtube/" class="md-nav__link">
+<a class="md-nav__link" href="../../posts/categories/youtube/">
+<!-- Navigation link icon -->
+<!-- Navigation link title -->
 <span class="md-ellipsis">
-youtube
-</span>
+    youtube
+  </span>
+<!-- Navigation link status -->
 </a>
 </li>
 </ul>
 </nav>
-</li>
+<!-- Pruned navigation item -->
+</input></li>
+<!-- Currently active page -->
+<!-- Determine classes -->
+<!-- Navigation item with nested items -->
+<!-- Determine all nested items that are index pages -->
+<!-- Determine whether to render item as a section -->
+<!-- Nested navigation item -->
 <li class="md-nav__item md-nav__item--nested">
-<input type="checkbox" class="md-toggle md-nav__toggle" id="__nav_1_4">
+<!-- Determine checked and indeterminate state -->
+<!-- Active checkbox expands items contained within nested section -->
+<input class="md-nav__toggle md-toggle" id="__nav_1_4" type="checkbox">
+<!-- Toggle to expand nested items -->
 <label class="md-nav__link" for="__nav_1_4" id="__nav_1_4_label" tabindex="0">
+<!-- Navigation link icon -->
+<!-- Navigation link title -->
 <span class="md-ellipsis">
-Tagi
-</span>
-<span class="md-icon md-nav__icon"></span>
+    Tagi
+  </span>
+<!-- Navigation link status -->
+<span class="md-nav__icon md-icon"></span>
 </label>
-<nav class="md-nav" data-md-level="2" aria-expanded="false" aria-labelledby="__nav_1_4_label">
+<!-- Toggle to expand nested items with link to index page -->
+<!-- Nested navigation -->
+<nav aria-expanded="false" aria-labelledby="__nav_1_4_label" class="md-nav" data-md-level="2">
 <label class="md-nav__title" for="__nav_1_4">
-<span class="md-icon md-nav__icon"></span>
-Tagi
-</label>
+<span class="md-nav__icon md-icon"></span>
+            Tagi
+          </label>
 <ul class="md-nav__list" data-md-scrollfix="">
+<!-- Nested navigation item -->
+<!-- Determine classes -->
+<!-- Navigation item with nested items -->
 <li class="md-nav__item">
-<a href="../../posts/tags/api/" class="md-nav__link">
+<a class="md-nav__link" href="../../posts/tags/api/">
+<!-- Navigation link icon -->
+<!-- Navigation link title -->
 <span class="md-ellipsis">
-api
-</span>
+    api
+  </span>
+<!-- Navigation link status -->
 </a>
 </li>
+<!-- Determine classes -->
+<!-- Navigation item with nested items -->
 <li class="md-nav__item">
-<a href="../../posts/tags/automatyzacja/" class="md-nav__link">
+<a class="md-nav__link" href="../../posts/tags/automatyzacja/">
+<!-- Navigation link icon -->
+<!-- Navigation link title -->
 <span class="md-ellipsis">
-automatyzacja
-</span>
+    automatyzacja
+  </span>
+<!-- Navigation link status -->
 </a>
 </li>
+<!-- Determine classes -->
+<!-- Navigation item with nested items -->
 <li class="md-nav__item">
-<a href="../../posts/tags/blog/" class="md-nav__link">
+<a class="md-nav__link" href="../../posts/tags/blog/">
+<!-- Navigation link icon -->
+<!-- Navigation link title -->
 <span class="md-ellipsis">
-blog
-</span>
+    blog
+  </span>
+<!-- Navigation link status -->
 </a>
 </li>
+<!-- Determine classes -->
+<!-- Navigation item with nested items -->
 <li class="md-nav__item">
-<a href="../../posts/tags/ci-cd/" class="md-nav__link">
+<a class="md-nav__link" href="../../posts/tags/ci-cd/">
+<!-- Navigation link icon -->
+<!-- Navigation link title -->
 <span class="md-ellipsis">
-ci-cd
-</span>
+    ci-cd
+  </span>
+<!-- Navigation link status -->
 </a>
 </li>
+<!-- Determine classes -->
+<!-- Navigation item with nested items -->
 <li class="md-nav__item">
-<a href="../../posts/tags/code16challenge/" class="md-nav__link">
+<a class="md-nav__link" href="../../posts/tags/code16challenge/">
+<!-- Navigation link icon -->
+<!-- Navigation link title -->
 <span class="md-ellipsis">
-code16challenge
-</span>
+    code16challenge
+  </span>
+<!-- Navigation link status -->
 </a>
 </li>
+<!-- Determine classes -->
+<!-- Navigation item with nested items -->
 <li class="md-nav__item">
-<a href="../../posts/tags/cv/" class="md-nav__link">
+<a class="md-nav__link" href="../../posts/tags/cv/">
+<!-- Navigation link icon -->
+<!-- Navigation link title -->
 <span class="md-ellipsis">
-cv
-</span>
+    cv
+  </span>
+<!-- Navigation link status -->
 </a>
 </li>
+<!-- Determine classes -->
+<!-- Navigation item with nested items -->
 <li class="md-nav__item">
-<a href="../../posts/tags/definicja/" class="md-nav__link">
+<a class="md-nav__link" href="../../posts/tags/definicja/">
+<!-- Navigation link icon -->
+<!-- Navigation link title -->
 <span class="md-ellipsis">
-definicja
-</span>
+    definicja
+  </span>
+<!-- Navigation link status -->
 </a>
 </li>
+<!-- Determine classes -->
+<!-- Navigation item with nested items -->
 <li class="md-nav__item">
-<a href="../../posts/tags/dekorator/" class="md-nav__link">
+<a class="md-nav__link" href="../../posts/tags/dekorator/">
+<!-- Navigation link icon -->
+<!-- Navigation link title -->
 <span class="md-ellipsis">
-dekorator
-</span>
+    dekorator
+  </span>
+<!-- Navigation link status -->
 </a>
 </li>
+<!-- Determine classes -->
+<!-- Navigation item with nested items -->
 <li class="md-nav__item">
-<a href="../../posts/tags/ebook/" class="md-nav__link">
+<a class="md-nav__link" href="../../posts/tags/ebook/">
+<!-- Navigation link icon -->
+<!-- Navigation link title -->
 <span class="md-ellipsis">
-ebook
-</span>
+    ebook
+  </span>
+<!-- Navigation link status -->
 </a>
 </li>
+<!-- Determine classes -->
+<!-- Navigation item with nested items -->
 <li class="md-nav__item">
-<a href="../../posts/tags/eksploracja/" class="md-nav__link">
+<a class="md-nav__link" href="../../posts/tags/eksploracja/">
+<!-- Navigation link icon -->
+<!-- Navigation link title -->
 <span class="md-ellipsis">
-eksploracja
-</span>
+    eksploracja
+  </span>
+<!-- Navigation link status -->
 </a>
 </li>
+<!-- Determine classes -->
+<!-- Navigation item with nested items -->
 <li class="md-nav__item">
-<a href="../../posts/tags/funkcje/" class="md-nav__link">
+<a class="md-nav__link" href="../../posts/tags/funkcje/">
+<!-- Navigation link icon -->
+<!-- Navigation link title -->
 <span class="md-ellipsis">
-funkcje
-</span>
+    funkcje
+  </span>
+<!-- Navigation link status -->
 </a>
 </li>
+<!-- Determine classes -->
+<!-- Navigation item with nested items -->
 <li class="md-nav__item">
-<a href="../../posts/tags/github/" class="md-nav__link">
+<a class="md-nav__link" href="../../posts/tags/github/">
+<!-- Navigation link icon -->
+<!-- Navigation link title -->
 <span class="md-ellipsis">
-github
-</span>
+    github
+  </span>
+<!-- Navigation link status -->
 </a>
 </li>
+<!-- Determine classes -->
+<!-- Navigation item with nested items -->
 <li class="md-nav__item">
-<a href="../../posts/tags/halloween/" class="md-nav__link">
+<a class="md-nav__link" href="../../posts/tags/halloween/">
+<!-- Navigation link icon -->
+<!-- Navigation link title -->
 <span class="md-ellipsis">
-halloween
-</span>
+    halloween
+  </span>
+<!-- Navigation link status -->
 </a>
 </li>
+<!-- Determine classes -->
+<!-- Navigation item with nested items -->
 <li class="md-nav__item">
-<a href="../../posts/tags/historie/" class="md-nav__link">
+<a class="md-nav__link" href="../../posts/tags/historie/">
+<!-- Navigation link icon -->
+<!-- Navigation link title -->
 <span class="md-ellipsis">
-historie
-</span>
+    historie
+  </span>
+<!-- Navigation link status -->
 </a>
 </li>
+<!-- Determine classes -->
+<!-- Navigation item with nested items -->
 <li class="md-nav__item">
-<a href="../../posts/tags/howto/" class="md-nav__link">
+<a class="md-nav__link" href="../../posts/tags/howto/">
+<!-- Navigation link icon -->
+<!-- Navigation link title -->
 <span class="md-ellipsis">
-howto
-</span>
+    howto
+  </span>
+<!-- Navigation link status -->
 </a>
 </li>
+<!-- Determine classes -->
+<!-- Navigation item with nested items -->
 <li class="md-nav__item">
-<a href="../../posts/tags/istqb/" class="md-nav__link">
+<a class="md-nav__link" href="../../posts/tags/istqb/">
+<!-- Navigation link icon -->
+<!-- Navigation link title -->
 <span class="md-ellipsis">
-istqb
-</span>
+    istqb
+  </span>
+<!-- Navigation link status -->
 </a>
 </li>
+<!-- Determine classes -->
+<!-- Navigation item with nested items -->
 <li class="md-nav__item">
-<a href="../../posts/tags/itea/" class="md-nav__link">
+<a class="md-nav__link" href="../../posts/tags/itea/">
+<!-- Navigation link icon -->
+<!-- Navigation link title -->
 <span class="md-ellipsis">
-itea
-</span>
+    itea
+  </span>
+<!-- Navigation link status -->
 </a>
 </li>
+<!-- Determine classes -->
+<!-- Navigation item with nested items -->
 <li class="md-nav__item">
-<a href="../../posts/tags/komfort/" class="md-nav__link">
+<a class="md-nav__link" href="../../posts/tags/komfort/">
+<!-- Navigation link icon -->
+<!-- Navigation link title -->
 <span class="md-ellipsis">
-komfort
-</span>
+    komfort
+  </span>
+<!-- Navigation link status -->
 </a>
 </li>
+<!-- Determine classes -->
+<!-- Navigation item with nested items -->
 <li class="md-nav__item">
-<a href="../../posts/tags/kursy/" class="md-nav__link">
+<a class="md-nav__link" href="../../posts/tags/kursy/">
+<!-- Navigation link icon -->
+<!-- Navigation link title -->
 <span class="md-ellipsis">
-kursy
-</span>
+    kursy
+  </span>
+<!-- Navigation link status -->
 </a>
 </li>
+<!-- Determine classes -->
+<!-- Navigation item with nested items -->
 <li class="md-nav__item">
-<a href="../../posts/tags/lambda/" class="md-nav__link">
+<a class="md-nav__link" href="../../posts/tags/lambda/">
+<!-- Navigation link icon -->
+<!-- Navigation link title -->
 <span class="md-ellipsis">
-lambda
-</span>
+    lambda
+  </span>
+<!-- Navigation link status -->
 </a>
 </li>
+<!-- Determine classes -->
+<!-- Navigation item with nested items -->
 <li class="md-nav__item">
-<a href="../../posts/tags/linkedin/" class="md-nav__link">
+<a class="md-nav__link" href="../../posts/tags/linkedin/">
+<!-- Navigation link icon -->
+<!-- Navigation link title -->
 <span class="md-ellipsis">
-linkedin
-</span>
+    linkedin
+  </span>
+<!-- Navigation link status -->
 </a>
 </li>
+<!-- Determine classes -->
+<!-- Navigation item with nested items -->
 <li class="md-nav__item">
-<a href="../../posts/tags/nauka/" class="md-nav__link">
+<a class="md-nav__link" href="../../posts/tags/nauka/">
+<!-- Navigation link icon -->
+<!-- Navigation link title -->
 <span class="md-ellipsis">
-nauka
-</span>
+    nauka
+  </span>
+<!-- Navigation link status -->
 </a>
 </li>
+<!-- Determine classes -->
+<!-- Navigation item with nested items -->
 <li class="md-nav__item">
-<a href="../../posts/tags/og%25C3%25B3lne/" class="md-nav__link">
+<a class="md-nav__link" href="../../posts/tags/og%25C3%25B3lne/">
+<!-- Navigation link icon -->
+<!-- Navigation link title -->
 <span class="md-ellipsis">
-ogólne
-</span>
+    ogólne
+  </span>
+<!-- Navigation link status -->
 </a>
 </li>
+<!-- Determine classes -->
+<!-- Navigation item with nested items -->
 <li class="md-nav__item">
-<a href="../../posts/tags/plany/" class="md-nav__link">
+<a class="md-nav__link" href="../../posts/tags/plany/">
+<!-- Navigation link icon -->
+<!-- Navigation link title -->
 <span class="md-ellipsis">
-plany
-</span>
+    plany
+  </span>
+<!-- Navigation link status -->
 </a>
 </li>
+<!-- Determine classes -->
+<!-- Navigation item with nested items -->
 <li class="md-nav__item">
-<a href="../../posts/tags/podcast/" class="md-nav__link">
+<a class="md-nav__link" href="../../posts/tags/podcast/">
+<!-- Navigation link icon -->
+<!-- Navigation link title -->
 <span class="md-ellipsis">
-podcast
-</span>
+    podcast
+  </span>
+<!-- Navigation link status -->
 </a>
 </li>
+<!-- Determine classes -->
+<!-- Navigation item with nested items -->
 <li class="md-nav__item">
-<a href="../../posts/tags/podsumowanie/" class="md-nav__link">
+<a class="md-nav__link" href="../../posts/tags/podsumowanie/">
+<!-- Navigation link icon -->
+<!-- Navigation link title -->
 <span class="md-ellipsis">
-podsumowanie
-</span>
+    podsumowanie
+  </span>
+<!-- Navigation link status -->
 </a>
 </li>
+<!-- Determine classes -->
+<!-- Navigation item with nested items -->
 <li class="md-nav__item">
-<a href="../../posts/tags/profil/" class="md-nav__link">
+<a class="md-nav__link" href="../../posts/tags/profil/">
+<!-- Navigation link icon -->
+<!-- Navigation link title -->
 <span class="md-ellipsis">
-profil
-</span>
+    profil
+  </span>
+<!-- Navigation link status -->
 </a>
 </li>
+<!-- Determine classes -->
+<!-- Navigation item with nested items -->
 <li class="md-nav__item">
-<a href="../../posts/tags/rekrutacja/" class="md-nav__link">
+<a class="md-nav__link" href="../../posts/tags/rekrutacja/">
+<!-- Navigation link icon -->
+<!-- Navigation link title -->
 <span class="md-ellipsis">
-rekrutacja
-</span>
+    rekrutacja
+  </span>
+<!-- Navigation link status -->
 </a>
 </li>
+<!-- Determine classes -->
+<!-- Navigation item with nested items -->
 <li class="md-nav__item">
-<a href="../../posts/tags/requests/" class="md-nav__link">
+<a class="md-nav__link" href="../../posts/tags/requests/">
+<!-- Navigation link icon -->
+<!-- Navigation link title -->
 <span class="md-ellipsis">
-requests
-</span>
+    requests
+  </span>
+<!-- Navigation link status -->
 </a>
 </li>
+<!-- Determine classes -->
+<!-- Navigation item with nested items -->
 <li class="md-nav__item">
-<a href="../../posts/tags/rozw%25C3%25B3j/" class="md-nav__link">
+<a class="md-nav__link" href="../../posts/tags/rozw%25C3%25B3j/">
+<!-- Navigation link icon -->
+<!-- Navigation link title -->
 <span class="md-ellipsis">
-rozwój
-</span>
+    rozwój
+  </span>
+<!-- Navigation link status -->
 </a>
 </li>
+<!-- Determine classes -->
+<!-- Navigation item with nested items -->
 <li class="md-nav__item">
-<a href="../../posts/tags/rpa/" class="md-nav__link">
+<a class="md-nav__link" href="../../posts/tags/rpa/">
+<!-- Navigation link icon -->
+<!-- Navigation link title -->
 <span class="md-ellipsis">
-rpa
-</span>
+    rpa
+  </span>
+<!-- Navigation link status -->
 </a>
 </li>
+<!-- Determine classes -->
+<!-- Navigation item with nested items -->
 <li class="md-nav__item">
-<a href="../../posts/tags/rzeczywisto%25C5%259B%25C4%2587/" class="md-nav__link">
+<a class="md-nav__link" href="../../posts/tags/rzeczywisto%25C5%259B%25C4%2587/">
+<!-- Navigation link icon -->
+<!-- Navigation link title -->
 <span class="md-ellipsis">
-rzeczywistość
-</span>
+    rzeczywistość
+  </span>
+<!-- Navigation link status -->
 </a>
 </li>
+<!-- Determine classes -->
+<!-- Navigation item with nested items -->
 <li class="md-nav__item">
-<a href="../../posts/tags/testitka/" class="md-nav__link">
+<a class="md-nav__link" href="../../posts/tags/testitka/">
+<!-- Navigation link icon -->
+<!-- Navigation link title -->
 <span class="md-ellipsis">
-testitka
-</span>
+    testitka
+  </span>
+<!-- Navigation link status -->
 </a>
 </li>
+<!-- Determine classes -->
+<!-- Navigation item with nested items -->
 <li class="md-nav__item">
-<a href="../../posts/tags/testowanie/" class="md-nav__link">
+<a class="md-nav__link" href="../../posts/tags/testowanie/">
+<!-- Navigation link icon -->
+<!-- Navigation link title -->
 <span class="md-ellipsis">
-testowanie
-</span>
+    testowanie
+  </span>
+<!-- Navigation link status -->
 </a>
 </li>
+<!-- Determine classes -->
+<!-- Navigation item with nested items -->
 <li class="md-nav__item">
-<a href="../../posts/tags/testy/" class="md-nav__link">
+<a class="md-nav__link" href="../../posts/tags/testy/">
+<!-- Navigation link icon -->
+<!-- Navigation link title -->
 <span class="md-ellipsis">
-testy
-</span>
+    testy
+  </span>
+<!-- Navigation link status -->
 </a>
 </li>
+<!-- Determine classes -->
+<!-- Navigation item with nested items -->
 <li class="md-nav__item">
-<a href="../../posts/tags/trendbook/" class="md-nav__link">
+<a class="md-nav__link" href="../../posts/tags/trendbook/">
+<!-- Navigation link icon -->
+<!-- Navigation link title -->
 <span class="md-ellipsis">
-trendbook
-</span>
+    trendbook
+  </span>
+<!-- Navigation link status -->
 </a>
 </li>
+<!-- Determine classes -->
+<!-- Navigation item with nested items -->
 <li class="md-nav__item">
-<a href="../../posts/tags/unittest/" class="md-nav__link">
+<a class="md-nav__link" href="../../posts/tags/unittest/">
+<!-- Navigation link icon -->
+<!-- Navigation link title -->
 <span class="md-ellipsis">
-unittest
-</span>
+    unittest
+  </span>
+<!-- Navigation link status -->
 </a>
 </li>
+<!-- Determine classes -->
+<!-- Navigation item with nested items -->
 <li class="md-nav__item">
-<a href="../../posts/tags/vlog/" class="md-nav__link">
+<a class="md-nav__link" href="../../posts/tags/vlog/">
+<!-- Navigation link icon -->
+<!-- Navigation link title -->
 <span class="md-ellipsis">
-vlog
-</span>
+    vlog
+  </span>
+<!-- Navigation link status -->
 </a>
 </li>
+<!-- Determine classes -->
+<!-- Navigation item with nested items -->
 <li class="md-nav__item">
-<a href="../../posts/tags/zarobki/" class="md-nav__link">
+<a class="md-nav__link" href="../../posts/tags/zarobki/">
+<!-- Navigation link icon -->
+<!-- Navigation link title -->
 <span class="md-ellipsis">
-zarobki
-</span>
+    zarobki
+  </span>
+<!-- Navigation link status -->
 </a>
 </li>
+<!-- Determine classes -->
+<!-- Navigation item with nested items -->
 <li class="md-nav__item">
-<a href="../../posts/tags/zmiana/" class="md-nav__link">
+<a class="md-nav__link" href="../../posts/tags/zmiana/">
+<!-- Navigation link icon -->
+<!-- Navigation link title -->
 <span class="md-ellipsis">
-zmiana
-</span>
+    zmiana
+  </span>
+<!-- Navigation link status -->
 </a>
 </li>
+<!-- Determine classes -->
+<!-- Navigation item with nested items -->
 <li class="md-nav__item">
-<a href="../../posts/tags/%25C5%2582uczniczqa/" class="md-nav__link">
+<a class="md-nav__link" href="../../posts/tags/%25C5%2582uczniczqa/">
+<!-- Navigation link icon -->
+<!-- Navigation link title -->
 <span class="md-ellipsis">
-łuczniczqa
-</span>
+    łuczniczqa
+  </span>
+<!-- Navigation link status -->
 </a>
 </li>
+<!-- Determine classes -->
+<!-- Navigation item with nested items -->
 <li class="md-nav__item">
-<a href="../../posts/tags/%25C5%25BCycie/" class="md-nav__link">
+<a class="md-nav__link" href="../../posts/tags/%25C5%25BCycie/">
+<!-- Navigation link icon -->
+<!-- Navigation link title -->
 <span class="md-ellipsis">
-życie
-</span>
+    życie
+  </span>
+<!-- Navigation link status -->
 </a>
 </li>
 </ul>
 </nav>
-</li>
+<!-- Pruned navigation item -->
+</input></li>
+<!-- Currently active page -->
 </ul>
 </nav>
-</li>
+<!-- Pruned navigation item -->
+</input></li>
+<!-- Currently active page -->
+<!-- Determine classes -->
+<!-- Navigation item with nested items -->
 <li class="md-nav__item">
-<a href="../../python-kompendium/" class="md-nav__link">
+<a class="md-nav__link" href="../../python-kompendium/">
+<!-- Navigation link icon -->
+<!-- Navigation link title -->
 <span class="md-ellipsis">
-Python
-</span>
+    Python
+  </span>
+<!-- Navigation link status -->
 </a>
 </li>
-<li class="md-nav__item md-nav__item--nested md-nav__item--active">
-<input type="checkbox" class="md-toggle md-nav__toggle" id="__nav_3" checked>
+<!-- Determine classes -->
+<!-- Navigation item with nested items -->
+<!-- Determine all nested items that are index pages -->
+<!-- Determine whether to render item as a section -->
+<!-- Nested navigation item -->
+<li class="md-nav__item md-nav__item--active md-nav__item--nested">
+<!-- Determine checked and indeterminate state -->
+<!-- Active checkbox expands items contained within nested section -->
+<input checked="" class="md-nav__toggle md-toggle" id="__nav_3" type="checkbox">
+<!-- Toggle to expand nested items -->
 <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+<!-- Navigation link icon -->
+<!-- Navigation link title -->
 <span class="md-ellipsis">
-Szkolenia
-</span>
-<span class="md-icon md-nav__icon"></span>
+    Szkolenia
+  </span>
+<!-- Navigation link status -->
+<span class="md-nav__icon md-icon"></span>
 </label>
-<nav class="md-nav" data-md-level="1" aria-expanded="true" aria-labelledby="__nav_3_label">
+<!-- Toggle to expand nested items with link to index page -->
+<!-- Nested navigation -->
+<nav aria-expanded="true" aria-labelledby="__nav_3_label" class="md-nav" data-md-level="1">
 <label class="md-nav__title" for="__nav_3">
-<span class="md-icon md-nav__icon"></span>
-Szkolenia
-</label>
+<span class="md-nav__icon md-icon"></span>
+            Szkolenia
+          </label>
 <ul class="md-nav__list" data-md-scrollfix="">
-<li class="md-nav__item md-nav__item--nested md-nav__item--active">
-<input type="checkbox" class="md-toggle md-nav__toggle" id="__nav_3_1" checked>
+<!-- Nested navigation item -->
+<!-- Determine classes -->
+<!-- Navigation item with nested items -->
+<!-- Determine all nested items that are index pages -->
+<!-- Determine whether to render item as a section -->
+<!-- Nested navigation item -->
+<li class="md-nav__item md-nav__item--active md-nav__item--nested">
+<!-- Determine checked and indeterminate state -->
+<!-- Active checkbox expands items contained within nested section -->
+<input checked="" class="md-nav__toggle md-toggle" id="__nav_3_1" type="checkbox"/>
+<!-- Toggle to expand nested items -->
 <div class="md-nav__link md-nav__container">
-<a href="./" class="md-nav__link md-nav__link--active">
+<a class="md-nav__link md-nav__link--active" href="./">
+<!-- Navigation link icon -->
+<!-- Navigation link title -->
 <span class="md-ellipsis">
-Szkolenia stacjonarne
-</span>
+    Szkolenia stacjonarne
+  </span>
+<!-- Navigation link status -->
 </a>
+<!-- Only render toggle if there's at least one more page -->
 <label class="md-nav__link md-nav__link--active" for="__nav_3_1">
-<span class="md-icon md-nav__icon"></span>
+<span class="md-nav__icon md-icon"></span>
 </label>
 </div>
-<nav class="md-nav" data-md-level="2" aria-expanded="true" aria-labelledby="__nav_3_1_label">
+<!-- Nested navigation -->
+<nav aria-expanded="true" aria-labelledby="__nav_3_1_label" class="md-nav" data-md-level="2">
 <label class="md-nav__title" for="__nav_3_1">
-<span class="md-icon md-nav__icon"></span>
-Szkolenia stacjonarne
-</label>
+<span class="md-nav__icon md-icon"></span>
+            Szkolenia stacjonarne
+          </label>
 <ul class="md-nav__list" data-md-scrollfix="">
+<!-- Nested navigation item -->
+<!-- Determine classes -->
+<!-- Navigation item with nested items -->
 <li class="md-nav__item">
-<a href="testowanie-rest-api-w-pythonie/" class="md-nav__link">
+<a class="md-nav__link" href="testowanie-rest-api-w-pythonie/">
+<!-- Navigation link icon -->
+<!-- Navigation link title -->
 <span class="md-ellipsis">
-Testowania REST API w Pythonie
-</span>
+    Testowania REST API w Pythonie
+  </span>
+<!-- Navigation link status -->
 </a>
 </li>
+<!-- Determine classes -->
+<!-- Navigation item with nested items -->
 <li class="md-nav__item">
-<a href="playwright-w-pythonie/" class="md-nav__link">
+<a class="md-nav__link" href="playwright-w-pythonie/">
+<!-- Navigation link icon -->
+<!-- Navigation link title -->
 <span class="md-ellipsis">
-Playwright w Pythonie
-</span>
+    Playwright w Pythonie
+  </span>
+<!-- Navigation link status -->
 </a>
 </li>
 </ul>
 </nav>
+<!-- Pruned navigation item -->
 </li>
+<!-- Currently active page -->
 </ul>
 </nav>
-</li>
+<!-- Pruned navigation item -->
+</input></li>
+<!-- Currently active page -->
+<!-- Determine classes -->
+<!-- Navigation item with nested items -->
 <li class="md-nav__item">
-<a href="../../kontakt/" class="md-nav__link">
+<a class="md-nav__link" href="../../kontakt/">
+<!-- Navigation link icon -->
+<!-- Navigation link title -->
 <span class="md-ellipsis">
-Kontakt
-</span>
+    Kontakt
+  </span>
+<!-- Navigation link status -->
 </a>
 </li>
 </ul>
 </nav>
 </div>
 <div class="md-sidebar__inner">
-<div class="md-nav md-typeset tb-sidebar">
+<div class="md-typeset md-nav tb-sidebar">
 <div class="md-nav__title">
-<a href="https://testerembyc.pl/pages/o-mnie/" class="md-nav__link md-nav__link--active">O mnie</a>
+<a class="md-nav__link md-nav__link--active" href="https://testerembyc.pl/pages/o-mnie/">O mnie</a>
 </div>
 <div class="md-nav__item">
-<img src="https://testerembyc.pl/images/pages/me_bw_small.jpg">
-<p>Nazywam się <b>Maciej Kusz</b> i od 2008 roku zajmuję się testowaniem oprogramowania. Na początku były to testy manualne, od 2011 początki testów automatycznych, a od 2013 automatyzacją testów z wykorzystaniem języka <b>Python</b>. Przez te kilka lat, zdarzyło mi się już być w kilku firmach i w kilku różnych projektach. Na stronie <a href="https://testerembyc.pl/pages/o-mnie/">o mnie</a>, znajdziesz ciut więcej informacji na ten temat.</p>
+<img src="https://testerembyc.pl/images/pages/me_bw_small.jpg"/>
+<p>Nazywam się <b>Maciej Kusz</b> i od 2008 roku zajmuję się testowaniem oprogramowania.
+      Na początku były to testy manualne, od 2011 początki testów automatycznych,
+      a od 2013 automatyzacją testów z wykorzystaniem języka <b>Python</b>.
+      Przez te kilka lat, zdarzyło mi się już być w kilku firmach i w kilku różnych projektach.
+      Na stronie <a href="https://testerembyc.pl/pages/o-mnie/">o mnie</a>, znajdziesz ciut więcej informacji na ten temat.</p>
 </div>
 </div>
 </div>
 </div>
 </div>
+<!-- Table of contents -->
 <div class="md-content" data-md-component="content">
-<article class="md-typeset md-content__inner">
+<article class="md-content__inner md-typeset">
 <div class="post-extra">
 <div class="col">
 <p class="post-date">2024.07.29</p>
@@ -667,100 +1082,99 @@ Kontakt
 </div>
 <h1>Szkolenia stacjonarne</h1>
 <div class="admonition none">
-<p class="admonition-title"><span class="twemoji"><?xml version="1.0" encoding="utf-8"?><svg viewbox="0 0 122.88 100.33" xmlns="http://www.w3.org/2000/svg" id="Layer_1" style="enable-background:new 0 0 122.88 100.33" version="1.1" x="0px" xml:space="preserve" xmlns:xlink="http://www.w3.org/1999/xlink" y="0px"><style type="text/css"></style><g><path 
-d="M102.79,7.11l2.59,3.41c0.68,0.9,0.51,2.19-0.39,2.87l-2.75,2.09c0.5,1.33,0.82,2.75,0.95,4.2l3.13,0.43 c1.12,0.15,1.9,1.19,1.75,2.31l-0.58,4.25c-0.15,1.12-1.19,1.91-2.31,1.75l-3.42-0.47c-0.61,1.33-1.39,2.55-2.31,3.64l1.92,2.52 c0.68,0.9,0.5,2.19-0.4,2.87l-3.41,2.59c-0.9,0.68-2.19,0.5-2.87-0.39l-2.09-2.75c-1.34,0.5-2.75,0.82-4.21,0.95l-0.43,3.13 c-0.15,1.12-1.19,1.9-2.31,1.75l-4.25-0.58c-1.12-0.15-1.9-1.19-1.75-2.31l0.47-3.42c-1.32-0.61-2.55-1.39-3.64-2.3l-2.52,1.91 c-0.9,0.68-2.19,0.51-2.87-0.39l-2.59-3.41c-0.68-0.9-0.51-2.19,0.39-2.87l2.75-2.09c-0.5-1.34-0.82-2.75-0.95-4.2l-3.13-0.43 c-1.12-0.15-1.91-1.19-1.75-2.31l0.58-4.25c0.16-1.12,1.19-1.9,2.31-1.75l3.42,0.47c0.61-1.32,1.39-2.55,2.3-3.64l-1.91-2.52 C71.83,7.28,72,5.99,72.9,5.31l3.41-2.59c0.9-0.68,2.19-0.51,2.87,0.39l2.09,2.75c1.33-0.5,2.75-0.82,4.2-0.95l0.43-3.13 c0.15-1.12,1.19-1.91,2.31-1.76l4.25,0.58c1.12,0.15,1.91,1.19,1.75,2.31l-0.47,3.42c1.33,0.61,2.55,1.39,3.65,2.31l2.52-1.91 C100.81,6.04,102.1,6.21,102.79,7.11L102.79,7.11L102.79,7.11z M29.67,67.12v-16.5h8.5c1.58,0,2.78,0.13,3.61,0.41 c0.83,0.27,1.51,0.77,2.01,1.5c0.51,0.74,0.77,1.63,0.77,2.68c0,0.91-0.2,1.71-0.59,2.37c-0.39,0.67-0.93,1.21-1.61,1.62 c-0.43,0.26-1.03,0.48-1.79,0.65c0.61,0.21,1.05,0.4,1.32,0.61c0.19,0.14,0.46,0.43,0.81,0.87c0.35,0.44,0.59,0.79,0.71,1.03 l2.48,4.77h-5.76l-2.72-5.03c-0.35-0.65-0.65-1.08-0.92-1.27c-0.37-0.25-0.79-0.38-1.25-0.38h-0.45v6.68H29.67L29.67,67.12z M47.65,95.85h-9.52l-1.37,4.48h-8.58l10.23-27.19h9.2l10.19,27.19h-8.8L47.65,95.85L47.65,95.85z M45.87,89.96l-2.97-9.78 l-2.98,9.78H45.87L45.87,89.96z M59.78,73.14h13.98c3.05,0,5.33,0.72,6.84,2.17c1.51,1.45,2.27,3.52,2.27,6.19 c0,2.75-0.83,4.9-2.48,6.45c-1.65,1.55-4.18,2.32-7.57,2.32h-4.61v10.06h-8.43V73.14L59.78,73.14z M68.21,84.76h2.07 c1.63,0,2.78-0.28,3.44-0.85c0.66-0.56,0.99-1.29,0.99-2.16c0-0.85-0.29-1.58-0.86-2.17c-0.57-0.59-1.65-0.89-3.23-0.89h-2.41 V84.76L68.21,84.76z M86.27,73.14h8.43v27.19h-8.43V73.14L86.27,73.14z M34.79,57.32h2.15c0.23,0,0.68-0.08,1.35-0.23 c0.34-0.07,0.62-0.24,0.83-0.52c0.22-0.28,0.32-0.6,0.32-0.96c0-0.53-0.17-0.95-0.51-1.23c-0.34-0.29-0.97-0.43-1.9-0.43h-2.24 V57.32L34.79,57.32z M46.87,50.62h13.65v3.52h-8.53v2.63h7.91v3.36h-7.91v3.25h8.78v3.73h-13.9V50.62L46.87,50.62z M61.98,61.66 l4.84-0.3c0.1,0.79,0.32,1.38,0.64,1.79c0.53,0.66,1.28,1,2.25,1c0.72,0,1.29-0.17,1.68-0.51c0.39-0.34,0.59-0.74,0.59-1.19 c0-0.43-0.19-0.81-0.56-1.15c-0.37-0.34-1.24-0.65-2.61-0.96c-2.23-0.5-3.82-1.17-4.78-2c-0.96-0.83-1.44-1.89-1.44-3.18 c0-0.85,0.25-1.65,0.74-2.4c0.49-0.75,1.23-1.35,2.22-1.78c0.99-0.43,2.34-0.64,4.06-0.64c2.11,0,3.71,0.39,4.82,1.18 c1.1,0.79,1.76,2.03,1.97,3.75l-4.79,0.29c-0.13-0.75-0.4-1.3-0.8-1.63c-0.41-0.34-0.98-0.51-1.69-0.51 c-0.59,0-1.04,0.13-1.34,0.38c-0.3,0.25-0.45,0.56-0.45,0.92c0,0.26,0.13,0.49,0.37,0.71c0.24,0.21,0.8,0.42,1.7,0.61 c2.23,0.48,3.83,0.97,4.79,1.46c0.96,0.49,1.67,1.1,2.1,1.83c0.44,0.72,0.66,1.54,0.66,2.44c0,1.06-0.29,2.03-0.88,2.92 c-0.58,0.89-1.4,1.57-2.45,2.03c-1.05,0.46-2.37,0.69-3.97,0.69c-2.8,0-4.75-0.54-5.83-1.62C62.74,64.69,62.13,63.32,61.98,61.66 L61.98,61.66z M77.69,50.62h15.51v4.08H88v12.42H82.9V54.7h-5.21V50.62L77.69,50.62z M60.53,11.46c-1.83-0.14-3.68-0.12-5.51,0.06 c-5.63,0.54-11.1,2.59-15.62,6.1c-5.23,4.05-9.2,10.11-10.73,18.14l-0.48,2.51l-2.5,0.44c-2.45,0.43-4.64,1.02-6.56,1.77 c-1.86,0.72-3.52,1.61-4.97,2.66c-1.16,0.84-2.16,1.78-3.01,2.8c-2.63,3.15-3.85,7.1-3.82,11.1c0.03,4.06,1.35,8.16,3.79,11.53 c0.91,1.25,1.96,2.4,3.16,3.4c1.22,1.01,2.59,1.85,4.13,2.48c0.87,0.36,1.8,0.66,2.77,0.9v7.49c-2-0.36-3.84-0.9-5.56-1.61 c-2.27-0.94-4.28-2.15-6.05-3.63c-1.68-1.4-3.15-2.99-4.4-4.72C1.84,68.28,0.04,62.66,0,57.06c-0.04-5.66,1.72-11.29,5.52-15.85 c1.23-1.48,2.68-2.84,4.34-4.04c1.93-1.4,4.14-2.58,6.64-3.55c1.72-0.67,3.56-1.23,5.5-1.68c2.2-8.74,6.89-15.47,12.92-20.14 c5.64-4.37,12.43-6.92,19.42-7.59c3.67-0.35,7.39-0.19,11.03,0.49c-0.08,0.33-0.15,0.66-0.19,1l-0.01,0.06 c-0.07,0.57-0.1,1.14-0.07,1.72c-0.77,0.3-1.49,0.71-2.14,1.21l-0.03,0.02C61.96,9.44,61.14,10.38,60.53,11.46L60.53,11.46z M113.44,30.66c0.56,0.51,1.1,1.04,1.63,1.61c1.07,1.15,2.08,2.45,3.03,3.9c3.2,4.92,4.84,11.49,4.77,17.92 c-0.07,6.31-1.77,12.59-5.25,17.21c-2.27,3.01-5.18,5.47-8.67,7.42c-2.39,1.34-5.08,2.45-8.01,3.35v-7.75 c1.58-0.59,3.05-1.25,4.4-2c2.63-1.47,4.78-3.26,6.39-5.41c2.5-3.33,3.73-8.04,3.78-12.87c0.06-5.07-1.18-10.16-3.59-13.86 c-0.69-1.07-1.45-2.03-2.25-2.89c-0.31-0.33-0.62-0.64-0.94-0.94c0.05-0.5,0.07-1.01,0.04-1.52c0.77-0.3,1.49-0.71,2.14-1.21 l0.03-0.02C111.97,32.81,112.83,31.81,113.44,30.66L113.44,30.66z M88.08,12.8c4.61,0.63,7.83,4.88,7.2,9.49 c-0.63,4.61-4.88,7.84-9.49,7.21c-4.61-0.63-7.84-4.88-7.2-9.49C79.23,15.4,83.47,12.17,88.08,12.8L88.08,12.8L88.08,12.8z" 
-class="st0"></path></g></svg></span> Testowanie REST API w Pythonie</p>
+<p class="admonition-title"><span class="twemoji"><?xml version="1.0" encoding="utf-8"?><svg id="Layer_1" style="enable-background:new 0 0 122.88 100.33" version="1.1" viewbox="0 0 122.88 100.33" x="0px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" y="0px"><style type="text/css"><![CDATA[
+	.st0{fill-rule:evenodd;clip-rule:evenodd;}
+]]></style><g><path class="st0" d="M102.79,7.11l2.59,3.41c0.68,0.9,0.51,2.19-0.39,2.87l-2.75,2.09c0.5,1.33,0.82,2.75,0.95,4.2l3.13,0.43 c1.12,0.15,1.9,1.19,1.75,2.31l-0.58,4.25c-0.15,1.12-1.19,1.91-2.31,1.75l-3.42-0.47c-0.61,1.33-1.39,2.55-2.31,3.64l1.92,2.52 c0.68,0.9,0.5,2.19-0.4,2.87l-3.41,2.59c-0.9,0.68-2.19,0.5-2.87-0.39l-2.09-2.75c-1.34,0.5-2.75,0.82-4.21,0.95l-0.43,3.13 c-0.15,1.12-1.19,1.9-2.31,1.75l-4.25-0.58c-1.12-0.15-1.9-1.19-1.75-2.31l0.47-3.42c-1.32-0.61-2.55-1.39-3.64-2.3l-2.52,1.91 c-0.9,0.68-2.19,0.51-2.87-0.39l-2.59-3.41c-0.68-0.9-0.51-2.19,0.39-2.87l2.75-2.09c-0.5-1.34-0.82-2.75-0.95-4.2l-3.13-0.43 c-1.12-0.15-1.91-1.19-1.75-2.31l0.58-4.25c0.16-1.12,1.19-1.9,2.31-1.75l3.42,0.47c0.61-1.32,1.39-2.55,2.3-3.64l-1.91-2.52 C71.83,7.28,72,5.99,72.9,5.31l3.41-2.59c0.9-0.68,2.19-0.51,2.87,0.39l2.09,2.75c1.33-0.5,2.75-0.82,4.2-0.95l0.43-3.13 c0.15-1.12,1.19-1.91,2.31-1.76l4.25,0.58c1.12,0.15,1.91,1.19,1.75,2.31l-0.47,3.42c1.33,0.61,2.55,1.39,3.65,2.31l2.52-1.91 C100.81,6.04,102.1,6.21,102.79,7.11L102.79,7.11L102.79,7.11z M29.67,67.12v-16.5h8.5c1.58,0,2.78,0.13,3.61,0.41 c0.83,0.27,1.51,0.77,2.01,1.5c0.51,0.74,0.77,1.63,0.77,2.68c0,0.91-0.2,1.71-0.59,2.37c-0.39,0.67-0.93,1.21-1.61,1.62 c-0.43,0.26-1.03,0.48-1.79,0.65c0.61,0.21,1.05,0.4,1.32,0.61c0.19,0.14,0.46,0.43,0.81,0.87c0.35,0.44,0.59,0.79,0.71,1.03 l2.48,4.77h-5.76l-2.72-5.03c-0.35-0.65-0.65-1.08-0.92-1.27c-0.37-0.25-0.79-0.38-1.25-0.38h-0.45v6.68H29.67L29.67,67.12z M47.65,95.85h-9.52l-1.37,4.48h-8.58l10.23-27.19h9.2l10.19,27.19h-8.8L47.65,95.85L47.65,95.85z M45.87,89.96l-2.97-9.78 l-2.98,9.78H45.87L45.87,89.96z M59.78,73.14h13.98c3.05,0,5.33,0.72,6.84,2.17c1.51,1.45,2.27,3.52,2.27,6.19 c0,2.75-0.83,4.9-2.48,6.45c-1.65,1.55-4.18,2.32-7.57,2.32h-4.61v10.06h-8.43V73.14L59.78,73.14z M68.21,84.76h2.07 c1.63,0,2.78-0.28,3.44-0.85c0.66-0.56,0.99-1.29,0.99-2.16c0-0.85-0.29-1.58-0.86-2.17c-0.57-0.59-1.65-0.89-3.23-0.89h-2.41 V84.76L68.21,84.76z M86.27,73.14h8.43v27.19h-8.43V73.14L86.27,73.14z M34.79,57.32h2.15c0.23,0,0.68-0.08,1.35-0.23 c0.34-0.07,0.62-0.24,0.83-0.52c0.22-0.28,0.32-0.6,0.32-0.96c0-0.53-0.17-0.95-0.51-1.23c-0.34-0.29-0.97-0.43-1.9-0.43h-2.24 V57.32L34.79,57.32z M46.87,50.62h13.65v3.52h-8.53v2.63h7.91v3.36h-7.91v3.25h8.78v3.73h-13.9V50.62L46.87,50.62z M61.98,61.66 l4.84-0.3c0.1,0.79,0.32,1.38,0.64,1.79c0.53,0.66,1.28,1,2.25,1c0.72,0,1.29-0.17,1.68-0.51c0.39-0.34,0.59-0.74,0.59-1.19 c0-0.43-0.19-0.81-0.56-1.15c-0.37-0.34-1.24-0.65-2.61-0.96c-2.23-0.5-3.82-1.17-4.78-2c-0.96-0.83-1.44-1.89-1.44-3.18 c0-0.85,0.25-1.65,0.74-2.4c0.49-0.75,1.23-1.35,2.22-1.78c0.99-0.43,2.34-0.64,4.06-0.64c2.11,0,3.71,0.39,4.82,1.18 c1.1,0.79,1.76,2.03,1.97,3.75l-4.79,0.29c-0.13-0.75-0.4-1.3-0.8-1.63c-0.41-0.34-0.98-0.51-1.69-0.51 c-0.59,0-1.04,0.13-1.34,0.38c-0.3,0.25-0.45,0.56-0.45,0.92c0,0.26,0.13,0.49,0.37,0.71c0.24,0.21,0.8,0.42,1.7,0.61 c2.23,0.48,3.83,0.97,4.79,1.46c0.96,0.49,1.67,1.1,2.1,1.83c0.44,0.72,0.66,1.54,0.66,2.44c0,1.06-0.29,2.03-0.88,2.92 c-0.58,0.89-1.4,1.57-2.45,2.03c-1.05,0.46-2.37,0.69-3.97,0.69c-2.8,0-4.75-0.54-5.83-1.62C62.74,64.69,62.13,63.32,61.98,61.66 L61.98,61.66z M77.69,50.62h15.51v4.08H88v12.42H82.9V54.7h-5.21V50.62L77.69,50.62z M60.53,11.46c-1.83-0.14-3.68-0.12-5.51,0.06 c-5.63,0.54-11.1,2.59-15.62,6.1c-5.23,4.05-9.2,10.11-10.73,18.14l-0.48,2.51l-2.5,0.44c-2.45,0.43-4.64,1.02-6.56,1.77 c-1.86,0.72-3.52,1.61-4.97,2.66c-1.16,0.84-2.16,1.78-3.01,2.8c-2.63,3.15-3.85,7.1-3.82,11.1c0.03,4.06,1.35,8.16,3.79,11.53 c0.91,1.25,1.96,2.4,3.16,3.4c1.22,1.01,2.59,1.85,4.13,2.48c0.87,0.36,1.8,0.66,2.77,0.9v7.49c-2-0.36-3.84-0.9-5.56-1.61 c-2.27-0.94-4.28-2.15-6.05-3.63c-1.68-1.4-3.15-2.99-4.4-4.72C1.84,68.28,0.04,62.66,0,57.06c-0.04-5.66,1.72-11.29,5.52-15.85 c1.23-1.48,2.68-2.84,4.34-4.04c1.93-1.4,4.14-2.58,6.64-3.55c1.72-0.67,3.56-1.23,5.5-1.68c2.2-8.74,6.89-15.47,12.92-20.14 c5.64-4.37,12.43-6.92,19.42-7.59c3.67-0.35,7.39-0.19,11.03,0.49c-0.08,0.33-0.15,0.66-0.19,1l-0.01,0.06 c-0.07,0.57-0.1,1.14-0.07,1.72c-0.77,0.3-1.49,0.71-2.14,1.21l-0.03,0.02C61.96,9.44,61.14,10.38,60.53,11.46L60.53,11.46z M113.44,30.66c0.56,0.51,1.1,1.04,1.63,1.61c1.07,1.15,2.08,2.45,3.03,3.9c3.2,4.92,4.84,11.49,4.77,17.92 c-0.07,6.31-1.77,12.59-5.25,17.21c-2.27,3.01-5.18,5.47-8.67,7.42c-2.39,1.34-5.08,2.45-8.01,3.35v-7.75 c1.58-0.59,3.05-1.25,4.4-2c2.63-1.47,4.78-3.26,6.39-5.41c2.5-3.33,3.73-8.04,3.78-12.87c0.06-5.07-1.18-10.16-3.59-13.86 c-0.69-1.07-1.45-2.03-2.25-2.89c-0.31-0.33-0.62-0.64-0.94-0.94c0.05-0.5,0.07-1.01,0.04-1.52c0.77-0.3,1.49-0.71,2.14-1.21 l0.03-0.02C111.97,32.81,112.83,31.81,113.44,30.66L113.44,30.66z M88.08,12.8c4.61,0.63,7.83,4.88,7.2,9.49 c-0.63,4.61-4.88,7.84-9.49,7.21c-4.61-0.63-7.84-4.88-7.2-9.49C79.23,15.4,83.47,12.17,88.08,12.8L88.08,12.8L88.08,12.8z"></path></g></svg></span> Testowanie REST API w Pythonie</p>
 <p><a href="testowanie-rest-api-w-pythonie/">Testowanie REST API w Pythonie</a> to szkolenie poświęcone testowaniu REST API. Podczas szkolenia poznasz bibliotekę <a href="https://requests.readthedocs.io/">requests w języku Python</a>, która umożliwia wysyłanie zapytania (tzw. request) do oraz odbieranie odpowiedzi (tzw. response) z enpointów restowego API.</p>
-<p>Po więcej informacji przejdź do strony szkolenia <a href="testowanie-rest-api-w-pythonie/"><span class="twemoji"><?xml version="1.0" encoding="utf-8"?><svg viewbox="0 0 122.88 100.33" xmlns="http://www.w3.org/2000/svg" id="Layer_1" style="enable-background:new 0 0 122.88 100.33" version="1.1" x="0px" xml:space="preserve" xmlns:xlink="http://www.w3.org/1999/xlink" y="0px"><style type="text/css"></style><g><path 
-d="M102.79,7.11l2.59,3.41c0.68,0.9,0.51,2.19-0.39,2.87l-2.75,2.09c0.5,1.33,0.82,2.75,0.95,4.2l3.13,0.43 c1.12,0.15,1.9,1.19,1.75,2.31l-0.58,4.25c-0.15,1.12-1.19,1.91-2.31,1.75l-3.42-0.47c-0.61,1.33-1.39,2.55-2.31,3.64l1.92,2.52 c0.68,0.9,0.5,2.19-0.4,2.87l-3.41,2.59c-0.9,0.68-2.19,0.5-2.87-0.39l-2.09-2.75c-1.34,0.5-2.75,0.82-4.21,0.95l-0.43,3.13 c-0.15,1.12-1.19,1.9-2.31,1.75l-4.25-0.58c-1.12-0.15-1.9-1.19-1.75-2.31l0.47-3.42c-1.32-0.61-2.55-1.39-3.64-2.3l-2.52,1.91 c-0.9,0.68-2.19,0.51-2.87-0.39l-2.59-3.41c-0.68-0.9-0.51-2.19,0.39-2.87l2.75-2.09c-0.5-1.34-0.82-2.75-0.95-4.2l-3.13-0.43 c-1.12-0.15-1.91-1.19-1.75-2.31l0.58-4.25c0.16-1.12,1.19-1.9,2.31-1.75l3.42,0.47c0.61-1.32,1.39-2.55,2.3-3.64l-1.91-2.52 C71.83,7.28,72,5.99,72.9,5.31l3.41-2.59c0.9-0.68,2.19-0.51,2.87,0.39l2.09,2.75c1.33-0.5,2.75-0.82,4.2-0.95l0.43-3.13 c0.15-1.12,1.19-1.91,2.31-1.76l4.25,0.58c1.12,0.15,1.91,1.19,1.75,2.31l-0.47,3.42c1.33,0.61,2.55,1.39,3.65,2.31l2.52-1.91 C100.81,6.04,102.1,6.21,102.79,7.11L102.79,7.11L102.79,7.11z M29.67,67.12v-16.5h8.5c1.58,0,2.78,0.13,3.61,0.41 c0.83,0.27,1.51,0.77,2.01,1.5c0.51,0.74,0.77,1.63,0.77,2.68c0,0.91-0.2,1.71-0.59,2.37c-0.39,0.67-0.93,1.21-1.61,1.62 c-0.43,0.26-1.03,0.48-1.79,0.65c0.61,0.21,1.05,0.4,1.32,0.61c0.19,0.14,0.46,0.43,0.81,0.87c0.35,0.44,0.59,0.79,0.71,1.03 l2.48,4.77h-5.76l-2.72-5.03c-0.35-0.65-0.65-1.08-0.92-1.27c-0.37-0.25-0.79-0.38-1.25-0.38h-0.45v6.68H29.67L29.67,67.12z M47.65,95.85h-9.52l-1.37,4.48h-8.58l10.23-27.19h9.2l10.19,27.19h-8.8L47.65,95.85L47.65,95.85z M45.87,89.96l-2.97-9.78 l-2.98,9.78H45.87L45.87,89.96z M59.78,73.14h13.98c3.05,0,5.33,0.72,6.84,2.17c1.51,1.45,2.27,3.52,2.27,6.19 c0,2.75-0.83,4.9-2.48,6.45c-1.65,1.55-4.18,2.32-7.57,2.32h-4.61v10.06h-8.43V73.14L59.78,73.14z M68.21,84.76h2.07 c1.63,0,2.78-0.28,3.44-0.85c0.66-0.56,0.99-1.29,0.99-2.16c0-0.85-0.29-1.58-0.86-2.17c-0.57-0.59-1.65-0.89-3.23-0.89h-2.41 V84.76L68.21,84.76z M86.27,73.14h8.43v27.19h-8.43V73.14L86.27,73.14z M34.79,57.32h2.15c0.23,0,0.68-0.08,1.35-0.23 c0.34-0.07,0.62-0.24,0.83-0.52c0.22-0.28,0.32-0.6,0.32-0.96c0-0.53-0.17-0.95-0.51-1.23c-0.34-0.29-0.97-0.43-1.9-0.43h-2.24 V57.32L34.79,57.32z M46.87,50.62h13.65v3.52h-8.53v2.63h7.91v3.36h-7.91v3.25h8.78v3.73h-13.9V50.62L46.87,50.62z M61.98,61.66 l4.84-0.3c0.1,0.79,0.32,1.38,0.64,1.79c0.53,0.66,1.28,1,2.25,1c0.72,0,1.29-0.17,1.68-0.51c0.39-0.34,0.59-0.74,0.59-1.19 c0-0.43-0.19-0.81-0.56-1.15c-0.37-0.34-1.24-0.65-2.61-0.96c-2.23-0.5-3.82-1.17-4.78-2c-0.96-0.83-1.44-1.89-1.44-3.18 c0-0.85,0.25-1.65,0.74-2.4c0.49-0.75,1.23-1.35,2.22-1.78c0.99-0.43,2.34-0.64,4.06-0.64c2.11,0,3.71,0.39,4.82,1.18 c1.1,0.79,1.76,2.03,1.97,3.75l-4.79,0.29c-0.13-0.75-0.4-1.3-0.8-1.63c-0.41-0.34-0.98-0.51-1.69-0.51 c-0.59,0-1.04,0.13-1.34,0.38c-0.3,0.25-0.45,0.56-0.45,0.92c0,0.26,0.13,0.49,0.37,0.71c0.24,0.21,0.8,0.42,1.7,0.61 c2.23,0.48,3.83,0.97,4.79,1.46c0.96,0.49,1.67,1.1,2.1,1.83c0.44,0.72,0.66,1.54,0.66,2.44c0,1.06-0.29,2.03-0.88,2.92 c-0.58,0.89-1.4,1.57-2.45,2.03c-1.05,0.46-2.37,0.69-3.97,0.69c-2.8,0-4.75-0.54-5.83-1.62C62.74,64.69,62.13,63.32,61.98,61.66 L61.98,61.66z M77.69,50.62h15.51v4.08H88v12.42H82.9V54.7h-5.21V50.62L77.69,50.62z M60.53,11.46c-1.83-0.14-3.68-0.12-5.51,0.06 c-5.63,0.54-11.1,2.59-15.62,6.1c-5.23,4.05-9.2,10.11-10.73,18.14l-0.48,2.51l-2.5,0.44c-2.45,0.43-4.64,1.02-6.56,1.77 c-1.86,0.72-3.52,1.61-4.97,2.66c-1.16,0.84-2.16,1.78-3.01,2.8c-2.63,3.15-3.85,7.1-3.82,11.1c0.03,4.06,1.35,8.16,3.79,11.53 c0.91,1.25,1.96,2.4,3.16,3.4c1.22,1.01,2.59,1.85,4.13,2.48c0.87,0.36,1.8,0.66,2.77,0.9v7.49c-2-0.36-3.84-0.9-5.56-1.61 c-2.27-0.94-4.28-2.15-6.05-3.63c-1.68-1.4-3.15-2.99-4.4-4.72C1.84,68.28,0.04,62.66,0,57.06c-0.04-5.66,1.72-11.29,5.52-15.85 c1.23-1.48,2.68-2.84,4.34-4.04c1.93-1.4,4.14-2.58,6.64-3.55c1.72-0.67,3.56-1.23,5.5-1.68c2.2-8.74,6.89-15.47,12.92-20.14 c5.64-4.37,12.43-6.92,19.42-7.59c3.67-0.35,7.39-0.19,11.03,0.49c-0.08,0.33-0.15,0.66-0.19,1l-0.01,0.06 c-0.07,0.57-0.1,1.14-0.07,1.72c-0.77,0.3-1.49,0.71-2.14,1.21l-0.03,0.02C61.96,9.44,61.14,10.38,60.53,11.46L60.53,11.46z M113.44,30.66c0.56,0.51,1.1,1.04,1.63,1.61c1.07,1.15,2.08,2.45,3.03,3.9c3.2,4.92,4.84,11.49,4.77,17.92 c-0.07,6.31-1.77,12.59-5.25,17.21c-2.27,3.01-5.18,5.47-8.67,7.42c-2.39,1.34-5.08,2.45-8.01,3.35v-7.75 c1.58-0.59,3.05-1.25,4.4-2c2.63-1.47,4.78-3.26,6.39-5.41c2.5-3.33,3.73-8.04,3.78-12.87c0.06-5.07-1.18-10.16-3.59-13.86 c-0.69-1.07-1.45-2.03-2.25-2.89c-0.31-0.33-0.62-0.64-0.94-0.94c0.05-0.5,0.07-1.01,0.04-1.52c0.77-0.3,1.49-0.71,2.14-1.21 l0.03-0.02C111.97,32.81,112.83,31.81,113.44,30.66L113.44,30.66z M88.08,12.8c4.61,0.63,7.83,4.88,7.2,9.49 c-0.63,4.61-4.88,7.84-9.49,7.21c-4.61-0.63-7.84-4.88-7.2-9.49C79.23,15.4,83.47,12.17,88.08,12.8L88.08,12.8L88.08,12.8z" 
-class="st0"></path></g></svg></span> <strong>Testowanie REST API w Pythonie</strong></a>.</p>
+<p>Po więcej informacji przejdź do strony szkolenia <a href="testowanie-rest-api-w-pythonie/"><span class="twemoji"><?xml version="1.0" encoding="utf-8"?><svg id="Layer_1" style="enable-background:new 0 0 122.88 100.33" version="1.1" viewbox="0 0 122.88 100.33" x="0px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" y="0px"><style type="text/css"><![CDATA[
+	.st0{fill-rule:evenodd;clip-rule:evenodd;}
+]]></style><g><path class="st0" d="M102.79,7.11l2.59,3.41c0.68,0.9,0.51,2.19-0.39,2.87l-2.75,2.09c0.5,1.33,0.82,2.75,0.95,4.2l3.13,0.43 c1.12,0.15,1.9,1.19,1.75,2.31l-0.58,4.25c-0.15,1.12-1.19,1.91-2.31,1.75l-3.42-0.47c-0.61,1.33-1.39,2.55-2.31,3.64l1.92,2.52 c0.68,0.9,0.5,2.19-0.4,2.87l-3.41,2.59c-0.9,0.68-2.19,0.5-2.87-0.39l-2.09-2.75c-1.34,0.5-2.75,0.82-4.21,0.95l-0.43,3.13 c-0.15,1.12-1.19,1.9-2.31,1.75l-4.25-0.58c-1.12-0.15-1.9-1.19-1.75-2.31l0.47-3.42c-1.32-0.61-2.55-1.39-3.64-2.3l-2.52,1.91 c-0.9,0.68-2.19,0.51-2.87-0.39l-2.59-3.41c-0.68-0.9-0.51-2.19,0.39-2.87l2.75-2.09c-0.5-1.34-0.82-2.75-0.95-4.2l-3.13-0.43 c-1.12-0.15-1.91-1.19-1.75-2.31l0.58-4.25c0.16-1.12,1.19-1.9,2.31-1.75l3.42,0.47c0.61-1.32,1.39-2.55,2.3-3.64l-1.91-2.52 C71.83,7.28,72,5.99,72.9,5.31l3.41-2.59c0.9-0.68,2.19-0.51,2.87,0.39l2.09,2.75c1.33-0.5,2.75-0.82,4.2-0.95l0.43-3.13 c0.15-1.12,1.19-1.91,2.31-1.76l4.25,0.58c1.12,0.15,1.91,1.19,1.75,2.31l-0.47,3.42c1.33,0.61,2.55,1.39,3.65,2.31l2.52-1.91 C100.81,6.04,102.1,6.21,102.79,7.11L102.79,7.11L102.79,7.11z M29.67,67.12v-16.5h8.5c1.58,0,2.78,0.13,3.61,0.41 c0.83,0.27,1.51,0.77,2.01,1.5c0.51,0.74,0.77,1.63,0.77,2.68c0,0.91-0.2,1.71-0.59,2.37c-0.39,0.67-0.93,1.21-1.61,1.62 c-0.43,0.26-1.03,0.48-1.79,0.65c0.61,0.21,1.05,0.4,1.32,0.61c0.19,0.14,0.46,0.43,0.81,0.87c0.35,0.44,0.59,0.79,0.71,1.03 l2.48,4.77h-5.76l-2.72-5.03c-0.35-0.65-0.65-1.08-0.92-1.27c-0.37-0.25-0.79-0.38-1.25-0.38h-0.45v6.68H29.67L29.67,67.12z M47.65,95.85h-9.52l-1.37,4.48h-8.58l10.23-27.19h9.2l10.19,27.19h-8.8L47.65,95.85L47.65,95.85z M45.87,89.96l-2.97-9.78 l-2.98,9.78H45.87L45.87,89.96z M59.78,73.14h13.98c3.05,0,5.33,0.72,6.84,2.17c1.51,1.45,2.27,3.52,2.27,6.19 c0,2.75-0.83,4.9-2.48,6.45c-1.65,1.55-4.18,2.32-7.57,2.32h-4.61v10.06h-8.43V73.14L59.78,73.14z M68.21,84.76h2.07 c1.63,0,2.78-0.28,3.44-0.85c0.66-0.56,0.99-1.29,0.99-2.16c0-0.85-0.29-1.58-0.86-2.17c-0.57-0.59-1.65-0.89-3.23-0.89h-2.41 V84.76L68.21,84.76z M86.27,73.14h8.43v27.19h-8.43V73.14L86.27,73.14z M34.79,57.32h2.15c0.23,0,0.68-0.08,1.35-0.23 c0.34-0.07,0.62-0.24,0.83-0.52c0.22-0.28,0.32-0.6,0.32-0.96c0-0.53-0.17-0.95-0.51-1.23c-0.34-0.29-0.97-0.43-1.9-0.43h-2.24 V57.32L34.79,57.32z M46.87,50.62h13.65v3.52h-8.53v2.63h7.91v3.36h-7.91v3.25h8.78v3.73h-13.9V50.62L46.87,50.62z M61.98,61.66 l4.84-0.3c0.1,0.79,0.32,1.38,0.64,1.79c0.53,0.66,1.28,1,2.25,1c0.72,0,1.29-0.17,1.68-0.51c0.39-0.34,0.59-0.74,0.59-1.19 c0-0.43-0.19-0.81-0.56-1.15c-0.37-0.34-1.24-0.65-2.61-0.96c-2.23-0.5-3.82-1.17-4.78-2c-0.96-0.83-1.44-1.89-1.44-3.18 c0-0.85,0.25-1.65,0.74-2.4c0.49-0.75,1.23-1.35,2.22-1.78c0.99-0.43,2.34-0.64,4.06-0.64c2.11,0,3.71,0.39,4.82,1.18 c1.1,0.79,1.76,2.03,1.97,3.75l-4.79,0.29c-0.13-0.75-0.4-1.3-0.8-1.63c-0.41-0.34-0.98-0.51-1.69-0.51 c-0.59,0-1.04,0.13-1.34,0.38c-0.3,0.25-0.45,0.56-0.45,0.92c0,0.26,0.13,0.49,0.37,0.71c0.24,0.21,0.8,0.42,1.7,0.61 c2.23,0.48,3.83,0.97,4.79,1.46c0.96,0.49,1.67,1.1,2.1,1.83c0.44,0.72,0.66,1.54,0.66,2.44c0,1.06-0.29,2.03-0.88,2.92 c-0.58,0.89-1.4,1.57-2.45,2.03c-1.05,0.46-2.37,0.69-3.97,0.69c-2.8,0-4.75-0.54-5.83-1.62C62.74,64.69,62.13,63.32,61.98,61.66 L61.98,61.66z M77.69,50.62h15.51v4.08H88v12.42H82.9V54.7h-5.21V50.62L77.69,50.62z M60.53,11.46c-1.83-0.14-3.68-0.12-5.51,0.06 c-5.63,0.54-11.1,2.59-15.62,6.1c-5.23,4.05-9.2,10.11-10.73,18.14l-0.48,2.51l-2.5,0.44c-2.45,0.43-4.64,1.02-6.56,1.77 c-1.86,0.72-3.52,1.61-4.97,2.66c-1.16,0.84-2.16,1.78-3.01,2.8c-2.63,3.15-3.85,7.1-3.82,11.1c0.03,4.06,1.35,8.16,3.79,11.53 c0.91,1.25,1.96,2.4,3.16,3.4c1.22,1.01,2.59,1.85,4.13,2.48c0.87,0.36,1.8,0.66,2.77,0.9v7.49c-2-0.36-3.84-0.9-5.56-1.61 c-2.27-0.94-4.28-2.15-6.05-3.63c-1.68-1.4-3.15-2.99-4.4-4.72C1.84,68.28,0.04,62.66,0,57.06c-0.04-5.66,1.72-11.29,5.52-15.85 c1.23-1.48,2.68-2.84,4.34-4.04c1.93-1.4,4.14-2.58,6.64-3.55c1.72-0.67,3.56-1.23,5.5-1.68c2.2-8.74,6.89-15.47,12.92-20.14 c5.64-4.37,12.43-6.92,19.42-7.59c3.67-0.35,7.39-0.19,11.03,0.49c-0.08,0.33-0.15,0.66-0.19,1l-0.01,0.06 c-0.07,0.57-0.1,1.14-0.07,1.72c-0.77,0.3-1.49,0.71-2.14,1.21l-0.03,0.02C61.96,9.44,61.14,10.38,60.53,11.46L60.53,11.46z M113.44,30.66c0.56,0.51,1.1,1.04,1.63,1.61c1.07,1.15,2.08,2.45,3.03,3.9c3.2,4.92,4.84,11.49,4.77,17.92 c-0.07,6.31-1.77,12.59-5.25,17.21c-2.27,3.01-5.18,5.47-8.67,7.42c-2.39,1.34-5.08,2.45-8.01,3.35v-7.75 c1.58-0.59,3.05-1.25,4.4-2c2.63-1.47,4.78-3.26,6.39-5.41c2.5-3.33,3.73-8.04,3.78-12.87c0.06-5.07-1.18-10.16-3.59-13.86 c-0.69-1.07-1.45-2.03-2.25-2.89c-0.31-0.33-0.62-0.64-0.94-0.94c0.05-0.5,0.07-1.01,0.04-1.52c0.77-0.3,1.49-0.71,2.14-1.21 l0.03-0.02C111.97,32.81,112.83,31.81,113.44,30.66L113.44,30.66z M88.08,12.8c4.61,0.63,7.83,4.88,7.2,9.49 c-0.63,4.61-4.88,7.84-9.49,7.21c-4.61-0.63-7.84-4.88-7.2-9.49C79.23,15.4,83.47,12.17,88.08,12.8L88.08,12.8L88.08,12.8z"></path></g></svg></span> <strong>Testowanie REST API w Pythonie</strong></a>.</p>
 </div>
 <div class="admonition none">
-<p class="admonition-title"><span class="twemoji"><svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" role="img"><title>Playwright</title><path 
-d="M23.996 7.462c-.056.837-.257 2.135-.716 3.85-.995 3.715-4.27 10.874-10.42 9.227-6.15-1.65-5.407-9.487-4.412-13.201.46-1.716.934-2.94 1.305-3.694.42-.853.846-.289 1.815.523.684.573 2.41 1.791 5.011 2.488 2.601.697 4.706.506 5.583.352 1.245-.219 1.897-.494 1.834.455Zm-9.807 3.863s-.127-1.819-1.773-2.286c-1.644-.467-2.613 1.04-2.613 1.04Zm4.058 4.539-7.769-2.172s.446 2.306 3.338 3.153c2.862.836 4.43-.98 4.43-.981Zm2.701-2.51s-.13-1.818-1.773-2.286c-1.644-.469-2.612 1.038-2.612 1.038ZM8.57 18.23c-4.749 1.279-7.261-4.224-8.021-7.08C.197 9.831.044 8.832.003 8.188c-.047-.73.455-.52 1.415-.354.677.118 2.3.261 4.308-.28a11.28 11.28 0 0 0 2.41-.956c-.058.197-.114.4-.17.61-.433 1.618-.827 4.055-.632 6.426-1.976.732-2.267 2.423-2.267 2.423l2.524-.715c.227 1.002.6 1.987 1.15 2.838a5.914 5.914 0 0 1-.171.049Zm-4.188-6.298c1.265-.333 1.363-1.631 1.363-1.631l-3.374.888s.745 1.076 2.01.743Z"></path></svg></span> Playwright w Pythonie</p>
+<p class="admonition-title"><span class="twemoji"><svg role="img" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><title>Playwright</title><path d="M23.996 7.462c-.056.837-.257 2.135-.716 3.85-.995 3.715-4.27 10.874-10.42 9.227-6.15-1.65-5.407-9.487-4.412-13.201.46-1.716.934-2.94 1.305-3.694.42-.853.846-.289 1.815.523.684.573 2.41 1.791 5.011 2.488 2.601.697 4.706.506 5.583.352 1.245-.219 1.897-.494 1.834.455Zm-9.807 3.863s-.127-1.819-1.773-2.286c-1.644-.467-2.613 1.04-2.613 1.04Zm4.058 4.539-7.769-2.172s.446 2.306 3.338 3.153c2.862.836 4.43-.98 4.43-.981Zm2.701-2.51s-.13-1.818-1.773-2.286c-1.644-.469-2.612 1.038-2.612 1.038ZM8.57 18.23c-4.749 1.279-7.261-4.224-8.021-7.08C.197 9.831.044 8.832.003 8.188c-.047-.73.455-.52 1.415-.354.677.118 2.3.261 4.308-.28a11.28 11.28 0 0 0 2.41-.956c-.058.197-.114.4-.17.61-.433 1.618-.827 4.055-.632 6.426-1.976.732-2.267 2.423-2.267 2.423l2.524-.715c.227 1.002.6 1.987 1.15 2.838a5.914 5.914 0 0 1-.171.049Zm-4.188-6.298c1.265-.333 1.363-1.631 1.363-1.631l-3.374.888s.745 1.076 2.01.743Z"></path></svg></span> Playwright w Pythonie</p>
 <p><a href="playwright-w-pythonie/">Playwright w Pythonie</a> to szkolenie poświęcone testowaniu aplikacji webowych z nastawieniem na ich graficzny interfejs użytkownika (tzw. GUI), który dostępny jest w przeglądarce internetowej. Podczas szkolenia poznasz zdobywającą coraz większą popularność bibliotekę <a href="https://playwright.dev/python/">Playwright w języku Python</a>.</p>
-<p>Po więcej informacji przejdź do strony szkolenia <a href="playwright-w-pythonie/"><span class="twemoji"><svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" role="img"><title>Playwright</title><path 
-d="M23.996 7.462c-.056.837-.257 2.135-.716 3.85-.995 3.715-4.27 10.874-10.42 9.227-6.15-1.65-5.407-9.487-4.412-13.201.46-1.716.934-2.94 1.305-3.694.42-.853.846-.289 1.815.523.684.573 2.41 1.791 5.011 2.488 2.601.697 4.706.506 5.583.352 1.245-.219 1.897-.494 1.834.455Zm-9.807 3.863s-.127-1.819-1.773-2.286c-1.644-.467-2.613 1.04-2.613 1.04Zm4.058 4.539-7.769-2.172s.446 2.306 3.338 3.153c2.862.836 4.43-.98 4.43-.981Zm2.701-2.51s-.13-1.818-1.773-2.286c-1.644-.469-2.612 1.038-2.612 1.038ZM8.57 18.23c-4.749 1.279-7.261-4.224-8.021-7.08C.197 9.831.044 8.832.003 8.188c-.047-.73.455-.52 1.415-.354.677.118 2.3.261 4.308-.28a11.28 11.28 0 0 0 2.41-.956c-.058.197-.114.4-.17.61-.433 1.618-.827 4.055-.632 6.426-1.976.732-2.267 2.423-2.267 2.423l2.524-.715c.227 1.002.6 1.987 1.15 2.838a5.914 5.914 0 0 1-.171.049Zm-4.188-6.298c1.265-.333 1.363-1.631 1.363-1.631l-3.374.888s.745 1.076 2.01.743Z"></path></svg></span> <strong>Playwright w Pythonie</strong></a></p>
+<p>Po więcej informacji przejdź do strony szkolenia <a href="playwright-w-pythonie/"><span class="twemoji"><svg role="img" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><title>Playwright</title><path d="M23.996 7.462c-.056.837-.257 2.135-.716 3.85-.995 3.715-4.27 10.874-10.42 9.227-6.15-1.65-5.407-9.487-4.412-13.201.46-1.716.934-2.94 1.305-3.694.42-.853.846-.289 1.815.523.684.573 2.41 1.791 5.011 2.488 2.601.697 4.706.506 5.583.352 1.245-.219 1.897-.494 1.834.455Zm-9.807 3.863s-.127-1.819-1.773-2.286c-1.644-.467-2.613 1.04-2.613 1.04Zm4.058 4.539-7.769-2.172s.446 2.306 3.338 3.153c2.862.836 4.43-.98 4.43-.981Zm2.701-2.51s-.13-1.818-1.773-2.286c-1.644-.469-2.612 1.038-2.612 1.038ZM8.57 18.23c-4.749 1.279-7.261-4.224-8.021-7.08C.197 9.831.044 8.832.003 8.188c-.047-.73.455-.52 1.415-.354.677.118 2.3.261 4.308-.28a11.28 11.28 0 0 0 2.41-.956c-.058.197-.114.4-.17.61-.433 1.618-.827 4.055-.632 6.426-1.976.732-2.267 2.423-2.267 2.423l2.524-.715c.227 1.002.6 1.987 1.15 2.838a5.914 5.914 0 0 1-.171.049Zm-4.188-6.298c1.265-.333 1.363-1.631 1.363-1.631l-3.374.888s.745 1.076 2.01.743Z"></path></svg></span> <strong>Playwright w Pythonie</strong></a></p>
 </div>
 </article>
 </div>
 <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var labels=set.querySelector(".tabbed-labels");for(var tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
 <script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
 </div>
-<button class="md-icon md-top" type="button" data-md-component="top" hidden>
+<button class="md-top md-icon" data-md-component="top" hidden="" type="button">
 <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"></path></svg>
-Powrót do góry
+  Powrót do góry
 </button>
 </main>
 <footer class="md-footer">
-<nav class="md-grid md-footer__inner" aria-label="Stopka">
-<a href="../../python-kompendium/" class="md-footer__link md-footer__link--prev" rel="prev" aria-label="Poprzednia strona: Python">
-<div class="md-icon md-footer__button">
+<nav aria-label="Stopka" class="md-footer__inner md-grid">
+<a aria-label="Poprzednia strona: Python" class="md-footer__link md-footer__link--prev" href="../../python-kompendium/" rel="prev">
+<div class="md-footer__button md-icon">
 <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"></path></svg>
 </div>
 <div class="md-footer__title">
 <span class="md-footer__direction">
-Poprzednia strona
-</span>
+                Poprzednia strona
+              </span>
 <div class="md-ellipsis">
-Python
-</div>
+                Python
+              </div>
 </div>
 </a>
-<a href="testowanie-rest-api-w-pythonie/" class="md-footer__link md-footer__link--next" rel="next" aria-label="Następna strona: Testowania REST API w Pythonie">
+<a aria-label="Następna strona: Testowania REST API w Pythonie" class="md-footer__link md-footer__link--next" href="testowanie-rest-api-w-pythonie/" rel="next">
 <div class="md-footer__title">
 <span class="md-footer__direction">
-Następna strona
-</span>
+                Następna strona
+              </span>
 <div class="md-ellipsis">
-Testowania REST API w Pythonie
+                Testowania REST API w Pythonie
+              </div>
 </div>
-</div>
-<div class="md-icon md-footer__button">
+<div class="md-footer__button md-icon">
 <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"></path></svg>
 </div>
 </a>
 </nav>
-<div class="md-typeset md-footer-meta">
-<div class="md-grid md-footer-meta__inner">
+<div class="md-footer-meta md-typeset">
+<div class="md-footer-meta__inner md-grid">
 <div class="md-copyright">
 <div class="md-copyright__highlight">
-© 2019-2024 Maciej Kusz
-</div>
-Utworzono z wykorzystaniem
-<a href="https://www.mkdocs.org/" rel="noopener" target="_blank">
-MkDocs
-</a>, <a href="https://squidfunk.github.io/mkdocs-material/" rel="noopener" target="_blank">
-Material for MkDocs
-</a>, <a href="https://mkusz.github.io/mkdocs-publisher/" rel="noopener" target="_blank">
-MkDocs Publisher
-</a> oraz <a href="https://pages.github.com" rel="noopener" target="_blank">
-GitHub Pages
-</a>.
+      © 2019-2024 Maciej Kusz
+
+    </div>
+  
+  
+    Utworzono z wykorzystaniem
+    <a href="https://www.mkdocs.org/" rel="noopener" target="_blank">
+      MkDocs
+    </a>, <a href="https://squidfunk.github.io/mkdocs-material/" rel="noopener" target="_blank">
+      Material for MkDocs
+    </a>, <a href="https://mkusz.github.io/mkdocs-publisher/" rel="noopener" target="_blank">
+      MkDocs Publisher
+    </a> oraz <a href="https://pages.github.com" rel="noopener" target="_blank">
+      GitHub Pages
+    </a>.
+  
 </div>
 <div class="md-social">
-<a href="feed_rss_created.xml" class="md-social__link" title="" rel="noopener" target="_blank">
+<a class="md-social__link" href="feed_rss_created.xml" rel="noopener" target="_blank" title="">
 <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M6.18 15.64a2.18 2.18 0 0 1 2.18 2.18C8.36 19 7.38 20 6.18 20 5 20 4 19 4 17.82a2.18 2.18 0 0 1 2.18-2.18M4 4.44A15.56 15.56 0 0 1 19.56 20h-2.83A12.73 12.73 0 0 0 4 7.27zm0 5.66a9.9 9.9 0 0 1 9.9 9.9h-2.83A7.07 7.07 0 0 0 4 12.93z"></path></svg>
 </a>
-<a href="https://www.facebook.com/testerembyc" class="md-social__link" title="www.facebook.com" rel="noopener" target="_blank">
+<a class="md-social__link" href="https://www.facebook.com/testerembyc" rel="noopener" target="_blank" title="www.facebook.com">
 <svg viewbox="0 0 512 512" xmlns="http://www.w3.org/2000/svg"><!--! Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M512 256C512 114.6 397.4 0 256 0S0 114.6 0 256c0 120 82.7 220.8 194.2 248.5V334.2h-52.8V256h52.8v-33.7c0-87.1 39.4-127.5 125-127.5 16.2 0 44.2 3.2 55.7 6.4V172c-6-.6-16.5-1-29.6-1-42 0-58.2 15.9-58.2 57.2V256h83.6l-14.4 78.2H287v175.9C413.8 494.8 512 386.9 512 256"></path></svg>
 </a>
-<a href="https://www.instagram.com/testerembyc/" class="md-social__link" title="www.instagram.com" rel="noopener" target="_blank">
-<svg viewbox="0 0 448 512" xmlns="http://www.w3.org/2000/svg"><!--! Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path 
-d="M224.1 141c-63.6 0-114.9 51.3-114.9 114.9s51.3 114.9 114.9 114.9S339 319.5 339 255.9 287.7 141 224.1 141m0 189.6c-41.1 0-74.7-33.5-74.7-74.7s33.5-74.7 74.7-74.7 74.7 33.5 74.7 74.7-33.6 74.7-74.7 74.7m146.4-194.3c0 14.9-12 26.8-26.8 26.8-14.9 0-26.8-12-26.8-26.8s12-26.8 26.8-26.8 26.8 12 26.8 26.8m76.1 27.2c-1.7-35.9-9.9-67.7-36.2-93.9-26.2-26.2-58-34.4-93.9-36.2-37-2.1-147.9-2.1-184.9 0-35.8 1.7-67.6 9.9-93.9 36.1s-34.4 58-36.2 93.9c-2.1 37-2.1 147.9 0 184.9 1.7 35.9 9.9 67.7 36.2 93.9s58 34.4 93.9 36.2c37 2.1 147.9 2.1 184.9 0 35.9-1.7 67.7-9.9 93.9-36.2 26.2-26.2 34.4-58 36.2-93.9 2.1-37 2.1-147.8 0-184.8M398.8 388c-7.8 19.6-22.9 34.7-42.6 42.6-29.5 11.7-99.5 9-132.1 9s-102.7 2.6-132.1-9c-19.6-7.8-34.7-22.9-42.6-42.6-11.7-29.5-9-99.5-9-132.1s-2.6-102.7 9-132.1c7.8-19.6 22.9-34.7 42.6-42.6 29.5-11.7 99.5-9 132.1-9s102.7-2.6 132.1 9c19.6 7.8 34.7 22.9 42.6 42.6 11.7 29.5 9 99.5 9 132.1s2.7 102.7-9 132.1"></path></svg>
+<a class="md-social__link" href="https://www.instagram.com/testerembyc/" rel="noopener" target="_blank" title="www.instagram.com">
+<svg viewbox="0 0 448 512" xmlns="http://www.w3.org/2000/svg"><!--! Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M224.1 141c-63.6 0-114.9 51.3-114.9 114.9s51.3 114.9 114.9 114.9S339 319.5 339 255.9 287.7 141 224.1 141m0 189.6c-41.1 0-74.7-33.5-74.7-74.7s33.5-74.7 74.7-74.7 74.7 33.5 74.7 74.7-33.6 74.7-74.7 74.7m146.4-194.3c0 14.9-12 26.8-26.8 26.8-14.9 0-26.8-12-26.8-26.8s12-26.8 26.8-26.8 26.8 12 26.8 26.8m76.1 27.2c-1.7-35.9-9.9-67.7-36.2-93.9-26.2-26.2-58-34.4-93.9-36.2-37-2.1-147.9-2.1-184.9 0-35.8 1.7-67.6 9.9-93.9 36.1s-34.4 58-36.2 93.9c-2.1 37-2.1 147.9 0 184.9 1.7 35.9 9.9 67.7 36.2 93.9s58 34.4 93.9 36.2c37 2.1 147.9 2.1 184.9 0 35.9-1.7 67.7-9.9 93.9-36.2 26.2-26.2 34.4-58 36.2-93.9 2.1-37 2.1-147.8 0-184.8M398.8 388c-7.8 19.6-22.9 34.7-42.6 42.6-29.5 11.7-99.5 9-132.1 9s-102.7 2.6-132.1-9c-19.6-7.8-34.7-22.9-42.6-42.6-11.7-29.5-9-99.5-9-132.1s-2.6-102.7 9-132.1c7.8-19.6 22.9-34.7 42.6-42.6 29.5-11.7 99.5-9 132.1-9s102.7-2.6 132.1 9c19.6 7.8 34.7 22.9 42.6 42.6 11.7 29.5 9 99.5 9 132.1s2.7 102.7-9 132.1"></path></svg>
 </a>
-<a href="https://www.youtube.com/@testerembyc" class="md-social__link" title="www.youtube.com" rel="noopener" target="_blank">
+<a class="md-social__link" href="https://www.youtube.com/@testerembyc" rel="noopener" target="_blank" title="www.youtube.com">
 <svg viewbox="0 0 576 512" xmlns="http://www.w3.org/2000/svg"><!--! Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M549.655 124.083c-6.281-23.65-24.787-42.276-48.284-48.597C458.781 64 288 64 288 64S117.22 64 74.629 75.486c-23.497 6.322-42.003 24.947-48.284 48.597-11.412 42.867-11.412 132.305-11.412 132.305s0 89.438 11.412 132.305c6.281 23.65 24.787 41.5 48.284 47.821C117.22 448 288 448 288 448s170.78 0 213.371-11.486c23.497-6.321 42.003-24.171 48.284-47.821 11.412-42.867 11.412-132.305 11.412-132.305s0-89.438-11.412-132.305m-317.51 213.508V175.185l142.739 81.205z"></path></svg>
 </a>
-<a href="https://www.linkedin.com/in/maciej-kusz/" class="md-social__link" title="www.linkedin.com" rel="noopener" target="_blank">
+<a class="md-social__link" href="https://www.linkedin.com/in/maciej-kusz/" rel="noopener" target="_blank" title="www.linkedin.com">
 <svg viewbox="0 0 448 512" xmlns="http://www.w3.org/2000/svg"><!--! Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3M135.4 416H69V202.2h66.5V416zm-33.2-243c-21.3 0-38.5-17.3-38.5-38.5S80.9 96 102.2 96c21.2 0 38.5 17.3 38.5 38.5 0 21.3-17.2 38.5-38.5 38.5m282.1 243h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9z"></path></svg>
 </a>
-<a href="https://github.com/mkusz" class="md-social__link" title="github.com" rel="noopener" target="_blank">
-<svg viewbox="0 0 496 512" xmlns="http://www.w3.org/2000/svg"><!--! Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path 
-d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8M97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2">
-</path></svg>
+<a class="md-social__link" href="https://github.com/mkusz" rel="noopener" target="_blank" title="github.com">
+<svg viewbox="0 0 496 512" xmlns="http://www.w3.org/2000/svg"><!--! Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8M97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"></path></svg>
 </a>
-<a href="mailto:maciej@testerembyc.pl" class="md-social__link" title="" rel="noopener" target="_blank">
+<a class="md-social__link" href="mailto:maciej@testerembyc.pl" rel="noopener" target="_blank" title="">
 <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="m4 8 8 5 8-5-8-5zm18 0v10a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V8c0-.73.39-1.36.97-1.71L12 .64l9.03 5.65c.58.35.97.98.97 1.71"></path></svg>
 </a>
 </div>
@@ -769,24 +1183,24 @@ d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-
 </footer>
 </div>
 <div class="md-dialog" data-md-component="dialog">
-<div class="md-typeset md-dialog__inner"></div>
+<div class="md-dialog__inner md-typeset"></div>
 </div>
 <div class="md-progress" data-md-component="progress" role="progressbar"></div>
-<div class="md-consent" data-md-component="consent" hidden id="__consent">
+<div class="md-consent" data-md-component="consent" hidden="" id="__consent">
 <div class="md-consent__overlay"></div>
 <aside class="md-consent__inner">
-<form class="md-grid md-consent__form md-typeset" name="consent">
+<form class="md-consent__form md-grid md-typeset" name="consent">
 <h4>Lubisz ciasteczka?</h4>
 <p>Używam ich, aby dostarczyć Ci lepszych treści. Chcesz wiedzieć więcej? Zerknij do <a href="/pages/polityka-prywatnosci/" target="_blank">polityki prywatności</a>.</p>
-<input type="checkbox" class="md-toggle" id="__settings">
+<input class="md-toggle" id="__settings" type="checkbox"/>
 <div class="md-consent__settings">
 <ul class="task-list">
 <li class="task-list-item">
 <label class="task-list-control">
-<input type="checkbox" name="analytics" checked>
+<input checked="" name="analytics" type="checkbox"/>
 <span class="task-list-indicator"></span>
-Google Analytics
-</label>
+      Google Analytics
+    </label>
 </li>
 </ul>
 </div>
@@ -797,12 +1211,25 @@ Google Analytics
 </form>
 </aside>
 </div>
-<script>var consent=__md_get("__consent");if(consent)for(var input of document.forms.consent.elements)input.name&&(input.checked=consent[input.name]||!1);else"file:"!==location.protocol&&setTimeout(function(){document.querySelector("[data-md-component=consent]").hidden=!1},250);var form=document.forms.consent;for(var action of["submit","reset"])form.addEventListener(action,function(e){if(e.preventDefault(),"reset"===e.type)for(var n of document.forms.consent.elements)n.name&&(n.checked=!1);__md_set("__consent",Object.fromEntries(Array.from(new FormData(form).keys()).map(function(e){return[e,!0]}))),location.hash="",location.reload()})</script>
+<script>var consent=__md_get("__consent");if(consent)for(var input of document.forms.consent.elements)input.name&&(input.checked=consent[input.name]||!1);else"file:"!==location.protocol&&setTimeout((function(){document.querySelector("[data-md-component=consent]").hidden=!1}),250);var form=document.forms.consent;for(var action of["submit","reset"])form.addEventListener(action,(function(e){if(e.preventDefault(),"reset"===e.type)for(var n of document.forms.consent.elements)n.name&&(n.checked=!1);__md_set("__consent",Object.fromEntries(Array.from(new FormData(form).keys()).map((function(e){return[e,!0]})))),location.hash="",location.reload()}))</script>
 <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.tabs", "navigation.tabs.sticky", "navigation.footer", "navigation.tracking", "navigation.top", "navigation.indexes", "navigation.instant", "navigation.instant.progress", "search.suggest", "search.highlight", "search.share", "content.code.copy", "content.code.annotate", "content.tabs.link", "toc.follow"], "search": "../../assets/javascripts/workers/search.d50fe291.min.js", "tags": null, "translations": {"clipboard.copied": "Skopiowano do schowka", "clipboard.copy": "Kopiuj do schowka", "search.result.more.one": "1 wi\u0119cej na tej stronie", "search.result.more.other": "# wi\u0119cej na tej stronie", "search.result.none": "Brak wynik\u00f3w wyszukiwania", "search.result.one": "Wyniki wyszukiwania: 1", "search.result.other": "Wyniki wyszukiwania: #", "search.result.placeholder": "Zacznij pisa\u0107, aby szuka\u0107", "search.result.term.missing": "Brak", "select.version": "Wybierz wersj\u0119"}, "version": null}</script>
 <script src="../../assets/javascripts/bundle.13a4f30d.min.js"></script>
-<script defer>!function(e,t,n,c,o,a,f){e.fbq||(o=e.fbq=function(){o.callMethod?o.callMethod.apply(o,arguments):o.queue.push(arguments)},e._fbq||(e._fbq=o),o.push=o,o.loaded=!0,o.version="2.0",o.queue=[],(a=t.createElement(n)).async=!0,a.src="https://connect.facebook.net/en_US/fbevents.js",(f=t.getElementsByTagName(n)[0]).parentNode.insertBefore(a,f))}(window,document,"script"),fbq("init","444619046317574"),fbq("track","PageView")</script>
+<!-- Facebook Pixel Code -->
+<script defer="">
+    !function(f,b,e,v,n,t,s)
+    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+    n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];
+    s.parentNode.insertBefore(t,s)}(window, document,'script',
+    'https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', '444619046317574');
+    fbq('track', 'PageView');
+  </script>
 <noscript>
-<img src="https://www.facebook.com/tr?id=444619046317574&amp;ev=PageView&amp;noscript=1" alt="Facebook Pixel" height="1" style="display:none" width="1">
-</noscript>
+<img alt="Facebook Pixel" height="1" src="https://www.facebook.com/tr?id=444619046317574&amp;ev=PageView&amp;noscript=1" style="display:none" width="1">
+</img></noscript>
+<!-- End Facebook Pixel Code -->
 </body>
 </html>

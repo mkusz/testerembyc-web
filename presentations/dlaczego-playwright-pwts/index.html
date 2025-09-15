@@ -1,27 +1,98 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="utf-8">
-<meta content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no" name="viewport">
-<title></title>
-<link href="dist/reset.css" rel="stylesheet">
-<link href="dist/reveal.css" rel="stylesheet">
-<link href="css/slides-extended.css" rel="stylesheet">
-<link href="dist/theme/blood.css" rel="stylesheet" id="theme">
-<link href="plugin/highlight/monokai.css" rel="stylesheet">
-<link href="plugin/customcontrols/style.css" rel="stylesheet">
-<script src="dist/fontawesome/all.min.js" defer></script>
-<script type="text/javascript">
-function pageInIframe(){return window.location!==window.parent.location}let forgetPop=!0;function onPopState(e){forgetPop?forgetPop=!1:pageInIframe()&&parent.postMessage(e.target.location.href,"app://obsidian.md")}function fitElements(){const e=document.getElementsByClassName("fitText");for(const t in e)if(Object.hasOwnProperty.call(e,t)){const o=e[t];fitElement(o,1,1e3),o.classList.remove("fitText")}}function fitElement(e,t,o){let n=(o+t)/2;if(e.style.fontSize=`${n}px`,Math.abs(t-o)<1)for(;e.scrollHeight>e.offsetHeight;)n--,e.style.fontSize=`${n}px`;else e.scrollHeight>e.offsetHeight?fitElement(e,t,n):fitElement(e,n,o)}window.onpopstate=onPopState,window.onmessage=e=>{"reload"==e.data&&window.document.location.reload(),forgetPop=!0},document.onreadystatechange=()=>{if(fitElements(),"complete"===document.readyState&&(pageInIframe()&&-1!=window.location.href.indexOf("?export")&&parent.postMessage(event.target.location.href,"app://obsidian.md"),-1!=window.location.href.indexOf("print-pdf"))){let e=setInterval((()=>{clearInterval(e),window.print()}),250)}}
-</script>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+
+    <title></title>
+    <link rel="stylesheet" href="dist/reset.css">
+    <link rel="stylesheet" href="dist/reveal.css" />
+    <link rel="stylesheet" href="css/slides-extended.css" />
+    <link rel="stylesheet" href="dist/theme/blood.css" id="theme" />
+    <link rel="stylesheet" href="plugin/highlight/monokai.css" />
+    <link rel="stylesheet" href="plugin/customcontrols/style.css">
+
+
+
+    <script defer src="dist/fontawesome/all.min.js"></script>
+
+    <script type="text/javascript">
+        function pageInIframe() {
+            return (window.location !== window.parent.location);
+        }
+
+        let forgetPop = true;
+        function onPopState(event) {
+            if(forgetPop){
+                forgetPop = false;
+            } else if( pageInIframe()) {
+                parent.postMessage(event.target.location.href, "app://obsidian.md");
+            }
+        }
+        window.onpopstate = onPopState;
+        window.onmessage = event => {
+            if(event.data == "reload"){
+                window.document.location.reload();
+            }
+            forgetPop = true;
+        }
+
+        function fitElements() {
+            const itemsToFit = document.getElementsByClassName('fitText');
+            for (const item in itemsToFit) {
+                if (Object.hasOwnProperty.call(itemsToFit, item)) {
+                    const element = itemsToFit[item];
+                    fitElement(element, 1, 1000);
+                    element.classList.remove('fitText');
+                }
+            }
+        }
+
+        function fitElement(element, start, end) {
+
+            let size = (end + start) / 2;
+            element.style.fontSize = `${size}px`;
+
+            if (Math.abs(start - end) < 1) {
+                while (element.scrollHeight > element.offsetHeight) {
+                    size--;
+                    element.style.fontSize = `${size}px`;
+                }
+                return;
+            }
+
+            if (element.scrollHeight > element.offsetHeight) {
+                fitElement(element, start, size);
+            } else {
+                fitElement(element, size, end);
+            }
+        }
+
+
+        document.onreadystatechange = () => {
+            fitElements();
+            if (document.readyState === 'complete') {
+                if (pageInIframe() && window.location.href.indexOf("?export") != -1){
+                    parent.postMessage(event.target.location.href, "app://obsidian.md");
+                }
+                if (window.location.href.indexOf("print-pdf") != -1){
+                    let stateCheck = setInterval(() => {
+                        clearInterval(stateCheck);
+                        window.print();
+                    }, 250);
+                }
+            }
+        };
+    </script>
 </head>
+
 <body>
-<div class="reveal">
-<div class="slides"><section data-markdown><script type="text/template"><!-- .slide: class="drop" template="" -->
+    <div class="reveal">
+        <div class="slides"><section  data-markdown><script type="text/template"><!-- .slide: class="drop" template="" -->
 <div class="" style="position: absolute; left: 0px; top: 0px; height: 768px; width: 1366px; min-height: 768px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
 
 # Dlaczego Playwright?
-</div></script></section><section data-markdown><script type="text/template"><!-- .slide: class="drop" template="" -->
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" template="" -->
 <div class="" style="position: absolute; left: 0px; top: 0px; height: 768px; width: 1366px; min-height: 768px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
 
 ## Trochę historii
@@ -35,7 +106,7 @@ function pageInIframe(){return window.location!==window.parent.location}let forg
 
 Selenium 4.0.0 ukazał się z końcem października 2021
 </div>
-</div></script></section><section data-markdown><script type="text/template"><!-- .slide: class="drop" template="" -->
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" template="" -->
 <div class="" style="position: absolute; left: 0px; top: 0px; height: 768px; width: 1366px; min-height: 768px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
 
 ## Ilość pobrań
@@ -49,7 +120,7 @@ Selenium 4.0.0 ukazał się z końcem października 2021
 żródło: npm trends
 
 </div>
-</div></script></section><section data-markdown><script type="text/template"><!-- .slide: class="drop" template="" -->
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" template="" -->
 <div class="" style="position: absolute; left: 0px; top: 0px; height: 768px; width: 1366px; min-height: 768px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
 
 ## Ilość pobrań
@@ -63,7 +134,7 @@ Selenium 4.0.0 ukazał się z końcem października 2021
 żródło: npm trends
 
 </div>
-</div></script></section><section data-markdown><script type="text/template"><!-- .slide: class="drop" template="" -->
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" template="" -->
 <div class="" style="position: absolute; left: 0px; top: 0px; height: 768px; width: 1366px; min-height: 768px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
 
 ## Problemy Selenium
@@ -77,11 +148,11 @@ Selenium 4.0.0 ukazał się z końcem października 2021
 - &shy;<!-- .element: class="fragment" data-fragment-index="7" -->nagrywanie video z testu
 - &shy;<!-- .element: class="fragment" data-fragment-index="8" -->nagrywanie komunikacji
 - &shy;<!-- .element: class="fragment" data-fragment-index="9" -->... ogólnie debugowanie testu
-</div></script></section><section data-markdown><script type="text/template"><!-- .slide: class="drop" template="" -->
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" template="" -->
 <div class="" style="position: absolute; left: 0px; top: 0px; height: 768px; width: 1366px; min-height: 768px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
 
 # Playwright
-</div></script></section><section data-markdown><script type="text/template"><!-- .slide: class="drop" template="" -->
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" template="" -->
 <div class="" style="position: absolute; left: 0px; top: 0px; height: 768px; width: 1366px; min-height: 768px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
 
 ## Filozofia
@@ -95,7 +166,7 @@ Selenium 4.0.0 ukazał się z końcem października 2021
 - &shy;<!-- .element: class="fragment" data-fragment-index="7" -->wbudowane narzędzia: Codegen, Inspector, Trace Viewer, Report
 - &shy;<!-- .element: class="fragment" data-fragment-index="8" -->łatwa konfiguracja
 - &shy;<!-- .element: class="fragment" data-fragment-index="9" -->tagi, grupowanie, parametryzacja, zrównoleglenie, itp.
-</div></script></section><section data-markdown><script type="text/template"><!-- .slide: class="drop" template="" -->
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" template="" -->
 <div class="" style="position: absolute; left: 0px; top: 0px; height: 768px; width: 1366px; min-height: 768px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
 
 ## Mobile
@@ -116,7 +187,7 @@ const context = await browser.newContext({
 ```
 
 <!-- .element: class="fragment" data-fragment-index="4" -->
-</div></script></section><section data-markdown><script type="text/template"><!-- .slide: class="drop" template="" -->
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" template="" -->
 <div class="" style="position: absolute; left: 0px; top: 0px; height: 768px; width: 1366px; min-height: 768px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
 
 ## Auto-wait
@@ -129,7 +200,7 @@ czyli np. dla [locator.click()](https://playwright.dev/docs/api/class-locator),
 - &shy;<!-- .element: class="fragment" data-fragment-index="4" -->element [Receives Events](https://playwright.dev/docs/actionability#receives-events ) - nie jest przesłonięty
 - &shy;<!-- .element: class="fragment" data-fragment-index="5" -->element jest [Enabled](https://playwright.dev/docs/actionability#enabled)
 - &shy;<!-- .element: class="fragment" data-fragment-index="6" -->element jest [Editable](https://playwright.dev/docs/actionability#editable) - nie jest `readonly`
-</div></script></section><section data-markdown><script type="text/template"><!-- .slide: class="drop" template="" -->
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" template="" -->
 <div class="" style="position: absolute; left: 0px; top: 0px; height: 768px; width: 1366px; min-height: 768px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
 
 <img src="images/auto-waits.png" alt="" style="object-fit: scale-down">
@@ -139,7 +210,7 @@ czyli np. dla [locator.click()](https://playwright.dev/docs/api/class-locator),
 
 Dokumentacja Playwright - sekcja [Auto-waiting](https://playwright.dev/docs/actionability)
 </div>
-</div></script></section><section data-markdown><script type="text/template"><!-- .slide: class="drop" template="" -->
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" template="" -->
 <div class="" style="position: absolute; left: 0px; top: 0px; height: 768px; width: 1366px; min-height: 768px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
 
 ## Asercje
@@ -157,7 +228,7 @@ await expect.soft(locator, "Some error").toBeSomething(timeout=10000)
 expect(test.info().errors).toHaveLength(0);
 ```
 <!-- .element: class="fragment" data-fragment-index="6" -->
-</div></script></section><section data-markdown><script type="text/template"><!-- .slide: class="drop" template="" -->
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" template="" -->
 <div class="" style="position: absolute; left: 0px; top: 0px; height: 768px; width: 1366px; min-height: 768px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
 
 <img src="images/assertions-ts.png" alt="" style="object-fit: scale-down">
@@ -167,7 +238,7 @@ expect(test.info().errors).toHaveLength(0);
 
 Dokumentacja Playwright - sekcja [Assertions](https://playwright.dev/docs/test-assertions)
 </div>
-</div></script></section><section data-markdown><script type="text/template"><!-- .slide: class="drop" template="" -->
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" template="" -->
 <div class="" style="position: absolute; left: 0px; top: 0px; height: 768px; width: 1366px; min-height: 768px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
 
 ## Timeouty
@@ -185,7 +256,7 @@ Dokumentacja Playwright - sekcja [Assertions](https://playwright.dev/docs/test-a
 Dokumentacja Playwright - sekcja [Assertions](https://playwright.dev/docs/test-timeouts)
 </div>
 <!-- .element: class="fragment" data-fragment-index="9" -->
-</div></script></section><section data-markdown><script type="text/template"><!-- .slide: class="drop" template="" -->
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" template="" -->
 <div class="" style="position: absolute; left: 0px; top: 0px; height: 768px; width: 1366px; min-height: 768px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
 
 ## Lokatory
@@ -202,7 +273,7 @@ Dokumentacja Playwright - sekcja [Assertions](https://playwright.dev/docs/test-t
 - &shy;<!-- .element: class="fragment" data-fragment-index="10" -->[page.locator("_react=...")](https://playwright.dev/docs/other-locators#react-locator)
 - &shy;<!-- .element: class="fragment" data-fragment-index="11" -->[page.locator("_vue=...")](https://playwright.dev/docs/other-locators#vue-locator)
 - &shy;<!-- .element: class="fragment" data-fragment-index="12" -->..., bo można definiować własne
-</div></script></section><section data-markdown><script type="text/template"><!-- .slide: class="drop" template="" -->
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" template="" -->
 <div class="" style="position: absolute; left: 0px; top: 0px; height: 768px; width: 1366px; min-height: 768px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
 
 ## Sztuczki z lokatorami
@@ -224,7 +295,7 @@ page.getByRole("button").and(page.getByTitle("Subscribe"))
 ```
 
 W dokumentacji jest więcej o: [filtrach](https://playwright.dev/docs/locators#filtering-locators), [operatorach](https://playwright.dev/docs/locators#locator-operators) i [innych](https://playwright.dev/docs/api/class-locator#locator-first)
-</div></script></section><section data-markdown><script type="text/template"><!-- .slide: class="drop" template="" -->
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" template="" -->
 <div class="" style="position: absolute; left: 0px; top: 0px; height: 768px; width: 1366px; min-height: 768px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
 
 ## Mockowanie REST API
@@ -244,7 +315,7 @@ test("mocks a fruit and doesn't call api", async ({ page }) => {
   await expect(page.getByText('Strawberry')).toBeVisible();  
 });
 ```
-</div></script></section><section data-markdown><script type="text/template"><!-- .slide: class="drop" template="" -->
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" template="" -->
 <div class="" style="position: absolute; left: 0px; top: 0px; height: 768px; width: 1366px; min-height: 768px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
 
 ## Instalacja
@@ -256,7 +327,7 @@ npx playwright install --with-deps
 
 npx playwright --version
 ```
-</div></script></section><section data-markdown><script type="text/template"><!-- .slide: class="drop" template="" -->
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" template="" -->
 <div class="" style="position: absolute; left: 0px; top: 0px; height: 768px; width: 1366px; min-height: 768px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
 
 ## .env i direnv
@@ -266,55 +337,55 @@ QA_PLAYWRIGHT_BROWSER=chromium
 QA_PLAYWRIGHT_HEADLESS=false  
 QA_PLAYWRIGHT_TRACING_ENABLE=true
 ```
-</div></script></section><section data-markdown><script type="text/template"><!-- .slide: class="drop" template="" -->
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" template="" -->
 <div class="" style="position: absolute; left: 0px; top: 0px; height: 768px; width: 1366px; min-height: 768px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
 
 ## Codegen
-</div></script></section><section data-markdown><script type="text/template"><!-- .slide: class="drop" template="" -->
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" template="" -->
 <div class="" style="position: absolute; left: 0px; top: 0px; height: 768px; width: 1366px; min-height: 768px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
 
 `npx playwright codegen demo.playwright.dev/todomvc`
 
 <img src="images/codegen-ts.png" alt="Codegen" style="width: 1024px; object-fit: fill">
-</div></script></section><section data-markdown><script type="text/template"><!-- .slide: class="drop" template="" -->
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" template="" -->
 <div class="" style="position: absolute; left: 0px; top: 0px; height: 768px; width: 1366px; min-height: 768px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
 
 ## Inspector
-</div></script></section><section data-markdown><script type="text/template"><!-- .slide: class="drop" template="" -->
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" template="" -->
 <div class="" style="position: absolute; left: 0px; top: 0px; height: 768px; width: 1366px; min-height: 768px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
 
 `npx playwright test --debug`
 
 <img src="images/inspector-ts.png" alt="Inspector" style="width: 1024px; object-fit: fill">
-</div></script></section><section data-markdown><script type="text/template"><!-- .slide: class="drop" template="" -->
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" template="" -->
 <div class="" style="position: absolute; left: 0px; top: 0px; height: 768px; width: 1366px; min-height: 768px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
 
 ## Trace viewer
-</div></script></section><section data-markdown><script type="text/template"><!-- .slide: class="drop" template="" -->
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" template="" -->
 <div class="" style="position: absolute; left: 0px; top: 0px; height: 768px; width: 1366px; min-height: 768px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
 
 `npx playwright show-trace trace.zip`
 
 <img src="images/traceviewer.png" alt="Trace viewer" style="width: 1024px; object-fit: fill">
-</div></script></section><section data-markdown><script type="text/template"><!-- .slide: class="drop" template="" -->
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" template="" -->
 <div class="" style="position: absolute; left: 0px; top: 0px; height: 768px; width: 1366px; min-height: 768px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
 
 ## Test report
-</div></script></section><section data-markdown><script type="text/template"><!-- .slide: class="drop" template="" -->
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" template="" -->
 <div class="" style="position: absolute; left: 0px; top: 0px; height: 768px; width: 1366px; min-height: 768px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
 
 `npx playwright show-report`
 
 <img src="images/report.png" alt="Trace viewer" style="width: 1024px; object-fit: fill">
-</div></script></section><section data-markdown><script type="text/template"><!-- .slide: class="drop" template="" -->
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" template="" -->
 <div class="" style="position: absolute; left: 0px; top: 0px; height: 768px; width: 1366px; min-height: 768px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
 
 ## VSCode extension
-</div></script></section><section data-markdown><script type="text/template"><!-- .slide: class="drop" template="" -->
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" template="" -->
 <div class="" style="position: absolute; left: 0px; top: 0px; height: 768px; width: 1366px; min-height: 768px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
 
 <img src="images/vs-code.png" alt="Trace viewer" style="width: 1024px; object-fit: fill">
-</div></script></section><section data-markdown><script type="text/template"><!-- .slide: class="drop" template="" -->
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" template="" -->
 <div class="" style="position: absolute; left: 0px; top: 0px; height: 768px; width: 1366px; min-height: 768px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
 
 ## O czym jeszcze nie powiedziałem?
@@ -328,26 +399,114 @@ QA_PLAYWRIGHT_TRACING_ENABLE=true
 - &shy;<!-- .element: class="fragment" data-fragment-index="7" -->[drag & drop](https://playwright.dev/docs/input#drag-and-drop)
 - &shy;<!-- .element: class="fragment" data-fragment-index="8" -->[DevTools Protocol](https://playwright.dev/docs/api/class-cdpsession)
 - &shy;<!-- .element: class="fragment" data-fragment-index="9" -->..., bo pewnie coś pominąłem 😉
-</div></script></section><section data-markdown><script type="text/template"><!-- .slide: class="drop" template="" -->
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" template="" -->
 <div class="" style="position: absolute; left: 0px; top: 0px; height: 768px; width: 1366px; min-height: 768px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
 
 # A teraz
 ## odrobina praktyki
 </div></script></section></div>
-</div>
-<script src="dist/reveal.js"></script>
-<script src="plugin/notes/notes.js"></script>
-<script src="plugin/markdown/markdown.js"></script>
-<script src="plugin/highlight/highlight.js"></script>
-<script src="plugin/zoom/zoom.js"></script>
-<script src="plugin/math/math.js"></script>
-<script src="plugin/mermaid/mermaid.js"></script>
-<script src="plugin/chart/chart.min.js"></script>
-<script src="plugin/chart/plugin.js"></script>
-<script src="plugin/customcontrols/plugin.js"></script>
-<script>
-function extend(){const t={};for(let e=0;e<arguments.length;e++){const a=arguments[e];for(const e in a)a.hasOwnProperty(e)&&(t[e]=a[e])}return t}function isLight(t){let e=t.replace("#","");3==e.length&&(e=`${e[0]}${e[0]}${e[1]}${e[1]}${e[2]}${e[2]}`);return(299*parseInt(e.substr(0,2),16)+587*parseInt(e.substr(2,2),16)+114*parseInt(e.substr(4,2),16))/1e3>155}const bgColor=getComputedStyle(document.documentElement).getPropertyValue("--r-background-color").trim();isLight(bgColor)?document.body.classList.add("has-light-background"):document.body.classList.add("has-dark-background");const defaultOptions={controls:!0,progress:!0,history:!0,center:!0,transition:"default",plugins:[RevealMarkdown,RevealHighlight,RevealZoom,RevealNotes,RevealMath.MathJax3,RevealMermaid,RevealChart,RevealCustomControls],allottedTime:12e4,mathjax3:{mathjax:"plugin/math/mathjax/tex-mml-chtml.js"},markdown:{gfm:!0,mangle:!0,pedantic:!1,smartLists:!1,smartypants:!1},mermaid:{theme:isLight?"default":"dark"},customcontrols:{controls:[]}};pageInIframe()&&(defaultOptions.scrollActivationWidth=5);const queryOptions=Reveal().getQueryHash()||{},options=extend(defaultOptions,{controls:!0,progress:!0,slideNumber:!0,center:!0,transition:"slide",transitionSpeed:"default",width:1366,height:768,margin:.04,minScale:.3,maxScale:2},queryOptions)
-</script>
-<script>Reveal.initialize(options)</script>
+    </div>
+
+    <script src="dist/reveal.js"></script>
+    <script src="plugin/notes/notes.js"></script>
+    <script src="plugin/markdown/markdown.js"></script>
+    <script src="plugin/highlight/highlight.js"></script>
+
+    <script src="plugin/zoom/zoom.js"></script>
+    <script src="plugin/math/math.js"></script>
+    <script src="plugin/mermaid/mermaid.js"></script>
+    <script src="plugin/chart/chart.min.js"></script>
+    <script src="plugin/chart/plugin.js"></script>
+    <script src="plugin/customcontrols/plugin.js"></script>
+
+    <script>
+        function extend() {
+            const target = {};
+            for (let i = 0; i < arguments.length; i++) {
+                const source = arguments[i];
+                for (const key in source) {
+                    if (source.hasOwnProperty(key)) {
+                        target[key] = source[key];
+                    }
+                }
+            }
+            return target;
+        }
+
+        function isLight(color) {
+            let hex = color.replace('#', '');
+
+            // convert #fff => #ffffff
+            if (hex.length == 3) {
+                hex = `${hex[0]}${hex[0]}${hex[1]}${hex[1]}${hex[2]}${hex[2]}`;
+            }
+
+            const c_r = parseInt(hex.substr(0, 2), 16);
+            const c_g = parseInt(hex.substr(2, 2), 16);
+            const c_b = parseInt(hex.substr(4, 2), 16);
+            const brightness = ((c_r * 299) + (c_g * 587) + (c_b * 114)) / 1000;
+            return brightness > 155;
+        }
+
+        const bgColor = getComputedStyle(document.documentElement).getPropertyValue('--r-background-color').trim();
+
+        if (isLight(bgColor)) {
+            document.body.classList.add('has-light-background');
+        } else {
+            document.body.classList.add('has-dark-background');
+        }
+
+        // default options to init reveal.js
+        const defaultOptions = {
+            controls: true,
+            progress: true,
+            history: true,
+            center: true,
+            transition: 'default', // none/fade/slide/convex/concave/zoom
+            plugins: [
+                RevealMarkdown,
+                RevealHighlight,
+                RevealZoom,
+                RevealNotes,
+                RevealMath.MathJax3,
+                RevealMermaid,
+                RevealChart,
+                RevealCustomControls,
+            ],
+            allottedTime: 120 * 1000,
+            mathjax3: {
+                mathjax: 'plugin/math/mathjax/tex-mml-chtml.js',
+            },
+            markdown: {
+                gfm: true,
+                mangle: true,
+                pedantic: false,
+                smartLists: false,
+                smartypants: false,
+            },
+            mermaid: {
+                theme: isLight ? 'default' : 'dark',
+            },
+            customcontrols: {
+                controls: [
+                ]
+            },
+        };
+
+        if ( pageInIframe() ) {
+            defaultOptions.scrollActivationWidth = 5;
+        }
+
+        // options from URL query string
+        const queryOptions = Reveal().getQueryHash() || {};
+
+        const options = extend(defaultOptions, {"controls":true,"progress":true,"slideNumber":true,"center":true,"transition":"slide","transitionSpeed":"default","width":1366,"height":768,"margin":0.04,"minScale":0.3,"maxScale":2}, queryOptions);
+    </script>
+
+    <script>
+      Reveal.initialize(options);
+    </script>
 </body>
+
+<!-- created with Slides Extended -->
 </html>

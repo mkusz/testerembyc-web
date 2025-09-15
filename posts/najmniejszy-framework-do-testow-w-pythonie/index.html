@@ -1,83 +1,81 @@
 
 <!DOCTYPE html>
+
 <html class="no-js" lang="pl">
 <head>
-<meta charset="utf-8">
-<meta content="width=device-width,initial-scale=1" name="viewport">
-<meta content="Najmniejszy framework do testów REST API w Pythonie, czyli jak upakować kod testów w 16 linijkach" name="description">
-<meta content="Maciej 'maQ' Kusz" name="author">
-<link href="https://testerembyc.pl/posts/najmniejszy-framework-do-testow-w-pythonie/" rel="canonical">
-<link href="../jeszcze-mniejszy-framework-do-testow-w-pythonie/" rel="prev">
-<link href="../ucz-sie-na-cudzych-bledach/" rel="next">
-<link href="../../feed_rss_created.xml" rel="alternate" title="Kanał RSS" type="application/rss+xml">
-<link href="../../feed_rss_updated.xml" rel="alternate" title="Kanał RSS zaktualizowanych treści" type="application/rss+xml">
-<link href="../../assets/images/icon.svg" rel="icon">
-<meta content="mkdocs-1.6.1, mkdocs-material-9.6.14" name="generator">
+<meta charset="utf-8"/>
+<meta content="width=device-width,initial-scale=1" name="viewport"/>
+<meta content="Najmniejszy framework do testów REST API w Pythonie, czyli jak upakować kod testów w 16 linijkach" name="description"/>
+<meta content="Maciej 'maQ' Kusz" name="author"/>
+<link href="https://testerembyc.pl/posts/najmniejszy-framework-do-testow-w-pythonie/" rel="canonical"/>
+<link href="../jeszcze-mniejszy-framework-do-testow-w-pythonie/" rel="prev"/>
+<link href="../ucz-sie-na-cudzych-bledach/" rel="next"/>
+<link href="../../feed_rss_created.xml" rel="alternate" title="Kanał RSS" type="application/rss+xml"/>
+<link href="../../feed_rss_updated.xml" rel="alternate" title="Kanał RSS zaktualizowanych treści" type="application/rss+xml"/>
+<link href="../../assets/images/icon.svg" rel="icon"/>
+<meta content="mkdocs-1.6.1, mkdocs-material-9.6.14" name="generator"/>
 <title>Najmniejszy framework do testów w Pythonie - TesteremByc.pl</title>
-<link href="../../assets/stylesheets/main.342714a4.min.css" rel="stylesheet">
-<link href="../../assets/stylesheets/palette.06af60db.min.css" rel="stylesheet">
-<link href="https://fonts.gstatic.com" rel="preconnect" crossorigin="">
-<link href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CLato:400,400i,700,700i&amp;display=fallback" rel="stylesheet">
+<link href="../../assets/stylesheets/main.342714a4.min.css" rel="stylesheet"/>
+<link href="../../assets/stylesheets/palette.06af60db.min.css" rel="stylesheet"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CLato:400,400i,700,700i&amp;display=fallback" rel="stylesheet"/>
 <style>:root{--md-text-font:"Roboto";--md-code-font:"Lato"}</style>
-<link href="../../assets/stylesheets/testerembyc.css" rel="stylesheet">
-<link href="../../assets/stylesheets/blog.min.css" rel="stylesheet">
-<link href="../../assets/stylesheets/blog.min.css.map" rel="stylesheet">
-<link href="../../assets/stylesheets/obsidian.min.css" rel="stylesheet">
-<link href="../../assets/stylesheets/obsidian.min.css.map" rel="stylesheet">
-<script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
-<script id="__analytics">
-function __md_analytics(){function e(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],e("js",new Date),e("config","G-L9Q1L6NPGD"),document.addEventListener("DOMContentLoaded",function(){document.forms.search&&document.forms.search.query.addEventListener("blur",function(){this.value&&e("event","search",{search_term:this.value})}),document$.subscribe(function(){var t=document.forms.feedback;if(void 0!==t)for(var a of t.querySelectorAll("[type=submit]"))a.addEventListener("click",function(a){a.preventDefault();var n=document.location.pathname,d=this.getAttribute("data-md-value");e("event","feedback",{page:n,data:d}),t.firstElementChild.disabled=!0;var c=t.querySelector(".md-feedback__note [data-md-value='"+d+"']");c&&(c.hidden=!1)}),t.hidden=!1}),location$.subscribe(function(t){e("config","G-L9Q1L6NPGD",{page_path:t.pathname})})});var t=document.createElement("script");t.async=!0,t.src="https://www.googletagmanager.com/gtag/js?id=G-L9Q1L6NPGD",document.getElementById("__analytics").insertAdjacentElement("afterEnd",t)}
-</script>
+<link href="../../assets/stylesheets/testerembyc.css" rel="stylesheet"/>
+<link href="../../assets/stylesheets/blog.min.css" rel="stylesheet"/>
+<link href="../../assets/stylesheets/blog.min.css.map" rel="stylesheet"/>
+<link href="../../assets/stylesheets/obsidian.min.css" rel="stylesheet"/>
+<link href="../../assets/stylesheets/obsidian.min.css.map" rel="stylesheet"/>
+<script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+<script id="__analytics">function __md_analytics(){function e(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],e("js",new Date),e("config","G-L9Q1L6NPGD"),document.addEventListener("DOMContentLoaded",(function(){document.forms.search&&document.forms.search.query.addEventListener("blur",(function(){this.value&&e("event","search",{search_term:this.value})}));document$.subscribe((function(){var t=document.forms.feedback;if(void 0!==t)for(var a of t.querySelectorAll("[type=submit]"))a.addEventListener("click",(function(a){a.preventDefault();var n=document.location.pathname,d=this.getAttribute("data-md-value");e("event","feedback",{page:n,data:d}),t.firstElementChild.disabled=!0;var r=t.querySelector(".md-feedback__note [data-md-value='"+d+"']");r&&(r.hidden=!1)})),t.hidden=!1})),location$.subscribe((function(t){e("config","G-L9Q1L6NPGD",{page_path:t.pathname})}))}));var t=document.createElement("script");t.async=!0,t.src="https://www.googletagmanager.com/gtag/js?id=G-L9Q1L6NPGD",document.getElementById("__analytics").insertAdjacentElement("afterEnd",t)}</script>
 <script>if("undefined"!=typeof __md_analytics){var consent=__md_get("__consent");consent&&consent.analytics&&__md_analytics()}</script>
-<meta content="article" property="og:type"><meta content="Najmniejszy framework do testów w Pythonie - TesteremByc.pl" property="og:title"><meta content="Najmniejszy framework do testów REST API w Pythonie, czyli jak upakować kod testów w 16 linijkach" property="og:description"><meta content="TesteremByc.pl" property="og:site_name"><meta content="pl_PL" property="og:locale"><meta content="https://testerembyc.pl/posts/najmniejszy-framework-do-testow-w-pythonie/" property="og:url"><meta content="https://testerembyc.pl/images/posts/2020/najmniejszy-framework-do-testow-w-pythonie_social.jpg" property="og:image"><meta content="summary_large_image" property="twitter:card"><meta content="Najmniejszy framework do testów w Pythonie - TesteremByc.pl" property="twitter:title"><meta content="Najmniejszy framework do testów REST API w Pythonie, czyli jak upakować kod testów w 16 linijkach" property="twitter:description"><meta 
-content="https://testerembyc.pl/images/posts/2020/najmniejszy-framework-do-testow-w-pythonie_social.jpg" property="twitter:image"></head>
+<meta content="article" property="og:type"/><meta content="Najmniejszy framework do testów w Pythonie - TesteremByc.pl" property="og:title"/><meta content="Najmniejszy framework do testów REST API w Pythonie, czyli jak upakować kod testów w 16 linijkach" property="og:description"/><meta content="TesteremByc.pl" property="og:site_name"/><meta content="pl_PL" property="og:locale"/><meta content="https://testerembyc.pl/posts/najmniejszy-framework-do-testow-w-pythonie/" property="og:url"/><meta content="https://testerembyc.pl/images/posts/2020/najmniejszy-framework-do-testow-w-pythonie_social.jpg" property="og:image"/><meta content="summary_large_image" property="twitter:card"/><meta content="Najmniejszy framework do testów w Pythonie - TesteremByc.pl" property="twitter:title"/><meta content="Najmniejszy framework do testów REST API w Pythonie, czyli jak upakować kod testów w 16 linijkach" property="twitter:description"/><meta content="https://testerembyc.pl/images/posts/2020/najmniejszy-framework-do-testow-w-pythonie_social.jpg" property="twitter:image"/></head>
 <body data-md-color-accent="red" data-md-color-primary="black" data-md-color-scheme="default" dir="ltr">
-<input type="checkbox" class="md-toggle" id="__drawer" autocomplete="off" data-md-toggle="drawer">
-<input type="checkbox" class="md-toggle" id="__search" autocomplete="off" data-md-toggle="search">
+<input autocomplete="off" class="md-toggle" data-md-toggle="drawer" id="__drawer" type="checkbox"/>
+<input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
 <label class="md-overlay" for="__drawer"></label>
 <div data-md-component="skip">
-<a href="#ale-skad-w-ogole-ten-pomys" class="md-skip">
-Przejdź do treści
-</a>
+<a class="md-skip" href="#ale-skad-w-ogole-ten-pomys">
+          Przejdź do treści
+        </a>
 </div>
 <div data-md-component="announce">
 </div>
-<header class="md-header md-header--lifted md-header--shadow" data-md-component="header">
-<nav class="md-grid md-header__inner" aria-label="Nagłówek">
-<a href="https://testerembyc.pl" class="md-header__button md-logo" title="TesteremByc.pl" aria-label="TesteremByc.pl" data-md-component="logo">
-<img src="../../assets/images/logo.svg" alt="logo">
+<header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
+<nav aria-label="Nagłówek" class="md-header__inner md-grid">
+<a aria-label="TesteremByc.pl" class="md-header__button md-logo" data-md-component="logo" href="https://testerembyc.pl" title="TesteremByc.pl">
+<img alt="logo" src="../../assets/images/logo.svg"/>
 </a>
-<label class="md-icon md-header__button" for="__drawer">
+<label class="md-header__button md-icon" for="__drawer">
 <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"></path></svg>
 </label>
 <form class="md-header__option" data-md-component="palette">
-<input type="radio" class="md-option" id="__palette_0" aria-label="Switch to dark mode" data-md-color-accent="red" data-md-color-media="" data-md-color-primary="black" data-md-color-scheme="default" name="__palette">
-<label class="md-icon md-header__button" for="__palette_1" hidden title="Switch to dark mode">
+<input aria-label="Switch to dark mode" class="md-option" data-md-color-accent="red" data-md-color-media="" data-md-color-primary="black" data-md-color-scheme="default" id="__palette_0" name="__palette" type="radio"/>
+<label class="md-header__button md-icon" for="__palette_1" hidden="" title="Switch to dark mode">
 <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2a7 7 0 0 0-7 7c0 2.38 1.19 4.47 3 5.74V17a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1v-2.26c1.81-1.27 3-3.36 3-5.74a7 7 0 0 0-7-7M9 21a1 1 0 0 0 1 1h4a1 1 0 0 0 1-1v-1H9z"></path></svg>
 </label>
-<input type="radio" class="md-option" id="__palette_1" aria-label="Switch to light mode" data-md-color-accent="red" data-md-color-media="" data-md-color-primary="black" data-md-color-scheme="slate" name="__palette">
-<label class="md-icon md-header__button" for="__palette_0" hidden title="Switch to light mode">
+<input aria-label="Switch to light mode" class="md-option" data-md-color-accent="red" data-md-color-media="" data-md-color-primary="black" data-md-color-scheme="slate" id="__palette_1" name="__palette" type="radio"/>
+<label class="md-header__button md-icon" for="__palette_0" hidden="" title="Switch to light mode">
 <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2a7 7 0 0 1 7 7c0 2.38-1.19 4.47-3 5.74V17a1 1 0 0 1-1 1H9a1 1 0 0 1-1-1v-2.26C6.19 13.47 5 11.38 5 9a7 7 0 0 1 7-7M9 21v-1h6v1a1 1 0 0 1-1 1h-4a1 1 0 0 1-1-1m3-17a5 5 0 0 0-5 5c0 2.05 1.23 3.81 3 4.58V16h4v-2.42c1.77-.77 3-2.53 3-4.58a5 5 0 0 0-5-5"></path></svg>
 </label>
 </form>
 <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
-<label class="md-icon md-header__button" for="__search">
+<label class="md-header__button md-icon" for="__search">
 <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"></path></svg>
 </label>
 <div class="md-search" data-md-component="search" role="dialog">
 <label class="md-search__overlay" for="__search"></label>
 <div class="md-search__inner" role="search">
 <form class="md-search__form" name="search">
-<input type="text" class="md-search__input" aria-label="Szukaj" name="query" autocapitalize="off" autocomplete="off" autocorrect="off" data-md-component="search-query" placeholder="Szukaj" required spellcheck="false">
-<label class="md-icon md-search__icon" for="__search">
+<input aria-label="Szukaj" autocapitalize="off" autocomplete="off" autocorrect="off" class="md-search__input" data-md-component="search-query" name="query" placeholder="Szukaj" required="" spellcheck="false" type="text"/>
+<label class="md-search__icon md-icon" for="__search">
 <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"></path></svg>
 <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"></path></svg>
 </label>
-<nav class="md-search__options" aria-label="Szukaj">
-<a href="javascript:void(0)" class="md-icon md-search__icon" title="Udostępnij" aria-label="Udostępnij" data-md-component="search-share" data-clipboard="" data-clipboard-text="" tabindex="-1">
+<nav aria-label="Szukaj" class="md-search__options">
+<a aria-label="Udostępnij" class="md-search__icon md-icon" data-clipboard="" data-clipboard-text="" data-md-component="search-share" href="javascript:void(0)" tabindex="-1" title="Udostępnij">
 <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9a3 3 0 0 0-3 3 3 3 0 0 0 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.15c-.05.21-.08.43-.08.66 0 1.61 1.31 2.91 2.92 2.91s2.92-1.3 2.92-2.91A2.92 2.92 0 0 0 18 16.08"></path></svg>
 </a>
-<button class="md-icon md-search__icon" type="reset" aria-label="Wyczyść" tabindex="-1" title="Wyczyść">
+<button aria-label="Wyczyść" class="md-search__icon md-icon" tabindex="-1" title="Wyczyść" type="reset">
 <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"></path></svg>
 </button>
 </nav>
@@ -87,8 +85,8 @@ Przejdź do treści
 <div class="md-search__scrollwrap" data-md-scrollfix="" tabindex="0">
 <div class="md-search-result" data-md-component="search-result">
 <div class="md-search-result__meta">
-Inicjowanie wyszukiwania
-</div>
+            Inicjowanie wyszukiwania
+          </div>
 <ol class="md-search-result__list" role="presentation"></ol>
 </div>
 </div>
@@ -96,28 +94,52 @@ Inicjowanie wyszukiwania
 </div>
 </div>
 </nav>
-<nav class="md-tabs" aria-label="Zakładki" data-md-component="tabs">
+<nav aria-label="Zakładki" class="md-tabs" data-md-component="tabs">
 <div class="md-grid">
 <ul class="md-tabs__list">
 <li class="md-tabs__item">
-<a href="../.." class="md-tabs__link">
-Blog
-</a>
+<a class="md-tabs__link" href="../..">
+          
+  
+  
+    
+  
+  Blog
+
+        </a>
 </li>
 <li class="md-tabs__item">
-<a href="../../python-kompendium/" class="md-tabs__link">
-Python
-</a>
+<a class="md-tabs__link" href="../../python-kompendium/">
+        
+  
+  
+    
+  
+  Python
+
+      </a>
 </li>
 <li class="md-tabs__item">
-<a href="../../szkolenia/stacjonarne/" class="md-tabs__link">
-Szkolenia
-</a>
+<a class="md-tabs__link" href="../../szkolenia/stacjonarne/">
+          
+  
+  
+    
+  
+  Szkolenia
+
+        </a>
 </li>
 <li class="md-tabs__item">
-<a href="../../kontakt/" class="md-tabs__link">
-Kontakt
-</a>
+<a class="md-tabs__link" href="../../kontakt/">
+        
+  
+  
+    
+  
+  Kontakt
+
+      </a>
 </li>
 </ul>
 </div>
@@ -125,724 +147,1118 @@ Kontakt
 </header>
 <div class="md-container" data-md-component="container">
 <main class="md-main" data-md-component="main">
-<div class="md-grid md-main__inner">
+<div class="md-main__inner md-grid">
+<!-- Navigation -->
 <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation">
 <div class="md-sidebar__scrollwrap">
 <div class="md-sidebar__inner">
-<nav class="md-nav md-nav--lifted md-nav--primary" aria-label="Nawigacja" data-md-level="0">
+<!-- Determine classes -->
+<!-- Navigation -->
+<nav aria-label="Nawigacja" class="md-nav md-nav--primary md-nav--lifted" data-md-level="0">
+<!-- Site title -->
 <label class="md-nav__title" for="__drawer">
-<a href="https://testerembyc.pl" class="md-logo md-nav__button" title="TesteremByc.pl" aria-label="TesteremByc.pl" data-md-component="logo">
-<img src="../../assets/images/logo.svg" alt="logo">
+<a aria-label="TesteremByc.pl" class="md-nav__button md-logo" data-md-component="logo" href="https://testerembyc.pl" title="TesteremByc.pl">
+<img alt="logo" src="../../assets/images/logo.svg"/>
 </a>
-TesteremByc.pl
-</label>
+    TesteremByc.pl
+  </label>
+<!-- Repository information -->
+<!-- Navigation list -->
 <ul class="md-nav__list" data-md-scrollfix="">
+<!-- Determine classes -->
+<!-- Navigation item with nested items -->
+<!-- Determine all nested items that are index pages -->
+<!-- Determine whether to render item as a section -->
+<!-- Nested navigation item -->
 <li class="md-nav__item md-nav__item--nested">
-<input type="checkbox" class="md-toggle md-nav__toggle" id="__nav_1">
+<!-- Determine checked and indeterminate state -->
+<!-- Active checkbox expands items contained within nested section -->
+<input class="md-nav__toggle md-toggle" id="__nav_1" type="checkbox">
+<!-- Toggle to expand nested items -->
 <div class="md-nav__link md-nav__container">
-<a href="../.." class="md-nav__link">
+<a class="md-nav__link" href="../..">
+<!-- Navigation link icon -->
+<!-- Navigation link title -->
 <span class="md-ellipsis">
-Blog
-</span>
+    Blog
+  </span>
+<!-- Navigation link status -->
 </a>
+<!-- Only render toggle if there's at least one more page -->
 <label class="md-nav__link" for="__nav_1">
-<span class="md-icon md-nav__icon"></span>
+<span class="md-nav__icon md-icon"></span>
 </label>
 </div>
-<nav class="md-nav" data-md-level="1" aria-expanded="false" aria-labelledby="__nav_1_label">
+<!-- Nested navigation -->
+<nav aria-expanded="false" aria-labelledby="__nav_1_label" class="md-nav" data-md-level="1">
 <label class="md-nav__title" for="__nav_1">
-<span class="md-icon md-nav__icon"></span>
-Blog
-</label>
+<span class="md-nav__icon md-icon"></span>
+            Blog
+          </label>
 <ul class="md-nav__list" data-md-scrollfix="">
+<!-- Nested navigation item -->
+<!-- Determine classes -->
+<!-- Navigation item with nested items -->
+<!-- Determine all nested items that are index pages -->
+<!-- Determine whether to render item as a section -->
+<!-- Nested navigation item -->
 <li class="md-nav__item md-nav__item--nested">
-<input type="checkbox" class="md-toggle md-nav__toggle" id="__nav_1_2">
+<!-- Determine checked and indeterminate state -->
+<!-- Active checkbox expands items contained within nested section -->
+<input class="md-nav__toggle md-toggle" id="__nav_1_2" type="checkbox">
+<!-- Toggle to expand nested items -->
 <label class="md-nav__link" for="__nav_1_2" id="__nav_1_2_label" tabindex="0">
+<!-- Navigation link icon -->
+<!-- Navigation link title -->
 <span class="md-ellipsis">
-Archiwum
-</span>
-<span class="md-icon md-nav__icon"></span>
+    Archiwum
+  </span>
+<!-- Navigation link status -->
+<span class="md-nav__icon md-icon"></span>
 </label>
-<nav class="md-nav" data-md-level="2" aria-expanded="false" aria-labelledby="__nav_1_2_label">
+<!-- Toggle to expand nested items with link to index page -->
+<!-- Nested navigation -->
+<nav aria-expanded="false" aria-labelledby="__nav_1_2_label" class="md-nav" data-md-level="2">
 <label class="md-nav__title" for="__nav_1_2">
-<span class="md-icon md-nav__icon"></span>
-Archiwum
-</label>
+<span class="md-nav__icon md-icon"></span>
+            Archiwum
+          </label>
 <ul class="md-nav__list" data-md-scrollfix="">
+<!-- Nested navigation item -->
+<!-- Determine classes -->
+<!-- Navigation item with nested items -->
 <li class="md-nav__item">
-<a href="../archive/2025/" class="md-nav__link">
+<a class="md-nav__link" href="../archive/2025/">
+<!-- Navigation link icon -->
+<!-- Navigation link title -->
 <span class="md-ellipsis">
-2025
-</span>
+    2025
+  </span>
+<!-- Navigation link status -->
 </a>
 </li>
+<!-- Determine classes -->
+<!-- Navigation item with nested items -->
 <li class="md-nav__item">
-<a href="../archive/2023/" class="md-nav__link">
+<a class="md-nav__link" href="../archive/2023/">
+<!-- Navigation link icon -->
+<!-- Navigation link title -->
 <span class="md-ellipsis">
-2023
-</span>
+    2023
+  </span>
+<!-- Navigation link status -->
 </a>
 </li>
+<!-- Determine classes -->
+<!-- Navigation item with nested items -->
 <li class="md-nav__item">
-<a href="../archive/2022/" class="md-nav__link">
+<a class="md-nav__link" href="../archive/2022/">
+<!-- Navigation link icon -->
+<!-- Navigation link title -->
 <span class="md-ellipsis">
-2022
-</span>
+    2022
+  </span>
+<!-- Navigation link status -->
 </a>
 </li>
+<!-- Determine classes -->
+<!-- Navigation item with nested items -->
 <li class="md-nav__item">
-<a href="../archive/2021/" class="md-nav__link">
+<a class="md-nav__link" href="../archive/2021/">
+<!-- Navigation link icon -->
+<!-- Navigation link title -->
 <span class="md-ellipsis">
-2021
-</span>
+    2021
+  </span>
+<!-- Navigation link status -->
 </a>
 </li>
+<!-- Determine classes -->
+<!-- Navigation item with nested items -->
 <li class="md-nav__item">
-<a href="../archive/2020/" class="md-nav__link">
+<a class="md-nav__link" href="../archive/2020/">
+<!-- Navigation link icon -->
+<!-- Navigation link title -->
 <span class="md-ellipsis">
-2020
-</span>
+    2020
+  </span>
+<!-- Navigation link status -->
 </a>
 </li>
+<!-- Determine classes -->
+<!-- Navigation item with nested items -->
 <li class="md-nav__item">
-<a href="../archive/2019/" class="md-nav__link">
+<a class="md-nav__link" href="../archive/2019/">
+<!-- Navigation link icon -->
+<!-- Navigation link title -->
 <span class="md-ellipsis">
-2019
-</span>
+    2019
+  </span>
+<!-- Navigation link status -->
 </a>
 </li>
 </ul>
 </nav>
-</li>
+<!-- Pruned navigation item -->
+</input></li>
+<!-- Currently active page -->
+<!-- Determine classes -->
+<!-- Navigation item with nested items -->
+<!-- Determine all nested items that are index pages -->
+<!-- Determine whether to render item as a section -->
+<!-- Nested navigation item -->
 <li class="md-nav__item md-nav__item--nested">
-<input type="checkbox" class="md-toggle md-nav__toggle" id="__nav_1_3">
+<!-- Determine checked and indeterminate state -->
+<!-- Active checkbox expands items contained within nested section -->
+<input class="md-nav__toggle md-toggle" id="__nav_1_3" type="checkbox">
+<!-- Toggle to expand nested items -->
 <label class="md-nav__link" for="__nav_1_3" id="__nav_1_3_label" tabindex="0">
+<!-- Navigation link icon -->
+<!-- Navigation link title -->
 <span class="md-ellipsis">
-Kategorie
-</span>
-<span class="md-icon md-nav__icon"></span>
+    Kategorie
+  </span>
+<!-- Navigation link status -->
+<span class="md-nav__icon md-icon"></span>
 </label>
-<nav class="md-nav" data-md-level="2" aria-expanded="false" aria-labelledby="__nav_1_3_label">
+<!-- Toggle to expand nested items with link to index page -->
+<!-- Nested navigation -->
+<nav aria-expanded="false" aria-labelledby="__nav_1_3_label" class="md-nav" data-md-level="2">
 <label class="md-nav__title" for="__nav_1_3">
-<span class="md-icon md-nav__icon"></span>
-Kategorie
-</label>
+<span class="md-nav__icon md-icon"></span>
+            Kategorie
+          </label>
 <ul class="md-nav__list" data-md-scrollfix="">
+<!-- Nested navigation item -->
+<!-- Determine classes -->
+<!-- Navigation item with nested items -->
 <li class="md-nav__item">
-<a href="../categories/felieton/" class="md-nav__link">
+<a class="md-nav__link" href="../categories/felieton/">
+<!-- Navigation link icon -->
+<!-- Navigation link title -->
 <span class="md-ellipsis">
-felieton
-</span>
+    felieton
+  </span>
+<!-- Navigation link status -->
 </a>
 </li>
+<!-- Determine classes -->
+<!-- Navigation item with nested items -->
 <li class="md-nav__item">
-<a href="../categories/git/" class="md-nav__link">
+<a class="md-nav__link" href="../categories/git/">
+<!-- Navigation link icon -->
+<!-- Navigation link title -->
 <span class="md-ellipsis">
-git
-</span>
+    git
+  </span>
+<!-- Navigation link status -->
 </a>
 </li>
+<!-- Determine classes -->
+<!-- Navigation item with nested items -->
 <li class="md-nav__item">
-<a href="../categories/ludzie/" class="md-nav__link">
+<a class="md-nav__link" href="../categories/ludzie/">
+<!-- Navigation link icon -->
+<!-- Navigation link title -->
 <span class="md-ellipsis">
-ludzie
-</span>
+    ludzie
+  </span>
+<!-- Navigation link status -->
 </a>
 </li>
+<!-- Determine classes -->
+<!-- Navigation item with nested items -->
 <li class="md-nav__item">
-<a href="../categories/python/" class="md-nav__link">
+<a class="md-nav__link" href="../categories/python/">
+<!-- Navigation link icon -->
+<!-- Navigation link title -->
 <span class="md-ellipsis">
-python
-</span>
+    python
+  </span>
+<!-- Navigation link status -->
 </a>
 </li>
+<!-- Determine classes -->
+<!-- Navigation item with nested items -->
 <li class="md-nav__item">
-<a href="../categories/youtube/" class="md-nav__link">
+<a class="md-nav__link" href="../categories/youtube/">
+<!-- Navigation link icon -->
+<!-- Navigation link title -->
 <span class="md-ellipsis">
-youtube
-</span>
+    youtube
+  </span>
+<!-- Navigation link status -->
 </a>
 </li>
 </ul>
 </nav>
-</li>
+<!-- Pruned navigation item -->
+</input></li>
+<!-- Currently active page -->
+<!-- Determine classes -->
+<!-- Navigation item with nested items -->
+<!-- Determine all nested items that are index pages -->
+<!-- Determine whether to render item as a section -->
+<!-- Nested navigation item -->
 <li class="md-nav__item md-nav__item--nested">
-<input type="checkbox" class="md-toggle md-nav__toggle" id="__nav_1_4">
+<!-- Determine checked and indeterminate state -->
+<!-- Active checkbox expands items contained within nested section -->
+<input class="md-nav__toggle md-toggle" id="__nav_1_4" type="checkbox">
+<!-- Toggle to expand nested items -->
 <label class="md-nav__link" for="__nav_1_4" id="__nav_1_4_label" tabindex="0">
+<!-- Navigation link icon -->
+<!-- Navigation link title -->
 <span class="md-ellipsis">
-Tagi
-</span>
-<span class="md-icon md-nav__icon"></span>
+    Tagi
+  </span>
+<!-- Navigation link status -->
+<span class="md-nav__icon md-icon"></span>
 </label>
-<nav class="md-nav" data-md-level="2" aria-expanded="false" aria-labelledby="__nav_1_4_label">
+<!-- Toggle to expand nested items with link to index page -->
+<!-- Nested navigation -->
+<nav aria-expanded="false" aria-labelledby="__nav_1_4_label" class="md-nav" data-md-level="2">
 <label class="md-nav__title" for="__nav_1_4">
-<span class="md-icon md-nav__icon"></span>
-Tagi
-</label>
+<span class="md-nav__icon md-icon"></span>
+            Tagi
+          </label>
 <ul class="md-nav__list" data-md-scrollfix="">
+<!-- Nested navigation item -->
+<!-- Determine classes -->
+<!-- Navigation item with nested items -->
 <li class="md-nav__item">
-<a href="../tags/api/" class="md-nav__link">
+<a class="md-nav__link" href="../tags/api/">
+<!-- Navigation link icon -->
+<!-- Navigation link title -->
 <span class="md-ellipsis">
-api
-</span>
+    api
+  </span>
+<!-- Navigation link status -->
 </a>
 </li>
+<!-- Determine classes -->
+<!-- Navigation item with nested items -->
 <li class="md-nav__item">
-<a href="../tags/automatyzacja/" class="md-nav__link">
+<a class="md-nav__link" href="../tags/automatyzacja/">
+<!-- Navigation link icon -->
+<!-- Navigation link title -->
 <span class="md-ellipsis">
-automatyzacja
-</span>
+    automatyzacja
+  </span>
+<!-- Navigation link status -->
 </a>
 </li>
+<!-- Determine classes -->
+<!-- Navigation item with nested items -->
 <li class="md-nav__item">
-<a href="../tags/blog/" class="md-nav__link">
+<a class="md-nav__link" href="../tags/blog/">
+<!-- Navigation link icon -->
+<!-- Navigation link title -->
 <span class="md-ellipsis">
-blog
-</span>
+    blog
+  </span>
+<!-- Navigation link status -->
 </a>
 </li>
+<!-- Determine classes -->
+<!-- Navigation item with nested items -->
 <li class="md-nav__item">
-<a href="../tags/ci-cd/" class="md-nav__link">
+<a class="md-nav__link" href="../tags/ci-cd/">
+<!-- Navigation link icon -->
+<!-- Navigation link title -->
 <span class="md-ellipsis">
-ci-cd
-</span>
+    ci-cd
+  </span>
+<!-- Navigation link status -->
 </a>
 </li>
+<!-- Determine classes -->
+<!-- Navigation item with nested items -->
 <li class="md-nav__item">
-<a href="../tags/code16challenge/" class="md-nav__link">
+<a class="md-nav__link" href="../tags/code16challenge/">
+<!-- Navigation link icon -->
+<!-- Navigation link title -->
 <span class="md-ellipsis">
-code16challenge
-</span>
+    code16challenge
+  </span>
+<!-- Navigation link status -->
 </a>
 </li>
+<!-- Determine classes -->
+<!-- Navigation item with nested items -->
 <li class="md-nav__item">
-<a href="../tags/cv/" class="md-nav__link">
+<a class="md-nav__link" href="../tags/cv/">
+<!-- Navigation link icon -->
+<!-- Navigation link title -->
 <span class="md-ellipsis">
-cv
-</span>
+    cv
+  </span>
+<!-- Navigation link status -->
 </a>
 </li>
+<!-- Determine classes -->
+<!-- Navigation item with nested items -->
 <li class="md-nav__item">
-<a href="../tags/definicja/" class="md-nav__link">
+<a class="md-nav__link" href="../tags/definicja/">
+<!-- Navigation link icon -->
+<!-- Navigation link title -->
 <span class="md-ellipsis">
-definicja
-</span>
+    definicja
+  </span>
+<!-- Navigation link status -->
 </a>
 </li>
+<!-- Determine classes -->
+<!-- Navigation item with nested items -->
 <li class="md-nav__item">
-<a href="../tags/dekorator/" class="md-nav__link">
+<a class="md-nav__link" href="../tags/dekorator/">
+<!-- Navigation link icon -->
+<!-- Navigation link title -->
 <span class="md-ellipsis">
-dekorator
-</span>
+    dekorator
+  </span>
+<!-- Navigation link status -->
 </a>
 </li>
+<!-- Determine classes -->
+<!-- Navigation item with nested items -->
 <li class="md-nav__item">
-<a href="../tags/ebook/" class="md-nav__link">
+<a class="md-nav__link" href="../tags/ebook/">
+<!-- Navigation link icon -->
+<!-- Navigation link title -->
 <span class="md-ellipsis">
-ebook
-</span>
+    ebook
+  </span>
+<!-- Navigation link status -->
 </a>
 </li>
+<!-- Determine classes -->
+<!-- Navigation item with nested items -->
 <li class="md-nav__item">
-<a href="../tags/eksploracja/" class="md-nav__link">
+<a class="md-nav__link" href="../tags/eksploracja/">
+<!-- Navigation link icon -->
+<!-- Navigation link title -->
 <span class="md-ellipsis">
-eksploracja
-</span>
+    eksploracja
+  </span>
+<!-- Navigation link status -->
 </a>
 </li>
+<!-- Determine classes -->
+<!-- Navigation item with nested items -->
 <li class="md-nav__item">
-<a href="../tags/funkcje/" class="md-nav__link">
+<a class="md-nav__link" href="../tags/funkcje/">
+<!-- Navigation link icon -->
+<!-- Navigation link title -->
 <span class="md-ellipsis">
-funkcje
-</span>
+    funkcje
+  </span>
+<!-- Navigation link status -->
 </a>
 </li>
+<!-- Determine classes -->
+<!-- Navigation item with nested items -->
 <li class="md-nav__item">
-<a href="../tags/github/" class="md-nav__link">
+<a class="md-nav__link" href="../tags/github/">
+<!-- Navigation link icon -->
+<!-- Navigation link title -->
 <span class="md-ellipsis">
-github
-</span>
+    github
+  </span>
+<!-- Navigation link status -->
 </a>
 </li>
+<!-- Determine classes -->
+<!-- Navigation item with nested items -->
 <li class="md-nav__item">
-<a href="../tags/halloween/" class="md-nav__link">
+<a class="md-nav__link" href="../tags/halloween/">
+<!-- Navigation link icon -->
+<!-- Navigation link title -->
 <span class="md-ellipsis">
-halloween
-</span>
+    halloween
+  </span>
+<!-- Navigation link status -->
 </a>
 </li>
+<!-- Determine classes -->
+<!-- Navigation item with nested items -->
 <li class="md-nav__item">
-<a href="../tags/historie/" class="md-nav__link">
+<a class="md-nav__link" href="../tags/historie/">
+<!-- Navigation link icon -->
+<!-- Navigation link title -->
 <span class="md-ellipsis">
-historie
-</span>
+    historie
+  </span>
+<!-- Navigation link status -->
 </a>
 </li>
+<!-- Determine classes -->
+<!-- Navigation item with nested items -->
 <li class="md-nav__item">
-<a href="../tags/howto/" class="md-nav__link">
+<a class="md-nav__link" href="../tags/howto/">
+<!-- Navigation link icon -->
+<!-- Navigation link title -->
 <span class="md-ellipsis">
-howto
-</span>
+    howto
+  </span>
+<!-- Navigation link status -->
 </a>
 </li>
+<!-- Determine classes -->
+<!-- Navigation item with nested items -->
 <li class="md-nav__item">
-<a href="../tags/istqb/" class="md-nav__link">
+<a class="md-nav__link" href="../tags/istqb/">
+<!-- Navigation link icon -->
+<!-- Navigation link title -->
 <span class="md-ellipsis">
-istqb
-</span>
+    istqb
+  </span>
+<!-- Navigation link status -->
 </a>
 </li>
+<!-- Determine classes -->
+<!-- Navigation item with nested items -->
 <li class="md-nav__item">
-<a href="../tags/itea/" class="md-nav__link">
+<a class="md-nav__link" href="../tags/itea/">
+<!-- Navigation link icon -->
+<!-- Navigation link title -->
 <span class="md-ellipsis">
-itea
-</span>
+    itea
+  </span>
+<!-- Navigation link status -->
 </a>
 </li>
+<!-- Determine classes -->
+<!-- Navigation item with nested items -->
 <li class="md-nav__item">
-<a href="../tags/komfort/" class="md-nav__link">
+<a class="md-nav__link" href="../tags/komfort/">
+<!-- Navigation link icon -->
+<!-- Navigation link title -->
 <span class="md-ellipsis">
-komfort
-</span>
+    komfort
+  </span>
+<!-- Navigation link status -->
 </a>
 </li>
+<!-- Determine classes -->
+<!-- Navigation item with nested items -->
 <li class="md-nav__item">
-<a href="../tags/kursy/" class="md-nav__link">
+<a class="md-nav__link" href="../tags/kursy/">
+<!-- Navigation link icon -->
+<!-- Navigation link title -->
 <span class="md-ellipsis">
-kursy
-</span>
+    kursy
+  </span>
+<!-- Navigation link status -->
 </a>
 </li>
+<!-- Determine classes -->
+<!-- Navigation item with nested items -->
 <li class="md-nav__item">
-<a href="../tags/lambda/" class="md-nav__link">
+<a class="md-nav__link" href="../tags/lambda/">
+<!-- Navigation link icon -->
+<!-- Navigation link title -->
 <span class="md-ellipsis">
-lambda
-</span>
+    lambda
+  </span>
+<!-- Navigation link status -->
 </a>
 </li>
+<!-- Determine classes -->
+<!-- Navigation item with nested items -->
 <li class="md-nav__item">
-<a href="../tags/linkedin/" class="md-nav__link">
+<a class="md-nav__link" href="../tags/linkedin/">
+<!-- Navigation link icon -->
+<!-- Navigation link title -->
 <span class="md-ellipsis">
-linkedin
-</span>
+    linkedin
+  </span>
+<!-- Navigation link status -->
 </a>
 </li>
+<!-- Determine classes -->
+<!-- Navigation item with nested items -->
 <li class="md-nav__item">
-<a href="../tags/nauka/" class="md-nav__link">
+<a class="md-nav__link" href="../tags/nauka/">
+<!-- Navigation link icon -->
+<!-- Navigation link title -->
 <span class="md-ellipsis">
-nauka
-</span>
+    nauka
+  </span>
+<!-- Navigation link status -->
 </a>
 </li>
+<!-- Determine classes -->
+<!-- Navigation item with nested items -->
 <li class="md-nav__item">
-<a href="../tags/og%25C3%25B3lne/" class="md-nav__link">
+<a class="md-nav__link" href="../tags/og%25C3%25B3lne/">
+<!-- Navigation link icon -->
+<!-- Navigation link title -->
 <span class="md-ellipsis">
-ogólne
-</span>
+    ogólne
+  </span>
+<!-- Navigation link status -->
 </a>
 </li>
+<!-- Determine classes -->
+<!-- Navigation item with nested items -->
 <li class="md-nav__item">
-<a href="../tags/plany/" class="md-nav__link">
+<a class="md-nav__link" href="../tags/plany/">
+<!-- Navigation link icon -->
+<!-- Navigation link title -->
 <span class="md-ellipsis">
-plany
-</span>
+    plany
+  </span>
+<!-- Navigation link status -->
 </a>
 </li>
+<!-- Determine classes -->
+<!-- Navigation item with nested items -->
 <li class="md-nav__item">
-<a href="../tags/podcast/" class="md-nav__link">
+<a class="md-nav__link" href="../tags/podcast/">
+<!-- Navigation link icon -->
+<!-- Navigation link title -->
 <span class="md-ellipsis">
-podcast
-</span>
+    podcast
+  </span>
+<!-- Navigation link status -->
 </a>
 </li>
+<!-- Determine classes -->
+<!-- Navigation item with nested items -->
 <li class="md-nav__item">
-<a href="../tags/podsumowanie/" class="md-nav__link">
+<a class="md-nav__link" href="../tags/podsumowanie/">
+<!-- Navigation link icon -->
+<!-- Navigation link title -->
 <span class="md-ellipsis">
-podsumowanie
-</span>
+    podsumowanie
+  </span>
+<!-- Navigation link status -->
 </a>
 </li>
+<!-- Determine classes -->
+<!-- Navigation item with nested items -->
 <li class="md-nav__item">
-<a href="../tags/profil/" class="md-nav__link">
+<a class="md-nav__link" href="../tags/profil/">
+<!-- Navigation link icon -->
+<!-- Navigation link title -->
 <span class="md-ellipsis">
-profil
-</span>
+    profil
+  </span>
+<!-- Navigation link status -->
 </a>
 </li>
+<!-- Determine classes -->
+<!-- Navigation item with nested items -->
 <li class="md-nav__item">
-<a href="../tags/rekrutacja/" class="md-nav__link">
+<a class="md-nav__link" href="../tags/rekrutacja/">
+<!-- Navigation link icon -->
+<!-- Navigation link title -->
 <span class="md-ellipsis">
-rekrutacja
-</span>
+    rekrutacja
+  </span>
+<!-- Navigation link status -->
 </a>
 </li>
+<!-- Determine classes -->
+<!-- Navigation item with nested items -->
 <li class="md-nav__item">
-<a href="../tags/requests/" class="md-nav__link">
+<a class="md-nav__link" href="../tags/requests/">
+<!-- Navigation link icon -->
+<!-- Navigation link title -->
 <span class="md-ellipsis">
-requests
-</span>
+    requests
+  </span>
+<!-- Navigation link status -->
 </a>
 </li>
+<!-- Determine classes -->
+<!-- Navigation item with nested items -->
 <li class="md-nav__item">
-<a href="../tags/rozw%25C3%25B3j/" class="md-nav__link">
+<a class="md-nav__link" href="../tags/rozw%25C3%25B3j/">
+<!-- Navigation link icon -->
+<!-- Navigation link title -->
 <span class="md-ellipsis">
-rozwój
-</span>
+    rozwój
+  </span>
+<!-- Navigation link status -->
 </a>
 </li>
+<!-- Determine classes -->
+<!-- Navigation item with nested items -->
 <li class="md-nav__item">
-<a href="../tags/rpa/" class="md-nav__link">
+<a class="md-nav__link" href="../tags/rpa/">
+<!-- Navigation link icon -->
+<!-- Navigation link title -->
 <span class="md-ellipsis">
-rpa
-</span>
+    rpa
+  </span>
+<!-- Navigation link status -->
 </a>
 </li>
+<!-- Determine classes -->
+<!-- Navigation item with nested items -->
 <li class="md-nav__item">
-<a href="../tags/rzeczywisto%25C5%259B%25C4%2587/" class="md-nav__link">
+<a class="md-nav__link" href="../tags/rzeczywisto%25C5%259B%25C4%2587/">
+<!-- Navigation link icon -->
+<!-- Navigation link title -->
 <span class="md-ellipsis">
-rzeczywistość
-</span>
+    rzeczywistość
+  </span>
+<!-- Navigation link status -->
 </a>
 </li>
+<!-- Determine classes -->
+<!-- Navigation item with nested items -->
 <li class="md-nav__item">
-<a href="../tags/testitka/" class="md-nav__link">
+<a class="md-nav__link" href="../tags/testitka/">
+<!-- Navigation link icon -->
+<!-- Navigation link title -->
 <span class="md-ellipsis">
-testitka
-</span>
+    testitka
+  </span>
+<!-- Navigation link status -->
 </a>
 </li>
+<!-- Determine classes -->
+<!-- Navigation item with nested items -->
 <li class="md-nav__item">
-<a href="../tags/testowanie/" class="md-nav__link">
+<a class="md-nav__link" href="../tags/testowanie/">
+<!-- Navigation link icon -->
+<!-- Navigation link title -->
 <span class="md-ellipsis">
-testowanie
-</span>
+    testowanie
+  </span>
+<!-- Navigation link status -->
 </a>
 </li>
+<!-- Determine classes -->
+<!-- Navigation item with nested items -->
 <li class="md-nav__item">
-<a href="../tags/testy/" class="md-nav__link">
+<a class="md-nav__link" href="../tags/testy/">
+<!-- Navigation link icon -->
+<!-- Navigation link title -->
 <span class="md-ellipsis">
-testy
-</span>
+    testy
+  </span>
+<!-- Navigation link status -->
 </a>
 </li>
+<!-- Determine classes -->
+<!-- Navigation item with nested items -->
 <li class="md-nav__item">
-<a href="../tags/trendbook/" class="md-nav__link">
+<a class="md-nav__link" href="../tags/trendbook/">
+<!-- Navigation link icon -->
+<!-- Navigation link title -->
 <span class="md-ellipsis">
-trendbook
-</span>
+    trendbook
+  </span>
+<!-- Navigation link status -->
 </a>
 </li>
+<!-- Determine classes -->
+<!-- Navigation item with nested items -->
 <li class="md-nav__item">
-<a href="../tags/unittest/" class="md-nav__link">
+<a class="md-nav__link" href="../tags/unittest/">
+<!-- Navigation link icon -->
+<!-- Navigation link title -->
 <span class="md-ellipsis">
-unittest
-</span>
+    unittest
+  </span>
+<!-- Navigation link status -->
 </a>
 </li>
+<!-- Determine classes -->
+<!-- Navigation item with nested items -->
 <li class="md-nav__item">
-<a href="../tags/vlog/" class="md-nav__link">
+<a class="md-nav__link" href="../tags/vlog/">
+<!-- Navigation link icon -->
+<!-- Navigation link title -->
 <span class="md-ellipsis">
-vlog
-</span>
+    vlog
+  </span>
+<!-- Navigation link status -->
 </a>
 </li>
+<!-- Determine classes -->
+<!-- Navigation item with nested items -->
 <li class="md-nav__item">
-<a href="../tags/zarobki/" class="md-nav__link">
+<a class="md-nav__link" href="../tags/zarobki/">
+<!-- Navigation link icon -->
+<!-- Navigation link title -->
 <span class="md-ellipsis">
-zarobki
-</span>
+    zarobki
+  </span>
+<!-- Navigation link status -->
 </a>
 </li>
+<!-- Determine classes -->
+<!-- Navigation item with nested items -->
 <li class="md-nav__item">
-<a href="../tags/zmiana/" class="md-nav__link">
+<a class="md-nav__link" href="../tags/zmiana/">
+<!-- Navigation link icon -->
+<!-- Navigation link title -->
 <span class="md-ellipsis">
-zmiana
-</span>
+    zmiana
+  </span>
+<!-- Navigation link status -->
 </a>
 </li>
+<!-- Determine classes -->
+<!-- Navigation item with nested items -->
 <li class="md-nav__item">
-<a href="../tags/%25C5%2582uczniczqa/" class="md-nav__link">
+<a class="md-nav__link" href="../tags/%25C5%2582uczniczqa/">
+<!-- Navigation link icon -->
+<!-- Navigation link title -->
 <span class="md-ellipsis">
-łuczniczqa
-</span>
+    łuczniczqa
+  </span>
+<!-- Navigation link status -->
 </a>
 </li>
+<!-- Determine classes -->
+<!-- Navigation item with nested items -->
 <li class="md-nav__item">
-<a href="../tags/%25C5%25BCycie/" class="md-nav__link">
+<a class="md-nav__link" href="../tags/%25C5%25BCycie/">
+<!-- Navigation link icon -->
+<!-- Navigation link title -->
 <span class="md-ellipsis">
-życie
-</span>
+    życie
+  </span>
+<!-- Navigation link status -->
 </a>
 </li>
 </ul>
 </nav>
-</li>
+<!-- Pruned navigation item -->
+</input></li>
+<!-- Currently active page -->
 </ul>
 </nav>
-</li>
+<!-- Pruned navigation item -->
+</input></li>
+<!-- Currently active page -->
+<!-- Determine classes -->
+<!-- Navigation item with nested items -->
 <li class="md-nav__item">
-<a href="../../python-kompendium/" class="md-nav__link">
+<a class="md-nav__link" href="../../python-kompendium/">
+<!-- Navigation link icon -->
+<!-- Navigation link title -->
 <span class="md-ellipsis">
-Python
-</span>
+    Python
+  </span>
+<!-- Navigation link status -->
 </a>
 </li>
+<!-- Determine classes -->
+<!-- Navigation item with nested items -->
+<!-- Determine all nested items that are index pages -->
+<!-- Determine whether to render item as a section -->
+<!-- Nested navigation item -->
 <li class="md-nav__item md-nav__item--nested">
-<input type="checkbox" class="md-toggle md-nav__toggle" id="__nav_3">
+<!-- Determine checked and indeterminate state -->
+<!-- Active checkbox expands items contained within nested section -->
+<input class="md-nav__toggle md-toggle" id="__nav_3" type="checkbox">
+<!-- Toggle to expand nested items -->
 <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+<!-- Navigation link icon -->
+<!-- Navigation link title -->
 <span class="md-ellipsis">
-Szkolenia
-</span>
-<span class="md-icon md-nav__icon"></span>
+    Szkolenia
+  </span>
+<!-- Navigation link status -->
+<span class="md-nav__icon md-icon"></span>
 </label>
-<nav class="md-nav" data-md-level="1" aria-expanded="false" aria-labelledby="__nav_3_label">
+<!-- Toggle to expand nested items with link to index page -->
+<!-- Nested navigation -->
+<nav aria-expanded="false" aria-labelledby="__nav_3_label" class="md-nav" data-md-level="1">
 <label class="md-nav__title" for="__nav_3">
-<span class="md-icon md-nav__icon"></span>
-Szkolenia
-</label>
+<span class="md-nav__icon md-icon"></span>
+            Szkolenia
+          </label>
 <ul class="md-nav__list" data-md-scrollfix="">
+<!-- Nested navigation item -->
+<!-- Determine classes -->
+<!-- Navigation item with nested items -->
+<!-- Determine all nested items that are index pages -->
+<!-- Determine whether to render item as a section -->
+<!-- Nested navigation item -->
 <li class="md-nav__item md-nav__item--nested">
-<input type="checkbox" class="md-toggle md-nav__toggle" id="__nav_3_1">
+<!-- Determine checked and indeterminate state -->
+<!-- Active checkbox expands items contained within nested section -->
+<input class="md-nav__toggle md-toggle" id="__nav_3_1" type="checkbox"/>
+<!-- Toggle to expand nested items -->
 <div class="md-nav__link md-nav__container">
-<a href="../../szkolenia/stacjonarne/" class="md-nav__link">
+<a class="md-nav__link" href="../../szkolenia/stacjonarne/">
+<!-- Navigation link icon -->
+<!-- Navigation link title -->
 <span class="md-ellipsis">
-Szkolenia stacjonarne
-</span>
+    Szkolenia stacjonarne
+  </span>
+<!-- Navigation link status -->
 </a>
+<!-- Only render toggle if there's at least one more page -->
 <label class="md-nav__link" for="__nav_3_1">
-<span class="md-icon md-nav__icon"></span>
+<span class="md-nav__icon md-icon"></span>
 </label>
 </div>
-<nav class="md-nav" data-md-level="2" aria-expanded="false" aria-labelledby="__nav_3_1_label">
+<!-- Nested navigation -->
+<nav aria-expanded="false" aria-labelledby="__nav_3_1_label" class="md-nav" data-md-level="2">
 <label class="md-nav__title" for="__nav_3_1">
-<span class="md-icon md-nav__icon"></span>
-Szkolenia stacjonarne
-</label>
+<span class="md-nav__icon md-icon"></span>
+            Szkolenia stacjonarne
+          </label>
 <ul class="md-nav__list" data-md-scrollfix="">
+<!-- Nested navigation item -->
+<!-- Determine classes -->
+<!-- Navigation item with nested items -->
 <li class="md-nav__item">
-<a href="../../szkolenia/stacjonarne/testowanie-rest-api-w-pythonie/" class="md-nav__link">
+<a class="md-nav__link" href="../../szkolenia/stacjonarne/testowanie-rest-api-w-pythonie/">
+<!-- Navigation link icon -->
+<!-- Navigation link title -->
 <span class="md-ellipsis">
-Testowania REST API w Pythonie
-</span>
+    Testowania REST API w Pythonie
+  </span>
+<!-- Navigation link status -->
 </a>
 </li>
+<!-- Determine classes -->
+<!-- Navigation item with nested items -->
 <li class="md-nav__item">
-<a href="../../szkolenia/stacjonarne/playwright-w-pythonie/" class="md-nav__link">
+<a class="md-nav__link" href="../../szkolenia/stacjonarne/playwright-w-pythonie/">
+<!-- Navigation link icon -->
+<!-- Navigation link title -->
 <span class="md-ellipsis">
-Playwright w Pythonie
-</span>
+    Playwright w Pythonie
+  </span>
+<!-- Navigation link status -->
 </a>
 </li>
 </ul>
 </nav>
+<!-- Pruned navigation item -->
 </li>
+<!-- Currently active page -->
 </ul>
 </nav>
-</li>
+<!-- Pruned navigation item -->
+</input></li>
+<!-- Currently active page -->
+<!-- Determine classes -->
+<!-- Navigation item with nested items -->
 <li class="md-nav__item">
-<a href="../../kontakt/" class="md-nav__link">
+<a class="md-nav__link" href="../../kontakt/">
+<!-- Navigation link icon -->
+<!-- Navigation link title -->
 <span class="md-ellipsis">
-Kontakt
-</span>
+    Kontakt
+  </span>
+<!-- Navigation link status -->
 </a>
 </li>
 </ul>
 </nav>
 </div>
 <div class="md-sidebar__inner">
-<div class="md-nav md-typeset tb-sidebar">
+<div class="md-typeset md-nav tb-sidebar">
 <div class="md-nav__title">
-<a href="https://testerembyc.pl/pages/o-mnie/" class="md-nav__link md-nav__link--active">O mnie</a>
+<a class="md-nav__link md-nav__link--active" href="https://testerembyc.pl/pages/o-mnie/">O mnie</a>
 </div>
 <div class="md-nav__item">
-<img src="https://testerembyc.pl/images/pages/me_bw_small.jpg">
-<p>Nazywam się <b>Maciej Kusz</b> i od 2008 roku zajmuję się testowaniem oprogramowania. Na początku były to testy manualne, od 2011 początki testów automatycznych, a od 2013 automatyzacją testów z wykorzystaniem języka <b>Python</b>. Przez te kilka lat, zdarzyło mi się już być w kilku firmach i w kilku różnych projektach. Na stronie <a href="https://testerembyc.pl/pages/o-mnie/">o mnie</a>, znajdziesz ciut więcej informacji na ten temat.</p>
+<img src="https://testerembyc.pl/images/pages/me_bw_small.jpg"/>
+<p>Nazywam się <b>Maciej Kusz</b> i od 2008 roku zajmuję się testowaniem oprogramowania.
+      Na początku były to testy manualne, od 2011 początki testów automatycznych,
+      a od 2013 automatyzacją testów z wykorzystaniem języka <b>Python</b>.
+      Przez te kilka lat, zdarzyło mi się już być w kilku firmach i w kilku różnych projektach.
+      Na stronie <a href="https://testerembyc.pl/pages/o-mnie/">o mnie</a>, znajdziesz ciut więcej informacji na ten temat.</p>
 </div>
 </div>
 </div>
 </div>
 </div>
+<!-- Table of contents -->
 <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc">
 <div class="md-sidebar__scrollwrap">
 <div class="md-sidebar__inner">
-<nav class="md-nav md-nav--secondary" aria-label="Spis treści">
+<nav aria-label="Spis treści" class="md-nav md-nav--secondary">
 <label class="md-nav__title" for="__toc">
-<span class="md-icon md-nav__icon"></span>
-Spis treści
-</label>
-<ul class="md-nav__list" data-md-scrollfix="" data-md-component="toc">
+<span class="md-nav__icon md-icon"></span>
+      Spis treści
+    </label>
+<ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
 <li class="md-nav__item">
-<a href="#ale-skad-w-ogole-ten-pomys" class="md-nav__link">
+<a class="md-nav__link" href="#ale-skad-w-ogole-ten-pomys">
 <span class="md-ellipsis">
-Ale skąd w ogóle ten pomysł?
-</span>
+      Ale skąd w ogóle ten pomysł?
+    </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a href="#zaozenia" class="md-nav__link">
+<a class="md-nav__link" href="#zaozenia">
 <span class="md-ellipsis">
-Założenia
-</span>
+      Założenia
+    </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a href="#co-bedziemy-testowac" class="md-nav__link">
+<a class="md-nav__link" href="#co-bedziemy-testowac">
 <span class="md-ellipsis">
-Co będziemy testować?
-</span>
+      Co będziemy testować?
+    </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a href="#potrzebne-biblioteki" class="md-nav__link">
+<a class="md-nav__link" href="#potrzebne-biblioteki">
 <span class="md-ellipsis">
-Potrzebne biblioteki
-</span>
+      Potrzebne biblioteki
+    </span>
 </a>
-<nav class="md-nav" aria-label="Potrzebne biblioteki">
+<nav aria-label="Potrzebne biblioteki" class="md-nav">
 <ul class="md-nav__list">
 <li class="md-nav__item">
-<a href="#requests" class="md-nav__link">
+<a class="md-nav__link" href="#requests">
 <span class="md-ellipsis">
-requests
-</span>
+      requests
+    </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a href="#unittest" class="md-nav__link">
+<a class="md-nav__link" href="#unittest">
 <span class="md-ellipsis">
-unittest
-</span>
+      unittest
+    </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a href="#xmlrunner" class="md-nav__link">
+<a class="md-nav__link" href="#xmlrunner">
 <span class="md-ellipsis">
-xmlrunner
-</span>
+      xmlrunner
+    </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a href="#json" class="md-nav__link">
+<a class="md-nav__link" href="#json">
 <span class="md-ellipsis">
-json
-</span>
+      json
+    </span>
 </a>
 </li>
 </ul>
 </nav>
 </li>
 <li class="md-nav__item">
-<a href="#kodujemy" class="md-nav__link">
+<a class="md-nav__link" href="#kodujemy">
 <span class="md-ellipsis">
-Kodujemy
-</span>
+      Kodujemy
+    </span>
 </a>
-<nav class="md-nav" aria-label="Kodujemy">
+<nav aria-label="Kodujemy" class="md-nav">
 <ul class="md-nav__list">
 <li class="md-nav__item">
-<a href="#import" class="md-nav__link">
+<a class="md-nav__link" href="#import">
 <span class="md-ellipsis">
-import
-</span>
+      import
+    </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a href="#pierwszy-test" class="md-nav__link">
+<a class="md-nav__link" href="#pierwszy-test">
 <span class="md-ellipsis">
-Pierwszy test
-</span>
+      Pierwszy test
+    </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a href="#test-w-unittest" class="md-nav__link">
+<a class="md-nav__link" href="#test-w-unittest">
 <span class="md-ellipsis">
-Test w unittest
-</span>
+      Test w unittest
+    </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a href="#testsjson" class="md-nav__link">
+<a class="md-nav__link" href="#testsjson">
 <span class="md-ellipsis">
-tests.json
-</span>
+      tests.json
+    </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a href="#rozpakowywanie-sownika" class="md-nav__link">
+<a class="md-nav__link" href="#rozpakowywanie-sownika">
 <span class="md-ellipsis">
-Rozpakowywanie słownika
-</span>
+      Rozpakowywanie słownika
+    </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a href="#generator-testow-z-danych-testowych" class="md-nav__link">
+<a class="md-nav__link" href="#generator-testow-z-danych-testowych">
 <span class="md-ellipsis">
-Generator testów z danych testowych
-</span>
+      Generator testów z danych testowych
+    </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a href="#wiecej-testow" class="md-nav__link">
+<a class="md-nav__link" href="#wiecej-testow">
 <span class="md-ellipsis">
-Więcej testów
-</span>
+      Więcej testów
+    </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a href="#raporty-i-16-linii-kodu" class="md-nav__link">
+<a class="md-nav__link" href="#raporty-i-16-linii-kodu">
 <span class="md-ellipsis">
-Raporty i 16 linii kodu
-</span>
+      Raporty i 16 linii kodu
+    </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a href="#czy-da-sie-jeszcze-lepiej" class="md-nav__link">
+<a class="md-nav__link" href="#czy-da-sie-jeszcze-lepiej">
 <span class="md-ellipsis">
-Czy da się jeszcze lepiej?
-</span>
+      Czy da się jeszcze lepiej?
+    </span>
 </a>
 </li>
 </ul>
 </nav>
 </li>
 <li class="md-nav__item">
-<a href="#podsumowanie" class="md-nav__link">
+<a class="md-nav__link" href="#podsumowanie">
 <span class="md-ellipsis">
-Podsumowanie
-</span>
+      Podsumowanie
+    </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a href="#bonus" class="md-nav__link">
+<a class="md-nav__link" href="#bonus">
 <span class="md-ellipsis">
-Bonus
-</span>
+      Bonus
+    </span>
 </a>
 </li>
 </ul>
 </nav>
 </div>
 <div class="md-sidebar__inner">
-<div class="md-nav md-typeset tb-sidebar">
+<div class="md-typeset md-nav tb-sidebar">
 <div class="md-nav__title">
-Newsletter
-</div>
+    Newsletter
+  </div>
 <div class="md-nav__item">
-<p>Chcesz być powiadamiany o nowościach na tej stronie oraz innych moich projektach? Jeśli tak, to zapisz się poniżej do newsletter'a.
-<script src="https://eocampaign1.com/form/7e5ea679-a893-11ec-9258-0241b9615763.js" async data-form="7e5ea679-a893-11ec-9258-0241b9615763"></script>
-Wszystkie podane przez Ciebie dane, będą przetwarzane zgodnie z
-<a href="https://testerembyc.pl/pages/polityka-prywatnosci">polityką prywatności</a>.
-</p><hr>
-<a href="https://testerembyc.pl/pages/regulamin">Regulamin</a><br>
+<p>Chcesz być powiadamiany o nowościach na tej stronie oraz innych moich projektach?
+      Jeśli tak, to zapisz się poniżej do newsletter'a.
+      <script async="" data-form="7e5ea679-a893-11ec-9258-0241b9615763" src="https://eocampaign1.com/form/7e5ea679-a893-11ec-9258-0241b9615763.js">
+</script>
+      Wszystkie podane przez Ciebie dane, będą przetwarzane zgodnie z
+      <a href="https://testerembyc.pl/pages/polityka-prywatnosci">polityką prywatności</a>.
+      <hr/>
+<a href="https://testerembyc.pl/pages/regulamin">Regulamin</a><br/>
 <a href="#__consent">Zarządzanie ciasteczkami</a>
-<p></p>
+</p>
 </div>
 </div>
 </div>
 </div>
 </div>
 <div class="md-content" data-md-component="content">
-<article class="md-typeset md-content__inner">
+<article class="md-content__inner md-typeset">
 <div class="post-extra">
 <div class="col">
 <p class="post-date">2020.12.18</p>
@@ -855,23 +1271,24 @@ Wszystkie podane przez Ciebie dane, będą przetwarzane zgodnie z
 </div>
 <h1>Najmniejszy framework do testów w Pythonie</h1>
 <figure>
-<p><img src="../../images/posts/2020/najmniejszy-framework-do-testow-w-pythonie.jpg" alt="Najmniejszy framework do testów w Pythonie" loading="lazy"></p>
+<p><img alt="Najmniejszy framework do testów w Pythonie" loading="lazy" src="../../images/posts/2020/najmniejszy-framework-do-testow-w-pythonie.jpg"/></p>
 <figcaption>
 <p>Wykorzystano zdjęcie autorstwa <a href="https://www.pexels.com/pl-pl/@readymade">ready made</a> z <a href="https://www.pexels.com/">Pexels</a></p>
 </figcaption>
 </figure>
 <p>Jeśli interesujesz się choć trochę programowaniem, to zapewne trafiłeś kiedyś na artykuły porównujące, ile linii kodu potrzebnych jest do stworzenia uwielbianego <em>hello world</em> w różnych językach programowania. Sam zresztą pokazywałem, w pierwszym wpisie na tym blogu ile linii kodu potrzebne jest w Pythonie, aby wyświetlić proste <a href="../witaj-swiecie/">witaj swiecie</a>. A co by się stało, gdybyśmy w tych rozważaniach poszli ciut dalej i zastanowili się, ile potrzebnych jest linii kodu, aby stworzyć działający framework do testów?</p>
+<!-- more -->
 <div class="admonition info">
 <p class="admonition-title">Jeszcze mniejszy framework do testów</p>
-<p>Do tego artykułu istnieje kontynuacja, ale zachęcam do przeczytania obu artykułów w kolejności, w jakiej były publikowane. Jeśli jednak znasz już ten artykuł, to kolejny zatytułowany jest <a href="../jeszcze-mniejszy-framework-do-testow-w-pythonie/">jeszcze mniejszy framework do testów w pythonie</a> i również zachęcam do jego lektury.</p>
+<p>Do tego artykułu istnieje kontynuacja, ale zachęcam do przeczytania obu artykułów w kolejności, w jakiej były publikowane. Jeśli jednak znasz już ten artykuł, to kolejny zatytułowany jest <a href="../jeszcze-mniejszy-framework-do-testow-w-pythonie/">jeszcze mniejszy framework do testów w pythonie</a>  i również zachęcam do jego lektury.</p>
 </div>
-<h2 id="ale-skad-w-ogole-ten-pomys">Ale skąd w ogóle ten pomysł?<a href="#ale-skad-w-ogole-ten-pomys" class="headerlink" title="Anchor link to this section for reference">¶</a></h2>
+<h2 id="ale-skad-w-ogole-ten-pomys">Ale skąd w ogóle ten pomysł?<a class="headerlink" href="#ale-skad-w-ogole-ten-pomys" title="Anchor link to this section for reference">¶</a></h2>
 <p>Historia tego pomysłu sięga początków tegorocznej pandemii i sławnego <a href="https://www.siepomaga.pl/hot16challenge">#hot16challenge</a> oraz pomysłu, o jakim opowiedział mi wtedy <strong>Bartosz Kita</strong> z bloga <a href="https://testerprogramuje.pl/">Tester Programuje</a>. Sam pomysł był prosty i do tej pory mocno żałuję, że pomimo gotowego kodu, nie znalazłem czasu na nagranie krótkiego filmu, gdzie bym o tym opowiedział (wybacz Bartek, bo pomysł był przedni). O co chodzi? Najlepiej niech sam autor o tym opowie:</p>
-<div class="video"><iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen src="https://www.youtube.com/embed/jLV1VaneJWs" title="Najmniejszy framework do testów w Pythonie">
+<div class="video"><iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen="" src="https://www.youtube.com/embed/jLV1VaneJWs" title="Najmniejszy framework do testów w Pythonie">
 </iframe></div>
 <p>Wiem, że akcja już dawno przestała być modna, ale skoro kod powstał, a wiele osób prosiło mnie o ciut bardziej techniczne wpisy, to pobawmy się wspólnie troszkę Pythonem i pokażę Ci jego siłę. Jak zapewne domyślasz się po treści powyższego filmu, spróbuję pokazać Ci, że w <strong>16 linijkach kodu</strong> da się stworzyć działający <strong>framework do testów</strong>.</p>
 <p>Zanim jednak to zrobię, miej na uwadze, że zostanie tu złamane kilka reguł formatowania kodu Pythona, które są opisane w dokumencie <a href="https://www.python.org/dev/peps/pep-0008/">PEP-8 - Style Guide for Python Code</a>. Bez tych drobnych, celowych <em>wypaczeń</em>, nie udało mi się upakować kodu w tak małej ilości linijek.</p>
-<h2 id="zaozenia">Założenia<a href="#zaozenia" class="headerlink" title="Anchor link to this section for reference">¶</a></h2>
+<h2 id="zaozenia">Założenia<a class="headerlink" href="#zaozenia" title="Anchor link to this section for reference">¶</a></h2>
 <p>Aby cała powyższa zabawa w ogóle nam się udała, musimy przyjąć pewne założenia i mieć świadomość, że stworzony framework będzie miał dosyć ograniczoną funkcjonalność (choć bardzo łatwo będzie można ją rozszerzyć). Założenia, jakie przyjąłem, prezentują się następująco:</p>
 <ul>
 <li>zajmiemy się testami REST API — wysyłając zapytanie do REST API, w odpowiedzi zawsze otrzymamy <a href="https://www.iana.org/assignments/http-status-codes/http-status-codes.xhtml">kod statusu odpowiedzi</a>, a tworzony framework będzie sprawdzał właśnie ten kod,</li>
@@ -879,46 +1296,46 @@ Wszystkie podane przez Ciebie dane, będą przetwarzane zgodnie z
 <li>framework powinien wygenerować jakąś formę raportu — co to za testy, po których uruchomieniu nie dostaniemy jakiegoś raportu?</li>
 </ul>
 <p>Założenia są proste, ale na pierwszy rzut oka wydaje się to praktycznie niemożliwe. A gdzieś napisałem, że tworzony kod będzie prosty i że to zadanie będzie łatwe do wykonania?</p>
-<h2 id="co-bedziemy-testowac">Co będziemy testować?<a href="#co-bedziemy-testowac" class="headerlink" title="Anchor link to this section for reference">¶</a></h2>
+<h2 id="co-bedziemy-testowac">Co będziemy testować?<a class="headerlink" href="#co-bedziemy-testowac" title="Anchor link to this section for reference">¶</a></h2>
 <p>Skoro już wiemy, że chcemy testować jakieś REST API, to przydałoby się nam takie. Pod adresem <a href="https://reqres.in/">https://reqres.in/</a> znajduje się przykładowe i dosyć proste API. Pomimo swoich ograniczeń na nasze potrzeby jest w zupełności wystarczające.</p>
-<h2 id="potrzebne-biblioteki">Potrzebne biblioteki<a href="#potrzebne-biblioteki" class="headerlink" title="Anchor link to this section for reference">¶</a></h2>
+<h2 id="potrzebne-biblioteki">Potrzebne biblioteki<a class="headerlink" href="#potrzebne-biblioteki" title="Anchor link to this section for reference">¶</a></h2>
 <p>Skoro znamy już założenia, zastanówmy się, z czego możemy skorzystać, aby maksymalnie ograniczyć potrzebną ilość linii kodu.</p>
-<h3 id="requests">requests<a href="#requests" class="headerlink" title="Anchor link to this section for reference">¶</a></h3>
+<h3 id="requests">requests<a class="headerlink" href="#requests" title="Anchor link to this section for reference">¶</a></h3>
 <p>Najpopularniejszą i najbardziej rozbudowaną biblioteką do wysyłania zapytań do REST API jest biblioteka <code>requests &lt;https://requests.readthedocs.io/en/master/&gt;</code>_. Biblioteka wymaga instalacji, gdyż nie jest częścią biblioteki standardowej i możemy to zrobić, wydając następującą komendę:</p>
-<div class="highlight language-console"><pre><span></span><code><span id="__span-0-1"><a href="#__codelineno-0-1" id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="go">python -m pip install requests</span>
+<div class="language-console highlight"><pre><span></span><code><span id="__span-0-1"><a href="#__codelineno-0-1" id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="go">python -m pip install requests</span>
 </span></code></pre></div>
-<h3 id="unittest">unittest<a href="#unittest" class="headerlink" title="Anchor link to this section for reference">¶</a></h3>
+<h3 id="unittest">unittest<a class="headerlink" href="#unittest" title="Anchor link to this section for reference">¶</a></h3>
 <p><a href="https://docs.python.org/3/library/unittest.html">Unittest</a> to wbudowany w bibliotekę standardową framework do przeprowadzania testów, a więc nie wymaga dodatkowej instalacji. W naszym kodzie posłuży nam jako podstawa budowanego frameworka.</p>
-<h3 id="xmlrunner">xmlrunner<a href="#xmlrunner" class="headerlink" title="Anchor link to this section for reference">¶</a></h3>
+<h3 id="xmlrunner">xmlrunner<a class="headerlink" href="#xmlrunner" title="Anchor link to this section for reference">¶</a></h3>
 <p><a href="https://unittest-xml-reporting.readthedocs.io/en/latest/">Xmlrunner</a> jest tzw. runnerem dla frameworka <em>unittest</em>, który umożliwia generowanie raportów w formacie XML, zgodnym ze <a href="https://github.com/windyroad/JUnit-Schema">schematem JUnit</a>. Format ten akceptowany jest przez większość narzędzi CI/CD, a więc budowany framework można bardzo prosto z takimi narzędziami zintegrować oraz przeglądać raport z przeprowadzonych testów. W celu instalacji biblioteki należy wydać następującą komendę:</p>
-<div class="highlight language-console"><pre><span></span><code><span id="__span-1-1"><a href="#__codelineno-1-1" id="__codelineno-1-1" name="__codelineno-1-1"></a><span class="go">pip install unittest-xml-reporting</span>
+<div class="language-console highlight"><pre><span></span><code><span id="__span-1-1"><a href="#__codelineno-1-1" id="__codelineno-1-1" name="__codelineno-1-1"></a><span class="go">pip install unittest-xml-reporting</span>
 </span></code></pre></div>
-<h3 id="json">json<a href="#json" class="headerlink" title="Anchor link to this section for reference">¶</a></h3>
+<h3 id="json">json<a class="headerlink" href="#json" title="Anchor link to this section for reference">¶</a></h3>
 <p>Standardowa biblioteka Pythona, a więc nie wymaga instalacji. Biblioteka ta umożliwia obsługę danych w formacie <a href="https://www.json.org/json-en.html">JSON</a> i posłuży do odczytu danych testowych z zewnętrznego pliku.</p>
-<h2 id="kodujemy">Kodujemy<a href="#kodujemy" class="headerlink" title="Anchor link to this section for reference">¶</a></h2>
+<h2 id="kodujemy">Kodujemy<a class="headerlink" href="#kodujemy" title="Anchor link to this section for reference">¶</a></h2>
 <p>Skoro mamy już wszystkie potrzebne elementy tej całej układanki to zacznijmy w końcu pisać ten kod. Na początek stwórzmy sobie 2 pliki: <code>tests.py</code> i <code>tests.json</code>. Mając je, przejdźmy do pliku <code>tests.py</code>.</p>
-<h3 id="import">import<a href="#import" class="headerlink" title="Anchor link to this section for reference">¶</a></h3>
+<h3 id="import">import<a class="headerlink" href="#import" title="Anchor link to this section for reference">¶</a></h3>
 <p>Każdy szanujący się programista Pythona, postępuje zgodnie z regułami i na początku pliku importuje wszystkie biblioteki. Dobry obyczaj mówi, że import każdej biblioteki powinie znajdować się w oddzielnej linijce, jednakże, ze względu na ograniczone miejsce, w naszym kodzie wszystkie importy zostaną wykonane w jednej linii:</p>
-<div class="highlight language-python"><pre><span></span><code><span id="__span-2-1"><a href="#__codelineno-2-1" id="__codelineno-2-1" name="__codelineno-2-1"></a><span class="kn">import</span><span class="w"> </span><span class="nn">unittest</span><span class="o">,</span><span class="w"> </span><span class="nn">xmlrunner</span><span class="o">,</span><span class="w"> </span><span class="nn">json</span><span class="o">,</span><span class="w"> </span><span class="nn">requests</span>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-2-1"><a href="#__codelineno-2-1" id="__codelineno-2-1" name="__codelineno-2-1"></a><span class="kn">import</span><span class="w"> </span><span class="nn">unittest</span><span class="o">,</span><span class="w"> </span><span class="nn">xmlrunner</span><span class="o">,</span><span class="w"> </span><span class="nn">json</span><span class="o">,</span><span class="w"> </span><span class="nn">requests</span>
 </span></code></pre></div>
 <p>Kolejność importów jest dowolna (choć i tutaj są pewne reguły, które warto stosować).</p>
-<h3 id="pierwszy-test">Pierwszy test<a href="#pierwszy-test" class="headerlink" title="Anchor link to this section for reference">¶</a></h3>
+<h3 id="pierwszy-test">Pierwszy test<a class="headerlink" href="#pierwszy-test" title="Anchor link to this section for reference">¶</a></h3>
 <p>Wiemy, że chcemy sprawdzać status odpowiedzi na wysłane żądanie, a więc zacznijmy od czegoś prostego: wyślemy proste żądanie typu GET na adres url <a href="https://reqres.in/api/users">https://reqres.in/api/users</a> i sprawdzimy kod statusu odpowiedzi.</p>
-<div class="highlight language-python"><pre><span></span><code><span id="__span-3-1"><a href="#__codelineno-3-1" id="__codelineno-3-1" name="__codelineno-3-1"></a><span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">"https://reqres.in/api/users"</span><span class="p">)</span>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-3-1"><a href="#__codelineno-3-1" id="__codelineno-3-1" name="__codelineno-3-1"></a><span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">"https://reqres.in/api/users"</span><span class="p">)</span>
 </span><span id="__span-3-2"><a href="#__codelineno-3-2" id="__codelineno-3-2" name="__codelineno-3-2"></a><span class="nb">print</span><span class="p">(</span><span class="n">response</span><span class="o">.</span><span class="n">status_code</span><span class="p">)</span>
 </span></code></pre></div>
-<div class="highlight language-bash"><pre><span></span><code><span id="__span-4-1"><a href="#__codelineno-4-1" id="__codelineno-4-1" name="__codelineno-4-1"></a><span class="m">200</span>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-4-1"><a href="#__codelineno-4-1" id="__codelineno-4-1" name="__codelineno-4-1"></a><span class="m">200</span>
 </span></code></pre></div>
 <p>Super. Wiemy, że endpoint działa a kod <code>200</code> mówi nam, że wszystko przebiegło bez problemów (kod ten oznacza `OK``).</p>
 <p>No ale gdzie tu test? No faktycznie nie ma go. Więc przeróbmy troszeczkę ten kod.</p>
-<div class="highlight language-python"><pre><span></span><code><span id="__span-5-1"><a href="#__codelineno-5-1" id="__codelineno-5-1" name="__codelineno-5-1"></a><span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">"https://reqres.in/api/users"</span><span class="p">)</span>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-5-1"><a href="#__codelineno-5-1" id="__codelineno-5-1" name="__codelineno-5-1"></a><span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">"https://reqres.in/api/users"</span><span class="p">)</span>
 </span><span id="__span-5-2"><a href="#__codelineno-5-2" id="__codelineno-5-2" name="__codelineno-5-2"></a><span class="k">assert</span> <span class="n">response</span><span class="o">.</span><span class="n">status_code</span> <span class="o">==</span> <span class="mi">200</span>
 </span></code></pre></div>
 <p>Po uruchomieniu tego kodu nic się nie wyświetli, gdyż wszystko jest w porządku. W ramach samodzielnego ćwiczenia sprawdź, co się stanie jak podmienisz <code>200</code> na <code>202</code>.</p>
 <p>Czy to już koniec? Na razie mamy 4 linie kodu (po importach zostawiamy jedną linię przerwy) a mamy do dyspozycji ich aż 16. No więc co dalej?</p>
-<h3 id="test-w-unittest">Test w unittest<a href="#test-w-unittest" class="headerlink" title="Anchor link to this section for reference">¶</a></h3>
+<h3 id="test-w-unittest">Test w unittest<a class="headerlink" href="#test-w-unittest" title="Anchor link to this section for reference">¶</a></h3>
 <p>Przeróbmy teraz kod tak, aby wykorzystać dobrodziejstwa unittest.</p>
-<div class="highlight language-python"><pre><span></span><code><span id="__span-6-1"><a href="#__codelineno-6-1" id="__codelineno-6-1" name="__codelineno-6-1"></a><span class="k">class</span><span class="w"> </span><span class="nc">Tests</span><span class="p">(</span><span class="n">unittest</span><span class="o">.</span><span class="n">TestCase</span><span class="p">):</span>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-6-1"><a href="#__codelineno-6-1" id="__codelineno-6-1" name="__codelineno-6-1"></a><span class="k">class</span><span class="w"> </span><span class="nc">Tests</span><span class="p">(</span><span class="n">unittest</span><span class="o">.</span><span class="n">TestCase</span><span class="p">):</span>
 </span><span id="__span-6-2"><a href="#__codelineno-6-2" id="__codelineno-6-2" name="__codelineno-6-2"></a>    <span class="k">def</span><span class="w"> </span><span class="nf">test_get_all_users</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 </span><span id="__span-6-3"><a href="#__codelineno-6-3" id="__codelineno-6-3" name="__codelineno-6-3"></a>        <span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">"https://reqres.in/api/users"</span><span class="p">)</span>
 </span><span id="__span-6-4"><a href="#__codelineno-6-4" id="__codelineno-6-4" name="__codelineno-6-4"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">assertEqual</span><span class="p">(</span><span class="n">response</span><span class="o">.</span><span class="n">status_code</span><span class="p">,</span> <span class="mi">200</span><span class="p">)</span>
@@ -931,21 +1348,21 @@ Wszystkie podane przez Ciebie dane, będą przetwarzane zgodnie z
 </ul>
 <p>Niestety przy próbie uruchomienia, nic się nie wydarzy.</p>
 <p>Naprawmy to poprzez dodanie poniższego kodu na końcu pliku oraz go uruchommy:</p>
-<div class="highlight language-python"><pre><span></span><code><span id="__span-7-1"><a href="#__codelineno-7-1" id="__codelineno-7-1" name="__codelineno-7-1"></a><span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">'__main__'</span><span class="p">:</span>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-7-1"><a href="#__codelineno-7-1" id="__codelineno-7-1" name="__codelineno-7-1"></a><span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">'__main__'</span><span class="p">:</span>
 </span><span id="__span-7-2"><a href="#__codelineno-7-2" id="__codelineno-7-2" name="__codelineno-7-2"></a>    <span class="n">unittest</span><span class="o">.</span><span class="n">main</span><span class="p">()</span>
 </span></code></pre></div>
-<div class="highlight language-console"><pre><span></span><code><span id="__span-8-1"><a href="#__codelineno-8-1" id="__codelineno-8-1" name="__codelineno-8-1"></a><span class="go">Ran 1 test in 0.281s</span>
+<div class="language-console highlight"><pre><span></span><code><span id="__span-8-1"><a href="#__codelineno-8-1" id="__codelineno-8-1" name="__codelineno-8-1"></a><span class="go">Ran 1 test in 0.281s</span>
 </span><span id="__span-8-2"><a href="#__codelineno-8-2" id="__codelineno-8-2" name="__codelineno-8-2"></a><span class="go">OK</span>
 </span></code></pre></div>
 <p>Wygląda to już zdecydowanie lepiej, ale to nie koniec naszej zabawy. Zajmijmy się teraz przechowywaniem danych testowych w pliku.</p>
-<h3 id="testsjson">tests.json<a href="#testsjson" class="headerlink" title="Anchor link to this section for reference">¶</a></h3>
+<h3 id="testsjson">tests.json<a class="headerlink" href="#testsjson" title="Anchor link to this section for reference">¶</a></h3>
 <p>Zanim jednak dojdziemy do samego pliku, zmieńmy jeszcze jedną rzecz w naszym kodzie, tak abyś lepiej zrozumiał, dlaczego pewne rzeczy działają. Zauważ, że w naszym kodzie, do tej pory używaliśmy <code>requests.get</code>. Czy da się to jakoś sparametryzować? Jak to mawiają 'ciekawość to pierwszy stopień do piekła' to poszukajmy do niego drzwi. Jeśli do edycji kodu, używasz PyCharma, to klikając w <code>get</code> z przytrzymanym klawiszem <code>CTRL</code> przejdziesz to implementacji metody <code>requests.get</code>. I cóż tam widzimy (pominąłem komentarze)?</p>
-<div class="highlight language-python"><pre><span></span><code><span id="__span-9-1"><a href="#__codelineno-9-1" id="__codelineno-9-1" name="__codelineno-9-1"></a><span class="k">def</span><span class="w"> </span><span class="nf">get</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">params</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-9-1"><a href="#__codelineno-9-1" id="__codelineno-9-1" name="__codelineno-9-1"></a><span class="k">def</span><span class="w"> </span><span class="nf">get</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">params</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
 </span><span id="__span-9-2"><a href="#__codelineno-9-2" id="__codelineno-9-2" name="__codelineno-9-2"></a>    <span class="n">kwargs</span><span class="o">.</span><span class="n">setdefault</span><span class="p">(</span><span class="s1">'allow_redirects'</span><span class="p">,</span> <span class="kc">True</span><span class="p">)</span>
 </span><span id="__span-9-3"><a href="#__codelineno-9-3" id="__codelineno-9-3" name="__codelineno-9-3"></a>    <span class="k">return</span> <span class="n">request</span><span class="p">(</span><span class="s1">'get'</span><span class="p">,</span> <span class="n">url</span><span class="p">,</span> <span class="n">params</span><span class="o">=</span><span class="n">params</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
 </span></code></pre></div>
 <p>No więc skoro samo biblioteka <code>requests</code> tak robi, to dlaczego nie możemy my tak postąpić? Nasz kod po zmianach będzie wyglądał tak:</p>
-<div class="highlight language-python"><pre><span></span><code><span id="__span-10-1"><a href="#__codelineno-10-1" id="__codelineno-10-1" name="__codelineno-10-1"></a><span class="kn">import</span><span class="w"> </span><span class="nn">unittest</span><span class="o">,</span><span class="w"> </span><span class="nn">xmlrunner</span><span class="o">,</span><span class="w"> </span><span class="nn">json</span><span class="o">,</span><span class="w"> </span><span class="nn">requests</span>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-10-1"><a href="#__codelineno-10-1" id="__codelineno-10-1" name="__codelineno-10-1"></a><span class="kn">import</span><span class="w"> </span><span class="nn">unittest</span><span class="o">,</span><span class="w"> </span><span class="nn">xmlrunner</span><span class="o">,</span><span class="w"> </span><span class="nn">json</span><span class="o">,</span><span class="w"> </span><span class="nn">requests</span>
 </span><span id="__span-10-2"><a href="#__codelineno-10-2" id="__codelineno-10-2" name="__codelineno-10-2"></a>
 </span><span id="__span-10-3"><a href="#__codelineno-10-3" id="__codelineno-10-3" name="__codelineno-10-3"></a><span class="k">class</span><span class="w"> </span><span class="nc">Tests</span><span class="p">(</span><span class="n">unittest</span><span class="o">.</span><span class="n">TestCase</span><span class="p">):</span>
 </span><span id="__span-10-4"><a href="#__codelineno-10-4" id="__codelineno-10-4" name="__codelineno-10-4"></a>    <span class="k">def</span><span class="w"> </span><span class="nf">test_get_all_users</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
@@ -966,7 +1383,7 @@ Wszystkie podane przez Ciebie dane, będą przetwarzane zgodnie z
 <li>spodziewany kod statusu odpowiedzi.</li>
 </ul>
 <p>Zawartość pliku <code>tests.json</code> prezentuje się tak:</p>
-<div class="highlight language-json"><pre><span></span><code><span id="__span-11-1"><a href="#__codelineno-11-1" id="__codelineno-11-1" name="__codelineno-11-1"></a><span class="p">{</span>
+<div class="language-json highlight"><pre><span></span><code><span id="__span-11-1"><a href="#__codelineno-11-1" id="__codelineno-11-1" name="__codelineno-11-1"></a><span class="p">{</span>
 </span><span id="__span-11-2"><a href="#__codelineno-11-2" id="__codelineno-11-2" name="__codelineno-11-2"></a><span class="w">  </span><span class="nt">"request"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
 </span><span id="__span-11-3"><a href="#__codelineno-11-3" id="__codelineno-11-3" name="__codelineno-11-3"></a><span class="w">    </span><span class="nt">"method"</span><span class="p">:</span><span class="w"> </span><span class="s2">"GET"</span><span class="p">,</span>
 </span><span id="__span-11-4"><a href="#__codelineno-11-4" id="__codelineno-11-4" name="__codelineno-11-4"></a><span class="w">    </span><span class="nt">"url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://reqres.in/api/users"</span>
@@ -977,7 +1394,7 @@ Wszystkie podane przez Ciebie dane, będą przetwarzane zgodnie z
 </span><span id="__span-11-9"><a href="#__codelineno-11-9" id="__codelineno-11-9" name="__codelineno-11-9"></a><span class="p">}</span>
 </span></code></pre></div>
 <p>Przeróbmy teraz nasz kod, tak aby skorzystał z tych danych:</p>
-<div class="highlight language-python"><pre><span></span><code><span id="__span-12-1"><a href="#__codelineno-12-1" id="__codelineno-12-1" name="__codelineno-12-1"></a><span class="kn">import</span><span class="w"> </span><span class="nn">unittest</span><span class="o">,</span><span class="w"> </span><span class="nn">xmlrunner</span><span class="o">,</span><span class="w"> </span><span class="nn">json</span><span class="o">,</span><span class="w"> </span><span class="nn">requests</span>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-12-1"><a href="#__codelineno-12-1" id="__codelineno-12-1" name="__codelineno-12-1"></a><span class="kn">import</span><span class="w"> </span><span class="nn">unittest</span><span class="o">,</span><span class="w"> </span><span class="nn">xmlrunner</span><span class="o">,</span><span class="w"> </span><span class="nn">json</span><span class="o">,</span><span class="w"> </span><span class="nn">requests</span>
 </span><span id="__span-12-2"><a href="#__codelineno-12-2" id="__codelineno-12-2" name="__codelineno-12-2"></a>
 </span><span id="__span-12-3"><a href="#__codelineno-12-3" id="__codelineno-12-3" name="__codelineno-12-3"></a><span class="n">data</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="nb">open</span><span class="p">(</span><span class="s1">'tests.json'</span><span class="p">,</span> <span class="s1">'r'</span><span class="p">))</span>
 </span><span id="__span-12-4"><a href="#__codelineno-12-4" id="__codelineno-12-4" name="__codelineno-12-4"></a>
@@ -996,18 +1413,18 @@ Wszystkie podane przez Ciebie dane, będą przetwarzane zgodnie z
 <p>Zanim przejdziemy dalej, popatrz na wartości wstawiane do argumentów wywołania metody <code>requests.request</code>. Nie zauważasz tam pewnej prawidłowości?</p>
 <p>Podpowiem: porównaj nazwę argumentu, do którego wstawiane są dane z nazwą klucza, z jakiego te dane są pobierane.</p>
 <p>Może da się to jakoś wykorzystać na naszą korzyść i zaoszczędzić ciut miejsca w kodzie? Przecież w tym momencie mamy już 14 linii kodu, a nie mamy jeszcze ani, większej ilości testów, ani raportów.</p>
-<h3 id="rozpakowywanie-sownika">Rozpakowywanie słownika<a href="#rozpakowywanie-sownika" class="headerlink" title="Anchor link to this section for reference">¶</a></h3>
+<h3 id="rozpakowywanie-sownika">Rozpakowywanie słownika<a class="headerlink" href="#rozpakowywanie-sownika" title="Anchor link to this section for reference">¶</a></h3>
 <p>Jeśli czytałeś mój artykuł dotyczący <a href="../dekoratory-w-pythonie/">dekoratorów w Pythonie</a>, to wspominam w nim o dwóch sposobach przekazywania argumentów do funkcji: przez <a href="../dekoratory-w-pythonie/#args-i-kwargs">args i kwargs</a> (jeśli nie wiesz, o co chodzi, to zanim przejdziesz dalej, polecam się z tym zapoznać). W naszym kodzie przekazanie argumentów do metody <code>requests.request</code> wykonaliśmy właśnie przy użyciu <code>kwargs</code>, a więc de facto jako słownik, gdzie kluczem jest nazwa argumentu, a wartością danego klucza, wartość argumentu. Mówię o tym kawałku kodu:</p>
-<div class="highlight language-python"><pre><span></span><code><span id="__span-13-1"><a href="#__codelineno-13-1" id="__codelineno-13-1" name="__codelineno-13-1"></a><span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">request</span><span class="p">(</span>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-13-1"><a href="#__codelineno-13-1" id="__codelineno-13-1" name="__codelineno-13-1"></a><span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">request</span><span class="p">(</span>
 </span><span id="__span-13-2"><a href="#__codelineno-13-2" id="__codelineno-13-2" name="__codelineno-13-2"></a>    <span class="n">method</span><span class="o">=</span><span class="n">data</span><span class="p">[</span><span class="s1">'request'</span><span class="p">][</span><span class="s1">'method'</span><span class="p">],</span>
 </span><span id="__span-13-3"><a href="#__codelineno-13-3" id="__codelineno-13-3" name="__codelineno-13-3"></a>    <span class="n">url</span><span class="o">=</span><span class="n">data</span><span class="p">[</span><span class="s1">'request'</span><span class="p">][</span><span class="s1">'url'</span><span class="p">],</span>
 </span><span id="__span-13-4"><a href="#__codelineno-13-4" id="__codelineno-13-4" name="__codelineno-13-4"></a><span class="p">)</span>
 </span></code></pre></div>
 <p>W Pythonie istnieje mechanizm tzw. <em>rozpakowywania słownika</em>, który można wykorzystać do przekazania wartości do wywoływanej metody. Przyjrzyj się poniższemu zapisowi:</p>
-<div class="highlight language-python"><pre><span></span><code><span id="__span-14-1"><a href="#__codelineno-14-1" id="__codelineno-14-1" name="__codelineno-14-1"></a><span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">request</span><span class="p">(</span><span class="o">**</span><span class="n">data</span><span class="p">[</span><span class="s1">'request'</span><span class="p">])</span>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-14-1"><a href="#__codelineno-14-1" id="__codelineno-14-1" name="__codelineno-14-1"></a><span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">request</span><span class="p">(</span><span class="o">**</span><span class="n">data</span><span class="p">[</span><span class="s1">'request'</span><span class="p">])</span>
 </span></code></pre></div>
 <p>Zauważ, że wykorzystałem w nim zapis <code>**</code> przed nazwą zmiennej, która jest słownikiem. Jak to działa? Zmienna <code>data['request']</code> przechowuje słownik z dwoma kluczami: <code>method</code> i <code>url</code>. Zapis <code>**</code> powoduje <em>rozpakowanie</em> słownika, a więc w przypadku wywołania metody, powoduje przypisanie konkretnym argumentów, wartości z odpowiadających ich nazwom kluczy ze słownika. Dlatego też oba powyższe zapisy są ze sobą równoważne. Jak więc teraz prezentuje się nasz kod?</p>
-<div class="highlight language-python"><pre><span></span><code><span id="__span-15-1"><a href="#__codelineno-15-1" id="__codelineno-15-1" name="__codelineno-15-1"></a><span class="kn">import</span><span class="w"> </span><span class="nn">unittest</span><span class="o">,</span><span class="w"> </span><span class="nn">xmlrunner</span><span class="o">,</span><span class="w"> </span><span class="nn">json</span><span class="o">,</span><span class="w"> </span><span class="nn">requests</span>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-15-1"><a href="#__codelineno-15-1" id="__codelineno-15-1" name="__codelineno-15-1"></a><span class="kn">import</span><span class="w"> </span><span class="nn">unittest</span><span class="o">,</span><span class="w"> </span><span class="nn">xmlrunner</span><span class="o">,</span><span class="w"> </span><span class="nn">json</span><span class="o">,</span><span class="w"> </span><span class="nn">requests</span>
 </span><span id="__span-15-2"><a href="#__codelineno-15-2" id="__codelineno-15-2" name="__codelineno-15-2"></a>
 </span><span id="__span-15-3"><a href="#__codelineno-15-3" id="__codelineno-15-3" name="__codelineno-15-3"></a><span class="n">data</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="nb">open</span><span class="p">(</span><span class="s1">'tests.json'</span><span class="p">,</span> <span class="s1">'r'</span><span class="p">))</span>
 </span><span id="__span-15-4"><a href="#__codelineno-15-4" id="__codelineno-15-4" name="__codelineno-15-4"></a>
@@ -1020,7 +1437,7 @@ Wszystkie podane przez Ciebie dane, będą przetwarzane zgodnie z
 </span><span id="__span-15-11"><a href="#__codelineno-15-11" id="__codelineno-15-11" name="__codelineno-15-11"></a>    <span class="n">unittest</span><span class="o">.</span><span class="n">main</span><span class="p">()</span>
 </span></code></pre></div>
 <p>Zauważ, że z 14 linii kodu, zredukowaliśmy zapis do 11 linii. Można tutaj jeszcze jedną rzecz uprościć, a mianowicie pozbyć się zmiennej pomocniczej <code>response</code> i nasz kod będzie się prezentował w następujący sposób:</p>
-<div class="highlight language-python"><pre><span></span><code><span id="__span-16-1"><a href="#__codelineno-16-1" id="__codelineno-16-1" name="__codelineno-16-1"></a><span class="kn">import</span><span class="w"> </span><span class="nn">unittest</span><span class="o">,</span><span class="w"> </span><span class="nn">xmlrunner</span><span class="o">,</span><span class="w"> </span><span class="nn">json</span><span class="o">,</span><span class="w"> </span><span class="nn">requests</span>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-16-1"><a href="#__codelineno-16-1" id="__codelineno-16-1" name="__codelineno-16-1"></a><span class="kn">import</span><span class="w"> </span><span class="nn">unittest</span><span class="o">,</span><span class="w"> </span><span class="nn">xmlrunner</span><span class="o">,</span><span class="w"> </span><span class="nn">json</span><span class="o">,</span><span class="w"> </span><span class="nn">requests</span>
 </span><span id="__span-16-2"><a href="#__codelineno-16-2" id="__codelineno-16-2" name="__codelineno-16-2"></a>
 </span><span id="__span-16-3"><a href="#__codelineno-16-3" id="__codelineno-16-3" name="__codelineno-16-3"></a><span class="n">data</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="nb">open</span><span class="p">(</span><span class="s1">'tests.json'</span><span class="p">,</span> <span class="s1">'r'</span><span class="p">))</span>
 </span><span id="__span-16-4"><a href="#__codelineno-16-4" id="__codelineno-16-4" name="__codelineno-16-4"></a>
@@ -1032,9 +1449,9 @@ Wszystkie podane przez Ciebie dane, będą przetwarzane zgodnie z
 </span><span id="__span-16-10"><a href="#__codelineno-16-10" id="__codelineno-16-10" name="__codelineno-16-10"></a>    <span class="n">unittest</span><span class="o">.</span><span class="n">main</span><span class="p">()</span>
 </span></code></pre></div>
 <p>Zeszliśmy tym samym do 10 linii kodu. Na co wykorzystamy pozostałe 6 linii?</p>
-<h3 id="generator-testow-z-danych-testowych">Generator testów z danych testowych<a href="#generator-testow-z-danych-testowych" class="headerlink" title="Anchor link to this section for reference">¶</a></h3>
+<h3 id="generator-testow-z-danych-testowych">Generator testów z danych testowych<a class="headerlink" href="#generator-testow-z-danych-testowych" title="Anchor link to this section for reference">¶</a></h3>
 <p>Dochodzimy do najfajniejszej części tego wpisu, czyli jeszcze większej <em>magii</em> niż zapis z <code>**</code>. Przeróbmy teraz nasz kod tak, aby metoda z testem nie była zdefiniowana bezpośrednio w klasie testów, ale umieszczona w niej w sposób dynamiczny. Zerknij na poniższy kod:</p>
-<div class="highlight language-python"><pre><span></span><code><span id="__span-17-1"><a href="#__codelineno-17-1" id="__codelineno-17-1" name="__codelineno-17-1"></a><span class="kn">import</span><span class="w"> </span><span class="nn">unittest</span><span class="o">,</span><span class="w"> </span><span class="nn">xmlrunner</span><span class="o">,</span><span class="w"> </span><span class="nn">json</span><span class="o">,</span><span class="w"> </span><span class="nn">requests</span>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-17-1"><a href="#__codelineno-17-1" id="__codelineno-17-1" name="__codelineno-17-1"></a><span class="kn">import</span><span class="w"> </span><span class="nn">unittest</span><span class="o">,</span><span class="w"> </span><span class="nn">xmlrunner</span><span class="o">,</span><span class="w"> </span><span class="nn">json</span><span class="o">,</span><span class="w"> </span><span class="nn">requests</span>
 </span><span id="__span-17-2"><a href="#__codelineno-17-2" id="__codelineno-17-2" name="__codelineno-17-2"></a>
 </span><span id="__span-17-3"><a href="#__codelineno-17-3" id="__codelineno-17-3" name="__codelineno-17-3"></a><span class="n">data</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="nb">open</span><span class="p">(</span><span class="s1">'tests.json'</span><span class="p">,</span> <span class="s1">'r'</span><span class="p">))</span>
 </span><span id="__span-17-4"><a href="#__codelineno-17-4" id="__codelineno-17-4" name="__codelineno-17-4"></a>
@@ -1070,7 +1487,7 @@ Wszystkie podane przez Ciebie dane, będą przetwarzane zgodnie z
 <p>Jeśli wywołamy powyższy kod, to w dalszym ciągu otrzymujemy taki sam wynik.</p>
 <p>No dobra. Umiemy już dynamicznie wstawić metodę z testem do obiektu, ale to jeszcze nie do końca jest generator. Żeby nasz kod umiał coś więcej, musimy dokonać jeszcze małych przeróbek w obu naszych plikach.</p>
 <p>Zacznijmy od pliku `tests.json``:</p>
-<div class="highlight language-json"><pre><span></span><code><span id="__span-18-1"><a href="#__codelineno-18-1" id="__codelineno-18-1" name="__codelineno-18-1"></a><span class="p">{</span>
+<div class="language-json highlight"><pre><span></span><code><span id="__span-18-1"><a href="#__codelineno-18-1" id="__codelineno-18-1" name="__codelineno-18-1"></a><span class="p">{</span>
 </span><span id="__span-18-2"><a href="#__codelineno-18-2" id="__codelineno-18-2" name="__codelineno-18-2"></a><span class="w">  </span><span class="nt">"test_get_all_users"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
 </span><span id="__span-18-3"><a href="#__codelineno-18-3" id="__codelineno-18-3" name="__codelineno-18-3"></a><span class="w">    </span><span class="nt">"request"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
 </span><span id="__span-18-4"><a href="#__codelineno-18-4" id="__codelineno-18-4" name="__codelineno-18-4"></a><span class="w">      </span><span class="nt">"method"</span><span class="p">:</span><span class="w"> </span><span class="s2">"GET"</span><span class="p">,</span>
@@ -1084,7 +1501,7 @@ Wszystkie podane przez Ciebie dane, będą przetwarzane zgodnie z
 </span></code></pre></div>
 <p>Tu zmiany są niewielkie, bo tak naprawdę, <em>nazwaliśmy</em> tylko już istniejące dane jako <code>test_get_all_users</code>.</p>
 <p>Teraz kolej na plik `main.py``:</p>
-<div class="highlight language-python"><pre><span></span><code><span id="__span-19-1"><a href="#__codelineno-19-1" id="__codelineno-19-1" name="__codelineno-19-1"></a><span class="kn">import</span><span class="w"> </span><span class="nn">unittest</span><span class="o">,</span><span class="w"> </span><span class="nn">xmlrunner</span><span class="o">,</span><span class="w"> </span><span class="nn">json</span><span class="o">,</span><span class="w"> </span><span class="nn">requests</span>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-19-1"><a href="#__codelineno-19-1" id="__codelineno-19-1" name="__codelineno-19-1"></a><span class="kn">import</span><span class="w"> </span><span class="nn">unittest</span><span class="o">,</span><span class="w"> </span><span class="nn">xmlrunner</span><span class="o">,</span><span class="w"> </span><span class="nn">json</span><span class="o">,</span><span class="w"> </span><span class="nn">requests</span>
 </span><span id="__span-19-2"><a href="#__codelineno-19-2" id="__codelineno-19-2" name="__codelineno-19-2"></a>
 </span><span id="__span-19-3"><a href="#__codelineno-19-3" id="__codelineno-19-3" name="__codelineno-19-3"></a><span class="n">data</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="nb">open</span><span class="p">(</span><span class="s1">'tests.json'</span><span class="p">,</span> <span class="s1">'r'</span><span class="p">))</span>
 </span><span id="__span-19-4"><a href="#__codelineno-19-4" id="__codelineno-19-4" name="__codelineno-19-4"></a>
@@ -1128,9 +1545,9 @@ Wszystkie podane przez Ciebie dane, będą przetwarzane zgodnie z
 <li>Brakuje nam jeszcze raportów.</li>
 <li>Mamy 17 linii kodu (o 1 za dużo).</li>
 </ol>
-<h3 id="wiecej-testow">Więcej testów<a href="#wiecej-testow" class="headerlink" title="Anchor link to this section for reference">¶</a></h3>
+<h3 id="wiecej-testow">Więcej testów<a class="headerlink" href="#wiecej-testow" title="Anchor link to this section for reference">¶</a></h3>
 <p>Skoro tyle się napracowaliśmy, to dorzućmy więcej testów. Jak możesz się domyślić, aby dopisać nowe testy, wystarczy odpowiednie dane umieścić w pliku <code>tests.json</code>. Poniżej przykładowy zestaw testów:</p>
-<div class="highlight language-json"><pre><span></span><code><span id="__span-20-1"><a href="#__codelineno-20-1" id="__codelineno-20-1" name="__codelineno-20-1"></a><span class="p">{</span>
+<div class="language-json highlight"><pre><span></span><code><span id="__span-20-1"><a href="#__codelineno-20-1" id="__codelineno-20-1" name="__codelineno-20-1"></a><span class="p">{</span>
 </span><span id="__span-20-2"><a href="#__codelineno-20-2" id="__codelineno-20-2" name="__codelineno-20-2"></a><span class="w">  </span><span class="nt">"test_get_all_users"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
 </span><span id="__span-20-3"><a href="#__codelineno-20-3" id="__codelineno-20-3" name="__codelineno-20-3"></a><span class="w">    </span><span class="nt">"request"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
 </span><span id="__span-20-4"><a href="#__codelineno-20-4" id="__codelineno-20-4" name="__codelineno-20-4"></a><span class="w">      </span><span class="nt">"method"</span><span class="p">:</span><span class="w"> </span><span class="s2">"GET"</span><span class="p">,</span>
@@ -1173,9 +1590,9 @@ Wszystkie podane przez Ciebie dane, będą przetwarzane zgodnie z
 </span><span id="__span-20-41"><a href="#__codelineno-20-41" id="__codelineno-20-41" name="__codelineno-20-41"></a><span class="w">  </span><span class="p">}</span>
 </span><span id="__span-20-42"><a href="#__codelineno-20-42" id="__codelineno-20-42" name="__codelineno-20-42"></a><span class="p">}</span>
 </span></code></pre></div>
-<h3 id="raporty-i-16-linii-kodu">Raporty i 16 linii kodu<a href="#raporty-i-16-linii-kodu" class="headerlink" title="Anchor link to this section for reference">¶</a></h3>
+<h3 id="raporty-i-16-linii-kodu">Raporty i 16 linii kodu<a class="headerlink" href="#raporty-i-16-linii-kodu" title="Anchor link to this section for reference">¶</a></h3>
 <p>To zadanie to w zasadzie już tylko drobna formalność. Spójrz na poniższy kod:</p>
-<div class="highlight language-python"><pre><span></span><code><span id="__span-21-1"><a href="#__codelineno-21-1" id="__codelineno-21-1" name="__codelineno-21-1"></a><span class="kn">import</span><span class="w"> </span><span class="nn">unittest</span><span class="o">,</span><span class="w"> </span><span class="nn">xmlrunner</span><span class="o">,</span><span class="w"> </span><span class="nn">json</span><span class="o">,</span><span class="w"> </span><span class="nn">requests</span>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-21-1"><a href="#__codelineno-21-1" id="__codelineno-21-1" name="__codelineno-21-1"></a><span class="kn">import</span><span class="w"> </span><span class="nn">unittest</span><span class="o">,</span><span class="w"> </span><span class="nn">xmlrunner</span><span class="o">,</span><span class="w"> </span><span class="nn">json</span><span class="o">,</span><span class="w"> </span><span class="nn">requests</span>
 </span><span id="__span-21-2"><a href="#__codelineno-21-2" id="__codelineno-21-2" name="__codelineno-21-2"></a>
 </span><span id="__span-21-3"><a href="#__codelineno-21-3" id="__codelineno-21-3" name="__codelineno-21-3"></a><span class="n">data</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="nb">open</span><span class="p">(</span><span class="s1">'tests.json'</span><span class="p">,</span> <span class="s1">'r'</span><span class="p">))</span>
 </span><span id="__span-21-4"><a href="#__codelineno-21-4" id="__codelineno-21-4" name="__codelineno-21-4"></a>
@@ -1197,7 +1614,7 @@ Wszystkie podane przez Ciebie dane, będą przetwarzane zgodnie z
 <li>Implementacja klasy <code>Tests</code> mieści się w jednej linii (tak wiem, znów naginam dobre zasady formatowania kodu).</li>
 <li>W wywołaniu metody <code>unittest.main</code> jako argument <code>testRunner</code> podałem do tej pory nie wykorzystywany <code>xmlrunner</code>. Dzięki temu po uruchomieniu testów w konsoli zobaczymy poniższy tekst:</li>
 </ol>
-<div class="highlight language-console"><pre><span></span><code><span id="__span-22-1"><a href="#__codelineno-22-1" id="__codelineno-22-1" name="__codelineno-22-1"></a><span class="go">Running tests...</span>
+<div class="language-console highlight"><pre><span></span><code><span id="__span-22-1"><a href="#__codelineno-22-1" id="__codelineno-22-1" name="__codelineno-22-1"></a><span class="go">Running tests...</span>
 </span><span id="__span-22-2"><a href="#__codelineno-22-2" id="__codelineno-22-2" name="__codelineno-22-2"></a><span class="go">----------------------------------------------------------------------</span>
 </span><span id="__span-22-3"><a href="#__codelineno-22-3" id="__codelineno-22-3" name="__codelineno-22-3"></a><span class="go">....</span>
 </span><span id="__span-22-4"><a href="#__codelineno-22-4" id="__codelineno-22-4" name="__codelineno-22-4"></a><span class="go">----------------------------------------------------------------------</span>
@@ -1208,9 +1625,9 @@ Wszystkie podane przez Ciebie dane, będą przetwarzane zgodnie z
 </span><span id="__span-22-9"><a href="#__codelineno-22-9" id="__codelineno-22-9" name="__codelineno-22-9"></a><span class="go">Generating XML reports...</span>
 </span></code></pre></div>
 <p>Dodatkowo w katalogu z naszymi plikami, pojawi się plik o rozszerzeniu `.xml``, który jest naszym <em>raportem</em> z przeprowadzonych testów.</p>
-<h3 id="czy-da-sie-jeszcze-lepiej">Czy da się jeszcze lepiej?<a href="#czy-da-sie-jeszcze-lepiej" class="headerlink" title="Anchor link to this section for reference">¶</a></h3>
+<h3 id="czy-da-sie-jeszcze-lepiej">Czy da się jeszcze lepiej?<a class="headerlink" href="#czy-da-sie-jeszcze-lepiej" title="Anchor link to this section for reference">¶</a></h3>
 <p>Jak zauważył <strong>Jakub Spórna</strong> z bloga <a href="https://sporna.dev/">https://sporna.dev/</a>, można zrobić jeszcze małe poprawki w kodzie, zarówno względem ilości linii, jak i również czytelności oraz zaoszczędzenia dodatkowej 1 linii kodu. Jak tego dokonać? <strong>Jakub</strong> zaproponował poniższy kod:</p>
-<div class="highlight language-python"><pre><span></span><code><span id="__span-23-1"><a href="#__codelineno-23-1" id="__codelineno-23-1" name="__codelineno-23-1"></a><span class="kn">import</span><span class="w"> </span><span class="nn">unittest</span><span class="o">,</span><span class="w"> </span><span class="nn">xmlrunner</span><span class="o">,</span><span class="w"> </span><span class="nn">json</span><span class="o">,</span><span class="w"> </span><span class="nn">requests</span>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-23-1"><a href="#__codelineno-23-1" id="__codelineno-23-1" name="__codelineno-23-1"></a><span class="kn">import</span><span class="w"> </span><span class="nn">unittest</span><span class="o">,</span><span class="w"> </span><span class="nn">xmlrunner</span><span class="o">,</span><span class="w"> </span><span class="nn">json</span><span class="o">,</span><span class="w"> </span><span class="nn">requests</span>
 </span><span id="__span-23-2"><a href="#__codelineno-23-2" id="__codelineno-23-2" name="__codelineno-23-2"></a>
 </span><span id="__span-23-3"><a href="#__codelineno-23-3" id="__codelineno-23-3" name="__codelineno-23-3"></a><span class="k">class</span><span class="w"> </span><span class="nc">Tests</span><span class="p">(</span><span class="n">unittest</span><span class="o">.</span><span class="n">TestCase</span><span class="p">):</span> <span class="k">pass</span>
 </span><span id="__span-23-4"><a href="#__codelineno-23-4" id="__codelineno-23-4" name="__codelineno-23-4"></a>
@@ -1227,7 +1644,7 @@ Wszystkie podane przez Ciebie dane, będą przetwarzane zgodnie z
 </span><span id="__span-23-15"><a href="#__codelineno-23-15" id="__codelineno-23-15" name="__codelineno-23-15"></a>    <span class="n">unittest</span><span class="o">.</span><span class="n">main</span><span class="p">(</span><span class="n">testRunner</span><span class="o">=</span><span class="n">xmlrunner</span><span class="o">.</span><span class="n">XMLTestRunner</span><span class="p">())</span>
 </span></code></pre></div>
 <p>Zakres zmian w kodzie, nie wymaga zbyt dużego komentarza i powinien być zrozumiały dla każdego, kto miał już choć trochę styczności z programowaniem w Pythonie.</p>
-<h2 id="podsumowanie">Podsumowanie<a href="#podsumowanie" class="headerlink" title="Anchor link to this section for reference">¶</a></h2>
+<h2 id="podsumowanie">Podsumowanie<a class="headerlink" href="#podsumowanie" title="Anchor link to this section for reference">¶</a></h2>
 <p>Zmieściliśmy się w 16 linijkach kodu?</p>
 <p>Chyba nam się udało (a po poprawkach od <strong>Jakuba</strong> mamy nawet jedną linijkę w zapasie). Choć nagięliśmy przy okazji kilka reguł dotyczących formatowania kodu w Pythonie, ale udało nam się zachować względną czytelność i dosyć sporą funkcjonalność.</p>
 <p>Mam nadzieję, że ten wpis pokaz Ci jak potężnym narzędziem potrafi być Python.</p>
@@ -1237,22 +1654,55 @@ Wszystkie podane przez Ciebie dane, będą przetwarzane zgodnie z
 <p class="admonition-title">Ciąg dalszy ...</p>
 <p>Kontynuację zmagań z najmniejszym frameworkiem do testów, możesz odnaleźć w kolejnym artykule zatytułowanym <a href="../jeszcze-mniejszy-framework-do-testow-w-pythonie/">jeszcze mniejszy framework do testów</a>. Zapraszam do jego lektury.</p>
 </div>
-<h2 id="bonus">Bonus<a href="#bonus" class="headerlink" title="Anchor link to this section for reference">¶</a></h2>
+<h2 id="bonus">Bonus<a class="headerlink" href="#bonus" title="Anchor link to this section for reference">¶</a></h2>
 <p>Cały powyższy kod znajdziesz również w poniższym <a href="https://github.com/mkusz/the_smallest_rest_api_testing_framework/tree/first_article">repozytorium w GitHubie</a>.</p>
-<script src="https://giscus.app/client.js" async crossorigin="anonymous" data-category="Komentarze na blogu" data-category-id="DIC_kwDOGBXvjM4CWu1l" data-emit-metadata="0" data-input-position="top" data-lang="pl" data-loading="lazy" data-mapping="pathname" data-reactions-enabled="1" data-repo="mkusz/testerembyc-web" data-repo-id="MDEwOlJlcG9zaXRvcnk0MDQwOTA3NjQ=" data-strict="1" data-theme="preferred_color_scheme"></script>
-<script>var giscus=document.querySelector("script[src*=giscus]"),palette=__md_get("__palette");if(palette&&"object"==typeof palette.color){var theme="slate"===palette.color.scheme?"dark":"light";giscus.setAttribute("data-theme",theme)}document.addEventListener("DOMContentLoaded",function(){document.querySelector("[data-md-component=palette]").addEventListener("change",function(){var e=__md_get("__palette");if(e&&"object"==typeof e.color){var t="slate"===e.color.scheme?"dark":"light";document.querySelector(".giscus-frame").contentWindow.postMessage({giscus:{setConfig:{theme:t}}},"https://giscus.app")}})})</script>
-<div class="md-typeset tb-ext">
-<hr>
+<!-- Insert generated snippet here -->
+<script async="" crossorigin="anonymous" data-category="Komentarze na blogu" data-category-id="DIC_kwDOGBXvjM4CWu1l" data-emit-metadata="0" data-input-position="top" data-lang="pl" data-loading="lazy" data-mapping="pathname" data-reactions-enabled="1" data-repo="mkusz/testerembyc-web" data-repo-id="MDEwOlJlcG9zaXRvcnk0MDQwOTA3NjQ=" data-strict="1" data-theme="preferred_color_scheme" src="https://giscus.app/client.js">
+</script>
+<!-- Synchronize Giscus theme with palette -->
+<script>
+    var giscus = document.querySelector("script[src*=giscus]")
+
+    /* Set palette on initial load */
+    var palette = __md_get("__palette")
+    if (palette && typeof palette.color === "object") {
+      var theme = palette.color.scheme === "slate" ? "dark" : "light"
+      giscus.setAttribute("data-theme", theme)
+    }
+
+    /* Register event handlers after documented loaded */
+    document.addEventListener("DOMContentLoaded", function() {
+      var ref = document.querySelector("[data-md-component=palette]")
+      ref.addEventListener("change", function() {
+        var palette = __md_get("__palette")
+        if (palette && typeof palette.color === "object") {
+          var theme = palette.color.scheme === "slate" ? "dark" : "light"
+
+          /* Instruct Giscus to change theme */
+          var frame = document.querySelector(".giscus-frame")
+          frame.contentWindow.postMessage(
+            { giscus: { setConfig: { theme } } },
+            "https://giscus.app"
+          )
+        }
+      })
+    })
+  </script>
+<div class="tb-ext md-typeset">
+<hr/>
 <div class="tb-ext-grid">
 <div class="tb-ext-grid__img">
-<img src="https://testerembyc.pl/images/pages/jak_zaczac_automatyzowac_small.png">
+<img src="https://testerembyc.pl/images/pages/jak_zaczac_automatyzowac_small.png"/>
 </div>
 <p class="tb-ext-grid__desc">
 <b>Jak zacząć automatyzować testy?</b>
-Poznaj 12 pytań, które pomogą Ci rozpocząć proces automatyzacji testów. W zupełnym oderwaniu od języka programowania, frameworków do testów oraz technologi w jakiej napisana została aplikacja, którą będziesz testować. Całość opisana prostym i zrozumiałym językiem.<br>
-<a href="https://testerembyc.pl/pages/jak-zaczac-automatyzowac-testy/" class="md-button md-button--primary">
-Pobieram darmowy poradnik
-</a>
+    Poznaj 12 pytań, które pomogą Ci rozpocząć proces automatyzacji testów.
+    W zupełnym oderwaniu od języka programowania, frameworków do testów
+    oraz technologi w jakiej napisana została aplikacja, którą będziesz testować.
+    Całość opisana prostym i zrozumiałym językiem.<br/>
+<a class="md-button md-button--primary" href="https://testerembyc.pl/pages/jak-zaczac-automatyzowac-testy/">
+      Pobieram darmowy poradnik
+    </a>
 </p>
 </div>
 </div>
@@ -1261,80 +1711,81 @@ Pobieram darmowy poradnik
 <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var labels=set.querySelector(".tabbed-labels");for(var tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
 <script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
 </div>
-<button class="md-icon md-top" type="button" data-md-component="top" hidden>
+<button class="md-top md-icon" data-md-component="top" hidden="" type="button">
 <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"></path></svg>
-Powrót do góry
+  Powrót do góry
 </button>
 </main>
 <footer class="md-footer">
-<nav class="md-grid md-footer__inner" aria-label="Stopka">
-<a href="../jeszcze-mniejszy-framework-do-testow-w-pythonie/" class="md-footer__link md-footer__link--prev" rel="prev" aria-label="Poprzednia strona: Jeszcze mniejszy framework do testów w Pythonie">
-<div class="md-icon md-footer__button">
+<nav aria-label="Stopka" class="md-footer__inner md-grid">
+<a aria-label="Poprzednia strona: Jeszcze mniejszy framework do testów w Pythonie" class="md-footer__link md-footer__link--prev" href="../jeszcze-mniejszy-framework-do-testow-w-pythonie/" rel="prev">
+<div class="md-footer__button md-icon">
 <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"></path></svg>
 </div>
 <div class="md-footer__title">
 <span class="md-footer__direction">
-Poprzednia strona
-</span>
+                Poprzednia strona
+              </span>
 <div class="md-ellipsis">
-Jeszcze mniejszy framework do testów w Pythonie
-</div>
+                Jeszcze mniejszy framework do testów w Pythonie
+              </div>
 </div>
 </a>
-<a href="../ucz-sie-na-cudzych-bledach/" class="md-footer__link md-footer__link--next" rel="next" aria-label="Następna strona: Ucz się na cudzych błędach">
+<a aria-label="Następna strona: Ucz się na cudzych błędach" class="md-footer__link md-footer__link--next" href="../ucz-sie-na-cudzych-bledach/" rel="next">
 <div class="md-footer__title">
 <span class="md-footer__direction">
-Następna strona
-</span>
+                Następna strona
+              </span>
 <div class="md-ellipsis">
-Ucz się na cudzych błędach
+                Ucz się na cudzych błędach
+              </div>
 </div>
-</div>
-<div class="md-icon md-footer__button">
+<div class="md-footer__button md-icon">
 <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"></path></svg>
 </div>
 </a>
 </nav>
-<div class="md-typeset md-footer-meta">
-<div class="md-grid md-footer-meta__inner">
+<div class="md-footer-meta md-typeset">
+<div class="md-footer-meta__inner md-grid">
 <div class="md-copyright">
 <div class="md-copyright__highlight">
-© 2019-2024 Maciej Kusz
-</div>
-Utworzono z wykorzystaniem
-<a href="https://www.mkdocs.org/" rel="noopener" target="_blank">
-MkDocs
-</a>, <a href="https://squidfunk.github.io/mkdocs-material/" rel="noopener" target="_blank">
-Material for MkDocs
-</a>, <a href="https://mkusz.github.io/mkdocs-publisher/" rel="noopener" target="_blank">
-MkDocs Publisher
-</a> oraz <a href="https://pages.github.com" rel="noopener" target="_blank">
-GitHub Pages
-</a>.
+      © 2019-2024 Maciej Kusz
+
+    </div>
+  
+  
+    Utworzono z wykorzystaniem
+    <a href="https://www.mkdocs.org/" rel="noopener" target="_blank">
+      MkDocs
+    </a>, <a href="https://squidfunk.github.io/mkdocs-material/" rel="noopener" target="_blank">
+      Material for MkDocs
+    </a>, <a href="https://mkusz.github.io/mkdocs-publisher/" rel="noopener" target="_blank">
+      MkDocs Publisher
+    </a> oraz <a href="https://pages.github.com" rel="noopener" target="_blank">
+      GitHub Pages
+    </a>.
+  
 </div>
 <div class="md-social">
-<a href="feed_rss_created.xml" class="md-social__link" title="" rel="noopener" target="_blank">
+<a class="md-social__link" href="feed_rss_created.xml" rel="noopener" target="_blank" title="">
 <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M6.18 15.64a2.18 2.18 0 0 1 2.18 2.18C8.36 19 7.38 20 6.18 20 5 20 4 19 4 17.82a2.18 2.18 0 0 1 2.18-2.18M4 4.44A15.56 15.56 0 0 1 19.56 20h-2.83A12.73 12.73 0 0 0 4 7.27zm0 5.66a9.9 9.9 0 0 1 9.9 9.9h-2.83A7.07 7.07 0 0 0 4 12.93z"></path></svg>
 </a>
-<a href="https://www.facebook.com/testerembyc" class="md-social__link" title="www.facebook.com" rel="noopener" target="_blank">
+<a class="md-social__link" href="https://www.facebook.com/testerembyc" rel="noopener" target="_blank" title="www.facebook.com">
 <svg viewbox="0 0 512 512" xmlns="http://www.w3.org/2000/svg"><!--! Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M512 256C512 114.6 397.4 0 256 0S0 114.6 0 256c0 120 82.7 220.8 194.2 248.5V334.2h-52.8V256h52.8v-33.7c0-87.1 39.4-127.5 125-127.5 16.2 0 44.2 3.2 55.7 6.4V172c-6-.6-16.5-1-29.6-1-42 0-58.2 15.9-58.2 57.2V256h83.6l-14.4 78.2H287v175.9C413.8 494.8 512 386.9 512 256"></path></svg>
 </a>
-<a href="https://www.instagram.com/testerembyc/" class="md-social__link" title="www.instagram.com" rel="noopener" target="_blank">
-<svg viewbox="0 0 448 512" xmlns="http://www.w3.org/2000/svg"><!--! Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path 
-d="M224.1 141c-63.6 0-114.9 51.3-114.9 114.9s51.3 114.9 114.9 114.9S339 319.5 339 255.9 287.7 141 224.1 141m0 189.6c-41.1 0-74.7-33.5-74.7-74.7s33.5-74.7 74.7-74.7 74.7 33.5 74.7 74.7-33.6 74.7-74.7 74.7m146.4-194.3c0 14.9-12 26.8-26.8 26.8-14.9 0-26.8-12-26.8-26.8s12-26.8 26.8-26.8 26.8 12 26.8 26.8m76.1 27.2c-1.7-35.9-9.9-67.7-36.2-93.9-26.2-26.2-58-34.4-93.9-36.2-37-2.1-147.9-2.1-184.9 0-35.8 1.7-67.6 9.9-93.9 36.1s-34.4 58-36.2 93.9c-2.1 37-2.1 147.9 0 184.9 1.7 35.9 9.9 67.7 36.2 93.9s58 34.4 93.9 36.2c37 2.1 147.9 2.1 184.9 0 35.9-1.7 67.7-9.9 93.9-36.2 26.2-26.2 34.4-58 36.2-93.9 2.1-37 2.1-147.8 0-184.8M398.8 388c-7.8 19.6-22.9 34.7-42.6 42.6-29.5 11.7-99.5 9-132.1 9s-102.7 2.6-132.1-9c-19.6-7.8-34.7-22.9-42.6-42.6-11.7-29.5-9-99.5-9-132.1s-2.6-102.7 9-132.1c7.8-19.6 22.9-34.7 42.6-42.6 29.5-11.7 99.5-9 132.1-9s102.7-2.6 132.1 9c19.6 7.8 34.7 22.9 42.6 42.6 11.7 29.5 9 99.5 9 132.1s2.7 102.7-9 132.1"></path></svg>
+<a class="md-social__link" href="https://www.instagram.com/testerembyc/" rel="noopener" target="_blank" title="www.instagram.com">
+<svg viewbox="0 0 448 512" xmlns="http://www.w3.org/2000/svg"><!--! Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M224.1 141c-63.6 0-114.9 51.3-114.9 114.9s51.3 114.9 114.9 114.9S339 319.5 339 255.9 287.7 141 224.1 141m0 189.6c-41.1 0-74.7-33.5-74.7-74.7s33.5-74.7 74.7-74.7 74.7 33.5 74.7 74.7-33.6 74.7-74.7 74.7m146.4-194.3c0 14.9-12 26.8-26.8 26.8-14.9 0-26.8-12-26.8-26.8s12-26.8 26.8-26.8 26.8 12 26.8 26.8m76.1 27.2c-1.7-35.9-9.9-67.7-36.2-93.9-26.2-26.2-58-34.4-93.9-36.2-37-2.1-147.9-2.1-184.9 0-35.8 1.7-67.6 9.9-93.9 36.1s-34.4 58-36.2 93.9c-2.1 37-2.1 147.9 0 184.9 1.7 35.9 9.9 67.7 36.2 93.9s58 34.4 93.9 36.2c37 2.1 147.9 2.1 184.9 0 35.9-1.7 67.7-9.9 93.9-36.2 26.2-26.2 34.4-58 36.2-93.9 2.1-37 2.1-147.8 0-184.8M398.8 388c-7.8 19.6-22.9 34.7-42.6 42.6-29.5 11.7-99.5 9-132.1 9s-102.7 2.6-132.1-9c-19.6-7.8-34.7-22.9-42.6-42.6-11.7-29.5-9-99.5-9-132.1s-2.6-102.7 9-132.1c7.8-19.6 22.9-34.7 42.6-42.6 29.5-11.7 99.5-9 132.1-9s102.7-2.6 132.1 9c19.6 7.8 34.7 22.9 42.6 42.6 11.7 29.5 9 99.5 9 132.1s2.7 102.7-9 132.1"></path></svg>
 </a>
-<a href="https://www.youtube.com/@testerembyc" class="md-social__link" title="www.youtube.com" rel="noopener" target="_blank">
+<a class="md-social__link" href="https://www.youtube.com/@testerembyc" rel="noopener" target="_blank" title="www.youtube.com">
 <svg viewbox="0 0 576 512" xmlns="http://www.w3.org/2000/svg"><!--! Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M549.655 124.083c-6.281-23.65-24.787-42.276-48.284-48.597C458.781 64 288 64 288 64S117.22 64 74.629 75.486c-23.497 6.322-42.003 24.947-48.284 48.597-11.412 42.867-11.412 132.305-11.412 132.305s0 89.438 11.412 132.305c6.281 23.65 24.787 41.5 48.284 47.821C117.22 448 288 448 288 448s170.78 0 213.371-11.486c23.497-6.321 42.003-24.171 48.284-47.821 11.412-42.867 11.412-132.305 11.412-132.305s0-89.438-11.412-132.305m-317.51 213.508V175.185l142.739 81.205z"></path></svg>
 </a>
-<a href="https://www.linkedin.com/in/maciej-kusz/" class="md-social__link" title="www.linkedin.com" rel="noopener" target="_blank">
+<a class="md-social__link" href="https://www.linkedin.com/in/maciej-kusz/" rel="noopener" target="_blank" title="www.linkedin.com">
 <svg viewbox="0 0 448 512" xmlns="http://www.w3.org/2000/svg"><!--! Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3M135.4 416H69V202.2h66.5V416zm-33.2-243c-21.3 0-38.5-17.3-38.5-38.5S80.9 96 102.2 96c21.2 0 38.5 17.3 38.5 38.5 0 21.3-17.2 38.5-38.5 38.5m282.1 243h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9z"></path></svg>
 </a>
-<a href="https://github.com/mkusz" class="md-social__link" title="github.com" rel="noopener" target="_blank">
-<svg viewbox="0 0 496 512" xmlns="http://www.w3.org/2000/svg"><!--! Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path 
-d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8M97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2">
-</path></svg>
+<a class="md-social__link" href="https://github.com/mkusz" rel="noopener" target="_blank" title="github.com">
+<svg viewbox="0 0 496 512" xmlns="http://www.w3.org/2000/svg"><!--! Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8M97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"></path></svg>
 </a>
-<a href="mailto:maciej@testerembyc.pl" class="md-social__link" title="" rel="noopener" target="_blank">
+<a class="md-social__link" href="mailto:maciej@testerembyc.pl" rel="noopener" target="_blank" title="">
 <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="m4 8 8 5 8-5-8-5zm18 0v10a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V8c0-.73.39-1.36.97-1.71L12 .64l9.03 5.65c.58.35.97.98.97 1.71"></path></svg>
 </a>
 </div>
@@ -1343,24 +1794,24 @@ d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-
 </footer>
 </div>
 <div class="md-dialog" data-md-component="dialog">
-<div class="md-typeset md-dialog__inner"></div>
+<div class="md-dialog__inner md-typeset"></div>
 </div>
 <div class="md-progress" data-md-component="progress" role="progressbar"></div>
-<div class="md-consent" data-md-component="consent" hidden id="__consent">
+<div class="md-consent" data-md-component="consent" hidden="" id="__consent">
 <div class="md-consent__overlay"></div>
 <aside class="md-consent__inner">
-<form class="md-typeset md-consent__form md-grid" name="consent">
+<form class="md-consent__form md-grid md-typeset" name="consent">
 <h4>Lubisz ciasteczka?</h4>
 <p>Używam ich, aby dostarczyć Ci lepszych treści. Chcesz wiedzieć więcej? Zerknij do <a href="/pages/polityka-prywatnosci/" target="_blank">polityki prywatności</a>.</p>
-<input type="checkbox" class="md-toggle" id="__settings">
+<input class="md-toggle" id="__settings" type="checkbox"/>
 <div class="md-consent__settings">
 <ul class="task-list">
 <li class="task-list-item">
 <label class="task-list-control">
-<input type="checkbox" name="analytics" checked>
+<input checked="" name="analytics" type="checkbox"/>
 <span class="task-list-indicator"></span>
-Google Analytics
-</label>
+      Google Analytics
+    </label>
 </li>
 </ul>
 </div>
@@ -1371,12 +1822,25 @@ Google Analytics
 </form>
 </aside>
 </div>
-<script>var consent=__md_get("__consent");if(consent)for(var input of document.forms.consent.elements)input.name&&(input.checked=consent[input.name]||!1);else"file:"!==location.protocol&&setTimeout(function(){document.querySelector("[data-md-component=consent]").hidden=!1},250);var form=document.forms.consent;for(var action of["submit","reset"])form.addEventListener(action,function(e){if(e.preventDefault(),"reset"===e.type)for(var n of document.forms.consent.elements)n.name&&(n.checked=!1);__md_set("__consent",Object.fromEntries(Array.from(new FormData(form).keys()).map(function(e){return[e,!0]}))),location.hash="",location.reload()})</script>
+<script>var consent=__md_get("__consent");if(consent)for(var input of document.forms.consent.elements)input.name&&(input.checked=consent[input.name]||!1);else"file:"!==location.protocol&&setTimeout((function(){document.querySelector("[data-md-component=consent]").hidden=!1}),250);var form=document.forms.consent;for(var action of["submit","reset"])form.addEventListener(action,(function(e){if(e.preventDefault(),"reset"===e.type)for(var n of document.forms.consent.elements)n.name&&(n.checked=!1);__md_set("__consent",Object.fromEntries(Array.from(new FormData(form).keys()).map((function(e){return[e,!0]})))),location.hash="",location.reload()}))</script>
 <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.tabs", "navigation.tabs.sticky", "navigation.footer", "navigation.tracking", "navigation.top", "navigation.indexes", "navigation.instant", "navigation.instant.progress", "search.suggest", "search.highlight", "search.share", "content.code.copy", "content.code.annotate", "content.tabs.link", "toc.follow"], "search": "../../assets/javascripts/workers/search.d50fe291.min.js", "tags": null, "translations": {"clipboard.copied": "Skopiowano do schowka", "clipboard.copy": "Kopiuj do schowka", "search.result.more.one": "1 wi\u0119cej na tej stronie", "search.result.more.other": "# wi\u0119cej na tej stronie", "search.result.none": "Brak wynik\u00f3w wyszukiwania", "search.result.one": "Wyniki wyszukiwania: 1", "search.result.other": "Wyniki wyszukiwania: #", "search.result.placeholder": "Zacznij pisa\u0107, aby szuka\u0107", "search.result.term.missing": "Brak", "select.version": "Wybierz wersj\u0119"}, "version": null}</script>
 <script src="../../assets/javascripts/bundle.13a4f30d.min.js"></script>
-<script defer>!function(e,t,n,c,o,a,f){e.fbq||(o=e.fbq=function(){o.callMethod?o.callMethod.apply(o,arguments):o.queue.push(arguments)},e._fbq||(e._fbq=o),o.push=o,o.loaded=!0,o.version="2.0",o.queue=[],(a=t.createElement(n)).async=!0,a.src="https://connect.facebook.net/en_US/fbevents.js",(f=t.getElementsByTagName(n)[0]).parentNode.insertBefore(a,f))}(window,document,"script"),fbq("init","444619046317574"),fbq("track","PageView")</script>
+<!-- Facebook Pixel Code -->
+<script defer="">
+    !function(f,b,e,v,n,t,s)
+    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+    n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];
+    s.parentNode.insertBefore(t,s)}(window, document,'script',
+    'https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', '444619046317574');
+    fbq('track', 'PageView');
+  </script>
 <noscript>
-<img src="https://www.facebook.com/tr?id=444619046317574&amp;ev=PageView&amp;noscript=1" alt="Facebook Pixel" height="1" style="display:none" width="1">
-</noscript>
+<img alt="Facebook Pixel" height="1" src="https://www.facebook.com/tr?id=444619046317574&amp;ev=PageView&amp;noscript=1" style="display:none" width="1">
+</img></noscript>
+<!-- End Facebook Pixel Code -->
 </body>
 </html>

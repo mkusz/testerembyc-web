@@ -1,32 +1,102 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-<meta charset="utf-8">
-<meta content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no" name="viewport">
-<title></title>
-<link href="dist/reveal.css" rel="stylesheet">
-<link href="dist/theme/blood.css" rel="stylesheet" id="theme">
-<link href="plugin/highlight/monokai.css" rel="stylesheet">
-<link href="css/layout.css" rel="stylesheet">
-<link href="plugin/customcontrols/style.css" rel="stylesheet">
-<link href="plugin/chalkboard/style.css" rel="stylesheet">
-<script src="dist/fontawesome/all.min.js" defer></script>
-<script type="text/javascript">var forgetPop=!0;function onPopState(e){forgetPop?forgetPop=!1:parent.postMessage(e.target.location.href,"app://obsidian.md")}function fitElements(){const e=document.getElementsByClassName("fitText");for(const o in e)if(Object.hasOwnProperty.call(e,o)){var t=e[o];fitElement(t,1,1e3),t.classList.remove("fitText")}}function fitElement(e,t,o){let n=(o+t)/2;if(e.style.fontSize=`${n}px`,Math.abs(t-o)<1)for(;e.scrollHeight>e.offsetHeight;)n--,e.style.fontSize=`${n}px`;else e.scrollHeight>e.offsetHeight?fitElement(e,t,n):fitElement(e,n,o)}window.onpopstate=onPopState,window.onmessage=e=>{"reload"==e.data&&window.document.location.reload(),forgetPop=!0},document.onreadystatechange=()=>{if(fitElements(),"complete"===document.readyState&&(-1!=window.location.href.indexOf("?export")&&parent.postMessage(event.target.location.href,"app://obsidian.md"),-1!=window.location.href.indexOf("print-pdf"))){let e=setInterval((()=>{clearInterval(e),window.print()}),250)}}</script>
-</head>
-<body>
-<div class="reveal">
-<div class="slides"><section data-markdown><script type="text/template"><!-- .slide: class="drop" -->
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+
+    <title></title>
+    <link rel="stylesheet" href="dist/reveal.css" />
+    <link rel="stylesheet" href="dist/theme/blood.css" id="theme" />
+    <link rel="stylesheet" href="plugin/highlight/monokai.css" />
+	<link rel="stylesheet" href="css/layout.css" />
+	<link rel="stylesheet" href="plugin/customcontrols/style.css">
+	<link rel="stylesheet" href="plugin/chalkboard/style.css">
+
+
+
+    <script defer src="dist/fontawesome/all.min.js"></script>
+
+	<script type="text/javascript">
+		var forgetPop = true;
+		function onPopState(event) {
+			if(forgetPop){
+				forgetPop = false;
+			} else {
+				parent.postMessage(event.target.location.href, "app://obsidian.md");
+			}
+        }
+		window.onpopstate = onPopState;
+		window.onmessage = event => {
+			if(event.data == "reload"){
+				window.document.location.reload();
+			}
+			forgetPop = true;
+		}
+
+		function fitElements(){
+			const itemsToFit = document.getElementsByClassName('fitText');
+			for (const item in itemsToFit) {
+				if (Object.hasOwnProperty.call(itemsToFit, item)) {
+					var element = itemsToFit[item];
+					fitElement(element,1, 1000);
+					element.classList.remove('fitText');
+				}
+			}
+		}
+
+		function fitElement(element, start, end){
+
+			let size = (end + start) / 2;
+			element.style.fontSize = `${size}px`;
+
+			if(Math.abs(start - end) < 1){
+				while(element.scrollHeight > element.offsetHeight){
+					size--;
+					element.style.fontSize = `${size}px`;
+				}
+				return;
+			}
+
+			if(element.scrollHeight > element.offsetHeight){
+				fitElement(element, start, size);
+			} else {
+				fitElement(element, size, end);
+			}		
+		}
+
+
+		document.onreadystatechange = () => {
+			fitElements();
+			if (document.readyState === 'complete') {
+				if (window.location.href.indexOf("?export") != -1){
+					parent.postMessage(event.target.location.href, "app://obsidian.md");
+				}
+				if (window.location.href.indexOf("print-pdf") != -1){
+					let stateCheck = setInterval(() => {
+						clearInterval(stateCheck);
+						window.print();
+					}, 250);
+				}
+			}
+	};
+
+
+        </script>
+  </head>
+  <body>
+    <div class="reveal">
+      <div class="slides"><section  data-markdown><script type="text/template"><!-- .slide: class="drop" -->
 <div class="" style="position: absolute; left: 0px; top: 0px; height: 768px; width: 1366px; min-height: 768px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
 
 # Najmniejszy framework do testów REST API
-</div></script></section><section data-markdown><script type="text/template"><!-- .slide: class="drop" -->
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" -->
 <div class="" style="position: absolute; left: 0px; top: 0px; height: 768px; width: 1366px; min-height: 768px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
 
 <img src="attachments/napis_logo_white.png" alt="" style="object-fit: scale-down">
 
 
 by Maciej 'maQ' Kusz
-</div></script></section><section data-markdown><script type="text/template"><!-- .slide: class="drop" -->
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" -->
 <div class="" style="position: absolute; left: 0px; top: 0px; height: 768px; width: 1366px; min-height: 768px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
 
 ## Skąd pomysł na
@@ -39,19 +109,19 @@ by Maciej 'maQ' Kusz
 </div>
 
 <aside class="notes"><p>W 2014 roku powstała akcja #hot16challange inspirowana &quot;Ice bucket chalange&quot;, która polegała na wykonaniu tzw. &quot;szestnastki&quot;, czyli zwrotki składającej się z 16 wersów, a następnie &quot;nominowaniu&quot; kolejnej osoby. Pierwsza edycja miała cel typowo rozrywkowy. Druga edycja ogłoszona pod koniec kwietnia 2020 miała już cel typowo finansowy, a pozyskane środki miały wesprzeć personel medyczny w walce z pandemią. Kilka miesięcy później, trochę z nudów, trochę z ogólnego wkurzenia na zamknięcie w 4 ścianach, mój znajomy Bartosz Kita, ogłosił podobna zabawę, czyli #code16chalange, który miał polegać na napisaniu jakiegoś ciekawego kawałka kodu w 16 linijkach (lub mniej). Niestety akcja było ciut mało rozpowszechniona i zaledwie kilka osób wzięło w niej udział. Ja wtedy pomyślałem, że warto pokazać siłę Pythona i stworzyć coś ciekawego.</p>
-</aside></script></section><section data-markdown><script type="text/template"><!-- .slide: class="drop" data-transition="slide-in none" -->
+</aside></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" data-transition="slide-in none" -->
 <div class="" style="position: absolute; left: 0px; top: 0px; height: 768px; width: 1366px; min-height: 768px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
 
 ## #hot16chalange
 
 <img src="attachments/bartosz_kita.png" alt="" style="object-fit: scale-down" class="fragment" data-fragment-index="1">
-</div></script></section><section data-markdown><script type="text/template"><!-- .slide: class="drop" data-transition="none none" -->
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" data-transition="none none" -->
 <div class="" style="position: absolute; left: 0px; top: 0px; height: 768px; width: 1366px; min-height: 768px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
 
 ## #code16chalange
 
 <img src="attachments/bartosz_kita.png" alt="" style="object-fit: scale-down">
-</div></script></section><section data-markdown><script type="text/template"><!-- .slide: class="drop" data-transition="none none" -->
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" data-transition="none none" -->
 <div class="" style="position: absolute; left: 0px; top: 0px; height: 768px; width: 1366px; min-height: 768px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
 
 ## #code16chalange
@@ -66,7 +136,7 @@ by Maciej 'maQ' Kusz
 - &shy;<!-- .element: class="fragment" data-fragment-index="4" -->... i jest spójną całością
 
 <span style="font-size: 2.1em;">&nbsp;</span>
-</div></script></section><section data-markdown><script type="text/template"><!-- .slide: class="drop" data-transition="none none" -->
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" data-transition="none none" -->
 <div class="" style="position: absolute; left: 0px; top: 0px; height: 768px; width: 1366px; min-height: 768px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
 
 ## Framework
@@ -85,7 +155,7 @@ by Maciej 'maQ' Kusz
 </div>
 
 <aside class="notes"><p>Skoro musimy zmieścić się w 16 linijkach kodu, to dosyć luźno podejdziemy do zaleceń PEP8/black</p>
-</aside></script></section><section data-markdown><script type="text/template"><!-- .slide: class="drop" -->
+</aside></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" -->
 <div class="" style="position: absolute; left: 0px; top: 0px; height: 768px; width: 1366px; min-height: 768px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
 
 ## Co testujemy?
@@ -120,7 +190,7 @@ DELETE `/api/user/2` -> 204
 
 </div>
 </div>
-</div></script></section><section data-markdown><script type="text/template"><!-- .slide: class="drop" -->
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" -->
 <div class="" style="position: absolute; left: 0px; top: 0px; height: 768px; width: 1366px; min-height: 768px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
 
 ## Jakie biblioteki?
@@ -129,7 +199,7 @@ DELETE `/api/user/2` -> 204
 - &shy;<!-- .element: class="fragment" data-fragment-index="1" -->`import xmlrunner`
 - &shy;<!-- .element: class="fragment" data-fragment-index="2" -->`import json`
 - &shy;<!-- .element: class="fragment" data-fragment-index="3" -->`import requests`
-</div></script></section><section data-markdown><script type="text/template"><!-- .slide: class="drop" data-transition="slide-in none" -->
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" data-transition="slide-in none" -->
 <div class="" style="position: absolute; left: 0px; top: 0px; height: 768px; width: 1366px; min-height: 768px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
 
 ## Pierwszy test
@@ -145,7 +215,7 @@ print(response.status_code)  # 200
 
 </split>
 <br><span style="font-size: 1em;">&nbsp;</span>
-</div></script></section><section data-markdown><script type="text/template"><!-- .slide: class="drop" data-transition="none slide-out" -->
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" data-transition="none slide-out" -->
 <div class="" style="position: absolute; left: 0px; top: 0px; height: 768px; width: 1366px; min-height: 768px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
 
 ## Pierwszy test
@@ -162,7 +232,7 @@ assert response.status_code == 200
 
 </split>
 <br><span style="font-size: 0.15em;">&nbsp;</span>
-</div></script></section><section data-markdown><script type="text/template"><!-- .slide: class="drop" data-transition="slide-in none" -->
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" data-transition="slide-in none" -->
 <div class="" style="position: absolute; left: 0px; top: 0px; height: 768px; width: 1366px; min-height: 768px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
 
 ## Test w unittest
@@ -180,7 +250,7 @@ class Tests(unittest.TestCase):
 
 </split>
 <br><span style="font-size: 1.25em;">&nbsp;</span>
-</div></script></section><section data-markdown><script type="text/template"><!-- .slide: class="drop" data-transition="none slide-out" -->
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" data-transition="none slide-out" -->
 <div class="" style="position: absolute; left: 0px; top: 0px; height: 768px; width: 1366px; min-height: 768px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
 
 ## Test w unittest
@@ -203,7 +273,7 @@ if __name__ == '__main__':
 </div>
 
 <aside class="notes"><p>No więc mamy 1 działający test. Spróbujmy wydzielić z niego dane testowe.</p>
-</aside></script></section><section data-markdown><script type="text/template"><!-- .slide: class="drop" -->
+</aside></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" -->
 <div class="" style="position: absolute; left: 0px; top: 0px; height: 768px; width: 1366px; min-height: 768px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
 
 ## tests.json
@@ -222,7 +292,7 @@ if __name__ == '__main__':
 ```
 
 </split>
-</div></script></section><section data-markdown><script type="text/template"><!-- .slide: class="drop" -->
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" -->
 <div class="" style="position: absolute; left: 0px; top: 0px; height: 768px; width: 1366px; min-height: 768px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
 
 ## Test z tests.json
@@ -247,7 +317,7 @@ if __name__ == '__main__':
 </div>
 
 <aside class="notes"><p>Przyjrzyjmy się z czego składa się <code>requests.get</code></p>
-</aside></script></section><section data-markdown><script type="text/template"><!-- .slide: class="drop" -->
+</aside></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" -->
 <div class="" style="position: absolute; left: 0px; top: 0px; height: 768px; width: 1366px; min-height: 768px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
 
 ## requests.get
@@ -261,7 +331,7 @@ def get(url, params=None, **kwargs):
 ```
 
 </split>
-</div></script></section><section data-markdown><script type="text/template"><!-- .slide: class="drop" -->
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" -->
 <div class="" style="position: absolute; left: 0px; top: 0px; height: 768px; width: 1366px; min-height: 768px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
 
 ## tests.json v2
@@ -281,7 +351,7 @@ def get(url, params=None, **kwargs):
 ```
 
 </split>
-</div></script></section><section data-markdown><script type="text/template"><!-- .slide: class="drop" data-transition="slide-in none" -->
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" data-transition="slide-in none" -->
 <div class="" style="position: absolute; left: 0px; top: 0px; height: 768px; width: 1366px; min-height: 768px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
 
 ## Modyfikacja requestu
@@ -310,7 +380,7 @@ if __name__ == '__main__':
 </div>
 
 <aside class="notes"><p>Nazwa atrybutu i klucz słownika są takie same. Co ten zapis przypomina?</p>
-</aside></script></section><section data-markdown><script type="text/template"><!-- .slide: class="drop" data-transition="none none" -->
+</aside></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" data-transition="none none" -->
 <div class="" style="position: absolute; left: 0px; top: 0px; height: 768px; width: 1366px; min-height: 768px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
 
 ## Modyfikacja requestu
@@ -338,7 +408,7 @@ if __name__ == '__main__':
 </div>
 
 <aside class="notes"><p>Dict unpack</p>
-</aside></script></section><section data-markdown><script type="text/template"><!-- .slide: class="drop" data-transition="none none" -->
+</aside></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" data-transition="none none" -->
 <div class="" style="position: absolute; left: 0px; top: 0px; height: 768px; width: 1366px; min-height: 768px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
 
 ## Modyfikacja requestu
@@ -364,7 +434,7 @@ if __name__ == '__main__':
 </div>
 
 <aside class="notes"><p>Wepchnijmy to w 1 linijkę</p>
-</aside></script></section><section data-markdown><script type="text/template"><!-- .slide: class="drop" data-transition="none slide-out" -->
+</aside></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" data-transition="none slide-out" -->
 <div class="" style="position: absolute; left: 0px; top: 0px; height: 768px; width: 1366px; min-height: 768px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
 
 ## Modyfikacja requestu
@@ -386,7 +456,7 @@ if __name__ == '__main__':
 
 </split>
 <br><span style="font-size: 3em;">&nbsp;</span>
-</div></script></section><section data-markdown><script type="text/template"><!-- .slide: class="drop" data-transition="slide-in none" -->
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" data-transition="slide-in none" -->
 <div class="" style="position: absolute; left: 0px; top: 0px; height: 768px; width: 1366px; min-height: 768px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
 
 ## Wydzielenie testu z klasy
@@ -403,7 +473,7 @@ class Tests(unittest.TestCase): pass
 
 </split>
 <br><span style="font-size: 5em;">&nbsp;</span>
-</div></script></section><section data-markdown><script type="text/template"><!-- .slide: class="drop" data-transition="none none" -->
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" data-transition="none none" -->
 <div class="" style="position: absolute; left: 0px; top: 0px; height: 768px; width: 1366px; min-height: 768px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
 
 ## Wydzielenie testu z klasy
@@ -423,7 +493,7 @@ def abstract_test(self):
 
 </split>
 <br><span style="font-size: 3.55em;">&nbsp;</span>
-</div></script></section><section data-markdown><script type="text/template"><!-- .slide: class="drop" data-transition="none slide-out" -->
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" data-transition="none slide-out" -->
 <div class="" style="position: absolute; left: 0px; top: 0px; height: 768px; width: 1366px; min-height: 768px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
 
 ## Wydzielenie testu z klasy
@@ -451,7 +521,7 @@ if __name__ == '__main__':
 </div>
 
 <aside class="notes"><p>Skoro wydzieliliśmy test z klasy, to musimy go jeszcze jakoś tam wkleić. Do tego celu użyjemy <code>setattr</code></p>
-</aside></script></section><section data-markdown><script type="text/template"><!-- .slide: class="drop" -->
+</aside></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" -->
 <div class="" style="position: absolute; left: 0px; top: 0px; height: 768px; width: 1366px; min-height: 768px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
 
 ## tests.json v3
@@ -476,7 +546,7 @@ if __name__ == '__main__':
 </div>
 
 <aside class="notes"><p>Dane testowe już znamy, ale opakowujemy je nazwą testu</p>
-</aside></script></section><section data-markdown><script type="text/template"><!-- .slide: class="drop" data-transition="slide-in none" -->
+</aside></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" data-transition="slide-in none" -->
 <div class="" style="position: absolute; left: 0px; top: 0px; height: 768px; width: 1366px; min-height: 768px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
 
 ## Nazwa testu z pliku
@@ -504,7 +574,7 @@ if __name__ == '__main__':
 </div>
 
 <aside class="notes"><p>Sklejmy teraz te kawałki kodu i zmodyfikujmy trochę wywołanie <code>setattr</code></p>
-</aside></script></section><section data-markdown><script type="text/template"><!-- .slide: class="drop" data-transition="none none" -->
+</aside></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" data-transition="none none" -->
 <div class="" style="position: absolute; left: 0px; top: 0px; height: 768px; width: 1366px; min-height: 768px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
 
 ## Nazwa testu z pliku
@@ -526,7 +596,7 @@ def add_test(cls, tn):
 
 </split>
 <br><span style="font-size: 3.75em;">&nbsp;</span>
-</div></script></section><section data-markdown><script type="text/template"><!-- .slide: class="drop" data-transition="none slide-out" -->
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" data-transition="none slide-out" -->
 <div class="" style="position: absolute; left: 0px; top: 0px; height: 768px; width: 1366px; min-height: 768px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
 
 ## Nazwa testu z pliku
@@ -554,7 +624,7 @@ if __name__ == '__main__':
 
 </split>
 <br><span style="font-size: 1em;">&nbsp;</span>
-</div></script></section><section data-markdown><script type="text/template"><!-- .slide: class="drop" -->
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" -->
 <div class="" style="position: absolute; left: 0px; top: 0px; height: 768px; width: 1366px; min-height: 768px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
 
 ## tests.json v4
@@ -603,7 +673,7 @@ if __name__ == '__main__':
 </code></pre>
 
 </split>
-</div></script></section><section data-markdown><script type="text/template"><!-- .slide: class="drop" data-transition="slide-in none" -->
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" data-transition="slide-in none" -->
 <div class="" style="position: absolute; left: 0px; top: 0px; height: 768px; width: 1366px; min-height: 768px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
 
 ## Raporty
@@ -631,7 +701,7 @@ if __name__ == '__main__':
 
 </split>
 <br><span style="font-size: 1em;">&nbsp;</span>
-</div></script></section><section data-markdown><script type="text/template"><!-- .slide: class="drop" data-transition="none slide-out" -->
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" data-transition="none slide-out" -->
 <div class="" style="position: absolute; left: 0px; top: 0px; height: 768px; width: 1366px; min-height: 768px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
 
 ## Raporty
@@ -659,7 +729,7 @@ if __name__ == '__main__':
 
 </split>
 <br><span style="font-size: 1em;">&nbsp;</span>
-</div></script></section><section data-markdown><script type="text/template"><!-- .slide: class="drop" -->
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" -->
 <div class="" style="position: absolute; left: 0px; top: 0px; height: 768px; width: 1366px; min-height: 768px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
 
 ## Raporty
@@ -684,7 +754,7 @@ Generating XML reports...
 Process finished with exit code 0
 </pre>
 </div>
-</div></script></section><section data-markdown><script type="text/template"><!-- .slide: class="drop" -->
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" -->
 <div class="" style="position: absolute; left: 0px; top: 0px; height: 768px; width: 1366px; min-height: 768px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
 
 ## Raporty
@@ -694,7 +764,7 @@ Process finished with exit code 0
 TEST-Tests-20221029240608.xml
 
 ```xml [|3-5]
-<?xml version="1.0" ?>
+<?xml version="1.0" ?>  
 <testsuite name="Tests-20221029230608" tests="3" time="0.000" failures="0" errors="0">  
    <testcase classname="Tests" name="test_create_new_user" time="0.000"></testcase>  
    <testcase classname="Tests" name="test_get_non_existing_user" time="0.000"></testcase>  
@@ -705,7 +775,7 @@ TEST-Tests-20221029240608.xml
 ```
 
 </split>
-</div></script></section><section data-markdown><script type="text/template"><!-- .slide: class="drop" data-transition="slide-in none" -->
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" data-transition="slide-in none" -->
 <div class="" style="position: absolute; left: 0px; top: 0px; height: 768px; width: 1366px; min-height: 768px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
 
 ## Odchudzanie
@@ -734,7 +804,7 @@ if __name__ == '__main__':
 
 </split>
 <br><span style="font-size: 1em;">&nbsp;</span>
-</div></script></section><section data-markdown><script type="text/template"><!-- .slide: class="drop" data-transition="none none" -->
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" data-transition="none none" -->
 <div class="" style="position: absolute; left: 0px; top: 0px; height: 768px; width: 1366px; min-height: 768px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
 
 ## Odchudzanie
@@ -762,7 +832,7 @@ if __name__ == '__main__':
 
 </split>
 <br><span style="font-size: 1.45em;">&nbsp;</span>
-</div></script></section><section data-markdown><script type="text/template"><!-- .slide: class="drop" data-transition="none none" -->
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" data-transition="none none" -->
 <div class="" style="position: absolute; left: 0px; top: 0px; height: 768px; width: 1366px; min-height: 768px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
 
 ## Odchudzanie
@@ -788,7 +858,7 @@ unittest.main(testRunner=xmlrunner.XMLTestRunner())
 
 </split>
 <br><span style="font-size: 2.35em;">&nbsp;</span>
-</div></script></section><section data-markdown><script type="text/template"><!-- .slide: class="drop" data-transition="none none" -->
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" data-transition="none none" -->
 <div class="" style="position: absolute; left: 0px; top: 0px; height: 768px; width: 1366px; min-height: 768px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
 
 ## Odchudzanie
@@ -812,7 +882,7 @@ unittest.main(testRunner=xmlrunner.XMLTestRunner())
 
 </split>
 <br><span style="font-size: 2.85em;">&nbsp;</span>
-</div></script></section><section data-markdown><script type="text/template"><!-- .slide: class="drop" data-transition="none none" -->
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" data-transition="none none" -->
 <div class="" style="position: absolute; left: 0px; top: 0px; height: 768px; width: 1366px; min-height: 768px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
 
 ## Odchudzanie
@@ -835,7 +905,7 @@ unittest.main(testRunner=xmlrunner.XMLTestRunner())
 
 </split>
 <br><span style="font-size: 3.25em;">&nbsp;</span>
-</div></script></section><section data-markdown><script type="text/template"><!-- .slide: class="drop" data-transition="none none" -->
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" data-transition="none none" -->
 <div class="" style="position: absolute; left: 0px; top: 0px; height: 768px; width: 1366px; min-height: 768px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
 
 ## Odchudzanie
@@ -856,7 +926,7 @@ unittest.main(testRunner=xmlrunner.XMLTestRunner())
 
 </split>
 <br><span style="font-size: 3.75em;">&nbsp;</span>
-</div></script></section><section data-markdown><script type="text/template"><!-- .slide: class="drop" data-transition="none none" -->
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" data-transition="none none" -->
 <div class="" style="position: absolute; left: 0px; top: 0px; height: 768px; width: 1366px; min-height: 768px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
 
 ## Odchudzanie
@@ -880,7 +950,7 @@ unittest.main(testRunner=xmlrunner.XMLTestRunner())
 </div>
 
 <aside class="notes"><p>Zamiana tworzenia klasy przy użyciu <code>type</code> powoduje, że metody danej klasy, definiowane są jako słownik. Zastanówmy się czy ten kawałek kodu możemy zamienić tak, aby generował nam słownik z metodami testowymi.</p>
-</aside></script></section><section data-markdown><script type="text/template"><!-- .slide: class="drop" data-transition="none none" -->
+</aside></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" data-transition="none none" -->
 <div class="" style="position: absolute; left: 0px; top: 0px; height: 768px; width: 1366px; min-height: 768px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
 
 ## Odchudzanie
@@ -905,7 +975,7 @@ unittest.main(testRunner=xmlrunner.XMLTestRunner())
 
 </split>
 <br><span style="font-size: 2.35em;">&nbsp;</span>
-</div></script></section><section data-markdown><script type="text/template"><!-- .slide: class="drop" data-transition="none none" -->
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" data-transition="none none" -->
 <div class="" style="position: absolute; left: 0px; top: 0px; height: 768px; width: 1366px; min-height: 768px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
 
 ## Odchudzanie
@@ -928,7 +998,7 @@ unittest.main(testRunner=xmlrunner.XMLTestRunner())
 
 </split>
 <br><span style="font-size: 2.85em;">&nbsp;</span>
-</div></script></section><section data-markdown><script type="text/template"><!-- .slide: class="drop" data-transition="none none" -->
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" data-transition="none none" -->
 <div class="" style="position: absolute; left: 0px; top: 0px; height: 768px; width: 1366px; min-height: 768px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
 
 ## Odchudzanie
@@ -949,7 +1019,7 @@ unittest.main(testRunner=xmlrunner.XMLTestRunner())
 
 </split>
 <br><span style="font-size: 3.75em;">&nbsp;</span>
-</div></script></section><section data-markdown><script type="text/template"><!-- .slide: class="drop" data-transition="none none" -->
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" data-transition="none none" -->
 <div class="" style="position: absolute; left: 0px; top: 0px; height: 768px; width: 1366px; min-height: 768px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
 
 ## Odchudzanie
@@ -968,7 +1038,7 @@ unittest.main(testRunner=xmlrunner.XMLTestRunner())
 
 </split>
 <br><span style="font-size: 4.65em;">&nbsp;</span>
-</div></script></section><section data-markdown><script type="text/template"><!-- .slide: class="drop" data-transition="none none" -->
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" data-transition="none none" -->
 <div class="" style="position: absolute; left: 0px; top: 0px; height: 768px; width: 1366px; min-height: 768px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
 
 ## Odchudzanie
@@ -986,7 +1056,7 @@ unittest.main(testRunner=xmlrunner.XMLTestRunner())
 
 </split>
 <br><span style="font-size: 4.65em;">&nbsp;</span>
-</div></script></section><section data-markdown><script type="text/template"><!-- .slide: class="drop" data-transition="none slide-out" -->
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" data-transition="none slide-out" -->
 <div class="" style="position: absolute; left: 0px; top: 0px; height: 768px; width: 1366px; min-height: 768px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
 
 ## Odchudzanie
@@ -1003,7 +1073,7 @@ unittest.main(testRunner=xmlrunner.XMLTestRunner())
 
 </split>
 <br><span style="font-size: 5.1em;">&nbsp;</span>
-</div></script></section><section data-markdown><script type="text/template"><!-- .slide: class="drop" -->
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" -->
 <div class="" style="position: absolute; left: 0px; top: 0px; height: 768px; width: 1366px; min-height: 768px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
 
 ## Co osiągnęliśmy?
@@ -1014,13 +1084,13 @@ unittest.main(testRunner=xmlrunner.XMLTestRunner())
 - &shy;<!-- .element: class="fragment" data-fragment-index="3" -->generujemy raport w formacie JUnit
 - &shy;<!-- .element: class="fragment" data-fragment-index="4" -->kod mieści się w 5 linijkach kodu
 - &shy;<!-- .element: class="fragment" data-fragment-index="5" -->... a w zasadzie to w 3, jeśli pominiemy te puste
-</div></script></section><section data-markdown><script type="text/template"><!-- .slide: class="drop" -->
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" -->
 <div class="" style="position: absolute; left: 0px; top: 0px; height: 768px; width: 1366px; min-height: 768px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
 
 ## Chcecie więcej?
 
 <img src="attachments/matrix_more_smiths.png" alt="" style="object-fit: scale-down" height="70%" width="70%">
-</div></script></section><section data-markdown><script type="text/template"><!-- .slide: class="drop" data-transition="slide-in none" -->
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" data-transition="slide-in none" -->
 <div class="" style="position: absolute; left: 0px; top: 0px; height: 768px; width: 1366px; min-height: 768px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
 
 ## Więcej plików JSON
@@ -1048,7 +1118,7 @@ unittest.main(testRunner=xmlrunner.XMLTestRunner())
 
 </split>
 <br><span style="font-size: 1.45em;">&nbsp;</span>
-</div></script></section><section data-markdown><script type="text/template"><!-- .slide: class="drop" data-transition="none none" -->
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" data-transition="none none" -->
 <div class="" style="position: absolute; left: 0px; top: 0px; height: 768px; width: 1366px; min-height: 768px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
 
 ## Więcej plików JSON
@@ -1077,7 +1147,7 @@ unittest.main(testRunner=xmlrunner.XMLTestRunner())
 
 </split>
 <br><span style="font-size: 1em;">&nbsp;</span>
-</div></script></section><section data-markdown><script type="text/template"><!-- .slide: class="drop" data-transition="none none" -->
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" data-transition="none none" -->
 <div class="" style="position: absolute; left: 0px; top: 0px; height: 768px; width: 1366px; min-height: 768px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
 
 ## Więcej plików JSON
@@ -1106,7 +1176,7 @@ unittest.main(testRunner=xmlrunner.XMLTestRunner())
 
 </split>
 <br><span style="font-size: 1em;">&nbsp;</span>
-</div></script></section><section data-markdown><script type="text/template"><!-- .slide: class="drop" data-transition="none slide-out" -->
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" data-transition="none slide-out" -->
 <div class="" style="position: absolute; left: 0px; top: 0px; height: 768px; width: 1366px; min-height: 768px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
 
 ## Więcej plików JSON
@@ -1135,7 +1205,7 @@ unittest.main(testRunner=xmlrunner.XMLTestRunner())
 
 </split>
 <br><span style="font-size: 1em;">&nbsp;</span>
-</div></script></section><section data-markdown><script type="text/template"><!-- .slide: class="drop" -->
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" -->
 <div class="" style="position: absolute; left: 0px; top: 0px; height: 768px; width: 1366px; min-height: 768px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
 
 ## tests_get.json
@@ -1170,7 +1240,7 @@ unittest.main(testRunner=xmlrunner.XMLTestRunner())
 </div>
 
 <aside class="notes"><p>Rozbijmy nasze dane testowe na 2 pliki.</p>
-</aside></script></section><section data-markdown><script type="text/template"><!-- .slide: class="drop" -->
+</aside></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" -->
 <div class="" style="position: absolute; left: 0px; top: 0px; height: 768px; width: 1366px; min-height: 768px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
 
 ## tests_post.json
@@ -1197,7 +1267,7 @@ unittest.main(testRunner=xmlrunner.XMLTestRunner())
 
 </split>
 <br><span style="font-size: 1em;">&nbsp;</span>
-</div></script></section><section data-markdown><script type="text/template"><!-- .slide: class="drop" -->
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" -->
 <div class="" style="position: absolute; left: 0px; top: 0px; height: 768px; width: 1366px; min-height: 768px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
 
 ## Raporty
@@ -1206,7 +1276,7 @@ unittest.main(testRunner=xmlrunner.XMLTestRunner())
 
 TEST-TestsGet-20221102223755.xml <!-- .element: style="margin: 0 0 0 0" -->
 ```xml [3-4]
-<?xml version="1.0" ?>
+<?xml version="1.0" ?>  
 <testsuite name="TestsGet-20221102223755" tests="2" time="0.000" failures="0" errors="0">  
    <testcase classname="TestsGet" name="test_get_non_existing_user" time="0.000"></testcase>  
    <testcase classname="TestsGet" name="test_get_single_user" time="0.000"></testcase>  
@@ -1216,7 +1286,7 @@ TEST-TestsGet-20221102223755.xml <!-- .element: style="margin: 0 0 0 0" -->
 ```
 TEST-TestsPost-20221102223755.xml
 ```xml [3]
-<?xml version="1.0" ?>
+<?xml version="1.0" ?>  
 <testsuite name="TestsPost-20221102223755" tests="1" time="0.000" failures="0" errors="0">  
    <testcase classname="TestsPost" name="test_create_new_user" time="0.000"></testcase>  
    <system-out><![CDATA[]]></system-out>  
@@ -1225,7 +1295,7 @@ TEST-TestsPost-20221102223755.xml
 ```
 
 </split>
-</div></script></section><section data-markdown><script type="text/template"><!-- .slide: class="drop" data-transition="slide-in none" -->
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" data-transition="slide-in none" -->
 <div class="" style="position: absolute; left: 0px; top: 0px; height: 768px; width: 1366px; min-height: 768px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
 
 ## Sprawdzenie odpowiedzi
@@ -1254,7 +1324,7 @@ unittest.main(testRunner=xmlrunner.XMLTestRunner())
 
 </split>
 <br><span style="font-size: 1.85em;">&nbsp;</span>
-</div></script></section><section data-markdown><script type="text/template"><!-- .slide: class="drop" data-transition="none none" -->
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" data-transition="none none" -->
 <div class="" style="position: absolute; left: 0px; top: 0px; height: 768px; width: 1366px; min-height: 768px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
 
 ## Sprawdzenie odpowiedzi
@@ -1286,7 +1356,7 @@ unittest.main(testRunner=xmlrunner.XMLTestRunner())
 </div>
 
 <aside class="notes"><p>Zamieńmy na początek zapis tego kawałka kodu, dla poprawy czytelności</p>
-</aside></script></section><section data-markdown><script type="text/template"><!-- .slide: class="drop" data-transition="none none" -->
+</aside></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" data-transition="none none" -->
 <div class="" style="position: absolute; left: 0px; top: 0px; height: 768px; width: 1366px; min-height: 768px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
 
 ## Sprawdzenie odpowiedzi
@@ -1318,7 +1388,7 @@ unittest.main(testRunner=xmlrunner.XMLTestRunner())
 </div>
 
 <aside class="notes"><p>Widzimy tutaj, co konkretnie wywołuje lambda. Gdybyśmy zamienili tutaj sprawdzanie kodu odpowiedzi, na coś innego, było by prosto, ale my chcemy sprawdzać kilka rzeczy. Jak zmusić lambdę do wywoływania więcej niż jednej &quot;linijki&quot; kodu.</p>
-</aside></script></section><section data-markdown><script type="text/template"><!-- .slide: class="drop" data-transition="none none" -->
+</aside></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" data-transition="none none" -->
 <div class="" style="position: absolute; left: 0px; top: 0px; height: 768px; width: 1366px; min-height: 768px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
 
 ## Sprawdzenie odpowiedzi
@@ -1350,7 +1420,7 @@ unittest.main(testRunner=xmlrunner.XMLTestRunner())
 </div>
 
 <aside class="notes"><p>Zmieńmy delikatnie zapis. Co tutaj zrobiłem? Wepchnąłem <code>assert</code> w tuple, a do tuple można wstawić więcej niż 1 element. No więc wstawmy go</p>
-</aside></script></section><section data-markdown><script type="text/template"><!-- .slide: class="drop" data-transition="none slide-out" -->
+</aside></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" data-transition="none slide-out" -->
 <div class="" style="position: absolute; left: 0px; top: 0px; height: 768px; width: 1366px; min-height: 768px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
 
 ## Sprawdzenie odpowiedzi
@@ -1381,7 +1451,7 @@ unittest.main(testRunner=xmlrunner.XMLTestRunner())
 
 </split>
 <br><span style="font-size: 1em;">&nbsp;</span>
-</div></script></section><section data-markdown><script type="text/template"><!-- .slide: class="drop" -->
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" -->
 <div class="" style="position: absolute; left: 0px; top: 0px; height: 768px; width: 1366px; min-height: 768px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
 
 ## tests_post.json
@@ -1406,7 +1476,7 @@ unittest.main(testRunner=xmlrunner.XMLTestRunner())
 
 </split>
 <br><span style="font-size: 1em;">&nbsp;</span>
-</div></script></section><section data-markdown><script type="text/template"><!-- .slide: class="drop" data-transition="slide-in none" -->
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" data-transition="slide-in none" -->
 <div class="" style="position: absolute; left: 0px; top: 0px; height: 768px; width: 1366px; min-height: 768px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
 
 ## Podsumowanie
@@ -1438,7 +1508,7 @@ unittest.main(testRunner=xmlrunner.XMLTestRunner())
 
 </split>
 <br><span style="font-size: 1em;">&nbsp;</span>
-</div></script></section><section data-markdown><script type="text/template"><!-- .slide: class="drop" data-transition="none none" -->
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" data-transition="none none" -->
 <div class="" style="position: absolute; left: 0px; top: 0px; height: 768px; width: 1366px; min-height: 768px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
 
 ## Podsumowanie
@@ -1467,7 +1537,7 @@ unittest.main(testRunner=xmlrunner.XMLTestRunner())
 
 </split>
 <br><span style="font-size: 1.45em;">&nbsp;</span>
-</div></script></section><section data-markdown><script type="text/template"><!-- .slide: class="drop" data-transition="none none" -->
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" data-transition="none none" -->
 <div class="" style="position: absolute; left: 0px; top: 0px; height: 768px; width: 1366px; min-height: 768px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
 
 ## Podsumowanie
@@ -1494,7 +1564,7 @@ unittest.main(testRunner=xmlrunner.XMLTestRunner())
 
 </split>
 <br><span style="font-size: 2.25em;">&nbsp;</span>
-</div></script></section><section data-markdown><script type="text/template"><!-- .slide: class="drop" data-transition="none none" -->
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" data-transition="none none" -->
 <div class="" style="position: absolute; left: 0px; top: 0px; height: 768px; width: 1366px; min-height: 768px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
 
 ## Podsumowanie
@@ -1519,7 +1589,7 @@ unittest.main(testRunner=xmlrunner.XMLTestRunner())
 
 </split>
 <br><span style="font-size: 3.05em;">&nbsp;</span>
-</div></script></section><section data-markdown><script type="text/template"><!-- .slide: class="drop" data-transition="none none" -->
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" data-transition="none none" -->
 <div class="" style="position: absolute; left: 0px; top: 0px; height: 768px; width: 1366px; min-height: 768px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
 
 ## Podsumowanie
@@ -1541,7 +1611,7 @@ unittest.main(testRunner=xmlrunner.XMLTestRunner())
 
 </split>
 <br><span style="font-size: 3.85em;">&nbsp;</span>
-</div></script></section><section data-markdown><script type="text/template"><!-- .slide: class="drop" data-transition="none none" -->
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" data-transition="none none" -->
 <div class="" style="position: absolute; left: 0px; top: 0px; height: 768px; width: 1366px; min-height: 768px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
 
 ## Podsumowanie
@@ -1561,7 +1631,7 @@ unittest.main(testRunner=xmlrunner.XMLTestRunner())
 
 </split>
 <br><span style="font-size: 4.65em;">&nbsp;</span>
-</div></script></section><section data-markdown><script type="text/template"><!-- .slide: class="drop" data-transition="none none" -->
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" data-transition="none none" -->
 <div class="" style="position: absolute; left: 0px; top: 0px; height: 768px; width: 1366px; min-height: 768px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
 
 ## Podsumowanie
@@ -1579,7 +1649,7 @@ unittest.main(testRunner=xmlrunner.XMLTestRunner())
 
 </split>
 <br><span style="font-size: 5.45em;">&nbsp;</span>
-</div></script></section><section data-markdown><script type="text/template"><!-- .slide: class="drop" data-transition="none none" -->
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" data-transition="none none" -->
 <div class="" style="position: absolute; left: 0px; top: 0px; height: 768px; width: 1366px; min-height: 768px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
 
 ## Podsumowanie
@@ -1596,7 +1666,7 @@ unittest.main(testRunner=xmlrunner.XMLTestRunner())
 
 </split>
 <br><span style="font-size: 5.45em;">&nbsp;</span>
-</div></script></section><section data-markdown><script type="text/template"><!-- .slide: class="drop" data-transition="none slide-out" -->
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" data-transition="none slide-out" -->
 <div class="" style="position: absolute; left: 0px; top: 0px; height: 768px; width: 1366px; min-height: 768px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
 
 ## Podsumowanie
@@ -1614,7 +1684,7 @@ unittest.main(testRunner=xmlrunner.XMLTestRunner())
 
 </split>
 <br><span style="font-size: 5em;">&nbsp;</span>
-</div></script></section><section data-markdown><script type="text/template"><!-- .slide: class="drop" -->
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" -->
 <div class="" style="position: absolute; left: 0px; top: 0px; height: 768px; width: 1366px; min-height: 768px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
 
 ## Co osiągnęliśmy?
@@ -1627,12 +1697,12 @@ unittest.main(testRunner=xmlrunner.XMLTestRunner())
 - &shy;<!-- .element: class="fragment" data-fragment-index="5" -->kod mieści się w 6 linijkach kodu
 - &shy;<!-- .element: class="fragment" data-fragment-index="6" -->... a w zasadzie to w 4, jeśli pominiemy te puste
 - &shy;<!-- .element: class="fragment" data-fragment-index="7" -->... albo 19 jeśli zależy nam na czytelności (black)
-</div></script></section><section data-markdown><script type="text/template"><!-- .slide: class="drop" -->
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" -->
 <div class="" style="position: absolute; left: 0px; top: 0px; height: 768px; width: 1366px; min-height: 768px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
 
 # Koniec
 # ??? <!-- .element: class="fragment" data-fragment-index="1" -->
-</div></script></section><section data-markdown><script type="text/template"><!-- .slide: class="drop" data-transition="slide-in none" -->
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" data-transition="slide-in none" -->
 <div class="" style="position: absolute; left: 0px; top: 0px; height: 768px; width: 1366px; min-height: 768px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
 
 ## PyTest i open bez with
@@ -1646,7 +1716,7 @@ for fn in glob.iglob("*.json"): globals()[fn.split(".")[0]] = type(fn.split(".")
 </code></pre>
 
 <br><span style="font-size: 4.3em;">&nbsp;</span>
-</div></script></section><section data-markdown><script type="text/template"><!-- .slide: class="drop" data-transition="none slide-out" -->
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" data-transition="none slide-out" -->
 <div class="" style="position: absolute; left: 0px; top: 0px; height: 768px; width: 1366px; min-height: 768px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
 
 ## PyTest i open bez with
@@ -1665,12 +1735,12 @@ for fn in glob.iglob("*.json"): globals()[fn.split(".")[0]] = type(fn.split(".")
 
 </div>
 <br><span style="font-size: 1em;">&nbsp;</span>
-</div></script></section><section data-markdown><script type="text/template"><!-- .slide: class="drop" -->
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" -->
 <div class="" style="position: absolute; left: 0px; top: 0px; height: 768px; width: 1366px; min-height: 768px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
 
 # Koniec
 # !!! <!-- .element: class="fragment" data-fragment-index="1" -->
-</div></script></section><section data-markdown><script type="text/template"><!-- .slide: class="drop" -->
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" -->
 <div class="" style="position: absolute; left: 0px; top: 0px; height: 768px; width: 1366px; min-height: 768px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
 
 <img src="attachments/napis_logo_white.png" alt="LOGO|600" style="width: 600px; object-fit: fill">
@@ -1678,23 +1748,132 @@ for fn in glob.iglob("*.json"): globals()[fn.split(".")[0]] = type(fn.split(".")
 
 <img src="attachments/qr-pre-najmniejszy-framework-do-testow-rest-api.png" alt="QR|600" style="width: 600px; object-fit: fill">
 </div></script></section></div>
-</div>
-<script src="dist/reveal.js"></script>
-<script src="plugin/markdown/markdown.js"></script>
-<script src="plugin/highlight/highlight.js"></script>
-<script src="plugin/zoom/zoom.js"></script>
-<script src="plugin/notes/notes.js"></script>
-<script src="plugin/math/math.js"></script>
-<script src="plugin/mermaid/mermaid.js"></script>
-<script src="plugin/chart/chart.min.js"></script>
-<script src="plugin/chart/plugin.js"></script>
-<script src="plugin/menu/menu.js"></script>
-<script src="plugin/customcontrols/plugin.js"></script>
-<script src="plugin/chalkboard/plugin.js"></script>
-<script src="plugin/elapsed-time-bar/elapsed-time-bar.js"></script>
-<script>
-function extend(){for(var e={},a=0;a<arguments.length;a++){var t=arguments[a];for(var o in t)t.hasOwnProperty(o)&&(e[o]=t[o])}return e}function isLight(e){let a=e.replace("#","");3==a.length&&(a=`${a[0]}${a[0]}${a[1]}${a[1]}${a[2]}${a[2]}`);return(299*parseInt(a.substr(0,2),16)+587*parseInt(a.substr(2,2),16)+114*parseInt(a.substr(4,2),16))/1e3>155}var isLight,bgColor=getComputedStyle(document.documentElement).getPropertyValue("--r-background-color").trim();(isLight=isLight(bgColor))?document.body.classList.add("has-light-background"):document.body.classList.add("has-dark-background");var defaultOptions={controls:!0,progress:!0,history:!0,center:!0,transition:"default",plugins:[RevealMarkdown,RevealHighlight,RevealZoom,RevealNotes,RevealMath.MathJax3,RevealMermaid,RevealChart,RevealCustomControls,RevealMenu,RevealChalkboard,ElapsedTimeBar],allottedTime:12e4,mathjax3:{mathjax:"plugin/math/mathjax/tex-mml-chtml.js"},markdown:{gfm:!0,mangle:!0,pedantic:!1,smartLists:!1,smartypants:!1},mermaid:{theme:isLight?"default":"dark"},customcontrols:{controls:[{id:"toggle-overview",title:"Toggle overview (O)",icon:'<i class="fa fa-th"></i>',action:"Reveal.toggleOverview();"},{icon:'<i class="fa fa-pen-square"></i>',title:"Toggle chalkboard (B)",action:"RevealChalkboard.toggleChalkboard();"},{icon:'<i class="fa fa-pen"></i>',title:"Toggle notes canvas (C)",action:"RevealChalkboard.toggleNotesCanvas();"}]},menu:{loadIcons:!1}},queryOptions=Reveal().getQueryHash()||{},options=extend(defaultOptions,{width:1366,height:768,margin:.04,minScale:.3,maxScale:2,controls:!0,progress:!0,slideNumber:!0,transition:"slide",transitionSpeed:"normal"},queryOptions)
-</script>
-<script>Reveal.initialize(options)</script>
-</body>
+    </div>
+
+    <script src="dist/reveal.js"></script>
+
+    <script src="plugin/markdown/markdown.js"></script>
+    <script src="plugin/highlight/highlight.js"></script>
+    <script src="plugin/zoom/zoom.js"></script>
+    <script src="plugin/notes/notes.js"></script>
+    <script src="plugin/math/math.js"></script>
+	<script src="plugin/mermaid/mermaid.js"></script>
+	<script src="plugin/chart/chart.min.js"></script>
+	<script src="plugin/chart/plugin.js"></script>
+	<script src="plugin/menu/menu.js"></script>
+	<script src="plugin/customcontrols/plugin.js"></script>
+	<script src="plugin/chalkboard/plugin.js"></script>
+	<script src="plugin/elapsed-time-bar/elapsed-time-bar.js"></script>
+
+    <script>
+      function extend() {
+        var target = {};
+        for (var i = 0; i < arguments.length; i++) {
+          var source = arguments[i];
+          for (var key in source) {
+            if (source.hasOwnProperty(key)) {
+              target[key] = source[key];
+            }
+          }
+        }
+        return target;
+      }
+
+	  function isLight(color) {
+		let hex = color.replace('#', '');
+
+		// convert #fff => #ffffff
+		if(hex.length == 3){
+			hex = `${hex[0]}${hex[0]}${hex[1]}${hex[1]}${hex[2]}${hex[2]}`;
+		}
+
+		const c_r = parseInt(hex.substr(0, 2), 16);
+		const c_g = parseInt(hex.substr(2, 2), 16);
+		const c_b = parseInt(hex.substr(4, 2), 16);
+		const brightness = ((c_r * 299) + (c_g * 587) + (c_b * 114)) / 1000;
+		return brightness > 155;
+	}
+
+	var bgColor = getComputedStyle(document.documentElement).getPropertyValue('--r-background-color').trim();
+	var isLight = isLight(bgColor);
+
+	if(isLight){
+		document.body.classList.add('has-light-background');
+	} else {
+		document.body.classList.add('has-dark-background');
+	}
+
+      // default options to init reveal.js
+      var defaultOptions = {
+        controls: true,
+        progress: true,
+        history: true,
+        center: true,
+        transition: 'default', // none/fade/slide/convex/concave/zoom
+        plugins: [
+          RevealMarkdown,
+          RevealHighlight,
+          RevealZoom,
+          RevealNotes,
+          RevealMath.MathJax3,
+		  RevealMermaid,
+		  RevealChart,
+		  RevealCustomControls,
+		  RevealMenu,
+		  RevealChalkboard, 
+		  ElapsedTimeBar
+        ],
+
+
+    	allottedTime: 120 * 1000,
+
+		mathjax3: {
+			mathjax: 'plugin/math/mathjax/tex-mml-chtml.js',
+		},
+		markdown: {
+		  gfm: true,
+		  mangle: true,
+		  pedantic: false,
+		  smartLists: false,
+		  smartypants: false,
+		},
+
+		mermaid: {
+			theme: isLight ? 'default' : 'dark',
+		},
+
+		customcontrols: {
+			controls: [
+				{id: 'toggle-overview',
+				title: 'Toggle overview (O)',
+				icon: '<i class="fa fa-th"></i>',
+				action: 'Reveal.toggleOverview();'
+				},
+				{ icon: '<i class="fa fa-pen-square"></i>',
+				title: 'Toggle chalkboard (B)',
+				action: 'RevealChalkboard.toggleChalkboard();'
+				},
+				{ icon: '<i class="fa fa-pen"></i>',
+				title: 'Toggle notes canvas (C)',
+				action: 'RevealChalkboard.toggleNotesCanvas();'
+				},
+			]
+		},
+		menu: {
+			loadIcons: false
+		}
+      };
+
+      // options from URL query string
+      var queryOptions = Reveal().getQueryHash() || {};
+
+      var options = extend(defaultOptions, {"width":1366,"height":768,"margin":0.04,"minScale":0.3,"maxScale":2,"controls":true,"progress":true,"slideNumber":true,"transition":"slide","transitionSpeed":"normal"}, queryOptions);
+    </script>
+
+    <script>
+      Reveal.initialize(options);
+    </script>
+  </body>
+
+  <!-- created with Advanced Slides -->
 </html>

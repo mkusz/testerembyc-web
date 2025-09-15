@@ -1,82 +1,81 @@
 
 <!DOCTYPE html>
+
 <html class="no-js" lang="pl">
 <head>
-<meta charset="utf-8">
-<meta content="width=device-width,initial-scale=1" name="viewport">
-<meta content="Zakres i cena szkolenia stacjonarnego z testowania REST API w Pythonie z użyciem bibliotek requests i pytest przeprowadzanego przez Maciej Kusz." name="description">
-<meta content="Maciej 'maQ' Kusz" name="author">
-<link href="https://testerembyc.pl/szkolenia/stacjonarne/testowanie-rest-api-w-pythonie/" rel="canonical">
-<link href="../" rel="prev">
-<link href="../playwright-w-pythonie/" rel="next">
-<link href="../../../feed_rss_created.xml" rel="alternate" title="Kanał RSS" type="application/rss+xml">
-<link href="../../../feed_rss_updated.xml" rel="alternate" title="Kanał RSS zaktualizowanych treści" type="application/rss+xml">
-<link href="../../../assets/images/icon.svg" rel="icon">
-<meta content="mkdocs-1.6.1, mkdocs-material-9.6.14" name="generator">
+<meta charset="utf-8"/>
+<meta content="width=device-width,initial-scale=1" name="viewport"/>
+<meta content="Zakres i cena szkolenia stacjonarnego z testowania REST API w Pythonie z użyciem bibliotek requests i pytest przeprowadzanego przez Maciej Kusz." name="description"/>
+<meta content="Maciej 'maQ' Kusz" name="author"/>
+<link href="https://testerembyc.pl/szkolenia/stacjonarne/testowanie-rest-api-w-pythonie/" rel="canonical"/>
+<link href="../" rel="prev"/>
+<link href="../playwright-w-pythonie/" rel="next"/>
+<link href="../../../feed_rss_created.xml" rel="alternate" title="Kanał RSS" type="application/rss+xml"/>
+<link href="../../../feed_rss_updated.xml" rel="alternate" title="Kanał RSS zaktualizowanych treści" type="application/rss+xml"/>
+<link href="../../../assets/images/icon.svg" rel="icon"/>
+<meta content="mkdocs-1.6.1, mkdocs-material-9.6.14" name="generator"/>
 <title>Testowania REST API w Pythonie - TesteremByc.pl</title>
-<link href="../../../assets/stylesheets/main.342714a4.min.css" rel="stylesheet">
-<link href="../../../assets/stylesheets/palette.06af60db.min.css" rel="stylesheet">
-<link href="https://fonts.gstatic.com" rel="preconnect" crossorigin="">
-<link href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CLato:400,400i,700,700i&amp;display=fallback" rel="stylesheet">
+<link href="../../../assets/stylesheets/main.342714a4.min.css" rel="stylesheet"/>
+<link href="../../../assets/stylesheets/palette.06af60db.min.css" rel="stylesheet"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CLato:400,400i,700,700i&amp;display=fallback" rel="stylesheet"/>
 <style>:root{--md-text-font:"Roboto";--md-code-font:"Lato"}</style>
-<link href="../../../assets/stylesheets/testerembyc.css" rel="stylesheet">
-<link href="../../../assets/stylesheets/blog.min.css" rel="stylesheet">
-<link href="../../../assets/stylesheets/blog.min.css.map" rel="stylesheet">
-<link href="../../../assets/stylesheets/obsidian.min.css" rel="stylesheet">
-<link href="../../../assets/stylesheets/obsidian.min.css.map" rel="stylesheet">
-<script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
-<script id="__analytics">
-function __md_analytics(){function e(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],e("js",new Date),e("config","G-L9Q1L6NPGD"),document.addEventListener("DOMContentLoaded",function(){document.forms.search&&document.forms.search.query.addEventListener("blur",function(){this.value&&e("event","search",{search_term:this.value})}),document$.subscribe(function(){var t=document.forms.feedback;if(void 0!==t)for(var a of t.querySelectorAll("[type=submit]"))a.addEventListener("click",function(a){a.preventDefault();var n=document.location.pathname,d=this.getAttribute("data-md-value");e("event","feedback",{page:n,data:d}),t.firstElementChild.disabled=!0;var c=t.querySelector(".md-feedback__note [data-md-value='"+d+"']");c&&(c.hidden=!1)}),t.hidden=!1}),location$.subscribe(function(t){e("config","G-L9Q1L6NPGD",{page_path:t.pathname})})});var t=document.createElement("script");t.async=!0,t.src="https://www.googletagmanager.com/gtag/js?id=G-L9Q1L6NPGD",document.getElementById("__analytics").insertAdjacentElement("afterEnd",t)}
-</script>
+<link href="../../../assets/stylesheets/testerembyc.css" rel="stylesheet"/>
+<link href="../../../assets/stylesheets/blog.min.css" rel="stylesheet"/>
+<link href="../../../assets/stylesheets/blog.min.css.map" rel="stylesheet"/>
+<link href="../../../assets/stylesheets/obsidian.min.css" rel="stylesheet"/>
+<link href="../../../assets/stylesheets/obsidian.min.css.map" rel="stylesheet"/>
+<script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+<script id="__analytics">function __md_analytics(){function e(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],e("js",new Date),e("config","G-L9Q1L6NPGD"),document.addEventListener("DOMContentLoaded",(function(){document.forms.search&&document.forms.search.query.addEventListener("blur",(function(){this.value&&e("event","search",{search_term:this.value})}));document$.subscribe((function(){var t=document.forms.feedback;if(void 0!==t)for(var a of t.querySelectorAll("[type=submit]"))a.addEventListener("click",(function(a){a.preventDefault();var n=document.location.pathname,d=this.getAttribute("data-md-value");e("event","feedback",{page:n,data:d}),t.firstElementChild.disabled=!0;var r=t.querySelector(".md-feedback__note [data-md-value='"+d+"']");r&&(r.hidden=!1)})),t.hidden=!1})),location$.subscribe((function(t){e("config","G-L9Q1L6NPGD",{page_path:t.pathname})}))}));var t=document.createElement("script");t.async=!0,t.src="https://www.googletagmanager.com/gtag/js?id=G-L9Q1L6NPGD",document.getElementById("__analytics").insertAdjacentElement("afterEnd",t)}</script>
 <script>if("undefined"!=typeof __md_analytics){var consent=__md_get("__consent");consent&&consent.analytics&&__md_analytics()}</script>
-<meta content="article" property="og:type"><meta content="Testowania REST API w Pythonie - TesteremByc.pl" property="og:title"><meta content="Zakres i cena szkolenia stacjonarnego z testowania REST API w Pythonie z użyciem bibliotek requests i pytest przeprowadzanego przez Maciej Kusz." property="og:description"><meta content="TesteremByc.pl" property="og:site_name"><meta content="pl_PL" property="og:locale"><meta content="https://testerembyc.pl/szkolenia/stacjonarne/testowanie-rest-api-w-pythonie/" property="og:url"><meta content="summary" property="twitter:card"><meta content="Testowania REST API w Pythonie - TesteremByc.pl" property="twitter:title"><meta content="Zakres i cena szkolenia stacjonarnego z testowania REST API w Pythonie z użyciem bibliotek requests i pytest przeprowadzanego przez Maciej Kusz." property="twitter:description"></head>
+<meta content="article" property="og:type"/><meta content="Testowania REST API w Pythonie - TesteremByc.pl" property="og:title"/><meta content="Zakres i cena szkolenia stacjonarnego z testowania REST API w Pythonie z użyciem bibliotek requests i pytest przeprowadzanego przez Maciej Kusz." property="og:description"/><meta content="TesteremByc.pl" property="og:site_name"/><meta content="pl_PL" property="og:locale"/><meta content="https://testerembyc.pl/szkolenia/stacjonarne/testowanie-rest-api-w-pythonie/" property="og:url"/><meta content="summary" property="twitter:card"/><meta content="Testowania REST API w Pythonie - TesteremByc.pl" property="twitter:title"/><meta content="Zakres i cena szkolenia stacjonarnego z testowania REST API w Pythonie z użyciem bibliotek requests i pytest przeprowadzanego przez Maciej Kusz." property="twitter:description"/></head>
 <body data-md-color-accent="red" data-md-color-primary="black" data-md-color-scheme="default" dir="ltr">
-<input type="checkbox" class="md-toggle" id="__drawer" autocomplete="off" data-md-toggle="drawer">
-<input type="checkbox" class="md-toggle" id="__search" autocomplete="off" data-md-toggle="search">
+<input autocomplete="off" class="md-toggle" data-md-toggle="drawer" id="__drawer" type="checkbox"/>
+<input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
 <label class="md-overlay" for="__drawer"></label>
 <div data-md-component="skip">
-<a href="#program-szkolenia" class="md-skip">
-Przejdź do treści
-</a>
+<a class="md-skip" href="#program-szkolenia">
+          Przejdź do treści
+        </a>
 </div>
 <div data-md-component="announce">
 </div>
-<header class="md-header md-header--lifted md-header--shadow" data-md-component="header">
-<nav class="md-grid md-header__inner" aria-label="Nagłówek">
-<a href="https://testerembyc.pl" class="md-header__button md-logo" title="TesteremByc.pl" aria-label="TesteremByc.pl" data-md-component="logo">
-<img src="../../../assets/images/logo.svg" alt="logo">
+<header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
+<nav aria-label="Nagłówek" class="md-header__inner md-grid">
+<a aria-label="TesteremByc.pl" class="md-header__button md-logo" data-md-component="logo" href="https://testerembyc.pl" title="TesteremByc.pl">
+<img alt="logo" src="../../../assets/images/logo.svg"/>
 </a>
-<label class="md-icon md-header__button" for="__drawer">
+<label class="md-header__button md-icon" for="__drawer">
 <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"></path></svg>
 </label>
 <form class="md-header__option" data-md-component="palette">
-<input type="radio" class="md-option" id="__palette_0" aria-label="Switch to dark mode" data-md-color-accent="red" data-md-color-media="" data-md-color-primary="black" data-md-color-scheme="default" name="__palette">
-<label class="md-icon md-header__button" for="__palette_1" hidden title="Switch to dark mode">
+<input aria-label="Switch to dark mode" class="md-option" data-md-color-accent="red" data-md-color-media="" data-md-color-primary="black" data-md-color-scheme="default" id="__palette_0" name="__palette" type="radio"/>
+<label class="md-header__button md-icon" for="__palette_1" hidden="" title="Switch to dark mode">
 <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2a7 7 0 0 0-7 7c0 2.38 1.19 4.47 3 5.74V17a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1v-2.26c1.81-1.27 3-3.36 3-5.74a7 7 0 0 0-7-7M9 21a1 1 0 0 0 1 1h4a1 1 0 0 0 1-1v-1H9z"></path></svg>
 </label>
-<input type="radio" class="md-option" id="__palette_1" aria-label="Switch to light mode" data-md-color-accent="red" data-md-color-media="" data-md-color-primary="black" data-md-color-scheme="slate" name="__palette">
-<label class="md-icon md-header__button" for="__palette_0" hidden title="Switch to light mode">
+<input aria-label="Switch to light mode" class="md-option" data-md-color-accent="red" data-md-color-media="" data-md-color-primary="black" data-md-color-scheme="slate" id="__palette_1" name="__palette" type="radio"/>
+<label class="md-header__button md-icon" for="__palette_0" hidden="" title="Switch to light mode">
 <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2a7 7 0 0 1 7 7c0 2.38-1.19 4.47-3 5.74V17a1 1 0 0 1-1 1H9a1 1 0 0 1-1-1v-2.26C6.19 13.47 5 11.38 5 9a7 7 0 0 1 7-7M9 21v-1h6v1a1 1 0 0 1-1 1h-4a1 1 0 0 1-1-1m3-17a5 5 0 0 0-5 5c0 2.05 1.23 3.81 3 4.58V16h4v-2.42c1.77-.77 3-2.53 3-4.58a5 5 0 0 0-5-5"></path></svg>
 </label>
 </form>
 <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
-<label class="md-icon md-header__button" for="__search">
+<label class="md-header__button md-icon" for="__search">
 <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"></path></svg>
 </label>
 <div class="md-search" data-md-component="search" role="dialog">
 <label class="md-search__overlay" for="__search"></label>
 <div class="md-search__inner" role="search">
 <form class="md-search__form" name="search">
-<input type="text" class="md-search__input" aria-label="Szukaj" name="query" autocapitalize="off" autocomplete="off" autocorrect="off" data-md-component="search-query" placeholder="Szukaj" required spellcheck="false">
-<label class="md-icon md-search__icon" for="__search">
+<input aria-label="Szukaj" autocapitalize="off" autocomplete="off" autocorrect="off" class="md-search__input" data-md-component="search-query" name="query" placeholder="Szukaj" required="" spellcheck="false" type="text"/>
+<label class="md-search__icon md-icon" for="__search">
 <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"></path></svg>
 <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"></path></svg>
 </label>
-<nav class="md-search__options" aria-label="Szukaj">
-<a href="javascript:void(0)" class="md-icon md-search__icon" title="Udostępnij" aria-label="Udostępnij" data-md-component="search-share" data-clipboard="" data-clipboard-text="" tabindex="-1">
+<nav aria-label="Szukaj" class="md-search__options">
+<a aria-label="Udostępnij" class="md-search__icon md-icon" data-clipboard="" data-clipboard-text="" data-md-component="search-share" href="javascript:void(0)" tabindex="-1" title="Udostępnij">
 <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9a3 3 0 0 0-3 3 3 3 0 0 0 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.15c-.05.21-.08.43-.08.66 0 1.61 1.31 2.91 2.92 2.91s2.92-1.3 2.92-2.91A2.92 2.92 0 0 0 18 16.08"></path></svg>
 </a>
-<button class="md-icon md-search__icon" type="reset" aria-label="Wyczyść" tabindex="-1" title="Wyczyść">
+<button aria-label="Wyczyść" class="md-search__icon md-icon" tabindex="-1" title="Wyczyść" type="reset">
 <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"></path></svg>
 </button>
 </nav>
@@ -86,8 +85,8 @@ Przejdź do treści
 <div class="md-search__scrollwrap" data-md-scrollfix="" tabindex="0">
 <div class="md-search-result" data-md-component="search-result">
 <div class="md-search-result__meta">
-Inicjowanie wyszukiwania
-</div>
+            Inicjowanie wyszukiwania
+          </div>
 <ol class="md-search-result__list" role="presentation"></ol>
 </div>
 </div>
@@ -95,28 +94,52 @@ Inicjowanie wyszukiwania
 </div>
 </div>
 </nav>
-<nav class="md-tabs" aria-label="Zakładki" data-md-component="tabs">
+<nav aria-label="Zakładki" class="md-tabs" data-md-component="tabs">
 <div class="md-grid">
 <ul class="md-tabs__list">
 <li class="md-tabs__item">
-<a href="../../.." class="md-tabs__link">
-Blog
-</a>
+<a class="md-tabs__link" href="../../..">
+          
+  
+  
+    
+  
+  Blog
+
+        </a>
 </li>
 <li class="md-tabs__item">
-<a href="../../../python-kompendium/" class="md-tabs__link">
-Python
-</a>
+<a class="md-tabs__link" href="../../../python-kompendium/">
+        
+  
+  
+    
+  
+  Python
+
+      </a>
 </li>
 <li class="md-tabs__item md-tabs__item--active">
-<a href="../" class="md-tabs__link">
-Szkolenia
-</a>
+<a class="md-tabs__link" href="../">
+          
+  
+  
+    
+  
+  Szkolenia
+
+        </a>
 </li>
 <li class="md-tabs__item">
-<a href="../../../kontakt/" class="md-tabs__link">
-Kontakt
-</a>
+<a class="md-tabs__link" href="../../../kontakt/">
+        
+  
+  
+    
+  
+  Kontakt
+
+      </a>
 </li>
 </ul>
 </div>
@@ -124,582 +147,982 @@ Kontakt
 </header>
 <div class="md-container" data-md-component="container">
 <main class="md-main" data-md-component="main">
-<div class="md-grid md-main__inner">
+<div class="md-main__inner md-grid">
+<!-- Navigation -->
 <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation">
 <div class="md-sidebar__scrollwrap">
 <div class="md-sidebar__inner">
-<nav class="md-nav md-nav--lifted md-nav--primary" data-md-level="0" aria-label="Nawigacja">
+<!-- Determine classes -->
+<!-- Navigation -->
+<nav aria-label="Nawigacja" class="md-nav md-nav--primary md-nav--lifted" data-md-level="0">
+<!-- Site title -->
 <label class="md-nav__title" for="__drawer">
-<a href="https://testerembyc.pl" class="md-logo md-nav__button" title="TesteremByc.pl" aria-label="TesteremByc.pl" data-md-component="logo">
-<img src="../../../assets/images/logo.svg" alt="logo">
+<a aria-label="TesteremByc.pl" class="md-nav__button md-logo" data-md-component="logo" href="https://testerembyc.pl" title="TesteremByc.pl">
+<img alt="logo" src="../../../assets/images/logo.svg"/>
 </a>
-TesteremByc.pl
-</label>
+    TesteremByc.pl
+  </label>
+<!-- Repository information -->
+<!-- Navigation list -->
 <ul class="md-nav__list" data-md-scrollfix="">
+<!-- Determine classes -->
+<!-- Navigation item with nested items -->
+<!-- Determine all nested items that are index pages -->
+<!-- Determine whether to render item as a section -->
+<!-- Nested navigation item -->
 <li class="md-nav__item md-nav__item--nested">
-<input type="checkbox" class="md-toggle md-nav__toggle" id="__nav_1">
+<!-- Determine checked and indeterminate state -->
+<!-- Active checkbox expands items contained within nested section -->
+<input class="md-nav__toggle md-toggle" id="__nav_1" type="checkbox">
+<!-- Toggle to expand nested items -->
 <div class="md-nav__link md-nav__container">
-<a href="../../.." class="md-nav__link">
+<a class="md-nav__link" href="../../..">
+<!-- Navigation link icon -->
+<!-- Navigation link title -->
 <span class="md-ellipsis">
-Blog
-</span>
+    Blog
+  </span>
+<!-- Navigation link status -->
 </a>
+<!-- Only render toggle if there's at least one more page -->
 <label class="md-nav__link" for="__nav_1">
-<span class="md-icon md-nav__icon"></span>
+<span class="md-nav__icon md-icon"></span>
 </label>
 </div>
-<nav class="md-nav" data-md-level="1" aria-expanded="false" aria-labelledby="__nav_1_label">
+<!-- Nested navigation -->
+<nav aria-expanded="false" aria-labelledby="__nav_1_label" class="md-nav" data-md-level="1">
 <label class="md-nav__title" for="__nav_1">
-<span class="md-icon md-nav__icon"></span>
-Blog
-</label>
+<span class="md-nav__icon md-icon"></span>
+            Blog
+          </label>
 <ul class="md-nav__list" data-md-scrollfix="">
+<!-- Nested navigation item -->
+<!-- Determine classes -->
+<!-- Navigation item with nested items -->
+<!-- Determine all nested items that are index pages -->
+<!-- Determine whether to render item as a section -->
+<!-- Nested navigation item -->
 <li class="md-nav__item md-nav__item--nested">
-<input type="checkbox" class="md-toggle md-nav__toggle" id="__nav_1_2">
+<!-- Determine checked and indeterminate state -->
+<!-- Active checkbox expands items contained within nested section -->
+<input class="md-nav__toggle md-toggle" id="__nav_1_2" type="checkbox">
+<!-- Toggle to expand nested items -->
 <label class="md-nav__link" for="__nav_1_2" id="__nav_1_2_label" tabindex="0">
+<!-- Navigation link icon -->
+<!-- Navigation link title -->
 <span class="md-ellipsis">
-Archiwum
-</span>
-<span class="md-icon md-nav__icon"></span>
+    Archiwum
+  </span>
+<!-- Navigation link status -->
+<span class="md-nav__icon md-icon"></span>
 </label>
-<nav class="md-nav" data-md-level="2" aria-expanded="false" aria-labelledby="__nav_1_2_label">
+<!-- Toggle to expand nested items with link to index page -->
+<!-- Nested navigation -->
+<nav aria-expanded="false" aria-labelledby="__nav_1_2_label" class="md-nav" data-md-level="2">
 <label class="md-nav__title" for="__nav_1_2">
-<span class="md-icon md-nav__icon"></span>
-Archiwum
-</label>
+<span class="md-nav__icon md-icon"></span>
+            Archiwum
+          </label>
 <ul class="md-nav__list" data-md-scrollfix="">
+<!-- Nested navigation item -->
+<!-- Determine classes -->
+<!-- Navigation item with nested items -->
 <li class="md-nav__item">
-<a href="../../../posts/archive/2025/" class="md-nav__link">
+<a class="md-nav__link" href="../../../posts/archive/2025/">
+<!-- Navigation link icon -->
+<!-- Navigation link title -->
 <span class="md-ellipsis">
-2025
-</span>
+    2025
+  </span>
+<!-- Navigation link status -->
 </a>
 </li>
+<!-- Determine classes -->
+<!-- Navigation item with nested items -->
 <li class="md-nav__item">
-<a href="../../../posts/archive/2023/" class="md-nav__link">
+<a class="md-nav__link" href="../../../posts/archive/2023/">
+<!-- Navigation link icon -->
+<!-- Navigation link title -->
 <span class="md-ellipsis">
-2023
-</span>
+    2023
+  </span>
+<!-- Navigation link status -->
 </a>
 </li>
+<!-- Determine classes -->
+<!-- Navigation item with nested items -->
 <li class="md-nav__item">
-<a href="../../../posts/archive/2022/" class="md-nav__link">
+<a class="md-nav__link" href="../../../posts/archive/2022/">
+<!-- Navigation link icon -->
+<!-- Navigation link title -->
 <span class="md-ellipsis">
-2022
-</span>
+    2022
+  </span>
+<!-- Navigation link status -->
 </a>
 </li>
+<!-- Determine classes -->
+<!-- Navigation item with nested items -->
 <li class="md-nav__item">
-<a href="../../../posts/archive/2021/" class="md-nav__link">
+<a class="md-nav__link" href="../../../posts/archive/2021/">
+<!-- Navigation link icon -->
+<!-- Navigation link title -->
 <span class="md-ellipsis">
-2021
-</span>
+    2021
+  </span>
+<!-- Navigation link status -->
 </a>
 </li>
+<!-- Determine classes -->
+<!-- Navigation item with nested items -->
 <li class="md-nav__item">
-<a href="../../../posts/archive/2020/" class="md-nav__link">
+<a class="md-nav__link" href="../../../posts/archive/2020/">
+<!-- Navigation link icon -->
+<!-- Navigation link title -->
 <span class="md-ellipsis">
-2020
-</span>
+    2020
+  </span>
+<!-- Navigation link status -->
 </a>
 </li>
+<!-- Determine classes -->
+<!-- Navigation item with nested items -->
 <li class="md-nav__item">
-<a href="../../../posts/archive/2019/" class="md-nav__link">
+<a class="md-nav__link" href="../../../posts/archive/2019/">
+<!-- Navigation link icon -->
+<!-- Navigation link title -->
 <span class="md-ellipsis">
-2019
-</span>
+    2019
+  </span>
+<!-- Navigation link status -->
 </a>
 </li>
 </ul>
 </nav>
-</li>
+<!-- Pruned navigation item -->
+</input></li>
+<!-- Currently active page -->
+<!-- Determine classes -->
+<!-- Navigation item with nested items -->
+<!-- Determine all nested items that are index pages -->
+<!-- Determine whether to render item as a section -->
+<!-- Nested navigation item -->
 <li class="md-nav__item md-nav__item--nested">
-<input type="checkbox" class="md-toggle md-nav__toggle" id="__nav_1_3">
+<!-- Determine checked and indeterminate state -->
+<!-- Active checkbox expands items contained within nested section -->
+<input class="md-nav__toggle md-toggle" id="__nav_1_3" type="checkbox">
+<!-- Toggle to expand nested items -->
 <label class="md-nav__link" for="__nav_1_3" id="__nav_1_3_label" tabindex="0">
+<!-- Navigation link icon -->
+<!-- Navigation link title -->
 <span class="md-ellipsis">
-Kategorie
-</span>
-<span class="md-icon md-nav__icon"></span>
+    Kategorie
+  </span>
+<!-- Navigation link status -->
+<span class="md-nav__icon md-icon"></span>
 </label>
-<nav class="md-nav" data-md-level="2" aria-expanded="false" aria-labelledby="__nav_1_3_label">
+<!-- Toggle to expand nested items with link to index page -->
+<!-- Nested navigation -->
+<nav aria-expanded="false" aria-labelledby="__nav_1_3_label" class="md-nav" data-md-level="2">
 <label class="md-nav__title" for="__nav_1_3">
-<span class="md-icon md-nav__icon"></span>
-Kategorie
-</label>
+<span class="md-nav__icon md-icon"></span>
+            Kategorie
+          </label>
 <ul class="md-nav__list" data-md-scrollfix="">
+<!-- Nested navigation item -->
+<!-- Determine classes -->
+<!-- Navigation item with nested items -->
 <li class="md-nav__item">
-<a href="../../../posts/categories/felieton/" class="md-nav__link">
+<a class="md-nav__link" href="../../../posts/categories/felieton/">
+<!-- Navigation link icon -->
+<!-- Navigation link title -->
 <span class="md-ellipsis">
-felieton
-</span>
+    felieton
+  </span>
+<!-- Navigation link status -->
 </a>
 </li>
+<!-- Determine classes -->
+<!-- Navigation item with nested items -->
 <li class="md-nav__item">
-<a href="../../../posts/categories/git/" class="md-nav__link">
+<a class="md-nav__link" href="../../../posts/categories/git/">
+<!-- Navigation link icon -->
+<!-- Navigation link title -->
 <span class="md-ellipsis">
-git
-</span>
+    git
+  </span>
+<!-- Navigation link status -->
 </a>
 </li>
+<!-- Determine classes -->
+<!-- Navigation item with nested items -->
 <li class="md-nav__item">
-<a href="../../../posts/categories/ludzie/" class="md-nav__link">
+<a class="md-nav__link" href="../../../posts/categories/ludzie/">
+<!-- Navigation link icon -->
+<!-- Navigation link title -->
 <span class="md-ellipsis">
-ludzie
-</span>
+    ludzie
+  </span>
+<!-- Navigation link status -->
 </a>
 </li>
+<!-- Determine classes -->
+<!-- Navigation item with nested items -->
 <li class="md-nav__item">
-<a href="../../../posts/categories/python/" class="md-nav__link">
+<a class="md-nav__link" href="../../../posts/categories/python/">
+<!-- Navigation link icon -->
+<!-- Navigation link title -->
 <span class="md-ellipsis">
-python
-</span>
+    python
+  </span>
+<!-- Navigation link status -->
 </a>
 </li>
+<!-- Determine classes -->
+<!-- Navigation item with nested items -->
 <li class="md-nav__item">
-<a href="../../../posts/categories/youtube/" class="md-nav__link">
+<a class="md-nav__link" href="../../../posts/categories/youtube/">
+<!-- Navigation link icon -->
+<!-- Navigation link title -->
 <span class="md-ellipsis">
-youtube
-</span>
+    youtube
+  </span>
+<!-- Navigation link status -->
 </a>
 </li>
 </ul>
 </nav>
-</li>
+<!-- Pruned navigation item -->
+</input></li>
+<!-- Currently active page -->
+<!-- Determine classes -->
+<!-- Navigation item with nested items -->
+<!-- Determine all nested items that are index pages -->
+<!-- Determine whether to render item as a section -->
+<!-- Nested navigation item -->
 <li class="md-nav__item md-nav__item--nested">
-<input type="checkbox" class="md-toggle md-nav__toggle" id="__nav_1_4">
+<!-- Determine checked and indeterminate state -->
+<!-- Active checkbox expands items contained within nested section -->
+<input class="md-nav__toggle md-toggle" id="__nav_1_4" type="checkbox">
+<!-- Toggle to expand nested items -->
 <label class="md-nav__link" for="__nav_1_4" id="__nav_1_4_label" tabindex="0">
+<!-- Navigation link icon -->
+<!-- Navigation link title -->
 <span class="md-ellipsis">
-Tagi
-</span>
-<span class="md-icon md-nav__icon"></span>
+    Tagi
+  </span>
+<!-- Navigation link status -->
+<span class="md-nav__icon md-icon"></span>
 </label>
-<nav class="md-nav" data-md-level="2" aria-expanded="false" aria-labelledby="__nav_1_4_label">
+<!-- Toggle to expand nested items with link to index page -->
+<!-- Nested navigation -->
+<nav aria-expanded="false" aria-labelledby="__nav_1_4_label" class="md-nav" data-md-level="2">
 <label class="md-nav__title" for="__nav_1_4">
-<span class="md-icon md-nav__icon"></span>
-Tagi
-</label>
+<span class="md-nav__icon md-icon"></span>
+            Tagi
+          </label>
 <ul class="md-nav__list" data-md-scrollfix="">
+<!-- Nested navigation item -->
+<!-- Determine classes -->
+<!-- Navigation item with nested items -->
 <li class="md-nav__item">
-<a href="../../../posts/tags/api/" class="md-nav__link">
+<a class="md-nav__link" href="../../../posts/tags/api/">
+<!-- Navigation link icon -->
+<!-- Navigation link title -->
 <span class="md-ellipsis">
-api
-</span>
+    api
+  </span>
+<!-- Navigation link status -->
 </a>
 </li>
+<!-- Determine classes -->
+<!-- Navigation item with nested items -->
 <li class="md-nav__item">
-<a href="../../../posts/tags/automatyzacja/" class="md-nav__link">
+<a class="md-nav__link" href="../../../posts/tags/automatyzacja/">
+<!-- Navigation link icon -->
+<!-- Navigation link title -->
 <span class="md-ellipsis">
-automatyzacja
-</span>
+    automatyzacja
+  </span>
+<!-- Navigation link status -->
 </a>
 </li>
+<!-- Determine classes -->
+<!-- Navigation item with nested items -->
 <li class="md-nav__item">
-<a href="../../../posts/tags/blog/" class="md-nav__link">
+<a class="md-nav__link" href="../../../posts/tags/blog/">
+<!-- Navigation link icon -->
+<!-- Navigation link title -->
 <span class="md-ellipsis">
-blog
-</span>
+    blog
+  </span>
+<!-- Navigation link status -->
 </a>
 </li>
+<!-- Determine classes -->
+<!-- Navigation item with nested items -->
 <li class="md-nav__item">
-<a href="../../../posts/tags/ci-cd/" class="md-nav__link">
+<a class="md-nav__link" href="../../../posts/tags/ci-cd/">
+<!-- Navigation link icon -->
+<!-- Navigation link title -->
 <span class="md-ellipsis">
-ci-cd
-</span>
+    ci-cd
+  </span>
+<!-- Navigation link status -->
 </a>
 </li>
+<!-- Determine classes -->
+<!-- Navigation item with nested items -->
 <li class="md-nav__item">
-<a href="../../../posts/tags/code16challenge/" class="md-nav__link">
+<a class="md-nav__link" href="../../../posts/tags/code16challenge/">
+<!-- Navigation link icon -->
+<!-- Navigation link title -->
 <span class="md-ellipsis">
-code16challenge
-</span>
+    code16challenge
+  </span>
+<!-- Navigation link status -->
 </a>
 </li>
+<!-- Determine classes -->
+<!-- Navigation item with nested items -->
 <li class="md-nav__item">
-<a href="../../../posts/tags/cv/" class="md-nav__link">
+<a class="md-nav__link" href="../../../posts/tags/cv/">
+<!-- Navigation link icon -->
+<!-- Navigation link title -->
 <span class="md-ellipsis">
-cv
-</span>
+    cv
+  </span>
+<!-- Navigation link status -->
 </a>
 </li>
+<!-- Determine classes -->
+<!-- Navigation item with nested items -->
 <li class="md-nav__item">
-<a href="../../../posts/tags/definicja/" class="md-nav__link">
+<a class="md-nav__link" href="../../../posts/tags/definicja/">
+<!-- Navigation link icon -->
+<!-- Navigation link title -->
 <span class="md-ellipsis">
-definicja
-</span>
+    definicja
+  </span>
+<!-- Navigation link status -->
 </a>
 </li>
+<!-- Determine classes -->
+<!-- Navigation item with nested items -->
 <li class="md-nav__item">
-<a href="../../../posts/tags/dekorator/" class="md-nav__link">
+<a class="md-nav__link" href="../../../posts/tags/dekorator/">
+<!-- Navigation link icon -->
+<!-- Navigation link title -->
 <span class="md-ellipsis">
-dekorator
-</span>
+    dekorator
+  </span>
+<!-- Navigation link status -->
 </a>
 </li>
+<!-- Determine classes -->
+<!-- Navigation item with nested items -->
 <li class="md-nav__item">
-<a href="../../../posts/tags/ebook/" class="md-nav__link">
+<a class="md-nav__link" href="../../../posts/tags/ebook/">
+<!-- Navigation link icon -->
+<!-- Navigation link title -->
 <span class="md-ellipsis">
-ebook
-</span>
+    ebook
+  </span>
+<!-- Navigation link status -->
 </a>
 </li>
+<!-- Determine classes -->
+<!-- Navigation item with nested items -->
 <li class="md-nav__item">
-<a href="../../../posts/tags/eksploracja/" class="md-nav__link">
+<a class="md-nav__link" href="../../../posts/tags/eksploracja/">
+<!-- Navigation link icon -->
+<!-- Navigation link title -->
 <span class="md-ellipsis">
-eksploracja
-</span>
+    eksploracja
+  </span>
+<!-- Navigation link status -->
 </a>
 </li>
+<!-- Determine classes -->
+<!-- Navigation item with nested items -->
 <li class="md-nav__item">
-<a href="../../../posts/tags/funkcje/" class="md-nav__link">
+<a class="md-nav__link" href="../../../posts/tags/funkcje/">
+<!-- Navigation link icon -->
+<!-- Navigation link title -->
 <span class="md-ellipsis">
-funkcje
-</span>
+    funkcje
+  </span>
+<!-- Navigation link status -->
 </a>
 </li>
+<!-- Determine classes -->
+<!-- Navigation item with nested items -->
 <li class="md-nav__item">
-<a href="../../../posts/tags/github/" class="md-nav__link">
+<a class="md-nav__link" href="../../../posts/tags/github/">
+<!-- Navigation link icon -->
+<!-- Navigation link title -->
 <span class="md-ellipsis">
-github
-</span>
+    github
+  </span>
+<!-- Navigation link status -->
 </a>
 </li>
+<!-- Determine classes -->
+<!-- Navigation item with nested items -->
 <li class="md-nav__item">
-<a href="../../../posts/tags/halloween/" class="md-nav__link">
+<a class="md-nav__link" href="../../../posts/tags/halloween/">
+<!-- Navigation link icon -->
+<!-- Navigation link title -->
 <span class="md-ellipsis">
-halloween
-</span>
+    halloween
+  </span>
+<!-- Navigation link status -->
 </a>
 </li>
+<!-- Determine classes -->
+<!-- Navigation item with nested items -->
 <li class="md-nav__item">
-<a href="../../../posts/tags/historie/" class="md-nav__link">
+<a class="md-nav__link" href="../../../posts/tags/historie/">
+<!-- Navigation link icon -->
+<!-- Navigation link title -->
 <span class="md-ellipsis">
-historie
-</span>
+    historie
+  </span>
+<!-- Navigation link status -->
 </a>
 </li>
+<!-- Determine classes -->
+<!-- Navigation item with nested items -->
 <li class="md-nav__item">
-<a href="../../../posts/tags/howto/" class="md-nav__link">
+<a class="md-nav__link" href="../../../posts/tags/howto/">
+<!-- Navigation link icon -->
+<!-- Navigation link title -->
 <span class="md-ellipsis">
-howto
-</span>
+    howto
+  </span>
+<!-- Navigation link status -->
 </a>
 </li>
+<!-- Determine classes -->
+<!-- Navigation item with nested items -->
 <li class="md-nav__item">
-<a href="../../../posts/tags/istqb/" class="md-nav__link">
+<a class="md-nav__link" href="../../../posts/tags/istqb/">
+<!-- Navigation link icon -->
+<!-- Navigation link title -->
 <span class="md-ellipsis">
-istqb
-</span>
+    istqb
+  </span>
+<!-- Navigation link status -->
 </a>
 </li>
+<!-- Determine classes -->
+<!-- Navigation item with nested items -->
 <li class="md-nav__item">
-<a href="../../../posts/tags/itea/" class="md-nav__link">
+<a class="md-nav__link" href="../../../posts/tags/itea/">
+<!-- Navigation link icon -->
+<!-- Navigation link title -->
 <span class="md-ellipsis">
-itea
-</span>
+    itea
+  </span>
+<!-- Navigation link status -->
 </a>
 </li>
+<!-- Determine classes -->
+<!-- Navigation item with nested items -->
 <li class="md-nav__item">
-<a href="../../../posts/tags/komfort/" class="md-nav__link">
+<a class="md-nav__link" href="../../../posts/tags/komfort/">
+<!-- Navigation link icon -->
+<!-- Navigation link title -->
 <span class="md-ellipsis">
-komfort
-</span>
+    komfort
+  </span>
+<!-- Navigation link status -->
 </a>
 </li>
+<!-- Determine classes -->
+<!-- Navigation item with nested items -->
 <li class="md-nav__item">
-<a href="../../../posts/tags/kursy/" class="md-nav__link">
+<a class="md-nav__link" href="../../../posts/tags/kursy/">
+<!-- Navigation link icon -->
+<!-- Navigation link title -->
 <span class="md-ellipsis">
-kursy
-</span>
+    kursy
+  </span>
+<!-- Navigation link status -->
 </a>
 </li>
+<!-- Determine classes -->
+<!-- Navigation item with nested items -->
 <li class="md-nav__item">
-<a href="../../../posts/tags/lambda/" class="md-nav__link">
+<a class="md-nav__link" href="../../../posts/tags/lambda/">
+<!-- Navigation link icon -->
+<!-- Navigation link title -->
 <span class="md-ellipsis">
-lambda
-</span>
+    lambda
+  </span>
+<!-- Navigation link status -->
 </a>
 </li>
+<!-- Determine classes -->
+<!-- Navigation item with nested items -->
 <li class="md-nav__item">
-<a href="../../../posts/tags/linkedin/" class="md-nav__link">
+<a class="md-nav__link" href="../../../posts/tags/linkedin/">
+<!-- Navigation link icon -->
+<!-- Navigation link title -->
 <span class="md-ellipsis">
-linkedin
-</span>
+    linkedin
+  </span>
+<!-- Navigation link status -->
 </a>
 </li>
+<!-- Determine classes -->
+<!-- Navigation item with nested items -->
 <li class="md-nav__item">
-<a href="../../../posts/tags/nauka/" class="md-nav__link">
+<a class="md-nav__link" href="../../../posts/tags/nauka/">
+<!-- Navigation link icon -->
+<!-- Navigation link title -->
 <span class="md-ellipsis">
-nauka
-</span>
+    nauka
+  </span>
+<!-- Navigation link status -->
 </a>
 </li>
+<!-- Determine classes -->
+<!-- Navigation item with nested items -->
 <li class="md-nav__item">
-<a href="../../../posts/tags/og%25C3%25B3lne/" class="md-nav__link">
+<a class="md-nav__link" href="../../../posts/tags/og%25C3%25B3lne/">
+<!-- Navigation link icon -->
+<!-- Navigation link title -->
 <span class="md-ellipsis">
-ogólne
-</span>
+    ogólne
+  </span>
+<!-- Navigation link status -->
 </a>
 </li>
+<!-- Determine classes -->
+<!-- Navigation item with nested items -->
 <li class="md-nav__item">
-<a href="../../../posts/tags/plany/" class="md-nav__link">
+<a class="md-nav__link" href="../../../posts/tags/plany/">
+<!-- Navigation link icon -->
+<!-- Navigation link title -->
 <span class="md-ellipsis">
-plany
-</span>
+    plany
+  </span>
+<!-- Navigation link status -->
 </a>
 </li>
+<!-- Determine classes -->
+<!-- Navigation item with nested items -->
 <li class="md-nav__item">
-<a href="../../../posts/tags/podcast/" class="md-nav__link">
+<a class="md-nav__link" href="../../../posts/tags/podcast/">
+<!-- Navigation link icon -->
+<!-- Navigation link title -->
 <span class="md-ellipsis">
-podcast
-</span>
+    podcast
+  </span>
+<!-- Navigation link status -->
 </a>
 </li>
+<!-- Determine classes -->
+<!-- Navigation item with nested items -->
 <li class="md-nav__item">
-<a href="../../../posts/tags/podsumowanie/" class="md-nav__link">
+<a class="md-nav__link" href="../../../posts/tags/podsumowanie/">
+<!-- Navigation link icon -->
+<!-- Navigation link title -->
 <span class="md-ellipsis">
-podsumowanie
-</span>
+    podsumowanie
+  </span>
+<!-- Navigation link status -->
 </a>
 </li>
+<!-- Determine classes -->
+<!-- Navigation item with nested items -->
 <li class="md-nav__item">
-<a href="../../../posts/tags/profil/" class="md-nav__link">
+<a class="md-nav__link" href="../../../posts/tags/profil/">
+<!-- Navigation link icon -->
+<!-- Navigation link title -->
 <span class="md-ellipsis">
-profil
-</span>
+    profil
+  </span>
+<!-- Navigation link status -->
 </a>
 </li>
+<!-- Determine classes -->
+<!-- Navigation item with nested items -->
 <li class="md-nav__item">
-<a href="../../../posts/tags/rekrutacja/" class="md-nav__link">
+<a class="md-nav__link" href="../../../posts/tags/rekrutacja/">
+<!-- Navigation link icon -->
+<!-- Navigation link title -->
 <span class="md-ellipsis">
-rekrutacja
-</span>
+    rekrutacja
+  </span>
+<!-- Navigation link status -->
 </a>
 </li>
+<!-- Determine classes -->
+<!-- Navigation item with nested items -->
 <li class="md-nav__item">
-<a href="../../../posts/tags/requests/" class="md-nav__link">
+<a class="md-nav__link" href="../../../posts/tags/requests/">
+<!-- Navigation link icon -->
+<!-- Navigation link title -->
 <span class="md-ellipsis">
-requests
-</span>
+    requests
+  </span>
+<!-- Navigation link status -->
 </a>
 </li>
+<!-- Determine classes -->
+<!-- Navigation item with nested items -->
 <li class="md-nav__item">
-<a href="../../../posts/tags/rozw%25C3%25B3j/" class="md-nav__link">
+<a class="md-nav__link" href="../../../posts/tags/rozw%25C3%25B3j/">
+<!-- Navigation link icon -->
+<!-- Navigation link title -->
 <span class="md-ellipsis">
-rozwój
-</span>
+    rozwój
+  </span>
+<!-- Navigation link status -->
 </a>
 </li>
+<!-- Determine classes -->
+<!-- Navigation item with nested items -->
 <li class="md-nav__item">
-<a href="../../../posts/tags/rpa/" class="md-nav__link">
+<a class="md-nav__link" href="../../../posts/tags/rpa/">
+<!-- Navigation link icon -->
+<!-- Navigation link title -->
 <span class="md-ellipsis">
-rpa
-</span>
+    rpa
+  </span>
+<!-- Navigation link status -->
 </a>
 </li>
+<!-- Determine classes -->
+<!-- Navigation item with nested items -->
 <li class="md-nav__item">
-<a href="../../../posts/tags/rzeczywisto%25C5%259B%25C4%2587/" class="md-nav__link">
+<a class="md-nav__link" href="../../../posts/tags/rzeczywisto%25C5%259B%25C4%2587/">
+<!-- Navigation link icon -->
+<!-- Navigation link title -->
 <span class="md-ellipsis">
-rzeczywistość
-</span>
+    rzeczywistość
+  </span>
+<!-- Navigation link status -->
 </a>
 </li>
+<!-- Determine classes -->
+<!-- Navigation item with nested items -->
 <li class="md-nav__item">
-<a href="../../../posts/tags/testitka/" class="md-nav__link">
+<a class="md-nav__link" href="../../../posts/tags/testitka/">
+<!-- Navigation link icon -->
+<!-- Navigation link title -->
 <span class="md-ellipsis">
-testitka
-</span>
+    testitka
+  </span>
+<!-- Navigation link status -->
 </a>
 </li>
+<!-- Determine classes -->
+<!-- Navigation item with nested items -->
 <li class="md-nav__item">
-<a href="../../../posts/tags/testowanie/" class="md-nav__link">
+<a class="md-nav__link" href="../../../posts/tags/testowanie/">
+<!-- Navigation link icon -->
+<!-- Navigation link title -->
 <span class="md-ellipsis">
-testowanie
-</span>
+    testowanie
+  </span>
+<!-- Navigation link status -->
 </a>
 </li>
+<!-- Determine classes -->
+<!-- Navigation item with nested items -->
 <li class="md-nav__item">
-<a href="../../../posts/tags/testy/" class="md-nav__link">
+<a class="md-nav__link" href="../../../posts/tags/testy/">
+<!-- Navigation link icon -->
+<!-- Navigation link title -->
 <span class="md-ellipsis">
-testy
-</span>
+    testy
+  </span>
+<!-- Navigation link status -->
 </a>
 </li>
+<!-- Determine classes -->
+<!-- Navigation item with nested items -->
 <li class="md-nav__item">
-<a href="../../../posts/tags/trendbook/" class="md-nav__link">
+<a class="md-nav__link" href="../../../posts/tags/trendbook/">
+<!-- Navigation link icon -->
+<!-- Navigation link title -->
 <span class="md-ellipsis">
-trendbook
-</span>
+    trendbook
+  </span>
+<!-- Navigation link status -->
 </a>
 </li>
+<!-- Determine classes -->
+<!-- Navigation item with nested items -->
 <li class="md-nav__item">
-<a href="../../../posts/tags/unittest/" class="md-nav__link">
+<a class="md-nav__link" href="../../../posts/tags/unittest/">
+<!-- Navigation link icon -->
+<!-- Navigation link title -->
 <span class="md-ellipsis">
-unittest
-</span>
+    unittest
+  </span>
+<!-- Navigation link status -->
 </a>
 </li>
+<!-- Determine classes -->
+<!-- Navigation item with nested items -->
 <li class="md-nav__item">
-<a href="../../../posts/tags/vlog/" class="md-nav__link">
+<a class="md-nav__link" href="../../../posts/tags/vlog/">
+<!-- Navigation link icon -->
+<!-- Navigation link title -->
 <span class="md-ellipsis">
-vlog
-</span>
+    vlog
+  </span>
+<!-- Navigation link status -->
 </a>
 </li>
+<!-- Determine classes -->
+<!-- Navigation item with nested items -->
 <li class="md-nav__item">
-<a href="../../../posts/tags/zarobki/" class="md-nav__link">
+<a class="md-nav__link" href="../../../posts/tags/zarobki/">
+<!-- Navigation link icon -->
+<!-- Navigation link title -->
 <span class="md-ellipsis">
-zarobki
-</span>
+    zarobki
+  </span>
+<!-- Navigation link status -->
 </a>
 </li>
+<!-- Determine classes -->
+<!-- Navigation item with nested items -->
 <li class="md-nav__item">
-<a href="../../../posts/tags/zmiana/" class="md-nav__link">
+<a class="md-nav__link" href="../../../posts/tags/zmiana/">
+<!-- Navigation link icon -->
+<!-- Navigation link title -->
 <span class="md-ellipsis">
-zmiana
-</span>
+    zmiana
+  </span>
+<!-- Navigation link status -->
 </a>
 </li>
+<!-- Determine classes -->
+<!-- Navigation item with nested items -->
 <li class="md-nav__item">
-<a href="../../../posts/tags/%25C5%2582uczniczqa/" class="md-nav__link">
+<a class="md-nav__link" href="../../../posts/tags/%25C5%2582uczniczqa/">
+<!-- Navigation link icon -->
+<!-- Navigation link title -->
 <span class="md-ellipsis">
-łuczniczqa
-</span>
+    łuczniczqa
+  </span>
+<!-- Navigation link status -->
 </a>
 </li>
+<!-- Determine classes -->
+<!-- Navigation item with nested items -->
 <li class="md-nav__item">
-<a href="../../../posts/tags/%25C5%25BCycie/" class="md-nav__link">
+<a class="md-nav__link" href="../../../posts/tags/%25C5%25BCycie/">
+<!-- Navigation link icon -->
+<!-- Navigation link title -->
 <span class="md-ellipsis">
-życie
-</span>
+    życie
+  </span>
+<!-- Navigation link status -->
 </a>
 </li>
 </ul>
 </nav>
-</li>
+<!-- Pruned navigation item -->
+</input></li>
+<!-- Currently active page -->
 </ul>
 </nav>
-</li>
+<!-- Pruned navigation item -->
+</input></li>
+<!-- Currently active page -->
+<!-- Determine classes -->
+<!-- Navigation item with nested items -->
 <li class="md-nav__item">
-<a href="../../../python-kompendium/" class="md-nav__link">
+<a class="md-nav__link" href="../../../python-kompendium/">
+<!-- Navigation link icon -->
+<!-- Navigation link title -->
 <span class="md-ellipsis">
-Python
-</span>
+    Python
+  </span>
+<!-- Navigation link status -->
 </a>
 </li>
-<li class="md-nav__item md-nav__item--nested md-nav__item--active">
-<input type="checkbox" class="md-toggle md-nav__toggle" id="__nav_3" checked>
+<!-- Determine classes -->
+<!-- Navigation item with nested items -->
+<!-- Determine all nested items that are index pages -->
+<!-- Determine whether to render item as a section -->
+<!-- Nested navigation item -->
+<li class="md-nav__item md-nav__item--active md-nav__item--nested">
+<!-- Determine checked and indeterminate state -->
+<!-- Active checkbox expands items contained within nested section -->
+<input checked="" class="md-nav__toggle md-toggle" id="__nav_3" type="checkbox">
+<!-- Toggle to expand nested items -->
 <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+<!-- Navigation link icon -->
+<!-- Navigation link title -->
 <span class="md-ellipsis">
-Szkolenia
-</span>
-<span class="md-icon md-nav__icon"></span>
+    Szkolenia
+  </span>
+<!-- Navigation link status -->
+<span class="md-nav__icon md-icon"></span>
 </label>
-<nav class="md-nav" data-md-level="1" aria-expanded="true" aria-labelledby="__nav_3_label">
+<!-- Toggle to expand nested items with link to index page -->
+<!-- Nested navigation -->
+<nav aria-expanded="true" aria-labelledby="__nav_3_label" class="md-nav" data-md-level="1">
 <label class="md-nav__title" for="__nav_3">
-<span class="md-icon md-nav__icon"></span>
-Szkolenia
-</label>
+<span class="md-nav__icon md-icon"></span>
+            Szkolenia
+          </label>
 <ul class="md-nav__list" data-md-scrollfix="">
-<li class="md-nav__item md-nav__item--nested md-nav__item--active">
-<input type="checkbox" class="md-toggle md-nav__toggle" id="__nav_3_1" checked>
+<!-- Nested navigation item -->
+<!-- Determine classes -->
+<!-- Navigation item with nested items -->
+<!-- Determine all nested items that are index pages -->
+<!-- Determine whether to render item as a section -->
+<!-- Nested navigation item -->
+<li class="md-nav__item md-nav__item--active md-nav__item--nested">
+<!-- Determine checked and indeterminate state -->
+<!-- Active checkbox expands items contained within nested section -->
+<input checked="" class="md-nav__toggle md-toggle" id="__nav_3_1" type="checkbox"/>
+<!-- Toggle to expand nested items -->
 <div class="md-nav__link md-nav__container">
-<a href="../" class="md-nav__link">
+<a class="md-nav__link" href="../">
+<!-- Navigation link icon -->
+<!-- Navigation link title -->
 <span class="md-ellipsis">
-Szkolenia stacjonarne
-</span>
+    Szkolenia stacjonarne
+  </span>
+<!-- Navigation link status -->
 </a>
+<!-- Only render toggle if there's at least one more page -->
 <label class="md-nav__link" for="__nav_3_1">
-<span class="md-icon md-nav__icon"></span>
+<span class="md-nav__icon md-icon"></span>
 </label>
 </div>
-<nav class="md-nav" data-md-level="2" aria-expanded="true" aria-labelledby="__nav_3_1_label">
+<!-- Nested navigation -->
+<nav aria-expanded="true" aria-labelledby="__nav_3_1_label" class="md-nav" data-md-level="2">
 <label class="md-nav__title" for="__nav_3_1">
-<span class="md-icon md-nav__icon"></span>
-Szkolenia stacjonarne
-</label>
+<span class="md-nav__icon md-icon"></span>
+            Szkolenia stacjonarne
+          </label>
 <ul class="md-nav__list" data-md-scrollfix="">
+<!-- Nested navigation item -->
+<!-- Determine classes -->
+<!-- Navigation item with nested items -->
 <li class="md-nav__item md-nav__item--active">
-<input type="checkbox" class="md-toggle md-nav__toggle" id="__toc">
+<!-- State toggle -->
+<input class="md-nav__toggle md-toggle" id="__toc" type="checkbox"/>
+<!-- Hack: see partials/toc.html for more information -->
+<!-- Navigation link to table of contents -->
 <label class="md-nav__link md-nav__link--active" for="__toc">
+<!-- Navigation link icon -->
+<!-- Navigation link title -->
 <span class="md-ellipsis">
-Testowania REST API w Pythonie
-</span>
-<span class="md-icon md-nav__icon"></span>
+    Testowania REST API w Pythonie
+  </span>
+<!-- Navigation link status -->
+<span class="md-nav__icon md-icon"></span>
 </label>
-<a href="./" class="md-nav__link md-nav__link--active">
+<a class="md-nav__link md-nav__link--active" href="./">
+<!-- Navigation link icon -->
+<!-- Navigation link title -->
 <span class="md-ellipsis">
-Testowania REST API w Pythonie
-</span>
+    Testowania REST API w Pythonie
+  </span>
+<!-- Navigation link status -->
 </a>
-<nav class="md-nav md-nav--secondary" aria-label="Spis treści">
+<!-- Table of contents -->
+<nav aria-label="Spis treści" class="md-nav md-nav--secondary">
 <label class="md-nav__title" for="__toc">
-<span class="md-icon md-nav__icon"></span>
-Spis treści
-</label>
-<ul class="md-nav__list" data-md-scrollfix="" data-md-component="toc">
+<span class="md-nav__icon md-icon"></span>
+      Spis treści
+    </label>
+<ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
 <li class="md-nav__item">
-<a href="#program-szkolenia" class="md-nav__link">
+<a class="md-nav__link" href="#program-szkolenia">
 <span class="md-ellipsis">
-Program szkolenia
-</span>
+      Program szkolenia
+    </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a href="#cechy-szkolenia-stacjonarnego" class="md-nav__link">
+<a class="md-nav__link" href="#cechy-szkolenia-stacjonarnego">
 <span class="md-ellipsis">
-Cechy szkolenia stacjonarnego
-</span>
-</a>
-</li>
-</ul>
-</nav>
-</li>
-<li class="md-nav__item">
-<a href="../playwright-w-pythonie/" class="md-nav__link">
-<span class="md-ellipsis">
-Playwright w Pythonie
-</span>
+      Cechy szkolenia stacjonarnego
+    </span>
 </a>
 </li>
 </ul>
 </nav>
 </li>
+<!-- Navigation item -->
+<!-- Determine classes -->
+<!-- Navigation item with nested items -->
+<li class="md-nav__item">
+<a class="md-nav__link" href="../playwright-w-pythonie/">
+<!-- Navigation link icon -->
+<!-- Navigation link title -->
+<span class="md-ellipsis">
+    Playwright w Pythonie
+  </span>
+<!-- Navigation link status -->
+</a>
+</li>
 </ul>
 </nav>
+<!-- Pruned navigation item -->
 </li>
+<!-- Currently active page -->
+</ul>
+</nav>
+<!-- Pruned navigation item -->
+</input></li>
+<!-- Currently active page -->
+<!-- Determine classes -->
+<!-- Navigation item with nested items -->
 <li class="md-nav__item">
-<a href="../../../kontakt/" class="md-nav__link">
+<a class="md-nav__link" href="../../../kontakt/">
+<!-- Navigation link icon -->
+<!-- Navigation link title -->
 <span class="md-ellipsis">
-Kontakt
-</span>
+    Kontakt
+  </span>
+<!-- Navigation link status -->
 </a>
 </li>
 </ul>
 </nav>
 </div>
 <div class="md-sidebar__inner">
-<div class="md-nav md-typeset tb-sidebar">
+<div class="md-typeset md-nav tb-sidebar">
 <div class="md-nav__title">
-<a href="https://testerembyc.pl/pages/o-mnie/" class="md-nav__link md-nav__link--active">O mnie</a>
+<a class="md-nav__link md-nav__link--active" href="https://testerembyc.pl/pages/o-mnie/">O mnie</a>
 </div>
 <div class="md-nav__item">
-<img src="https://testerembyc.pl/images/pages/me_bw_small.jpg">
-<p>Nazywam się <b>Maciej Kusz</b> i od 2008 roku zajmuję się testowaniem oprogramowania. Na początku były to testy manualne, od 2011 początki testów automatycznych, a od 2013 automatyzacją testów z wykorzystaniem języka <b>Python</b>. Przez te kilka lat, zdarzyło mi się już być w kilku firmach i w kilku różnych projektach. Na stronie <a href="https://testerembyc.pl/pages/o-mnie/">o mnie</a>, znajdziesz ciut więcej informacji na ten temat.</p>
+<img src="https://testerembyc.pl/images/pages/me_bw_small.jpg"/>
+<p>Nazywam się <b>Maciej Kusz</b> i od 2008 roku zajmuję się testowaniem oprogramowania.
+      Na początku były to testy manualne, od 2011 początki testów automatycznych,
+      a od 2013 automatyzacją testów z wykorzystaniem języka <b>Python</b>.
+      Przez te kilka lat, zdarzyło mi się już być w kilku firmach i w kilku różnych projektach.
+      Na stronie <a href="https://testerembyc.pl/pages/o-mnie/">o mnie</a>, znajdziesz ciut więcej informacji na ten temat.</p>
 </div>
 </div>
 </div>
 </div>
 </div>
+<!-- Table of contents -->
 <div class="md-content" data-md-component="content">
-<article class="md-typeset md-content__inner">
+<article class="md-content__inner md-typeset">
 <div class="post-extra">
 <div class="col">
 <p class="post-date">2024.07.29</p>
 </div>
 </div>
 <h1>Testowania REST API w Pythonie</h1>
-<p><strong>Testowanie REST API w Pythonie</strong> to kompleksowe szkolenie. Przygotowane zostało tak, aby w praktyczny sposób nauczyć uczestników, jak od 0 stworzyć projekt oraz zaimplementować stabilne, oraz łatwo utrzymywalne testy automatyczne <sup id="fnref:0"><a href="#fn:0" class="footnote-ref">1</a></sup>.</p>
-<h2 id="program-szkolenia">Program szkolenia<a href="#program-szkolenia" class="headerlink" title="Anchor link to this section for reference">¶</a></h2>
+<p><strong>Testowanie REST API w Pythonie</strong> to kompleksowe szkolenie. Przygotowane zostało tak, aby w praktyczny sposób nauczyć uczestników, jak od 0 stworzyć projekt oraz zaimplementować stabilne, oraz łatwo utrzymywalne testy automatyczne <sup id="fnref:0"><a class="footnote-ref" href="#fn:0">1</a></sup>.</p>
+<h2 id="program-szkolenia">Program szkolenia<a class="headerlink" href="#program-szkolenia" title="Anchor link to this section for reference">¶</a></h2>
 <div class="grid">
 <div class="admonition none">
 <p class="admonition-title"><span class="twemoji"><svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M0 3.75A.75.75 0 0 1 .75 3h7.497c1.566 0 2.945.8 3.751 2.014A4.5 4.5 0 0 1 15.75 3h7.5a.75.75 0 0 1 .75.75v15.063a.75.75 0 0 1-.755.75l-7.682-.052a3 3 0 0 0-2.142.878l-.89.891a.75.75 0 0 1-1.061 0l-.902-.901a3 3 0 0 0-2.121-.879H.75a.75.75 0 0 1-.75-.75Zm12.75 15.232a4.5 4.5 0 0 1 2.823-.971l6.927.047V4.5h-6.75a3 3 0 0 0-3 3ZM11.247 7.497a3 3 0 0 0-3-2.997H1.5V18h6.947c1.018 0 2.006.346 2.803.98Z"></path></svg></span> Wstęp teoretyczny</p>
@@ -717,9 +1140,7 @@ Kontakt
 </ul>
 </div>
 <div class="admonition none">
-<p class="admonition-title"><span class="twemoji"><svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path 
-d="M12 0C5.383 0 0 5.383 0 12s5.383 12 12 12c6.616 0 12-5.383 12-12S18.616 0 12 0m0 1.144c5.995 0 10.856 4.86 10.856 10.856S17.996 22.856 12 22.856 1.144 17.996 1.144 12 6.004 1.144 12 1.144M8.37 5.868a7 7 0 0 0-.423.005c-.983.056-1.573.517-1.735 1.472-.115.665-.096 1.348-.143 2.017q-.018.526-.115 1.038c-.134.609-.397.798-1.016.83a3 3 0 0 0-.244.042v1.463c1.126.055 1.278.452 1.37 1.629.033.429-.013.858.015 1.287.018.406.073.808.156 1.2.259 1.075 1.307 1.435 2.575 1.218v-1.283c-.203 0-.383.005-.558 0-.43-.013-.591-.12-.632-.535-.056-.535-.042-1.08-.075-1.62-.064-1.001-.175-1.988-1.153-2.625.503-.37.868-.812.983-1.398.083-.41.134-.821.166-1.237.028-.415-.023-.84.014-1.25.06-.665.102-.937.9-.91.12 0 .235-.017.369-.027v-1.31q-.239-.001-.454-.006m7.593.009a4.3 4.3 0 0 0-.813.06v1.274c.245 0 .434 0 .623.005.328.004.577.13.61.494.032.332.031.669.064 1.006.065.669.101 1.347.217 2.007.102.544.475.95.941 1.283-.817.549-1.057 1.333-1.098 2.215-.023.604-.037 1.213-.069 1.822-.028.554-.222.734-.78.748-.157.004-.31.018-.484.028v1.305c.327 0 .627.019.927 0 .932-.055 1.495-.507 1.68-1.412q.117-.748.138-1.504c.032-.461.028-.927.074-1.384.069-.715.397-1.01 1.112-1.057a1 1 0 0 0 .199-.046v-1.463c-.12-.014-.204-.027-.291-.032-.536-.023-.804-.203-.937-.71a5 5 0 0 1-.152-.993c-.037-.618-.033-1.241-.074-1.86-.08-1.192-.794-1.753-1.887-1.786m-6.89 5.28a.844.844 0 0 0-.083 1.684h.055a.83.83 0 0 0 .877-.78v-.046a.845.845 0 0 0-.83-.858zm2.911 0a.81.81 0 0 0-.834.78c0 .027 0 .05.004.078 0 .503.342.826.859.826.507 0 .826-.332.826-.853-.005-.503-.342-.836-.855-.831m2.963 0a.86.86 0 0 0-.876.835c0 .47.378.849.849.849h.009c.425.074.853-.337.881-.83.023-.457-.392-.854-.863-.854">
-</path></svg></span> Dokumentacja REST API</p>
+<p class="admonition-title"><span class="twemoji"><svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 0C5.383 0 0 5.383 0 12s5.383 12 12 12c6.616 0 12-5.383 12-12S18.616 0 12 0m0 1.144c5.995 0 10.856 4.86 10.856 10.856S17.996 22.856 12 22.856 1.144 17.996 1.144 12 6.004 1.144 12 1.144M8.37 5.868a7 7 0 0 0-.423.005c-.983.056-1.573.517-1.735 1.472-.115.665-.096 1.348-.143 2.017q-.018.526-.115 1.038c-.134.609-.397.798-1.016.83a3 3 0 0 0-.244.042v1.463c1.126.055 1.278.452 1.37 1.629.033.429-.013.858.015 1.287.018.406.073.808.156 1.2.259 1.075 1.307 1.435 2.575 1.218v-1.283c-.203 0-.383.005-.558 0-.43-.013-.591-.12-.632-.535-.056-.535-.042-1.08-.075-1.62-.064-1.001-.175-1.988-1.153-2.625.503-.37.868-.812.983-1.398.083-.41.134-.821.166-1.237.028-.415-.023-.84.014-1.25.06-.665.102-.937.9-.91.12 0 .235-.017.369-.027v-1.31q-.239-.001-.454-.006m7.593.009a4.3 4.3 0 0 0-.813.06v1.274c.245 0 .434 0 .623.005.328.004.577.13.61.494.032.332.031.669.064 1.006.065.669.101 1.347.217 2.007.102.544.475.95.941 1.283-.817.549-1.057 1.333-1.098 2.215-.023.604-.037 1.213-.069 1.822-.028.554-.222.734-.78.748-.157.004-.31.018-.484.028v1.305c.327 0 .627.019.927 0 .932-.055 1.495-.507 1.68-1.412q.117-.748.138-1.504c.032-.461.028-.927.074-1.384.069-.715.397-1.01 1.112-1.057a1 1 0 0 0 .199-.046v-1.463c-.12-.014-.204-.027-.291-.032-.536-.023-.804-.203-.937-.71a5 5 0 0 1-.152-.993c-.037-.618-.033-1.241-.074-1.86-.08-1.192-.794-1.753-1.887-1.786m-6.89 5.28a.844.844 0 0 0-.083 1.684h.055a.83.83 0 0 0 .877-.78v-.046a.845.845 0 0 0-.83-.858zm2.911 0a.81.81 0 0 0-.834.78c0 .027 0 .05.004.078 0 .503.342.826.859.826.507 0 .826-.332.826-.853-.005-.503-.342-.836-.855-.831m2.963 0a.86.86 0 0 0-.876.835c0 .47.378.849.849.849h.009c.425.074.853-.337.881-.83.023-.457-.392-.854-.863-.854"></path></svg></span> Dokumentacja REST API</p>
 <p>Testowanie REST API to nie tylko wysyłanie zapytań i weryfikacja odpowiedzi, ale również umiejętność pracy z dokumentacją, która opisuje dostępne endpointy. Podczas szkolenia zapoznasz się z dwoma najpopularniejszymi narzędziami do tworzenia dokumentacji w formacie <a href="https://www.openapis.org/">OpenAPI</a>, czyli <a href="https://swagger.io/">Swagger</a> oraz <a href="https://github.com/Redocly/redoc">Redoc</a>.</p>
 </div>
 <div class="admonition none">
@@ -727,9 +1148,7 @@ d="M12 0C5.383 0 0 5.383 0 12s5.383 12 12 12c6.616 0 12-5.383 12-12S18.616 0 12 
 <p>Podczas praktycznej części szkolenia, wspólnie utworzymy nowy projekt, z podziałem na odpowiednie podfoldery tak, aby w przyszłości łatwo można było go rozwijać, modyfikować czy zaadoptować do innych potrzeb (np. wsparcie kilku projektów).</p>
 </div>
 <div class="admonition none">
-<p class="admonition-title"><span class="twemoji"><svg viewbox="0 0 512 512" xmlns="http://www.w3.org/2000/svg"><!--! Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path 
-d="M216.29 158.39H137C97 147.9 6.51 150.63 6.51 233.18c0 30.09 15 51.23 35 61-25.1 23-37 33.85-37 49.21 0 11 4.47 21.14 17.89 26.81C8.13 383.61 0 393.35 0 411.65c0 32.11 28.05 50.82 101.63 50.82 70.75 0 111.79-26.42 111.79-73.18 0-58.66-45.16-56.5-151.63-63l13.43-21.55c27.27 7.58 118.7 10 118.7-67.89 0-18.7-7.73-31.71-15-41.07l37.41-2.84zm-63.42 241.9c0 32.06-104.89 32.1-104.89 2.43 0-8.14 5.27-15 10.57-21.54 77.71 5.3 94.32 3.37 94.32 19.11m-50.81-134.58c-52.8 0-50.46-71.16 1.2-71.16 49.54 0 50.82 71.16-1.2 71.16m133.3 100.51v-32.1c26.75-3.66 27.24-2 27.24-11V203.61c0-8.5-2.05-7.38-27.24-16.26l4.47-32.92H324v168.71c0 6.51.4 7.32 6.51 8.14l20.73 2.84v32.1zm52.45-244.31c-23.17 0-36.59-13.43-36.59-36.61s13.42-35.77 36.59-35.77c23.58 0 37 12.62 37 35.77s-13.42 36.61-37 36.61M512 350.46c-17.49 8.53-43.1 16.26-66.28 16.26-48.38 0-66.67-19.5-66.67-65.46V194.75c0-5.42 1.05-4.06-31.71-4.06V154.5c35.78-4.07 50-22 54.47-66.27h38.63c0 65.83-1.34 61.81 3.26 61.81H501v40.65h-60.56v97.15c0 6.92-4.92 51.41 60.57 26.84z">
-</path></svg></span> Git i code review</p>
+<p class="admonition-title"><span class="twemoji"><svg viewbox="0 0 512 512" xmlns="http://www.w3.org/2000/svg"><!--! Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M216.29 158.39H137C97 147.9 6.51 150.63 6.51 233.18c0 30.09 15 51.23 35 61-25.1 23-37 33.85-37 49.21 0 11 4.47 21.14 17.89 26.81C8.13 383.61 0 393.35 0 411.65c0 32.11 28.05 50.82 101.63 50.82 70.75 0 111.79-26.42 111.79-73.18 0-58.66-45.16-56.5-151.63-63l13.43-21.55c27.27 7.58 118.7 10 118.7-67.89 0-18.7-7.73-31.71-15-41.07l37.41-2.84zm-63.42 241.9c0 32.06-104.89 32.1-104.89 2.43 0-8.14 5.27-15 10.57-21.54 77.71 5.3 94.32 3.37 94.32 19.11m-50.81-134.58c-52.8 0-50.46-71.16 1.2-71.16 49.54 0 50.82 71.16-1.2 71.16m133.3 100.51v-32.1c26.75-3.66 27.24-2 27.24-11V203.61c0-8.5-2.05-7.38-27.24-16.26l4.47-32.92H324v168.71c0 6.51.4 7.32 6.51 8.14l20.73 2.84v32.1zm52.45-244.31c-23.17 0-36.59-13.43-36.59-36.61s13.42-35.77 36.59-35.77c23.58 0 37 12.62 37 35.77s-13.42 36.61-37 36.61M512 350.46c-17.49 8.53-43.1 16.26-66.28 16.26-48.38 0-66.67-19.5-66.67-65.46V194.75c0-5.42 1.05-4.06-31.71-4.06V154.5c35.78-4.07 50-22 54.47-66.27h38.63c0 65.83-1.34 61.81 3.26 61.81H501v40.65h-60.56v97.15c0 6.92-4.92 51.41 60.57 26.84z"></path></svg></span> Git i code review</p>
 <p>Obecnie, większość projektów, w których tworzony jest kod, przechowuje go w git, dzięki temu łatwo jest go rozwijać, tworzyć code review itp. Ponieważ projekt testów automatycznych pisanych z wykorzystaniem Pythona, to również kod, nauczysz się jak poprawnie wykorzystywać git poprzez poznanie podstawowych pojęć, komend, itp.</p>
 </div>
 <div class="admonition none">
@@ -745,8 +1164,7 @@ d="M216.29 158.39H137C97 147.9 6.51 150.63 6.51 233.18c0 30.09 15 51.23 35 61-25
 <p>Jednym ze sposobów na sprawdzenie poprawności odpowiedzi otrzymanej z RESTowego API jest weryfikacja jej formatu z wykorzystaniem <a href="https://json-schema.org/">JSON Schema</a>. W trakcie szkolenia nauczysz się jak ją tworzyć i wykorzystywać w testach.</p>
 </div>
 <div class="admonition none">
-<p class="admonition-title"><span class="twemoji"><svg viewbox="0 0 512 512" xmlns="http://www.w3.org/2000/svg"><!--! Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M152.1 38.2c9.9 8.9 10.7 24 1.8 33.9l-72 80c-4.4 4.9-10.6 7.8-17.2 7.9s-12.9-2.4-17.6-7L7 113c-9.3-9.4-9.3-24.6 0-34s24.6-9.4 33.9 0L63 101.1l55.1-61.2c8.9-9.9 24-10.7 33.9-1.8zm0 160c9.9 8.9 10.7 24 1.8 33.9l-72 80c-4.4 4.9-10.6 7.8-17.2 7.9s-12.9-2.4-17.6-7L7 273c-9.4-9.4-9.4-24.6 0-33.9s24.6-9.4 33.9 0L63 261.2l55.1-61.2c8.9-9.9 24-10.7 33.9-1.8zM224 96c0-17.7 14.3-32 32-32h224c17.7 0 32 14.3 32 32s-14.3 32-32 32H256c-17.7 0-32-14.3-32-32m0 160c0-17.7 14.3-32 32-32h224c17.7 0 32 14.3 32 32s-14.3 32-32 32H256c-17.7 0-32-14.3-32-32m-64 160c0-17.7 14.3-32 32-32h288c17.7 0 32 14.3 32 32s-14.3 32-32 32H192c-17.7 0-32-14.3-32-32M48 368a48 48 0 1 1 0 96 48 48 0 1 1 0-96"></path></svg>
-</span> Tworzenie raportów</p>
+<p class="admonition-title"><span class="twemoji"><svg viewbox="0 0 512 512" xmlns="http://www.w3.org/2000/svg"><!--! Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M152.1 38.2c9.9 8.9 10.7 24 1.8 33.9l-72 80c-4.4 4.9-10.6 7.8-17.2 7.9s-12.9-2.4-17.6-7L7 113c-9.3-9.4-9.3-24.6 0-34s24.6-9.4 33.9 0L63 101.1l55.1-61.2c8.9-9.9 24-10.7 33.9-1.8zm0 160c9.9 8.9 10.7 24 1.8 33.9l-72 80c-4.4 4.9-10.6 7.8-17.2 7.9s-12.9-2.4-17.6-7L7 273c-9.4-9.4-9.4-24.6 0-33.9s24.6-9.4 33.9 0L63 261.2l55.1-61.2c8.9-9.9 24-10.7 33.9-1.8zM224 96c0-17.7 14.3-32 32-32h224c17.7 0 32 14.3 32 32s-14.3 32-32 32H256c-17.7 0-32-14.3-32-32m0 160c0-17.7 14.3-32 32-32h224c17.7 0 32 14.3 32 32s-14.3 32-32 32H256c-17.7 0-32-14.3-32-32m-64 160c0-17.7 14.3-32 32-32h288c17.7 0 32 14.3 32 32s-14.3 32-32 32H192c-17.7 0-32-14.3-32-32M48 368a48 48 0 1 1 0 96 48 48 0 1 1 0-96"></path></svg></span> Tworzenie raportów</p>
 <p>Poza uruchomieniem testów, dobrze jest znać ich wyniki, jednak odczytywanie wyników z konsoli, nie jest czytelne. Poza tym, bardzo ciężko dzielić się takimi wynikami z innymi. W tym celu nauczysz się jak automatycznie tworzyć raporty z testów z wykorzystaniem biblioteki <a href="https://allurereport.org/">Allure</a>.</p>
 </div>
 <div class="admonition none">
@@ -754,37 +1172,34 @@ d="M216.29 158.39H137C97 147.9 6.51 150.63 6.51 233.18c0 30.09 15 51.23 35 61-25
 <p>Przechowywanie poufnych danych (np. email i hasło użytkownika) lub zmiennych konfiguracyjnych w kodzie testów to zdecydowanie zła praktyka, jednakowo pod względem łatwości utrzymania testów, jak również, a może zdecydowanie ze względu, na bezpieczeństwo. Zamiast tego, nauczysz się jak wykorzystywać zmienne środowiskowe, do przechowywania tych wszystkich informacji w ustrukturyzowany sposób.</p>
 </div>
 <div class="admonition none">
-<p class="admonition-title"><span class="twemoji"><svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path 
-d="M10.984 13.836a.5.5 0 0 1-.353-.146l-.745-.743a.5.5 0 1 1 .706-.708l.392.391 1.181-1.18a.5.5 0 0 1 .708.707l-1.535 1.533a.5.5 0 0 1-.354.146m9.353-.147 1.534-1.532a.5.5 0 0 0-.707-.707l-1.181 1.18-.392-.391a.5.5 0 1 0-.706.708l.746.743a.497.497 0 0 0 .706-.001M4.527 7.452l2.557-1.585A1 1 0 0 0 7.09 4.17L4.533 2.56A1 1 0 0 0 3 3.406v3.196a1.001 1.001 0 0 0 1.527.85m2.03-2.436L4 6.602V3.406zM24 12.5c0 1.93-1.57 3.5-3.5 3.5a3.5 3.5 0 0 1-3.46-3h-2.08a3.5 3.5 0 0 1-3.46 3 3.5 3.5 0 0 1-3.46-3h-.558c-.972 0-1.85-.399-2.482-1.042V17c0 1.654 1.346 3 3 3h.04c.244-1.693 1.7-3 3.46-3 1.93 0 3.5 1.57 3.5 3.5S13.43 24 11.5 24a3.5 3.5 0 0 1-3.46-3H8c-2.206 0-4-1.794-4-4V9.899A5.01 5.01 0 0 1 0 5c0-2.757 2.243-5 5-5s5 2.243 5 5a5.005 5.005 0 0 1-4.952 4.998A2.48 2.48 0 0 0 7.482 12h.558c.244-1.693 1.7-3 3.46-3a3.5 3.5 0 0 1 3.46 3h2.08a3.5 3.5 0 0 1 3.46-3c1.93 0 3.5 1.57 3.5 3.5m-15 8c0 1.378 1.122 2.5 2.5 2.5s2.5-1.122 2.5-2.5-1.122-2.5-2.5-2.5S9 19.122 9 20.5M5 9c2.206 0 4-1.794 4-4S7.206 1 5 1 1 2.794 1 5s1.794 4 4 4m9 3.5c0-1.378-1.122-2.5-2.5-2.5S9 11.122 9 12.5s1.122 2.5 2.5 2.5 2.5-1.122 2.5-2.5m9 0c0-1.378-1.122-2.5-2.5-2.5S18 11.122 18 12.5s1.122 2.5 2.5 2.5 2.5-1.122 2.5-2.5m-13 8a.5.5 0 1 0 1 0 .5.5 0 0 0-1 0m2 0a.5.5 0 1 0 1 0 .5.5 0 0 0-1 0m12 0c0 1.93-1.57 3.5-3.5 3.5a3.5 3.5 0 0 1-3.46-3.002q-.01.003-.021.005l-.506.017h-.017a.5.5 0 0 1-.016-.999l.506-.017c.018-.002.035.006.052.007A3.5 3.5 0 0 1 20.5 17c1.93 0 3.5 1.57 3.5 3.5m-1 0c0-1.378-1.122-2.5-2.5-2.5S18 19.122 18 20.5s1.122 2.5 2.5 2.5 2.5-1.122 2.5-2.5">
-</path></svg></span> Uruchamianie testów w CI/CD</p>
+<p class="admonition-title"><span class="twemoji"><svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M10.984 13.836a.5.5 0 0 1-.353-.146l-.745-.743a.5.5 0 1 1 .706-.708l.392.391 1.181-1.18a.5.5 0 0 1 .708.707l-1.535 1.533a.5.5 0 0 1-.354.146m9.353-.147 1.534-1.532a.5.5 0 0 0-.707-.707l-1.181 1.18-.392-.391a.5.5 0 1 0-.706.708l.746.743a.497.497 0 0 0 .706-.001M4.527 7.452l2.557-1.585A1 1 0 0 0 7.09 4.17L4.533 2.56A1 1 0 0 0 3 3.406v3.196a1.001 1.001 0 0 0 1.527.85m2.03-2.436L4 6.602V3.406zM24 12.5c0 1.93-1.57 3.5-3.5 3.5a3.5 3.5 0 0 1-3.46-3h-2.08a3.5 3.5 0 0 1-3.46 3 3.5 3.5 0 0 1-3.46-3h-.558c-.972 0-1.85-.399-2.482-1.042V17c0 1.654 1.346 3 3 3h.04c.244-1.693 1.7-3 3.46-3 1.93 0 3.5 1.57 3.5 3.5S13.43 24 11.5 24a3.5 3.5 0 0 1-3.46-3H8c-2.206 0-4-1.794-4-4V9.899A5.01 5.01 0 0 1 0 5c0-2.757 2.243-5 5-5s5 2.243 5 5a5.005 5.005 0 0 1-4.952 4.998A2.48 2.48 0 0 0 7.482 12h.558c.244-1.693 1.7-3 3.46-3a3.5 3.5 0 0 1 3.46 3h2.08a3.5 3.5 0 0 1 3.46-3c1.93 0 3.5 1.57 3.5 3.5m-15 8c0 1.378 1.122 2.5 2.5 2.5s2.5-1.122 2.5-2.5-1.122-2.5-2.5-2.5S9 19.122 9 20.5M5 9c2.206 0 4-1.794 4-4S7.206 1 5 1 1 2.794 1 5s1.794 4 4 4m9 3.5c0-1.378-1.122-2.5-2.5-2.5S9 11.122 9 12.5s1.122 2.5 2.5 2.5 2.5-1.122 2.5-2.5m9 0c0-1.378-1.122-2.5-2.5-2.5S18 11.122 18 12.5s1.122 2.5 2.5 2.5 2.5-1.122 2.5-2.5m-13 8a.5.5 0 1 0 1 0 .5.5 0 0 0-1 0m2 0a.5.5 0 1 0 1 0 .5.5 0 0 0-1 0m12 0c0 1.93-1.57 3.5-3.5 3.5a3.5 3.5 0 0 1-3.46-3.002q-.01.003-.021.005l-.506.017h-.017a.5.5 0 0 1-.016-.999l.506-.017c.018-.002.035.006.052.007A3.5 3.5 0 0 1 20.5 17c1.93 0 3.5 1.57 3.5 3.5m-1 0c0-1.378-1.122-2.5-2.5-2.5S18 19.122 18 20.5s1.122 2.5 2.5 2.5 2.5-1.122 2.5-2.5"></path></svg></span> Uruchamianie testów w CI/CD</p>
 <p>Po napisaniu kodu testów, wspólnie skonfigurujemy <a href="https://github.com/features/actions">GitHub Actions</a> tak, aby testy automatyczne uruchamiały się o określonej godzinie. Dowiesz się, na co zwrócić uwagę oraz jak w bezpieczny sposób przechowywać dane poufne (np. email i hasło użytkownika).</p>
 </div>
 </div>
-<h2 id="cechy-szkolenia-stacjonarnego">Cechy szkolenia stacjonarnego<a href="#cechy-szkolenia-stacjonarnego" class="headerlink" title="Anchor link to this section for reference">¶</a></h2>
+<h2 id="cechy-szkolenia-stacjonarnego">Cechy szkolenia stacjonarnego<a class="headerlink" href="#cechy-szkolenia-stacjonarnego" title="Anchor link to this section for reference">¶</a></h2>
 <div class="grid">
 <div class="admonition none">
 <p class="admonition-title"><span class="twemoji"><svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 .25a.75.75 0 0 1 .673.418l3.058 6.197 6.839.994a.75.75 0 0 1 .415 1.279l-4.948 4.823 1.168 6.811a.751.751 0 0 1-1.088.791L12 18.347l-6.117 3.216a.75.75 0 0 1-1.088-.79l1.168-6.812-4.948-4.823a.75.75 0 0 1 .416-1.28l6.838-.993L11.328.668A.75.75 0 0 1 12 .25m0 2.445L9.44 7.882a.75.75 0 0 1-.565.41l-5.725.832 4.143 4.038a.75.75 0 0 1 .215.664l-.978 5.702 5.121-2.692a.75.75 0 0 1 .698 0l5.12 2.692-.977-5.702a.75.75 0 0 1 .215-.664l4.143-4.038-5.725-.831a.75.75 0 0 1-.565-.41z"></path></svg></span> Forma szkolenia</p>
 <p>W swojej formie, szkolenie stacjonarne najbardziej przypomina tradycyjny wykład, jaki znamy ze szkoły lub uczelni, połączony z praktycznymi warsztatami, podczas których uczestnicy tworzą praktyczny projekt na podstawie wskazówek prowadzącego.</p>
 </div>
 <div class="admonition none">
-<p class="admonition-title"><span class="twemoji"><svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path 
-d="M12.292 2.06zl11.25 4.75a.749.749 0 0 1 0 1.382L19 10.108V15a.75.75 0 0 1-.11.391h-.001a3 3 0 0 1-.392.482c-.249.256-.625.58-1.163.896-1.08.638-2.776 1.23-5.334 1.23-.673 0-1.286-.041-1.846-.113a.75.75 0 0 1 .192-1.487c.492.063 1.042.1 1.654.1 2.317 0 3.746-.533 4.572-1.021.31-.178.596-.397.849-.65l.079-.085V10.74l-5.208 2.2a.75.75 0 0 1-.584 0L5.75 10.424v3.17c.502.129.96.391 1.327.758.579.578.923 1.41.923 2.428v4.5a.76.76 0 0 1-.345.634 2 2 0 0 1-.21.117 4 4 0 0 1-.52.213A6.1 6.1 0 0 1 5 22.532a6.1 6.1 0 0 1-1.925-.288 4 4 0 0 1-.52-.213 2 2 0 0 1-.22-.124.76.76 0 0 1-.335-.624v-4.5c0-1.02.344-1.85.923-2.43a2.9 2.9 0 0 1 1.327-.757V9.793L.458 8.19a.75.75 0 0 1 0-1.38l11.25-4.75a.75.75 0 0 1 .584 0M12 11.436 21.322 7.5 12 3.564 2.678 7.5ZM5 15c-.377 0-.745.141-1.017.413-.265.265-.483.7-.483 1.368v4.022c.299.105.797.228 1.5.228s1.201-.123 1.5-.228V16.78c0-.669-.218-1.103-.483-1.368A1.43 1.43 0 0 0 5 15"></path></svg></span> Uczestnicy</p>
-<p>Podczas szkolenia, każdy z uczestników będzie korzystał z własnego (lub dostarczonego przez zmawiające) komputera, na którym musi mieć możliwość instalacji oprogramowania<sup id="fnref:1"><a href="#fn:1" class="footnote-ref">2</a></sup>, które wymagane jest przez program szkolenia. Dodatkowo komputer musi mieć możliwość dostępu do internetu.</p>
+<p class="admonition-title"><span class="twemoji"><svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12.292 2.06zl11.25 4.75a.749.749 0 0 1 0 1.382L19 10.108V15a.75.75 0 0 1-.11.391h-.001a3 3 0 0 1-.392.482c-.249.256-.625.58-1.163.896-1.08.638-2.776 1.23-5.334 1.23-.673 0-1.286-.041-1.846-.113a.75.75 0 0 1 .192-1.487c.492.063 1.042.1 1.654.1 2.317 0 3.746-.533 4.572-1.021.31-.178.596-.397.849-.65l.079-.085V10.74l-5.208 2.2a.75.75 0 0 1-.584 0L5.75 10.424v3.17c.502.129.96.391 1.327.758.579.578.923 1.41.923 2.428v4.5a.76.76 0 0 1-.345.634 2 2 0 0 1-.21.117 4 4 0 0 1-.52.213A6.1 6.1 0 0 1 5 22.532a6.1 6.1 0 0 1-1.925-.288 4 4 0 0 1-.52-.213 2 2 0 0 1-.22-.124.76.76 0 0 1-.335-.624v-4.5c0-1.02.344-1.85.923-2.43a2.9 2.9 0 0 1 1.327-.757V9.793L.458 8.19a.75.75 0 0 1 0-1.38l11.25-4.75a.75.75 0 0 1 .584 0M12 11.436 21.322 7.5 12 3.564 2.678 7.5ZM5 15c-.377 0-.745.141-1.017.413-.265.265-.483.7-.483 1.368v4.022c.299.105.797.228 1.5.228s1.201-.123 1.5-.228V16.78c0-.669-.218-1.103-.483-1.368A1.43 1.43 0 0 0 5 15"></path></svg></span> Uczestnicy</p>
+<p>Podczas szkolenia, każdy z uczestników będzie korzystał z własnego (lub dostarczonego przez zmawiające) komputera, na którym musi mieć możliwość instalacji oprogramowania<sup id="fnref:1"><a class="footnote-ref" href="#fn:1">2</a></sup>, które wymagane jest przez program szkolenia. Dodatkowo komputer musi mieć możliwość dostępu do internetu.</p>
 </div>
 <div class="admonition none">
 <p class="admonition-title"><span class="twemoji"><svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M11.03 2.59a1.5 1.5 0 0 1 1.94 0l7.5 6.363a1.5 1.5 0 0 1 .53 1.144V19.5a1.5 1.5 0 0 1-1.5 1.5h-5.75a.75.75 0 0 1-.75-.75V14h-2v6.25a.75.75 0 0 1-.75.75H4.5A1.5 1.5 0 0 1 3 19.5v-9.403c0-.44.194-.859.53-1.144ZM12 3.734l-7.5 6.363V19.5h5v-6.25a.75.75 0 0 1 .75-.75h3.5a.75.75 0 0 1 .75.75v6.25h5v-9.403Z"></path></svg></span> Miejsce</p>
-<p>Szkolenia stacjonarne odbywają się w miejscu wyznaczonym przez zamawiające<sup id="fnref:2"><a href="#fn:2" class="footnote-ref">3</a></sup>. Dzięki temu, pracownicy oddelegowani na szkolenie mogą zaraportować dni szkoleniowe jako normalne dni pracy, a to w znacznym stopniu upraszcza wszelkie formalności po stronie zamawiającego.</p>
+<p>Szkolenia stacjonarne odbywają się w miejscu wyznaczonym przez zamawiające<sup id="fnref:2"><a class="footnote-ref" href="#fn:2">3</a></sup>. Dzięki temu, pracownicy oddelegowani na szkolenie mogą zaraportować dni szkoleniowe jako normalne dni pracy, a to w znacznym stopniu upraszcza wszelkie formalności po stronie zamawiającego.</p>
 </div>
 <div class="admonition none">
 <p class="admonition-title"><span class="twemoji"><svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M3.5 3.75a.25.25 0 0 1 .25-.25h13.5a.25.25 0 0 1 .25.25v10a.75.75 0 0 0 1.5 0v-10A1.75 1.75 0 0 0 17.25 2H3.75A1.75 1.75 0 0 0 2 3.75v16.5c0 .966.784 1.75 1.75 1.75h7a.75.75 0 0 0 0-1.5h-7a.25.25 0 0 1-.25-.25z"></path><path d="M6.25 7a.75.75 0 0 0 0 1.5h8.5a.75.75 0 0 0 0-1.5zm-.75 4.75a.75.75 0 0 1 .75-.75h4.5a.75.75 0 0 1 0 1.5h-4.5a.75.75 0 0 1-.75-.75m16.28 4.53a.75.75 0 1 0-1.06-1.06l-4.97 4.97-1.97-1.97a.75.75 0 1 0-1.06 1.06l2.5 2.5a.75.75 0 0 0 1.06 0z"></path></svg></span> Wymagania</p>
 <p>W celu przeprowadzenia szkolenia, potrzebny jest dostęp do sali umiejącej pomieścić wszystkich uczestników szkolenia, a która wyposażona jest w rzutnik lub duży TV oraz dostęp do internetu.</p>
 </div>
 <div class="admonition none">
-<p class="admonition-title"><span class="twemoji"><svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M6.75 0a.75.75 0 0 1 .75.75V3h9V.75a.75.75 0 0 1 1.5 0V3h2.75c.966 0 1.75.784 1.75 1.75v16a1.75 1.75 0 0 1-1.75 1.75H3.25a1.75 1.75 0 0 1-1.75-1.75v-16C1.5 3.784 2.284 3 3.25 3H6V.75A.75.75 0 0 1 6.75 0M21 9.5H3v11.25c0 .138.112.25.25.25h17.5a.25.25 0 0 0 .25-.25Zm-17.75-5a.25.25 0 0 0-.25.25V8h18V4.75a.25.25 0 0 0-.25-.25Z"></path></svg></span> Termin</p>
+<p class="admonition-title"><span class="twemoji"><svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M6.75 0a.75.75 0 0 1 .75.75V3h9V.75a.75.75 0 0 1 1.5 0V3h2.75c.966 0 1.75.784 1.75 1.75v16a1.75 1.75 0 0 1-1.75 1.75H3.25a1.75 1.75 0 0 1-1.75-1.75v-16C1.5 3.784 2.284 3 3.25 3H6V.75A.75.75 0 0 1 6.75 0M21 9.5H3v11.25c0 .138.112.25.25.25h17.5a.25.25 0 0 0 .25-.25Zm-17.75-5a.25.25 0 0 0-.25.25V8h18V4.75a.25.25 0 0 0-.25-.25Z"></path></svg></span>  Termin</p>
 <p>Szkolenia stacjonarne odbywają się w uzgodnionych wcześniej terminach. Daje to możliwość wcześniejszego zaplanowania zastępstw lub takiego ułożenia harmonogramów projektowych, aby uczestnicy szkolenia mogli bezproblemowo w nim uczestniczyć oraz aby ich nieobecność nie wpłynęła na trwające projekty.</p>
 </div>
 <div class="admonition none">
-<p class="admonition-title"><span class="twemoji"><svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12.5 7.25a.75.75 0 0 0-1.5 0v5.5c0 .27.144.518.378.651l3.5 2a.75.75 0 0 0 .744-1.302L12.5 12.315z"></path><path d="M12 1c6.075 0 11 4.925 11 11s-4.925 11-11 11S1 18.075 1 12 5.925 1 12 1M2.5 12a9.5 9.5 0 0 0 9.5 9.5 9.5 9.5 0 0 0 9.5-9.5A9.5 9.5 0 0 0 12 2.5 9.5 9.5 0 0 0 2.5 12"></path></svg></span> Czas trwania </p>
+<p class="admonition-title"><span class="twemoji"><svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12.5 7.25a.75.75 0 0 0-1.5 0v5.5c0 .27.144.518.378.651l3.5 2a.75.75 0 0 0 .744-1.302L12.5 12.315z"></path><path d="M12 1c6.075 0 11 4.925 11 11s-4.925 11-11 11S1 18.075 1 12 5.925 1 12 1M2.5 12a9.5 9.5 0 0 0 9.5 9.5 9.5 9.5 0 0 0 9.5-9.5A9.5 9.5 0 0 0 12 2.5 9.5 9.5 0 0 0 2.5 12"></path></svg></span> Czas trwania  </p>
 <p>W większości przypadków, czas trwania szkolenia stacjonarnego to 2 dni robocze. Jest to spowodowane zakresem materiału, jaki przewidziany jest na szkolenie, jaki możliwością praktycznego przećwiczenia zdobytej wiedzy pod okiem prowadzącego. </p>
 </div>
 <div class="admonition none">
@@ -792,9 +1207,8 @@ d="M12.292 2.06zl11.25 4.75a.749.749 0 0 1 0 1.382L19 10.108V15a.75.75 0 0 1-.11
 <p>Każdy z uczestników szkolenia, po jego ukończeniu otrzyma imienny certyfikat, który poza nazwą szkolenia, będzie zawierał wykaz najważniejszych umiejętności nabytych podczas szkolenia.</p>
 </div>
 <div class="admonition none">
-<p class="admonition-title"><span class="twemoji"><svg viewbox="0 0 512 512" xmlns="http://www.w3.org/2000/svg"><!--! Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path 
-d="M320 96H192l-47.4-71.1c-7.1-10.7.5-24.9 13.3-24.9h196.2c12.8 0 20.4 14.2 13.3 24.9zm-128 32h128c3.8 2.5 8.1 5.3 13 8.4 56.7 36.3 179 114.5 179 279.6 0 53-43 96-96 96H96c-53 0-96-43-96-96 0-165.1 122.3-243.3 179-279.6 4.8-3.1 9.2-5.9 13-8.4m84 88c0-11-9-20-20-20s-20 9-20 20v14c-7.6 1.7-15.2 4.4-22.2 8.5-13.9 8.3-25.9 22.8-25.8 43.9.1 20.3 12 33.1 24.7 40.7 11 6.6 24.7 10.8 35.6 14l1.7.5c12.6 3.8 21.8 6.8 28 10.7 5.1 3.2 5.8 5.4 5.9 8.2.1 5-1.8 8-5.9 10.5-5 3.1-12.9 5-21.4 4.7-11.1-.4-21.5-3.9-35.1-8.5q-3.45-1.2-7.2-2.4c-10.5-3.5-21.8 2.2-25.3 12.6s2.2 21.8 12.6 25.3c1.9.6 4 1.3 6.1 2.1 8.3 2.9 17.9 6.2 28.2 8.4v14.6c0 11 9 20 20 20s20-9 20-20V410c8-1.7 16-4.5 23.2-9 14.3-8.9 25.1-24.1 24.8-45-.3-20.3-11.7-33.4-24.6-41.6-11.5-7.2-25.9-11.6-37.1-15l-.7-.2c-12.8-3.9-21.9-6.7-28.3-10.5-5.2-3.1-5.3-4.9-5.3-6.7 0-3.7 1.4-6.5 6.2-9.3 5.4-3.2 13.6-5.1 21.5-5 9.6.1 20.2 2.2 31.2 5.2 10.7 2.8 21.6-3.5 24.5-14.2s-3.5-21.6-14.2-24.5c-6.5-1.7-13.7-3.4-21.1-4.7v-13.9z"></path></svg></span> Cena i płatność</p>
-<p>Podstawowa cena szkolenia wynosi 1999zł netto, jednak uzależniona jest w głównej mierze od ilości uczestników oraz miejsca<sup id="fnref:3"><a href="#fn:3" class="footnote-ref">4</a></sup>. Po przeprowadzeniu szkolenia, wystawiona zostanie faktura VAT z 14-dniowym terminem płatności<sup id="fnref:4"><a href="#fn:4" class="footnote-ref">5</a></sup>.</p>
+<p class="admonition-title"><span class="twemoji"><svg viewbox="0 0 512 512" xmlns="http://www.w3.org/2000/svg"><!--! Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M320 96H192l-47.4-71.1c-7.1-10.7.5-24.9 13.3-24.9h196.2c12.8 0 20.4 14.2 13.3 24.9zm-128 32h128c3.8 2.5 8.1 5.3 13 8.4 56.7 36.3 179 114.5 179 279.6 0 53-43 96-96 96H96c-53 0-96-43-96-96 0-165.1 122.3-243.3 179-279.6 4.8-3.1 9.2-5.9 13-8.4m84 88c0-11-9-20-20-20s-20 9-20 20v14c-7.6 1.7-15.2 4.4-22.2 8.5-13.9 8.3-25.9 22.8-25.8 43.9.1 20.3 12 33.1 24.7 40.7 11 6.6 24.7 10.8 35.6 14l1.7.5c12.6 3.8 21.8 6.8 28 10.7 5.1 3.2 5.8 5.4 5.9 8.2.1 5-1.8 8-5.9 10.5-5 3.1-12.9 5-21.4 4.7-11.1-.4-21.5-3.9-35.1-8.5q-3.45-1.2-7.2-2.4c-10.5-3.5-21.8 2.2-25.3 12.6s2.2 21.8 12.6 25.3c1.9.6 4 1.3 6.1 2.1 8.3 2.9 17.9 6.2 28.2 8.4v14.6c0 11 9 20 20 20s20-9 20-20V410c8-1.7 16-4.5 23.2-9 14.3-8.9 25.1-24.1 24.8-45-.3-20.3-11.7-33.4-24.6-41.6-11.5-7.2-25.9-11.6-37.1-15l-.7-.2c-12.8-3.9-21.9-6.7-28.3-10.5-5.2-3.1-5.3-4.9-5.3-6.7 0-3.7 1.4-6.5 6.2-9.3 5.4-3.2 13.6-5.1 21.5-5 9.6.1 20.2 2.2 31.2 5.2 10.7 2.8 21.6-3.5 24.5-14.2s-3.5-21.6-14.2-24.5c-6.5-1.7-13.7-3.4-21.1-4.7v-13.9z"></path></svg></span> Cena i płatność</p>
+<p>Podstawowa cena szkolenia wynosi 1999zł netto, jednak uzależniona jest w głównej mierze od ilości uczestników oraz miejsca<sup id="fnref:3"><a class="footnote-ref" href="#fn:3">4</a></sup>. Po przeprowadzeniu szkolenia, wystawiona zostanie faktura VAT z 14-dniowym terminem płatności<sup id="fnref:4"><a class="footnote-ref" href="#fn:4">5</a></sup>.</p>
 </div>
 <div class="admonition none">
 <p class="admonition-title"><span class="twemoji"><svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2.5a5.5 5.5 0 0 1 3.096 10.047 9.005 9.005 0 0 1 5.9 8.181.75.75 0 1 1-1.499.044 7.5 7.5 0 0 0-14.993 0 .75.75 0 0 1-1.5-.045 9.005 9.005 0 0 1 5.9-8.18A5.5 5.5 0 0 1 12 2.5M8 8a4 4 0 1 0 8 0 4 4 0 0 0-8 0"></path></svg></span> Prowadzący</p>
@@ -806,22 +1220,22 @@ d="M320 96H192l-47.4-71.1c-7.1-10.7.5-24.9 13.3-24.9h196.2c12.8 0 20.4 14.2 13.3
 </div>
 </div>
 <div class="footnote">
-<hr>
+<hr/>
 <ol>
 <li id="fn:0">
-<p>Finalny zakres szkolenia, ustalany i dobierany jest indywidualnie do konkretnej grupy kursantów. Uzależniony jest w głównej mierze od konkretnych wymagań zamawiającego oraz poziomu wiedzy i doświadczenia osób uczestniczących w szkoleniu. <a href="#fnref:0" class="footnote-backref" title="Jump back to footnote 1 in the text">↩</a></p>
+<p>Finalny zakres szkolenia, ustalany i dobierany jest indywidualnie do konkretnej grupy kursantów. Uzależniony jest w głównej mierze od konkretnych wymagań zamawiającego oraz poziomu wiedzy i doświadczenia osób uczestniczących w szkoleniu. <a class="footnote-backref" href="#fnref:0" title="Jump back to footnote 1 in the text">↩</a></p>
 </li>
 <li id="fn:1">
-<p>W przypadku konieczności uzyskania wcześniejszych zgód na instalację wymaganego oprogramowania na komputerach służbowych, jego lista może zostać dostarczona zamawiającemu przed rozpoczęciem jego terminu. Ponieważ w trakcie szkolenia będą instalowane dodatkowe biblioteki programistyczne, polityki bezpieczeństwa, muszą uwzględnić możliwość przeprowadzenia takich operacji. <a href="#fnref:1" class="footnote-backref" title="Jump back to footnote 2 in the text">↩</a></p>
+<p>W przypadku konieczności uzyskania wcześniejszych zgód na instalację wymaganego oprogramowania na komputerach służbowych, jego lista może zostać dostarczona zamawiającemu przed rozpoczęciem jego terminu. Ponieważ w trakcie szkolenia będą instalowane dodatkowe biblioteki programistyczne, polityki bezpieczeństwa, muszą uwzględnić możliwość przeprowadzenia takich operacji. <a class="footnote-backref" href="#fnref:1" title="Jump back to footnote 2 in the text">↩</a></p>
 </li>
 <li id="fn:2">
-<p>Na życzenie zamawiającego, szkolenie może odbyć się poza siedzibą zamawiającego. <a href="#fnref:2" class="footnote-backref" title="Jump back to footnote 3 in the text">↩</a></p>
+<p>Na życzenie zamawiającego, szkolenie może odbyć się poza siedzibą zamawiającego. <a class="footnote-backref" href="#fnref:2" title="Jump back to footnote 3 in the text">↩</a></p>
 </li>
 <li id="fn:3">
-<p>Finalna cena szkolenia, ustalana jest indywidualnie. Po szczegółową wycenę zapraszamm do kontaktu. <a href="#fnref:3" class="footnote-backref" title="Jump back to footnote 4 in the text">↩</a></p>
+<p>Finalna cena szkolenia, ustalana jest indywidualnie. Po szczegółową wycenę zapraszamm do kontaktu. <a class="footnote-backref" href="#fnref:3" title="Jump back to footnote 4 in the text">↩</a></p>
 </li>
 <li id="fn:4">
-<p>Istnieje możliwość wydłużenia do 30 dni terminu płatności faktury. <a href="#fnref:4" class="footnote-backref" title="Jump back to footnote 5 in the text">↩</a></p>
+<p>Istnieje możliwość wydłużenia do 30 dni terminu płatności faktury. <a class="footnote-backref" href="#fnref:4" title="Jump back to footnote 5 in the text">↩</a></p>
 </li>
 </ol>
 </div>
@@ -830,80 +1244,81 @@ d="M320 96H192l-47.4-71.1c-7.1-10.7.5-24.9 13.3-24.9h196.2c12.8 0 20.4 14.2 13.3
 <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var labels=set.querySelector(".tabbed-labels");for(var tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
 <script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
 </div>
-<button class="md-icon md-top" type="button" data-md-component="top" hidden>
+<button class="md-top md-icon" data-md-component="top" hidden="" type="button">
 <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"></path></svg>
-Powrót do góry
+  Powrót do góry
 </button>
 </main>
 <footer class="md-footer">
-<nav class="md-grid md-footer__inner" aria-label="Stopka">
-<a href="../" class="md-footer__link md-footer__link--prev" rel="prev" aria-label="Poprzednia strona: Szkolenia stacjonarne">
-<div class="md-icon md-footer__button">
+<nav aria-label="Stopka" class="md-footer__inner md-grid">
+<a aria-label="Poprzednia strona: Szkolenia stacjonarne" class="md-footer__link md-footer__link--prev" href="../" rel="prev">
+<div class="md-footer__button md-icon">
 <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"></path></svg>
 </div>
 <div class="md-footer__title">
 <span class="md-footer__direction">
-Poprzednia strona
-</span>
+                Poprzednia strona
+              </span>
 <div class="md-ellipsis">
-Szkolenia stacjonarne
-</div>
+                Szkolenia stacjonarne
+              </div>
 </div>
 </a>
-<a href="../playwright-w-pythonie/" class="md-footer__link md-footer__link--next" rel="next" aria-label="Następna strona: Playwright w Pythonie">
+<a aria-label="Następna strona: Playwright w Pythonie" class="md-footer__link md-footer__link--next" href="../playwright-w-pythonie/" rel="next">
 <div class="md-footer__title">
 <span class="md-footer__direction">
-Następna strona
-</span>
+                Następna strona
+              </span>
 <div class="md-ellipsis">
-Playwright w Pythonie
+                Playwright w Pythonie
+              </div>
 </div>
-</div>
-<div class="md-icon md-footer__button">
+<div class="md-footer__button md-icon">
 <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"></path></svg>
 </div>
 </a>
 </nav>
-<div class="md-typeset md-footer-meta">
-<div class="md-grid md-footer-meta__inner">
+<div class="md-footer-meta md-typeset">
+<div class="md-footer-meta__inner md-grid">
 <div class="md-copyright">
 <div class="md-copyright__highlight">
-© 2019-2024 Maciej Kusz
-</div>
-Utworzono z wykorzystaniem
-<a href="https://www.mkdocs.org/" rel="noopener" target="_blank">
-MkDocs
-</a>, <a href="https://squidfunk.github.io/mkdocs-material/" rel="noopener" target="_blank">
-Material for MkDocs
-</a>, <a href="https://mkusz.github.io/mkdocs-publisher/" rel="noopener" target="_blank">
-MkDocs Publisher
-</a> oraz <a href="https://pages.github.com" rel="noopener" target="_blank">
-GitHub Pages
-</a>.
+      © 2019-2024 Maciej Kusz
+
+    </div>
+  
+  
+    Utworzono z wykorzystaniem
+    <a href="https://www.mkdocs.org/" rel="noopener" target="_blank">
+      MkDocs
+    </a>, <a href="https://squidfunk.github.io/mkdocs-material/" rel="noopener" target="_blank">
+      Material for MkDocs
+    </a>, <a href="https://mkusz.github.io/mkdocs-publisher/" rel="noopener" target="_blank">
+      MkDocs Publisher
+    </a> oraz <a href="https://pages.github.com" rel="noopener" target="_blank">
+      GitHub Pages
+    </a>.
+  
 </div>
 <div class="md-social">
-<a href="feed_rss_created.xml" class="md-social__link" title="" rel="noopener" target="_blank">
+<a class="md-social__link" href="feed_rss_created.xml" rel="noopener" target="_blank" title="">
 <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M6.18 15.64a2.18 2.18 0 0 1 2.18 2.18C8.36 19 7.38 20 6.18 20 5 20 4 19 4 17.82a2.18 2.18 0 0 1 2.18-2.18M4 4.44A15.56 15.56 0 0 1 19.56 20h-2.83A12.73 12.73 0 0 0 4 7.27zm0 5.66a9.9 9.9 0 0 1 9.9 9.9h-2.83A7.07 7.07 0 0 0 4 12.93z"></path></svg>
 </a>
-<a href="https://www.facebook.com/testerembyc" class="md-social__link" title="www.facebook.com" rel="noopener" target="_blank">
+<a class="md-social__link" href="https://www.facebook.com/testerembyc" rel="noopener" target="_blank" title="www.facebook.com">
 <svg viewbox="0 0 512 512" xmlns="http://www.w3.org/2000/svg"><!--! Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M512 256C512 114.6 397.4 0 256 0S0 114.6 0 256c0 120 82.7 220.8 194.2 248.5V334.2h-52.8V256h52.8v-33.7c0-87.1 39.4-127.5 125-127.5 16.2 0 44.2 3.2 55.7 6.4V172c-6-.6-16.5-1-29.6-1-42 0-58.2 15.9-58.2 57.2V256h83.6l-14.4 78.2H287v175.9C413.8 494.8 512 386.9 512 256"></path></svg>
 </a>
-<a href="https://www.instagram.com/testerembyc/" class="md-social__link" title="www.instagram.com" rel="noopener" target="_blank">
-<svg viewbox="0 0 448 512" xmlns="http://www.w3.org/2000/svg"><!--! Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path 
-d="M224.1 141c-63.6 0-114.9 51.3-114.9 114.9s51.3 114.9 114.9 114.9S339 319.5 339 255.9 287.7 141 224.1 141m0 189.6c-41.1 0-74.7-33.5-74.7-74.7s33.5-74.7 74.7-74.7 74.7 33.5 74.7 74.7-33.6 74.7-74.7 74.7m146.4-194.3c0 14.9-12 26.8-26.8 26.8-14.9 0-26.8-12-26.8-26.8s12-26.8 26.8-26.8 26.8 12 26.8 26.8m76.1 27.2c-1.7-35.9-9.9-67.7-36.2-93.9-26.2-26.2-58-34.4-93.9-36.2-37-2.1-147.9-2.1-184.9 0-35.8 1.7-67.6 9.9-93.9 36.1s-34.4 58-36.2 93.9c-2.1 37-2.1 147.9 0 184.9 1.7 35.9 9.9 67.7 36.2 93.9s58 34.4 93.9 36.2c37 2.1 147.9 2.1 184.9 0 35.9-1.7 67.7-9.9 93.9-36.2 26.2-26.2 34.4-58 36.2-93.9 2.1-37 2.1-147.8 0-184.8M398.8 388c-7.8 19.6-22.9 34.7-42.6 42.6-29.5 11.7-99.5 9-132.1 9s-102.7 2.6-132.1-9c-19.6-7.8-34.7-22.9-42.6-42.6-11.7-29.5-9-99.5-9-132.1s-2.6-102.7 9-132.1c7.8-19.6 22.9-34.7 42.6-42.6 29.5-11.7 99.5-9 132.1-9s102.7-2.6 132.1 9c19.6 7.8 34.7 22.9 42.6 42.6 11.7 29.5 9 99.5 9 132.1s2.7 102.7-9 132.1"></path></svg>
+<a class="md-social__link" href="https://www.instagram.com/testerembyc/" rel="noopener" target="_blank" title="www.instagram.com">
+<svg viewbox="0 0 448 512" xmlns="http://www.w3.org/2000/svg"><!--! Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M224.1 141c-63.6 0-114.9 51.3-114.9 114.9s51.3 114.9 114.9 114.9S339 319.5 339 255.9 287.7 141 224.1 141m0 189.6c-41.1 0-74.7-33.5-74.7-74.7s33.5-74.7 74.7-74.7 74.7 33.5 74.7 74.7-33.6 74.7-74.7 74.7m146.4-194.3c0 14.9-12 26.8-26.8 26.8-14.9 0-26.8-12-26.8-26.8s12-26.8 26.8-26.8 26.8 12 26.8 26.8m76.1 27.2c-1.7-35.9-9.9-67.7-36.2-93.9-26.2-26.2-58-34.4-93.9-36.2-37-2.1-147.9-2.1-184.9 0-35.8 1.7-67.6 9.9-93.9 36.1s-34.4 58-36.2 93.9c-2.1 37-2.1 147.9 0 184.9 1.7 35.9 9.9 67.7 36.2 93.9s58 34.4 93.9 36.2c37 2.1 147.9 2.1 184.9 0 35.9-1.7 67.7-9.9 93.9-36.2 26.2-26.2 34.4-58 36.2-93.9 2.1-37 2.1-147.8 0-184.8M398.8 388c-7.8 19.6-22.9 34.7-42.6 42.6-29.5 11.7-99.5 9-132.1 9s-102.7 2.6-132.1-9c-19.6-7.8-34.7-22.9-42.6-42.6-11.7-29.5-9-99.5-9-132.1s-2.6-102.7 9-132.1c7.8-19.6 22.9-34.7 42.6-42.6 29.5-11.7 99.5-9 132.1-9s102.7-2.6 132.1 9c19.6 7.8 34.7 22.9 42.6 42.6 11.7 29.5 9 99.5 9 132.1s2.7 102.7-9 132.1"></path></svg>
 </a>
-<a href="https://www.youtube.com/@testerembyc" class="md-social__link" title="www.youtube.com" rel="noopener" target="_blank">
+<a class="md-social__link" href="https://www.youtube.com/@testerembyc" rel="noopener" target="_blank" title="www.youtube.com">
 <svg viewbox="0 0 576 512" xmlns="http://www.w3.org/2000/svg"><!--! Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M549.655 124.083c-6.281-23.65-24.787-42.276-48.284-48.597C458.781 64 288 64 288 64S117.22 64 74.629 75.486c-23.497 6.322-42.003 24.947-48.284 48.597-11.412 42.867-11.412 132.305-11.412 132.305s0 89.438 11.412 132.305c6.281 23.65 24.787 41.5 48.284 47.821C117.22 448 288 448 288 448s170.78 0 213.371-11.486c23.497-6.321 42.003-24.171 48.284-47.821 11.412-42.867 11.412-132.305 11.412-132.305s0-89.438-11.412-132.305m-317.51 213.508V175.185l142.739 81.205z"></path></svg>
 </a>
-<a href="https://www.linkedin.com/in/maciej-kusz/" class="md-social__link" title="www.linkedin.com" rel="noopener" target="_blank">
+<a class="md-social__link" href="https://www.linkedin.com/in/maciej-kusz/" rel="noopener" target="_blank" title="www.linkedin.com">
 <svg viewbox="0 0 448 512" xmlns="http://www.w3.org/2000/svg"><!--! Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3M135.4 416H69V202.2h66.5V416zm-33.2-243c-21.3 0-38.5-17.3-38.5-38.5S80.9 96 102.2 96c21.2 0 38.5 17.3 38.5 38.5 0 21.3-17.2 38.5-38.5 38.5m282.1 243h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9z"></path></svg>
 </a>
-<a href="https://github.com/mkusz" class="md-social__link" title="github.com" rel="noopener" target="_blank">
-<svg viewbox="0 0 496 512" xmlns="http://www.w3.org/2000/svg"><!--! Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path 
-d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8M97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2">
-</path></svg>
+<a class="md-social__link" href="https://github.com/mkusz" rel="noopener" target="_blank" title="github.com">
+<svg viewbox="0 0 496 512" xmlns="http://www.w3.org/2000/svg"><!--! Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8M97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"></path></svg>
 </a>
-<a href="mailto:maciej@testerembyc.pl" class="md-social__link" title="" rel="noopener" target="_blank">
+<a class="md-social__link" href="mailto:maciej@testerembyc.pl" rel="noopener" target="_blank" title="">
 <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="m4 8 8 5 8-5-8-5zm18 0v10a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V8c0-.73.39-1.36.97-1.71L12 .64l9.03 5.65c.58.35.97.98.97 1.71"></path></svg>
 </a>
 </div>
@@ -912,24 +1327,24 @@ d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-
 </footer>
 </div>
 <div class="md-dialog" data-md-component="dialog">
-<div class="md-typeset md-dialog__inner"></div>
+<div class="md-dialog__inner md-typeset"></div>
 </div>
 <div class="md-progress" data-md-component="progress" role="progressbar"></div>
-<div class="md-consent" data-md-component="consent" hidden id="__consent">
+<div class="md-consent" data-md-component="consent" hidden="" id="__consent">
 <div class="md-consent__overlay"></div>
 <aside class="md-consent__inner">
-<form class="md-grid md-consent__form md-typeset" name="consent">
+<form class="md-consent__form md-grid md-typeset" name="consent">
 <h4>Lubisz ciasteczka?</h4>
 <p>Używam ich, aby dostarczyć Ci lepszych treści. Chcesz wiedzieć więcej? Zerknij do <a href="/pages/polityka-prywatnosci/" target="_blank">polityki prywatności</a>.</p>
-<input type="checkbox" class="md-toggle" id="__settings">
+<input class="md-toggle" id="__settings" type="checkbox"/>
 <div class="md-consent__settings">
 <ul class="task-list">
 <li class="task-list-item">
 <label class="task-list-control">
-<input type="checkbox" name="analytics" checked>
+<input checked="" name="analytics" type="checkbox"/>
 <span class="task-list-indicator"></span>
-Google Analytics
-</label>
+      Google Analytics
+    </label>
 </li>
 </ul>
 </div>
@@ -940,13 +1355,25 @@ Google Analytics
 </form>
 </aside>
 </div>
-<script>var consent=__md_get("__consent");if(consent)for(var input of document.forms.consent.elements)input.name&&(input.checked=consent[input.name]||!1);else"file:"!==location.protocol&&setTimeout(function(){document.querySelector("[data-md-component=consent]").hidden=!1},250);var form=document.forms.consent;for(var action of["submit","reset"])form.addEventListener(action,function(e){if(e.preventDefault(),"reset"===e.type)for(var n of document.forms.consent.elements)n.name&&(n.checked=!1);__md_set("__consent",Object.fromEntries(Array.from(new FormData(form).keys()).map(function(e){return[e,!0]}))),location.hash="",location.reload()})</script>
-<script id="__config" type="application/json">{"base": "../../..", "features": ["navigation.tabs", "navigation.tabs.sticky", "navigation.footer", "navigation.tracking", "navigation.top", "navigation.indexes", "navigation.instant", "navigation.instant.progress", "search.suggest", "search.highlight", "search.share", "content.code.copy", "content.code.annotate", "content.tabs.link", "toc.follow"], "search": "../../../assets/javascripts/workers/search.d50fe291.min.js", "tags": null, "translations": {"clipboard.copied": "Skopiowano do schowka", "clipboard.copy": "Kopiuj do schowka", "search.result.more.one": "1 wi\u0119cej na tej stronie", "search.result.more.other": "# wi\u0119cej na tej stronie", "search.result.none": "Brak wynik\u00f3w wyszukiwania", "search.result.one": "Wyniki wyszukiwania: 1", "search.result.other": "Wyniki wyszukiwania: #", "search.result.placeholder": "Zacznij pisa\u0107, aby szuka\u0107", "search.result.term.missing": "Brak", "select.version": "Wybierz wersj\u0119"}, "version": null}
-</script>
+<script>var consent=__md_get("__consent");if(consent)for(var input of document.forms.consent.elements)input.name&&(input.checked=consent[input.name]||!1);else"file:"!==location.protocol&&setTimeout((function(){document.querySelector("[data-md-component=consent]").hidden=!1}),250);var form=document.forms.consent;for(var action of["submit","reset"])form.addEventListener(action,(function(e){if(e.preventDefault(),"reset"===e.type)for(var n of document.forms.consent.elements)n.name&&(n.checked=!1);__md_set("__consent",Object.fromEntries(Array.from(new FormData(form).keys()).map((function(e){return[e,!0]})))),location.hash="",location.reload()}))</script>
+<script id="__config" type="application/json">{"base": "../../..", "features": ["navigation.tabs", "navigation.tabs.sticky", "navigation.footer", "navigation.tracking", "navigation.top", "navigation.indexes", "navigation.instant", "navigation.instant.progress", "search.suggest", "search.highlight", "search.share", "content.code.copy", "content.code.annotate", "content.tabs.link", "toc.follow"], "search": "../../../assets/javascripts/workers/search.d50fe291.min.js", "tags": null, "translations": {"clipboard.copied": "Skopiowano do schowka", "clipboard.copy": "Kopiuj do schowka", "search.result.more.one": "1 wi\u0119cej na tej stronie", "search.result.more.other": "# wi\u0119cej na tej stronie", "search.result.none": "Brak wynik\u00f3w wyszukiwania", "search.result.one": "Wyniki wyszukiwania: 1", "search.result.other": "Wyniki wyszukiwania: #", "search.result.placeholder": "Zacznij pisa\u0107, aby szuka\u0107", "search.result.term.missing": "Brak", "select.version": "Wybierz wersj\u0119"}, "version": null}</script>
 <script src="../../../assets/javascripts/bundle.13a4f30d.min.js"></script>
-<script defer>!function(e,t,n,c,o,a,f){e.fbq||(o=e.fbq=function(){o.callMethod?o.callMethod.apply(o,arguments):o.queue.push(arguments)},e._fbq||(e._fbq=o),o.push=o,o.loaded=!0,o.version="2.0",o.queue=[],(a=t.createElement(n)).async=!0,a.src="https://connect.facebook.net/en_US/fbevents.js",(f=t.getElementsByTagName(n)[0]).parentNode.insertBefore(a,f))}(window,document,"script"),fbq("init","444619046317574"),fbq("track","PageView")</script>
+<!-- Facebook Pixel Code -->
+<script defer="">
+    !function(f,b,e,v,n,t,s)
+    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+    n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];
+    s.parentNode.insertBefore(t,s)}(window, document,'script',
+    'https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', '444619046317574');
+    fbq('track', 'PageView');
+  </script>
 <noscript>
-<img src="https://www.facebook.com/tr?id=444619046317574&amp;ev=PageView&amp;noscript=1" alt="Facebook Pixel" height="1" style="display:none" width="1">
-</noscript>
+<img alt="Facebook Pixel" height="1" src="https://www.facebook.com/tr?id=444619046317574&amp;ev=PageView&amp;noscript=1" style="display:none" width="1">
+</img></noscript>
+<!-- End Facebook Pixel Code -->
 </body>
 </html>

@@ -1,1 +1,89 @@
-let MathJax2=()=>{let deck,defaultOptions={messageStyle:"none",tex2jax:{inlineMath:[["$","$"],["\\(","\\)"]],skipTags:["script","noscript","style","textarea","pre"]},skipStartupTypeset:!0};return{id:"mathjax2",init:function(reveal){var revealOptions=(deck=reveal).getConfig().mathjax2||deck.getConfig().math||{};let options={...defaultOptions,...revealOptions};var url=(options.mathjax||"https://cdn.jsdelivr.net/npm/mathjax@2/MathJax.js")+"?config="+(options.config||"TeX-AMS_HTML-full");options.tex2jax={...defaultOptions.tex2jax,...revealOptions.tex2jax},options.mathjax=options.config=null,function(url,callback){var head=document.querySelector("head"),script=document.createElement("script");script.type="text/javascript",script.src=url;let finish=()=>{"function"==typeof callback&&(callback.call(),callback=null)};script.onload=finish,script.onreadystatechange=()=>{"loaded"===this.readyState&&finish()},head.appendChild(script)}(url,function(){MathJax.Hub.Config(options),MathJax.Hub.Queue(["Typeset",MathJax.Hub,deck.getRevealElement()]),MathJax.Hub.Queue(deck.layout),deck.on("slidechanged",function(event){MathJax.Hub.Queue(["Typeset",MathJax.Hub,event.currentSlide])})})}}};export{MathJax2};
+/**
+ * A plugin which enables rendering of math equations inside
+ * of reveal.js slides. Essentially a thin wrapper for MathJax.
+ *
+ * @author Hakim El Hattab
+ */
+export const MathJax2 = () => {
+
+	// The reveal.js instance this plugin is attached to
+	let deck;
+
+	let defaultOptions = {
+		messageStyle: 'none',
+		tex2jax: {
+			inlineMath: [ [ '$', '$' ], [ '\\(', '\\)' ] ],
+			skipTags: [ 'script', 'noscript', 'style', 'textarea', 'pre' ]
+		},
+		skipStartupTypeset: true
+	};
+
+	function loadScript( url, callback ) {
+
+		let head = document.querySelector( 'head' );
+		let script = document.createElement( 'script' );
+		script.type = 'text/javascript';
+		script.src = url;
+
+		// Wrapper for callback to make sure it only fires once
+		let finish = () => {
+			if( typeof callback === 'function' ) {
+				callback.call();
+				callback = null;
+			}
+		}
+
+		script.onload = finish;
+
+		// IE
+		script.onreadystatechange = () => {
+			if ( this.readyState === 'loaded' ) {
+				finish();
+			}
+		}
+
+		// Normal browsers
+		head.appendChild( script );
+
+	}
+
+	return {
+		id: 'mathjax2',
+
+		init: function( reveal ) {
+
+			deck = reveal;
+
+			let revealOptions = deck.getConfig().mathjax2 || deck.getConfig().math || {};
+
+			let options = { ...defaultOptions, ...revealOptions };
+			let mathjax = options.mathjax || 'https://cdn.jsdelivr.net/npm/mathjax@2/MathJax.js';
+			let config = options.config || 'TeX-AMS_HTML-full';
+			let url = mathjax + '?config=' + config;
+
+			options.tex2jax = { ...defaultOptions.tex2jax, ...revealOptions.tex2jax };
+
+			options.mathjax = options.config = null;
+
+			loadScript( url, function() {
+
+				MathJax.Hub.Config( options );
+
+				// Typeset followed by an immediate reveal.js layout since
+				// the typesetting process could affect slide height
+				MathJax.Hub.Queue( [ 'Typeset', MathJax.Hub, deck.getRevealElement() ] );
+				MathJax.Hub.Queue( deck.layout );
+
+				// Reprocess equations in slides when they turn visible
+				deck.on( 'slidechanged', function( event ) {
+
+					MathJax.Hub.Queue( [ 'Typeset', MathJax.Hub, event.currentSlide ] );
+
+				} );
+
+			} );
+
+		}
+	}
+
+};

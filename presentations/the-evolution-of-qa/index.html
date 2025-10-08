@@ -1,0 +1,676 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+
+    <title></title>
+    <link rel="stylesheet" href="dist/reset.css">
+    <link rel="stylesheet" href="dist/reveal.css" />
+    <link rel="stylesheet" href="css/slides-extended.css" />
+    <link rel="stylesheet" href="dist/theme/blood.css" id="theme" />
+    <link rel="stylesheet" href="plugin/highlight/monokai.css" />
+    <link rel="stylesheet" href="plugin/customcontrols/style.css">
+
+
+
+    <script defer src="dist/fontawesome/all.min.js"></script>
+    <script defer src="plugin/load-mathjax.js"></script>
+
+    <script type="text/javascript">
+        function pageInIframe() {
+            return (window.location !== window.parent.location);
+        }
+
+        let forgetPop = true;
+        function onPopState(event) {
+            if(forgetPop){
+                forgetPop = false;
+            } else if( pageInIframe()) {
+                parent.postMessage(event.target.location.href, "app://obsidian.md");
+            }
+        }
+        window.onpopstate = onPopState;
+        window.onmessage = event => {
+            if(event.data == "reload"){
+                window.document.location.reload();
+            }
+            forgetPop = true;
+        }
+
+        function fitElements() {
+            const itemsToFit = document.getElementsByClassName('fitText');
+            for (const item in itemsToFit) {
+                if (Object.hasOwnProperty.call(itemsToFit, item)) {
+                    const element = itemsToFit[item];
+                    fitElement(element, 1, 1000);
+                    element.classList.remove('fitText');
+                }
+            }
+        }
+
+        function fitElement(element, start, end) {
+
+            let size = (end + start) / 2;
+            element.style.fontSize = `${size}px`;
+
+            if (Math.abs(start - end) < 1) {
+                while (element.scrollHeight > element.offsetHeight) {
+                    size--;
+                    element.style.fontSize = `${size}px`;
+                }
+                return;
+            }
+
+            if (element.scrollHeight > element.offsetHeight) {
+                fitElement(element, start, size);
+            } else {
+                fitElement(element, size, end);
+            }
+        }
+
+        document.onreadystatechange = () => {
+            fitElements();
+            if (document.readyState === 'complete') {
+                if (pageInIframe() && window.location.href.indexOf("?export") != -1){
+                    parent.postMessage(event.target.location.href, "app://obsidian.md");
+                }
+                if (window.location.href.indexOf("print-pdf") != -1){
+                    let stateCheck = setInterval(() => {
+                        clearInterval(stateCheck);
+                        window.print();
+                    }, 250);
+                }
+            }
+        };
+    </script>
+</head>
+
+<body>
+    <div class="reveal">
+        <div class="slides"><section  data-markdown><script type="text/template"><!-- .slide: class="drop" data-transition="convex-out" template="" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+#### A Journey Through Time
+#### And Personal Growth 
+### The Evolution of QA
+
+<div class="" style="position: absolute; left: 25%; top: 80%; height: 20%; width: 50%; display: flex; flex-direction: column; align-items: center; justify-content: center" >
+
+<img src="images/TesteremByc.svg" alt="" style="width: 50%; object-fit: fill">
+
+Maciej 'maQ' Kusz<!-- .element: style="font-size: 50%" -->
+</div>
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" data-transition="convex" template="" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+<div class="" style="position: absolute; left: 5%; top: 0%; height: 20%; width: 90%; display: flex; flex-direction: column; align-items: center; justify-content: center" >
+
+#### 1997
+</div>
+
+<div class="fragment" style="font-size: 0.75em; position: absolute; left: 5%; top: 15%; height: 80%; width: 45%; display: flex; flex-direction: column; align-items: center; justify-content: flex-start" align="top" data-fragment-index="1">
+
+🧑‍🦱
+- 8th grade
+- My first PC and ...<!-- .element: class="fragment" data-fragment-index="2" -->
+- ... broke it<!-- .element: class="fragment" data-fragment-index="3" -->
+</div>
+
+<div class="fragment" style="font-size: 0.75em; position: absolute; left: 50%; top: 15%; height: 80%; width: 45%; display: flex; flex-direction: column; align-items: center; justify-content: flex-start" align="top" data-fragment-index="4">
+
+🌍🛠️
+- DVD
+- Google domain
+- Kaspersky Lab founded
+- Netflix (physical media rental)
+</div>
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" data-transition="convex" template="" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+<div class="" style="position: absolute; left: 5%; top: 0%; height: 20%; width: 90%; display: flex; flex-direction: column; align-items: center; justify-content: center" >
+
+#### 2000
+</div>
+
+<div class="fragment" style="font-size: 0.75em; position: absolute; left: 5%; top: 15%; height: 80%; width: 45%; display: flex; flex-direction: column; align-items: center; justify-content: flex-start" align="top" data-fragment-index="1">
+
+🧑‍🦱
+- 1st work
+- HTML, CSS, PHP & MySQL<!-- .element: class="fragment" data-fragment-index="2" -->
+</div>
+
+<div class="fragment" style="font-size: 0.75em; position: absolute; left: 50%; top: 15%; height: 80%; width: 45%; display: flex; flex-direction: column; align-items: center; justify-content: flex-start" align="top" data-fragment-index="3">
+
+🌍🛠️
+- USB Flash Drive
+- First Radeon
+- Windows 2000
+- XHTML
+- C#
+- Y2K problem
+</div>
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" data-transition="convex" template="" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+<div class="" style="position: absolute; left: 5%; top: 0%; height: 20%; width: 90%; display: flex; flex-direction: column; align-items: center; justify-content: center" >
+
+#### 2001
+</div>
+
+<div class="fragment" style="font-size: 0.75em; position: absolute; left: 5%; top: 15%; height: 80%; width: 45%; display: flex; flex-direction: column; align-items: center; justify-content: flex-start" align="top" data-fragment-index="1">
+
+🧑‍🦱
+- 1st year of studies
+- C/C++<!-- .element: class="fragment" data-fragment-index="2" -->
+- Linux<!-- .element: class="fragment" data-fragment-index="3" -->
+</div>
+
+<div class="fragment" style="font-size: 0.75em; position: absolute; left: 50%; top: 15%; height: 80%; width: 45%; display: flex; flex-direction: column; align-items: center; justify-content: flex-start" align="top" data-fragment-index="4">
+
+🌍🛠️
+- Apple iPad
+- Bluetooth
+- Windows XP
+- Wi-Fi (802.11b)
+- P2P networks
+- Wikipedia
+- Neostrada
+</div>
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" data-transition="convex" template="" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+<div class="" style="position: absolute; left: 5%; top: 0%; height: 20%; width: 90%; display: flex; flex-direction: column; align-items: center; justify-content: center" >
+
+#### 2002
+</div>
+
+<div class="fragment" style="font-size: 0.75em; position: absolute; left: 5%; top: 15%; height: 80%; width: 50%; display: flex; flex-direction: column; align-items: center; justify-content: flex-start" align="top" data-fragment-index="1">
+
+🧑‍🦱
+- Still 1st year of studies ...
+- ... expelled ...<!-- .element: class="fragment" data-fragment-index="2" -->
+- ... worked as an electrician ...<!-- .element: class="fragment" data-fragment-index="3" -->
+- ... but back to the same faculty<!-- .element: class="fragment" data-fragment-index="4" -->
+</div>
+
+<div class="fragment" style="font-size: 0.75em; position: absolute; left: 50%; top: 15%; height: 80%; width: 45%; display: flex; flex-direction: column; align-items: center; justify-content: flex-start" align="top" data-fragment-index="5">
+
+🌍🛠️
+- 3G network
+- VoIP
+- Firefox
+- LinkedIn
+</div>
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" data-transition="convex" template="" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+<div class="" style="position: absolute; left: 5%; top: 0%; height: 20%; width: 90%; display: flex; flex-direction: column; align-items: center; justify-content: center" >
+
+#### 2002-2008
+</div>
+
+<div class="fragment" style="font-size: 0.625em; position: absolute; left: 5%; top: 15%; height: 80%; width: 55%; display: flex; flex-direction: column; align-items: center; justify-content: flex-start" align="top" data-fragment-index="1">
+
+🧑‍🦱
+- Electronics and Telecommunication faculty
+- Certified electrician<!-- .element: class="fragment" data-fragment-index="2" -->
+</div>
+
+<div class="fragment" style="font-size: 0.625em; position: absolute; left: 55%; top: 15%; height: 80%; width: 40%; display: flex; flex-direction: column; align-items: center; justify-content: flex-start" align="top" data-fragment-index="3">
+
+🌍🛠️
+- Steam ('03)
+- Safari ('03)
+- AMD 64bit ('03)
+- Selenium ('04)<!-- .element: class="fragment" data-fragment-index="4" -->
+- Jenkins ('04)<!-- .element: class="fragment" data-fragment-index="4" -->
+- GMail ('04)<!-- .element: class="fragment" data-fragment-index="4" -->
+- Facebook ('04)<!-- .element: class="fragment" data-fragment-index="4" -->
+- YouTube ('05)<!-- .element: class="fragment" data-fragment-index="5" -->
+- AWS ('06)<!-- .element: class="fragment" data-fragment-index="6" -->
+- jQuery ('06)<!-- .element: class="fragment" data-fragment-index="6" -->
+- iPhone ('07)<!-- .element: class="fragment" data-fragment-index="7" -->
+- Twitter ('07)<!-- .element: class="fragment" data-fragment-index="7" -->
+- Nvidia CUDA ('07)<!-- .element: class="fragment" data-fragment-index="7" -->
+- Windows Vista ('07)<!-- .element: class="fragment" data-fragment-index="7" -->
+</div>
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" data-transition="convex" template="" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+<div class="" style="position: absolute; left: 5%; top: 0%; height: 20%; width: 90%; display: flex; flex-direction: column; align-items: center; justify-content: center" >
+
+#### 2008
+</div>
+
+<div class="fragment" style="font-size: 0.75em; position: absolute; left: 5%; top: 15%; height: 80%; width: 45%; display: flex; flex-direction: column; align-items: center; justify-content: flex-start" align="top" data-fragment-index="1">
+
+🧑‍🦱
+- 1st job
+- Postgraduates studies<!-- .element: class="fragment" data-fragment-index="2" -->
+- CCNA<!-- .element: class="fragment" data-fragment-index="3" -->
+</div>
+
+<div class="fragment" style="font-size: 0.75em; position: absolute; left: 50%; top: 15%; height: 80%; width: 45%; display: flex; flex-direction: column; align-items: center; justify-content: flex-start" align="top" data-fragment-index="4">
+
+🌍🛠️
+- Android Phone
+- Google Chrome
+- Stack Overflow
+</div>
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" data-transition="convex" template="" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+<div class="" style="position: absolute; left: 5%; top: 0%; height: 20%; width: 90%; display: flex; flex-direction: column; align-items: center; justify-content: center" >
+
+#### 2009
+</div>
+
+<div class="fragment" style="font-size: 0.75em; position: absolute; left: 5%; top: 15%; height: 80%; width: 45%; display: flex; flex-direction: column; align-items: center; justify-content: flex-start" align="top" data-fragment-index="1">
+
+🧑‍🦱
+- ISTQB
+- First automated tests<!-- .element: class="fragment" data-fragment-index="2" -->
+</div>
+
+<div class="fragment" style="font-size: 0.75em; position: absolute; left: 50%; top: 15%; height: 80%; width: 45%; display: flex; flex-direction: column; align-items: center; justify-content: flex-start" align="top" data-fragment-index="3">
+
+🌍🛠️
+- Android Phone
+- Google Chrome
+- Stack Overflow
+- Windows 7
+</div>
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" data-transition="convex" template="" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+<div class="" style="position: absolute; left: 5%; top: 0%; height: 20%; width: 90%; display: flex; flex-direction: column; align-items: center; justify-content: center" >
+
+#### 2010
+</div>
+
+<div class="fragment" style="font-size: 0.75em; position: absolute; left: 5%; top: 15%; height: 80%; width: 45%; display: flex; flex-direction: column; align-items: center; justify-content: flex-start" align="top" data-fragment-index="1">
+
+🧑‍🦱
+- AutoIT
+- Selenium IDE<!-- .element: class="fragment" data-fragment-index="2" -->
+- LoadRunner<!-- .element: class="fragment" data-fragment-index="3" -->
+- ISO 27001 Auditor<!-- .element: class="fragment" data-fragment-index="4" -->
+</div>
+
+<div class="fragment" style="font-size: 0.75em; position: absolute; left: 50%; top: 15%; height: 80%; width: 45%; display: flex; flex-direction: column; align-items: center; justify-content: flex-start" align="top" data-fragment-index="5">
+
+🌍🛠️
+- iPad
+- Instagram
+- 4G network
+</div>
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" data-transition="convex" template="" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+<div class="" style="position: absolute; left: 5%; top: 0%; height: 20%; width: 90%; display: flex; flex-direction: column; align-items: center; justify-content: center" >
+
+#### 2011
+</div>
+
+<div class="fragment" style="font-size: 0.75em; position: absolute; left: 5%; top: 15%; height: 80%; width: 45%; display: flex; flex-direction: column; align-items: center; justify-content: flex-start" align="top" data-fragment-index="1">
+
+🧑‍🦱
+- 2D/3D graphics
+- English<!-- .element: class="fragment" data-fragment-index="2" -->
+</div>
+
+<div class="fragment" style="font-size: 0.75em; position: absolute; left: 50%; top: 15%; height: 80%; width: 45%; display: flex; flex-direction: column; align-items: center; justify-content: flex-start" align="top" data-fragment-index="3">
+
+🌍🛠️
+- Microsoft bought Skype
+- Google bought Motorola
+- Bootstrap framework
+</div>
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" data-transition="convex" template="" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+<div class="" style="position: absolute; left: 5%; top: 0%; height: 20%; width: 90%; display: flex; flex-direction: column; align-items: center; justify-content: center" >
+
+#### 2012
+</div>
+
+<div class="fragment" style="font-size: 0.75em; position: absolute; left: 5%; top: 15%; height: 80%; width: 45%; display: flex; flex-direction: column; align-items: center; justify-content: flex-start" align="top" data-fragment-index="1">
+
+🧑‍🦱
+- 2nd job:
+	- Linux
+	- ISTQB
+	- Electronics
+	- 2D/3D graphics
+</div>
+
+<div class="fragment" style="font-size: 0.75em; position: absolute; left: 50%; top: 15%; height: 80%; width: 45%; display: flex; flex-direction: column; align-items: center; justify-content: flex-start" align="top" data-fragment-index="2">
+
+🌍🛠️
+- TypeScript
+</div>
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" data-transition="convex" template="" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+<div class="" style="position: absolute; left: 5%; top: 0%; height: 20%; width: 90%; display: flex; flex-direction: column; align-items: center; justify-content: center" >
+
+#### 2013
+</div>
+
+<div class="fragment" style="font-size: 0.75em; position: absolute; left: 5%; top: 15%; height: 80%; width: 45%; display: flex; flex-direction: column; align-items: center; justify-content: flex-start" align="top" data-fragment-index="1">
+
+🧑‍🦱
+- 3rd job:
+	- Certified electrician
+	- ISTQB
+	- Electronics
+	- C/C++
+	- CCNA
+- Python<!-- .element: class="fragment" data-fragment-index="2" -->
+- Jenkins<!-- .element: class="fragment" data-fragment-index="3" -->
+</div>
+
+<div class="fragment" style="font-size: 0.75em; position: absolute; left: 50%; top: 15%; height: 80%; width: 45%; display: flex; flex-direction: column; align-items: center; justify-content: flex-start" align="top" data-fragment-index="4">
+
+🌍🛠️
+- Docker
+- Giphy
+</div>
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" data-transition="convex" template="" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+<div class="" style="position: absolute; left: 5%; top: 0%; height: 20%; width: 90%; display: flex; flex-direction: column; align-items: center; justify-content: center" >
+
+#### 2015
+</div>
+
+<div class="fragment" style="font-size: 0.75em; position: absolute; left: 5%; top: 15%; height: 80%; width: 65%; display: flex; flex-direction: column; align-items: center; justify-content: flex-start" align="top" data-fragment-index="1">
+
+🧑‍🦱
+- Design Patterns in Python
+- git<!-- .element: class="fragment" data-fragment-index="2" -->
+- Test Lead<!-- .element: class="fragment" data-fragment-index="3" -->
+- Mentor<!-- .element: class="fragment" data-fragment-index="4" -->
+- 1st public speech at the meetup (PySilesia)<!-- .element: class="fragment" data-fragment-index="5" -->
+</div>
+
+<div class="fragment" style="font-size: 0.75em; position: absolute; left: 50%; top: 15%; height: 80%; width: 45%; display: flex; flex-direction: column; align-items: center; justify-content: flex-start" align="top" data-fragment-index="6">
+
+🌍🛠️
+- Windows 10
+- Python 3.5 (type hinting)
+</div>
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" data-transition="convex" template="" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+<div class="" style="position: absolute; left: 5%; top: 0%; height: 20%; width: 90%; display: flex; flex-direction: column; align-items: center; justify-content: center" >
+
+#### 2016
+</div>
+
+<div class="fragment" style="font-size: 0.75em; position: absolute; left: 5%; top: 15%; height: 80%; width: 70%; display: flex; flex-direction: column; align-items: center; justify-content: flex-start" align="top" data-fragment-index="1">
+
+🧑‍🦱
+- Testing framework POC
+- 1st public speech at the conference (PyCon PL)<!-- .element: class="fragment" data-fragment-index="2" -->
+- 4th job:<!-- .element: class="fragment" data-fragment-index="3" -->
+	- Python<!-- .element: class="fragment" data-fragment-index="3" -->
+	- Selenium<!-- .element: class="fragment" data-fragment-index="3" -->
+	- How to build testing framework<!-- .element: class="fragment" data-fragment-index="3" -->
+- BDD<!-- .element: class="fragment" data-fragment-index="4" -->
+- WebSockets<!-- .element: class="fragment" data-fragment-index="5" -->
+</div>
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" data-transition="convex" template="" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+<div class="" style="position: absolute; left: 5%; top: 0%; height: 20%; width: 90%; display: flex; flex-direction: column; align-items: center; justify-content: center" >
+
+#### 2017
+</div>
+
+<div class="fragment" style="font-size: 0.75em; position: absolute; left: 5%; top: 15%; height: 80%; width: 55%; display: flex; flex-direction: column; align-items: center; justify-content: flex-start" align="top" data-fragment-index="1">
+
+🧑‍🦱
+- 5th job:
+	- Python
+	- WebSockets
+	- How to build testing framework
+</div>
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" data-transition="convex" template="" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+<div class="" style="position: absolute; left: 5%; top: 0%; height: 20%; width: 90%; display: flex; flex-direction: column; align-items: center; justify-content: center" >
+
+#### 2018-2021
+</div>
+
+<div class="fragment" style="font-size: 0.75em; position: absolute; left: 5%; top: 15%; height: 80%; width: 58%; display: flex; flex-direction: column; align-items: center; justify-content: flex-start" align="top" data-fragment-index="1">
+
+🧑‍🦱
+- 6th job:
+	- Python
+	- Performance testing
+	- REST API
+	- How to build testing framework
+	- The same recruiter as in 4th job 😉
+- AWS<!-- .element: class="fragment" data-fragment-index="2" -->
+- Co-organizer of ŚlonzaczQA (since '19)<!-- .element: class="fragment" data-fragment-index="3" -->
+</div>
+
+<div class="fragment" style="font-size: 0.75em; position: absolute; left: 50%; top: 15%; height: 80%; width: 45%; display: flex; flex-direction: column; align-items: center; justify-content: flex-start" align="top" data-fragment-index="4">
+
+🌍🛠️
+- 5G network ('19)
+- GitHub Actions ('19)
+- Playwright ('20)
+</div>
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" data-transition="convex" template="" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+<div class="" style="position: absolute; left: 5%; top: 0%; height: 20%; width: 90%; display: flex; flex-direction: column; align-items: center; justify-content: center" >
+
+#### 2021
+</div>
+
+<div class="fragment" style="font-size: 0.75em; position: absolute; left: 5%; top: 15%; height: 80%; width: 45%; display: flex; flex-direction: column; align-items: center; justify-content: flex-start" align="top" data-fragment-index="1">
+
+🧑‍🦱
+- 7th job:
+	- Python
+	- REST API
+	- How to build testing framework
+- Playwright<!-- .element: class="fragment" data-fragment-index="2" -->
+- GitHub Actions<!-- .element: class="fragment" data-fragment-index="3" -->
+</div>
+
+<div class="fragment" style="font-size: 0.75em; position: absolute; left: 50%; top: 15%; height: 80%; width: 45%; display: flex; flex-direction: column; align-items: center; justify-content: flex-start" align="top" data-fragment-index="4">
+
+🌍🛠️
+- Windows 11
+- NFTs
+- GPT-3
+</div>
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" data-transition="convex" template="" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+<div class="" style="position: absolute; left: 5%; top: 0%; height: 20%; width: 90%; display: flex; flex-direction: column; align-items: center; justify-content: center" >
+
+#### 2022-2024
+</div>
+
+<div class="fragment" style="font-size: 0.75em; position: absolute; left: 5%; top: 15%; height: 80%; width: 45%; display: flex; flex-direction: column; align-items: center; justify-content: flex-start" align="top" data-fragment-index="1">
+
+🧑‍🦱
+- 8th job:
+	- Python
+	- REST API
+	- Playwright
+	- Recruiter from Pycon
+- Program commite of ConSelenium ('22-24)<!-- .element: class="fragment" data-fragment-index="2" -->
+</div>
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" data-transition="convex" template="" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+<div class="" style="position: absolute; left: 5%; top: 0%; height: 20%; width: 90%; display: flex; flex-direction: column; align-items: center; justify-content: center" >
+
+#### 2024
+</div>
+
+<div class="fragment" style="font-size: 0.75em; position: absolute; left: 5%; top: 15%; height: 80%; width: 60%; display: flex; flex-direction: column; align-items: center; justify-content: flex-start" align="top" data-fragment-index="1">
+
+🧑‍🦱
+- 1st job dismissal
+- Unsuccessfull online education project<!-- .element: class="fragment" data-fragment-index="2" -->
+- TypeScript<!-- .element: class="fragment" data-fragment-index="3" -->
+</div>
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" data-transition="convex" template="" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+<div class="" style="position: absolute; left: 5%; top: 0%; height: 20%; width: 90%; display: flex; flex-direction: column; align-items: center; justify-content: center" >
+
+#### 2025
+</div>
+
+<div class="fragment" style="font-size: 0.75em; position: absolute; left: 5%; top: 15%; height: 80%; width: 55%; display: flex; flex-direction: column; align-items: center; justify-content: flex-start" align="top" data-fragment-index="1">
+
+🧑‍🦱
+- 9th job:
+	- TypeScript
+	- Playwright
+	- Recruiter from ŚlonzaczQA
+- Program commite of TestWarez ('25)<!-- .element: class="fragment" data-fragment-index="2" -->
+</div>
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" data-transition="convex" template="" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+<div class="" style="position: absolute; left: 5%; top: 0%; height: 20%; width: 90%; display: flex; flex-direction: column; align-items: center; justify-content: center" >
+
+#### Takeaways
+</div>
+
+<div class="" style="font-size: 0.825em; position: absolute; left: 5%; top: 35%; height: 60%; width: 80%; display: flex; flex-direction: column; align-items: center; justify-content: flex-start" align="top">
+
+- be open to anything new<!-- .element: class="fragment" -->
+- learn a lot<!-- .element: class="fragment" -->
+- build your network<!-- .element: class="fragment" -->
+- do something for others<!-- .element: class="fragment" -->
+</div>
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" data-transition="convex" template="" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+<div class="" style="position: absolute; left: 5%; top: 0%; height: 40%; width: 90%; display: flex; flex-direction: column; align-items: center; justify-content: center" >
+
+### End
+</div>
+
+<div class="" style="font-size: 1em; padding: 20px; box-sizing: border-box; position: absolute; left: 32.5%; top: 15%; height: 70%; width: 35%; display: flex; flex-direction: column; align-items: flex-start; justify-content: space-evenly" align="left">
+
+<img src="images/qr-linkedin.png" alt="" style="object-fit: scale-down">
+
+</div>
+</div></script></section></div>
+    </div>
+
+    <script src="dist/reveal.js"></script>
+    <script src="plugin/notes/notes.js"></script>
+    <script src="plugin/markdown/markdown.js"></script>
+    <script src="plugin/highlight/highlight.js"></script>
+
+    <script src="plugin/zoom/zoom.js"></script>
+    <script src="plugin/math/math.js"></script>
+    <script src="plugin/mermaid/mermaid.js"></script>
+    <script src="plugin/chart/chart.umd.js"></script>
+    <script src="plugin/chart/plugin.js"></script>
+    <script src="plugin/customcontrols/plugin.js"></script>
+
+    <script>
+        function extend() {
+            const target = {};
+            for (let i = 0; i < arguments.length; i++) {
+                const source = arguments[i];
+                for (const key in source) {
+                    if (source.hasOwnProperty(key)) {
+                        target[key] = source[key];
+                    }
+                }
+            }
+            return target;
+        }
+
+        function isLight(color) {
+            let hex = color.replace('#', '');
+
+            // convert #fff => #ffffff
+            if (hex.length == 3) {
+                hex = `${hex[0]}${hex[0]}${hex[1]}${hex[1]}${hex[2]}${hex[2]}`;
+            }
+
+            const c_r = parseInt(hex.substr(0, 2), 16);
+            const c_g = parseInt(hex.substr(2, 2), 16);
+            const c_b = parseInt(hex.substr(4, 2), 16);
+            const brightness = ((c_r * 299) + (c_g * 587) + (c_b * 114)) / 1000;
+            return brightness > 155;
+        }
+
+        const bgColor = getComputedStyle(document.documentElement).getPropertyValue('--r-background-color').trim();
+
+        if (isLight(bgColor)) {
+            document.body.classList.add('has-light-background');
+        } else {
+            document.body.classList.add('has-dark-background');
+        }
+
+        // default options to init reveal.js
+        const defaultOptions = {
+            controls: true,
+            progress: true,
+            history: true,
+            center: true,
+            transition: 'default', // none/fade/slide/convex/concave/zoom
+            plugins: [
+                RevealMarkdown,
+                RevealHighlight,
+                RevealZoom,
+                RevealNotes,
+                RevealMath.MathJax3,
+                RevealMermaid,
+                RevealChart,
+                RevealCustomControls,
+            ],
+            allottedTime: 120 * 1000,
+            mathjax3: {
+                mathjax: 'plugin/math/mathjax/tex-chtml-full.js',
+            },
+            markdown: {
+                gfm: true,
+                mangle: false,
+                pedantic: false,
+                smartLists: false,
+                smartypants: false,
+            },
+            mermaid: {
+                theme: isLight(bgColor) ? 'default' : 'dark',
+            },
+            customcontrols: {
+                controls: [
+                ]
+            },
+        };
+
+        if ( pageInIframe() ) {
+            defaultOptions.scrollActivationWidth = 5;
+        }
+
+        // options from URL query string
+        const queryOptions = Reveal().getQueryHash() || {};
+
+        const options = extend(defaultOptions, {"controls":true,"progress":true,"slideNumber":true,"center":true,"transition":"none","transitionSpeed":"default","width":960,"height":700,"margin":0.04,"minScale":0.5,"maxScale":3}, queryOptions);
+    </script>
+
+    <script>
+      Reveal.initialize(options);
+    </script>
+    <!-- created with Slides Extended reveal.html template -->
+</body>
+</html>
